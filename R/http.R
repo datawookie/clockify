@@ -1,5 +1,5 @@
 api_url <- function(path) {
-  file.path(BASE_PATH, path)
+  paste0(BASE_PATH, path)
 }
 
 #' Title
@@ -13,7 +13,6 @@ api_url <- function(path) {
 #' @examples
 GET <- function(path, query = NULL) {
   url <- api_url(path)
-  print(url)
   httr::GET(
     url,
     query = query,

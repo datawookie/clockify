@@ -7,7 +7,12 @@
 #' @export
 #'
 #' @examples
-paginate <- function(path, pages = NULL) {
+paginate <- function(path, query = NULL, pages = NULL, page_size = 50) {
+  if (is.null(query)) query = list()
+
+  # query = list()
+  # query$start <- "2020-12-16T05:15:32.998Z"
+
   page <- 1
   #
   # TODO: This is deeply inefficient?
@@ -15,16 +20,31 @@ paginate <- function(path, pages = NULL) {
   results <- list()
   #
   while (TRUE) {
-    print(page)
-    result <- GET(path, query = list(page = page))
+    result <- GET(
+      path,
+      query = c(query, list(page = page, "page-size" = page_size))
+    )
     result <- content(result)
-    print(length(result))
-    page <- page + 1
+
+    records <- length(result)
+
+    if (records == 0) {
+      log_debug("Page is empty.")
+      break
+    } else {
+      log_debug("Page contains {records} results.")
+    }
 
     results <- append(results, result)
 
-    if (!is.null(pages) && page > pages) break
+    if (!is.null(pages) && page >= pages) {
+      break
+    } else {
+      page <- page + 1
+    }
   }
+
+  log_debug("API returned {length(results)} results.")
 
   results
 }

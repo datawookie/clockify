@@ -2,6 +2,8 @@
 #' @import dplyr
 #' @import purrr
 #' @import janitor
+#' @import logger
+#' @import anytime
 NULL
 
 cache <- new.env()
@@ -28,4 +30,5 @@ get_api_key <- function() {
   get("api_key", envir = cache)
 }
 
-BASE_PATH = "https://api.clockify.me/api/v1/"
+BASE_PATH = "https://api.clockify.me/api/v1"
+DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%SZ"

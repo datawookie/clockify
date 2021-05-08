@@ -5,7 +5,7 @@
 #'
 #' @examples
 workspaces <- function() {
-  workspaces <- GET("workspaces")
+  workspaces <- GET("/workspaces")
   content(workspaces)
 }
 
@@ -50,11 +50,32 @@ workspace_users <- function(workspace_id) {
     clean_names()
 }
 
-time_entries <- function(workspace_id, user_id) {
+#' Title
+#'
+#' @param entry
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' # Specify number of results per page (default: 50).
+#' time_entries <- clockify::time_entries(workspace_id, user_id, page_size = 200)
+#' # Specify number of pages.
+#' time_entries <- clockify::time_entries(workspace_id, user_id, pages = 3)
+time_entries <- function(workspace_id, user_id, start = NULL, end = NULL, ...) {
   path <- sprintf("/workspaces/%s/user/%s/time-entries", workspace_id, user_id)
 
+  query = list()
+
+  if (!is.null(start)) {
+    query$start = time_format(start)
+  }
+  if (!is.null(end)) {
+    query$end = time_format(end)
+  }
+
   # TODO: Limit time period rather than specifying number of pages.
-  time_entries <- paginate(path, 3)
+  time_entries <- paginate(path, query, ...)
 
   time_entries %>%
     map_df(function(entry) {
@@ -71,5 +92,11 @@ time_entries <- function(workspace_id, user_id) {
           time_end = timeInterval$end
         )
       )
-    })
+    }) %>%
+    mutate(
+      time_start = time_parse(time_start),
+      time_end = time_parse(time_end),
+      duration = as.numeric(difftime(time_end, time_start, units = "mins"))
+    ) %>%
+    arrange(time_start)
 }

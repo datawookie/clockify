@@ -5,6 +5,6 @@
 #'
 #' @examples
 user <- function() {
-  user <- GET("user")
+  user <- GET("/user")
   content(user)
 }

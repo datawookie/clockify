@@ -1,5 +1,7 @@
 # clockify
 
+An R wrapper around the [Clockify API](https://clockify.me/developers-api).
+
 TODO: Not all functions should be exported!!
 
 ## API Key

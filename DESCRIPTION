@@ -14,4 +14,6 @@ Imports:
   httr,
   dplyr,
   purrr,
-  janitor
+  janitor,
+  logger,
+  anytime
