@@ -1,4 +1,7 @@
 #' @import httr
+#' @import dplyr
+#' @import purrr
+#' @import janitor
 NULL
 
 cache <- new.env()
@@ -15,6 +18,12 @@ set_api_key <- function(api_key) {
   assign("api_key", api_key, envir = cache)
 }
 
+#' Title
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_api_key <- function() {
   get("api_key", envir = cache)
 }
