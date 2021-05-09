@@ -38,7 +38,7 @@ workspace_users <- function(workspace_id) {
       with(
         user,
         tibble(
-          id,
+          user_id = id,
           name,
           email,
           status,
@@ -77,15 +77,15 @@ time_entries <- function(workspace_id, user_id, start = NULL, end = NULL, ...) {
   # TODO: Limit time period rather than specifying number of pages.
   time_entries <- paginate(path, query, ...)
 
-  time_entries %>%
+  time_entries <- time_entries %>%
     map_df(function(entry) {
       with(
         entry,
         tibble(
           id,
-          userId,
-          workspaceId,
-          projectId,
+          user_id = userId,
+          workspace_id = workspaceId,
+          project_id = projectId,
           billable,
           description,
           time_start = timeInterval$start,
@@ -93,6 +93,24 @@ time_entries <- function(workspace_id, user_id, start = NULL, end = NULL, ...) {
         )
       )
     }) %>%
+    clean_names()
+
+  if (nrow(time_entries) == 0) {
+    log_debug("No time entries for specified user.")
+    time_entries <- tibble(
+      id = character(),
+      user_id = character(),
+      workspace_id = character(),
+      project_id = character(),
+      billable = logical(),
+      description = character(),
+      time_start = character(),
+      time_end = character(),
+      duration = numeric()
+    )
+  }
+
+  time_entries %>%
     mutate(
       time_start = time_parse(time_start),
       time_end = time_parse(time_end),
