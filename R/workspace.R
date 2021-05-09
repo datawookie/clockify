@@ -17,6 +17,33 @@ workspaces <- function() {
 #' @export
 #'
 #' @examples
+workspace_clients <- function(workspace_id) {
+  path <- sprintf("/workspaces/%s/clients", workspace_id)
+  clients <- GET(path)
+  content(clients) %>%
+    map_df(function(client) {
+      with(
+        client,
+        tibble(
+          client_id = id,
+          name,
+          workspaceId,
+          archived,
+          address = ifelse(is.null(address) || address == "", NA, address)
+        )
+      )
+    }) %>%
+    clean_names()
+}
+
+#' Title
+#'
+#' @param workspace_id
+#'
+#' @return
+#' @export
+#'
+#' @examples
 workspace_user_groups <- function(workspace_id) {
   path <- sprintf("/workspaces/%s/user-groups", workspace_id)
   user <- GET(path)
