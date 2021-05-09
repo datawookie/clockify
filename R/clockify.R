@@ -31,4 +31,3 @@ get_api_key <- function() {
 }
 
 BASE_PATH = "https://api.clockify.me/api/v1"
-DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
