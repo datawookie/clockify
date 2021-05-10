@@ -4,10 +4,17 @@
 \alias{time_entries}
 \title{Title}
 \usage{
-time_entries(workspace_id, user_id, start = NULL, end = NULL, ...)
+time_entries(
+  workspace_id,
+  user_id,
+  start = NULL,
+  end = NULL,
+  finished = TRUE,
+  ...
+)
 }
 \arguments{
-\item{entry}{}
+\item{finished}{Whether to include only finished time intervals (intervals with both start and end time).}
 }
 \value{
 
