@@ -153,13 +153,19 @@ time_entries <- function(workspace_id, user_id, start = NULL, end = NULL, finish
           id,
           user_id = userId,
           workspace_id = workspaceId,
-          project_id = null_to_na(projectId),
+          project_id = projectId,
           billable,
           description,
-          time_start = null_to_na(timeInterval$start),
-          time_end = null_to_na(timeInterval$end)
+          time_start = timeInterval$start,
+          time_end = timeInterval$end
         )
-      )
+      ) %>%
+        mutate(
+          across(
+            c(project_id, description, time_start, time_end),
+            null_to_na
+          )
+        )
     }) %>%
     clean_names()
 
