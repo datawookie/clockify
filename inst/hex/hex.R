@@ -18,7 +18,7 @@ sticker(here::here("inst/hex/clockify-icon.svg"),
         p_color = "#000000",
         p_family = "roboto",
         # Hex
-        h_fill = "#dedede",
+        h_fill = "#E4EAEE",
         h_size = 1.5,
         h_color = "#03a9f4",
         # Output
