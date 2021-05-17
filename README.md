@@ -2,9 +2,9 @@
 
 An R wrapper around the [Clockify API](https://clockify.me/developers-api).
 
-TODO: Not all functions should be exported!!
+## To Do
 
-TODO: Replace use of `with()` with `%$%` (exposition pipe).
+1. For endpoints that require a `user_id` use the ID of the authenticated user if none other specified.
 
 ## API Key
 

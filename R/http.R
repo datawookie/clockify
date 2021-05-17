@@ -21,3 +21,24 @@ GET <- function(path, query = NULL) {
     )
   )
 }
+
+#' Title
+#'
+#' @param path
+#' @param query
+#'
+#' @return
+#' @export
+#'
+#' @examples
+POST <- function(path, body = NULL) {
+  url <- api_url(path)
+  httr::POST(
+    url,
+    body = body,
+    add_headers(
+      "X-Api-Key" = get_api_key()
+    ),
+    encode = "json"
+  )
+}
