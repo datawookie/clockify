@@ -15,6 +15,12 @@ branches:
   - master
   - dev
 latex: false
+addons:
+  apt:
+    packages:
+    - libmagick++-dev
+    - libharfbuzz-dev
+    - libfribidi-dev
 r_packages:
 - pkgdown
 - hexSticker
