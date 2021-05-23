@@ -1,11 +1,17 @@
 Package: clockify
 Type: Package
-Title: What the Package Does (Title Case)
+Title: A wrapper for the Clockify API
 Version: 0.0.4
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Authors@R: 
+    c(person(given = c("Andrew", "B."),
+             family = "Collier",
+             role = c("aut", "cre"),
+             email = "andrew.b.collier@gmail.com"),
+      person(given = "Megan",
+             family = "Beckett",
+             role = "ctb",
+             email = "megan@fathomdata.dev"))
+Description: A wrapper for the Clockify API.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true

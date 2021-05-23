@@ -1,4 +1,8 @@
-# clockify
+---
+output: github_document
+---
+
+# {clockify} <img src="man/figures/clockify-hex.png" align="right" alt="" width="120" />
 
 An R wrapper around the [Clockify API](https://clockify.me/developers-api).
 
