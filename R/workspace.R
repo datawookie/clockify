@@ -1,4 +1,4 @@
-#' Title
+#' Get a list of workspaces
 #'
 #' @return
 #' @export
@@ -17,8 +17,9 @@ workspaces <- function() {
       )
     })
 }
+workspaces <- memoise::memoise(workspaces)
 
-#' Title
+#' Get or set workspace ID
 #'
 #' @param workspace_id
 #'
@@ -26,8 +27,14 @@ workspaces <- function() {
 #' @export
 #'
 #' @examples
-workspace_user_groups <- function(workspace_id) {
-  path <- sprintf("/workspaces/%s/user-groups", workspace_id)
-  user <- GET(path)
-  content(user)
+workspace <- function(workspace_id = NULL) {
+  if (!is.null(workspace_id)) {
+    log_debug("Set active workspace -> {workspace_id}.")
+    cache_set("workspace_id", workspace_id)
+  }
+
+  workspace_id <- cache_get("workspace_id")
+  if (is.null(workspace_id)) stop("Workspace ID has not been set.")
+
+  workspace_id
 }

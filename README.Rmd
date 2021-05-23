@@ -2,9 +2,24 @@
 output: github_document
 ---
 
-# {clockify} <img src="man/figures/clockify-hex.png" align="right" alt="" width="120" />
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment=NA)
+```
+
+# clockify <img src="man/figures/clockify-hex.png" align="right" alt="" width="120" />
+
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/clockify)](https://cran.r-project.org/package=clockify)
+[![Travis-CI build status](https://travis-ci.org/datawookie/clockify.svg?branch=master)](https://travis-ci.org/datawookie/clockify)
+[![Codecov test coverage](https://img.shields.io/codecov/c/github/datawookie/clockify.svg)](https://codecov.io/github/datawookie/clockify)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+<!-- badges: end -->
 
 An R wrapper around the [Clockify API](https://clockify.me/developers-api).
+
+The documentation for `{clockify}` is hosted at https://datawookie.github.io/clockify/.
 
 ## To Do
 

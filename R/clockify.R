@@ -6,8 +6,6 @@
 #' @import anytime
 NULL
 
-cache <- new.env()
-
 #' Title
 #'
 #' @param api_key

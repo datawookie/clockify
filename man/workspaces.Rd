@@ -2,7 +2,7 @@
 % Please edit documentation in R/workspace.R
 \name{workspaces}
 \alias{workspaces}
-\title{Title}
+\title{Get a list of workspaces}
 \usage{
 workspaces()
 }
@@ -10,5 +10,5 @@ workspaces()
 
 }
 \description{
-Title
+Get a list of workspaces
 }
