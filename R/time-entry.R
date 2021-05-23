@@ -1,6 +1,5 @@
 #' Title
 #'
-#' @param workspace_id
 #' @param user_id
 #' @param start
 #' @param end
@@ -12,14 +11,14 @@
 #' @examples
 #' # Specify number of results per page (default: 50).
 #' \dontrun{
-#' time_entries <- clockify::time_entries(workspace_id, user_id, page_size = 200)
+#' time_entries(user_id, page_size = 200)
 #' }
 #' # Specify number of pages.
 #' \dontrun{
-#' time_entries <- clockify::time_entries(workspace_id, user_id, pages = 3)
+#' time_entries(user_id, pages = 3)
 #' }
-time_entries <- function(workspace_id, user_id, start = NULL, end = NULL, finished = TRUE, ...) {
-  path <- sprintf("/workspaces/%s/user/%s/time-entries", workspace_id, user_id)
+time_entries <- function(user_id, start = NULL, end = NULL, finished = TRUE, ...) {
+  path <- sprintf("/workspaces/%s/user/%s/time-entries", workspace(), user_id)
 
   query = list()
 
@@ -30,35 +29,26 @@ time_entries <- function(workspace_id, user_id, start = NULL, end = NULL, finish
     query$end = time_format(end)
   }
 
-  time_entries <- paginate(path, query, ...)
+  entries <- paginate(path, query, ...)
 
-  time_entries <- time_entries %>%
-    map_df(function(entry) {
-      with(
-        entry,
-        tibble(
-          id,
-          user_id = userId,
-          workspace_id = workspaceId,
-          project_id = projectId,
-          billable,
-          description,
-          time_start = timeInterval$start,
-          time_end = timeInterval$end
-        )
-      ) %>%
-        mutate(
-          across(
-            c(project_id, description, time_start, time_end),
-            null_to_na
-          )
-        )
-    }) %>%
-    clean_names()
+  entries <- tibble(entries) %>%
+    unnest_wider(entries) %>%
+    unnest_wider(timeInterval) %>%
+    clean_names() %>%
+    select(
+      id,
+      user_id,
+      workspace_id,
+      project_id,
+      billable,
+      description,
+      time_start = start,
+      time_end = end
+    )
 
-  if (nrow(time_entries) == 0) {
+  if (nrow(entries) == 0) {
     log_debug("No time entries for specified user.")
-    time_entries <- tibble(
+    entries <- tibble(
       id = character(),
       user_id = character(),
       workspace_id = character(),
@@ -71,11 +61,11 @@ time_entries <- function(workspace_id, user_id, start = NULL, end = NULL, finish
   }
 
   if (finished) {
-    time_entries <- time_entries %>%
+    entries <- entries %>%
       filter(!is.na(time_end))
   }
 
-  time_entries %>%
+  entries %>%
     mutate(
       time_start = time_parse(time_start),
       time_end = time_parse(time_end),
@@ -84,7 +74,7 @@ time_entries <- function(workspace_id, user_id, start = NULL, end = NULL, finish
     arrange(time_start)
 }
 
-#' Insert a Time Entry
+#' Insert a time entry
 #'
 #' @param workspace_id
 #' @param project_id

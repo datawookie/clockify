@@ -2,13 +2,13 @@
 % Please edit documentation in R/user.R
 \name{users}
 \alias{users}
-\title{Title}
+\title{Get list of users in workspace}
 \usage{
-users(workspace_id)
+users()
 }
 \value{
 
 }
 \description{
-Title
+Get list of users in workspace
 }

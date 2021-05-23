@@ -4,7 +4,7 @@
 \alias{user_groups}
 \title{Title}
 \usage{
-user_groups(workspace_id)
+user_groups()
 }
 \arguments{
 \item{workspace_id}{}

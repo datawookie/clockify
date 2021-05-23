@@ -2,7 +2,7 @@
 % Please edit documentation in R/user.R
 \name{user}
 \alias{user}
-\title{Title}
+\title{Get information for logged in user}
 \usage{
 user()
 }
@@ -10,5 +10,5 @@ user()
 
 }
 \description{
-Title
+Get information for logged in user
 }

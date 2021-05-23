@@ -2,7 +2,7 @@
 % Please edit documentation in R/time-entry.R
 \name{time_entry}
 \alias{time_entry}
-\title{Insert a Time Entry}
+\title{Insert a time entry}
 \usage{
 time_entry(
   workspace_id,
@@ -21,7 +21,7 @@ time_entry(
 
 }
 \description{
-Insert a Time Entry
+Insert a time entry
 }
 \examples{
 \dontrun{

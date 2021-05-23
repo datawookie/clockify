@@ -1,5 +1,6 @@
 #' @import httr
 #' @import dplyr
+#' @import tidyr
 #' @import purrr
 #' @import janitor
 #' @import logger

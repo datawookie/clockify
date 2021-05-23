@@ -4,14 +4,7 @@
 \alias{time_entries}
 \title{Title}
 \usage{
-time_entries(
-  workspace_id,
-  user_id,
-  start = NULL,
-  end = NULL,
-  finished = TRUE,
-  ...
-)
+time_entries(user_id, start = NULL, end = NULL, finished = TRUE, ...)
 }
 \arguments{
 \item{finished}{Whether to include only finished time intervals (intervals with both start and end time).}
@@ -25,10 +18,10 @@ Title
 \examples{
 # Specify number of results per page (default: 50).
 \dontrun{
-time_entries <- clockify::time_entries(workspace_id, user_id, page_size = 200)
+time_entries(user_id, page_size = 200)
 }
 # Specify number of pages.
 \dontrun{
-time_entries <- clockify::time_entries(workspace_id, user_id, pages = 3)
+time_entries(user_id, pages = 3)
 }
 }

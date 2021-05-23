@@ -6,8 +6,8 @@
 #' @export
 #'
 #' @examples
-user_groups <- function(workspace_id) {
-  path <- sprintf("/workspaces/%s/user-groups", workspace_id)
+user_groups <- function() {
+  path <- sprintf("/workspaces/%s/user-groups", workspace())
   user <- GET(path)
   content(user)
 }

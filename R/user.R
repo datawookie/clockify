@@ -1,37 +1,35 @@
-#' Title
+simplify_user <- function(user) {
+  user$memberships <- NULL
+  user$settings <- NULL
+  user$profilePicture <- NULL
+
+  user %>%
+    as_tibble() %>%
+    clean_names()
+}
+
+#' Get information for logged in user
 #'
 #' @return
 #' @export
 #'
 #' @examples
 user <- function() {
-  user <- GET("/user")
-  content(user)
+  user <- GET("/user") %>%
+    content() %>%
+    simplify_user()
 }
 
-#' Title
+#' Get list of users in workspace
 #'
 #' @return
 #' @export
 #'
 #' @examples
-users <- function(workspace_id) {
-  path <- sprintf("/workspaces/%s/users", workspace_id)
+users <- function() {
+  path <- sprintf("/workspaces/%s/users", workspace())
   users <- GET(path)
 
   content(users) %>%
-    map_df(function(user) {
-      with(
-        user,
-        tibble(
-          user_id = id,
-          name,
-          email,
-          status,
-          activeWorkspace,
-          defaultWorkspace
-        )
-      )
-    }) %>%
-    clean_names()
+    map_dfr(simplify_user)
 }
