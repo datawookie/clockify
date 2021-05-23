@@ -24,6 +24,7 @@ time_entry(
 Insert a Time Entry
 }
 \examples{
+\dontrun{
 time_entry(
   workspace_id = "5ef23294df73064140f60bfc",
   project_id = "600e73263e207962449a2c13",
@@ -31,4 +32,5 @@ time_entry(
   end   = as.POSIXct("2021-01-02 10:00:00"),
   description = "Doing stuff"
 )
+}
 }

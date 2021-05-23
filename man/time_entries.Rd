@@ -24,7 +24,11 @@ Title
 }
 \examples{
 # Specify number of results per page (default: 50).
+\dontrun{
 time_entries <- clockify::time_entries(workspace_id, user_id, page_size = 200)
+}
 # Specify number of pages.
+\dontrun{
 time_entries <- clockify::time_entries(workspace_id, user_id, pages = 3)
+}
 }

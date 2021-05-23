@@ -11,9 +11,13 @@
 #'
 #' @examples
 #' # Specify number of results per page (default: 50).
+#' \dontrun{
 #' time_entries <- clockify::time_entries(workspace_id, user_id, page_size = 200)
+#' }
 #' # Specify number of pages.
+#' \dontrun{
 #' time_entries <- clockify::time_entries(workspace_id, user_id, pages = 3)
+#' }
 time_entries <- function(workspace_id, user_id, start = NULL, end = NULL, finished = TRUE, ...) {
   path <- sprintf("/workspaces/%s/user/%s/time-entries", workspace_id, user_id)
 
@@ -94,6 +98,7 @@ time_entries <- function(workspace_id, user_id, start = NULL, end = NULL, finish
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' time_entry(
 #'   workspace_id = "5ef23294df73064140f60bfc",
 #'   project_id = "600e73263e207962449a2c13",
@@ -101,6 +106,7 @@ time_entries <- function(workspace_id, user_id, start = NULL, end = NULL, finish
 #'   end   = as.POSIXct("2021-01-02 10:00:00"),
 #'   description = "Doing stuff"
 #' )
+#' }
 time_entry <- function(
   workspace_id,
   project_id = NULL,
