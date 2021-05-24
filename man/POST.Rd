@@ -2,16 +2,18 @@
 % Please edit documentation in R/http.R
 \name{POST}
 \alias{POST}
-\title{Title}
+\title{POST file to a server}
 \usage{
 POST(path, body = NULL)
 }
 \arguments{
-\item{query}{}
+\item{path}{The path of the endpoint.}
+
+\item{body}{The body of the query.}
 }
 \value{
 
 }
 \description{
-Title
+POST file to a server
 }

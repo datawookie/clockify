@@ -118,12 +118,12 @@ time_entry <- function(
   body = list()
 
   if (!is.null(start)) {
-    body$start = clockify:::time_format(start)
+    body$start = time_format(start)
   } else {
     error("Start time must be provided!")
   }
   if (!is.null(end)) {
-    body$end = clockify:::time_format(end)
+    body$end = time_format(end)
   }
   if (!is.null(project_id)) {
     body$projectId = project_id
@@ -132,7 +132,7 @@ time_entry <- function(
     body$description = description
   }
 
-  result <- clockify:::POST(
+  result <- POST(
     path,
     body = body
   )

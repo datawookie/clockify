@@ -31,3 +31,16 @@ get_api_key <- function() {
 }
 
 BASE_PATH = "https://api.clockify.me/api/v1"
+
+globalVariables(
+  c(
+    "billable",
+    "description",
+    "error",
+    "project_id",
+    "timeInterval",
+    "time_end",
+    "time_start",
+    "workspace_id"
+  )
+)

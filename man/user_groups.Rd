@@ -6,9 +6,6 @@
 \usage{
 user_groups()
 }
-\arguments{
-\item{workspace_id}{}
-}
 \value{
 
 }

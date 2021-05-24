@@ -1,7 +1,5 @@
 #' Title
 #'
-#' @param workspace_id
-#'
 #' @return
 #' @export
 #'

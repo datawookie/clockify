@@ -1,2 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+.bumpversion.cfg
+.travis.yml
+README.Rmd
+docs/
+test.R

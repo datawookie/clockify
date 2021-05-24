@@ -2,16 +2,18 @@
 % Please edit documentation in R/http.R
 \name{GET}
 \alias{GET}
-\title{Title}
+\title{GET a url}
 \usage{
 GET(path, query = NULL)
 }
 \arguments{
-\item{query}{}
+\item{path}{The path of the endpoint.}
+
+\item{query}{The query parameters.}
 }
 \value{
 
 }
 \description{
-Title
+GET a url
 }

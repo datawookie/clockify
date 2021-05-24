@@ -2,10 +2,10 @@ api_url <- function(path) {
   paste0(BASE_PATH, path)
 }
 
-#' Title
+#' GET a url
 #'
-#' @param path
-#' @param query
+#' @param path The path of the endpoint.
+#' @param query The query parameters.
 #'
 #' @return
 #' @export
@@ -22,10 +22,10 @@ GET <- function(path, query = NULL) {
   )
 }
 
-#' Title
+#' POST file to a server
 #'
-#' @param path
-#' @param query
+#' @param path The path of the endpoint.
+#' @param body The body of the query.
 #'
 #' @return
 #' @export
