@@ -5,7 +5,10 @@ simplify_user <- function(user) {
 
   user %>%
     as_tibble() %>%
-    clean_names()
+    clean_names() %>%
+    rename(
+      user_id = id
+    )
 }
 
 #' Get information for logged in user
