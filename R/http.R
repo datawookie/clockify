@@ -1,3 +1,11 @@
+#' Set the api url
+#'
+#' @param path The path of the endpoint.
+#'
+#' @return
+#' @export
+#'
+#' @examples api_url("https://api.clockify.me/api/v1")
 api_url <- function(path) {
   paste0(BASE_PATH, path)
 }
@@ -10,7 +18,7 @@ api_url <- function(path) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples GET("https://api.clockify.me/api/v1")
 GET <- function(path, query = NULL) {
   url <- api_url(path)
   httr::GET(
@@ -30,7 +38,7 @@ GET <- function(path, query = NULL) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples POST("https://api.clockify.me/api/v1")
 POST <- function(path, body = NULL) {
   url <- api_url(path)
   httr::POST(
