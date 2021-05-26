@@ -4,10 +4,7 @@
 \alias{clients}
 \title{Title}
 \usage{
-clients(workspace_id)
-}
-\arguments{
-\item{workspace_id}{}
+clients()
 }
 \value{
 

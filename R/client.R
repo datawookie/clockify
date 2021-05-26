@@ -1,13 +1,11 @@
 #' Title
 #'
-#' @param workspace_id
-#'
 #' @return
 #' @export
 #'
 #' @examples
-clients <- function(workspace_id) {
-  path <- sprintf("/workspaces/%s/clients", workspace_id)
+clients <- function() {
+  path <- sprintf("/workspaces/%s/clients", workspace())
   clients <- GET(path)
   content(clients) %>%
     map_df(function(client) {
