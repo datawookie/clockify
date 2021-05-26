@@ -1,11 +1,14 @@
-#' Title
+#' Client
 #'
-#' @param workspace_id
+#' A wrapper function that returns client_id, client_name, workspaceId, archived and address.
+#' If there is no address it returns NA.
+#'
+#' @param workspace_id A character vector used to identify clients in the workspace.
 #'
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples clients(workspace_id = "5c0fe3290cl84304845dbf1f")
 clients <- function(workspace_id) {
   path <- sprintf("/workspaces/%s/clients", workspace_id)
   clients <- GET(path)
