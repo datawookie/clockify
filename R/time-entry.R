@@ -76,7 +76,6 @@ time_entries <- function(user_id, start = NULL, end = NULL, finished = TRUE, ...
 
 #' Insert a time entry
 #'
-#' @param workspace_id
 #' @param project_id
 #' @param user_id
 #' @param start
@@ -98,7 +97,6 @@ time_entries <- function(user_id, start = NULL, end = NULL, finished = TRUE, ...
 #' )
 #' }
 time_entry <- function(
-  workspace_id,
   project_id = NULL,
   user_id = NULL,
   start,
@@ -113,7 +111,7 @@ time_entry <- function(
 
   log_debug("Add time entry.")
 
-  path <- sprintf("/workspaces/%s/time-entries", workspace_id)
+  path <- sprintf("/workspaces/%s/time-entries", workspace())
 
   body = list()
 

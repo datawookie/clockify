@@ -5,7 +5,6 @@
 \title{Insert a time entry}
 \usage{
 time_entry(
-  workspace_id,
   project_id = NULL,
   user_id = NULL,
   start,
