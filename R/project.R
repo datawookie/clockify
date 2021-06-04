@@ -6,21 +6,19 @@
 #' @examples
 projects <- function() {
   path <- sprintf("/workspaces/%s/projects", workspace())
-  projects <- GET(path)
-  content(projects) %>%
-    map_df(function(project) {
-      with(
-        project,
-        tibble(
-          project_id = id,
-          project_name = name,
-          clientId,
-          workspaceId,
-          billable,
-          public,
-          template
-        )
-      )
-    }) %>%
+
+  projects <- paginate(path)
+
+  tibble(projects) %>%
+    unnest_wider(projects) %>%
+    select(
+      project_id = id,
+      project_name = name,
+      clientId,
+      workspaceId,
+      billable,
+      public,
+      template
+    ) %>%
     clean_names()
 }
