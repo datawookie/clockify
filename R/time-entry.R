@@ -4,6 +4,7 @@
 #' @param start
 #' @param end
 #' @param finished Whether to include only finished time intervals (intervals with both start and end time).
+#' @param ...
 #'
 #' @return
 #' @export
@@ -24,9 +25,11 @@ time_entries <- function(user_id, start = NULL, end = NULL, finished = TRUE, ...
 
   if (!is.null(start)) {
     query$start = time_format(start)
+    log_debug("start time: {start} → {query$start}")
   }
   if (!is.null(end)) {
     query$end = time_format(end)
+    log_debug("end time:   {end} → {query$end}")
   }
 
   entries <- paginate(path, query, ...)

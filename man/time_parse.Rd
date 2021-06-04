@@ -4,13 +4,13 @@
 \alias{time_parse}
 \title{Title}
 \usage{
-time_parse(time, format = "\%Y-\%m-\%dT\%H:\%M:\%SZ")
+time_parse(time, format = "\%Y-\%m-\%dT\%H:\%M:\%SZ", to_local = TRUE)
 }
 \arguments{
 \item{time}{}
 }
 \value{
-A POSIXct object with UTC timezone.
+A POSIXct object.
 }
 \description{
 Times returned by the API are all in UTC.

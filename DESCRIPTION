@@ -23,5 +23,6 @@ Imports:
   purrr,
   janitor,
   logger,
+  lubridate,
   anytime,
   memoise

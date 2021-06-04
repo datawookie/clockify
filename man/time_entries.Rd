@@ -8,6 +8,8 @@ time_entries(user_id, start = NULL, end = NULL, finished = TRUE, ...)
 }
 \arguments{
 \item{finished}{Whether to include only finished time intervals (intervals with both start and end time).}
+
+\item{...}{}
 }
 \value{
 
