@@ -1,7 +1,7 @@
 Package: clockify
 Type: Package
 Title: A wrapper for the Clockify API
-Version: 0.0.5
+Version: 0.0.6
 Authors@R: 
     c(person(given = c("Andrew", "B."),
              family = "Collier",
