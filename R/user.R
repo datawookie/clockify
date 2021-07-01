@@ -3,6 +3,10 @@ simplify_user <- function(user) {
   user$settings <- NULL
   user$profilePicture <- NULL
 
+  for (field in c("name", "activeWorkspace", "defaultWorkspace")) {
+    if (is.null(user[[field]])) user[[field]] <- NA
+  }
+
   user %>%
     as_tibble() %>%
     clean_names() %>%
