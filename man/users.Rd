@@ -4,7 +4,10 @@
 \alias{users}
 \title{Get list of users in workspace}
 \usage{
-users()
+users(active = TRUE)
+}
+\arguments{
+\item{active}{Only include active users}
 }
 \value{
 

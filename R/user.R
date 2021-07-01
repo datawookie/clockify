@@ -29,14 +29,17 @@ user <- function() {
 
 #' Get list of users in workspace
 #'
+#' @param active Only include active users
+#'
 #' @return
 #' @export
 #'
 #' @examples
-users <- function() {
+users <- function(active = TRUE) {
   path <- sprintf("/workspaces/%s/users", workspace())
   users <- GET(path)
 
   content(users) %>%
-    map_dfr(simplify_user)
+    map_dfr(simplify_user) %>%
+    filter(status == "ACTIVE")
 }
