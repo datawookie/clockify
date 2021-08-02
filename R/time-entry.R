@@ -34,47 +34,62 @@ time_entries <- function(user_id, start = NULL, end = NULL, finished = TRUE, ...
 
   entries <- paginate(path, query, ...)
 
-  entries <- tibble(entries) %>%
-    unnest_wider(entries) %>%
-    unnest_wider(timeInterval) %>%
-    clean_names() %>%
-    select(
-      id,
-      user_id,
-      workspace_id,
-      project_id,
-      billable,
-      description,
-      time_start = start,
-      time_end = end
-    )
+  if (length(entries)) {
+    entries <- tibble(entries) %>%
+      unnest_wider(entries) %>%
+      unnest_wider(timeInterval) %>%
+      clean_names() %>%
+      select(
+        id,
+        user_id,
+        workspace_id,
+        project_id,
+        billable,
+        description,
+        time_start = start,
+        time_end = end
+      )
 
-  if (nrow(entries) == 0) {
-    log_debug("No time entries for specified user.")
-    entries <- tibble(
+    if (nrow(entries) == 0) {
+      log_debug("No time entries for specified user.")
+      entries <- tibble(
+        id = character(),
+        user_id = character(),
+        workspace_id = character(),
+        project_id = character(),
+        billable = logical(),
+        description = character(),
+        time_start = character(),
+        time_end = character()
+      )
+    }
+
+    if (finished) {
+      entries <- entries %>%
+        filter(!is.na(time_end))
+    }
+
+    entries %>%
+      mutate(
+        time_start = time_parse(time_start),
+        time_end = time_parse(time_end),
+        duration = as.numeric(difftime(time_end, time_start, units = "mins"))
+      ) %>%
+      arrange(time_start)
+  }
+  else {
+    tibble(
       id = character(),
       user_id = character(),
       workspace_id = character(),
       project_id = character(),
       billable = logical(),
       description = character(),
-      time_start = character(),
-      time_end = character()
+      time_start = POSIXct(),
+      time_end = POSIXct(),
+      duration = numeric()
     )
   }
-
-  if (finished) {
-    entries <- entries %>%
-      filter(!is.na(time_end))
-  }
-
-  entries %>%
-    mutate(
-      time_start = time_parse(time_start),
-      time_end = time_parse(time_end),
-      duration = as.numeric(difftime(time_end, time_start, units = "mins"))
-    ) %>%
-    arrange(time_start)
 }
 
 #' Insert a time entry
