@@ -1,0 +1,1 @@
+CLOCKIFY_API_KEY = Sys.getenv("CLOCKIFY_API_KEY")
