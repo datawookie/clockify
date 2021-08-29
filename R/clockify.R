@@ -28,7 +28,9 @@ set_api_key <- function(api_key) {
 #'
 #' @examples
 get_api_key <- function() {
-  get("api_key", envir = cache)
+  api_key <- get("api_key", envir = cache)
+  if (is.null(api_key)) stop("API key has not been set.")
+  api_key
 }
 
 BASE_PATH = "https://api.clockify.me/api/v1"
