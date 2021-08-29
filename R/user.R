@@ -1,4 +1,4 @@
-simplify_user <- function(user) {
+simplify_user <- function(user, active = TRUE, show_workspace = FALSE) {
   user$memberships <- NULL
   user$settings <- NULL
   user$profilePicture <- NULL
@@ -7,12 +7,17 @@ simplify_user <- function(user) {
     if (is.null(user[[field]])) user[[field]] <- NA
   }
 
-  user %>%
+  user <- user %>%
     as_tibble() %>%
     clean_names() %>%
     rename(
       user_id = id
     )
+
+  if (active) user <- user %>% filter(status == "ACTIVE")
+  if (!show_workspace) user <- user %>% select(-ends_with("workspace"))
+
+  user
 }
 
 #' Get information for logged in user
@@ -21,25 +26,34 @@ simplify_user <- function(user) {
 #' @export
 #'
 #' @examples
+#' user()
 user <- function() {
-  user <- GET("/user") %>%
+  GET("/user") %>%
     content() %>%
     simplify_user()
 }
 
-#' Get list of users in workspace
+#' Get list of users in active workspace
 #'
 #' @param active Only include active users
+#' @param show_workspace Show active and default workspace IDs
 #'
 #' @return
 #' @export
 #'
 #' @examples
-users <- function(active = TRUE) {
+#' # Show only active users.
+#' users()
+#' # Show all users.
+#' users(active = FALSE)
+#' # Show active & default workspace for each user.
+#' users(show_workspace = TRUE)
+users <- function(active = TRUE, show_workspace = FALSE) {
   path <- sprintf("/workspaces/%s/users", workspace())
   users <- GET(path)
 
-  content(users) %>%
-    map_dfr(simplify_user) %>%
-    filter(status == "ACTIVE")
+  users <- content(users) %>%
+    map_dfr(simplify_user, active, show_workspace)
+
+  users
 }

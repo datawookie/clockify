@@ -12,3 +12,6 @@ user()
 \description{
 Get information for logged in user
 }
+\examples{
+user()
+}

@@ -2,16 +2,26 @@
 % Please edit documentation in R/user.R
 \name{users}
 \alias{users}
-\title{Get list of users in workspace}
+\title{Get list of users in active workspace}
 \usage{
-users(active = TRUE)
+users(active = TRUE, show_workspace = FALSE)
 }
 \arguments{
 \item{active}{Only include active users}
+
+\item{show_workspace}{Show active and default workspace IDs}
 }
 \value{
 
 }
 \description{
-Get list of users in workspace
+Get list of users in active workspace
+}
+\examples{
+# Show only active users.
+users()
+# Show all users.
+users(active = FALSE)
+# Show active & default workspace for each user.
+users(show_workspace = TRUE)
 }
