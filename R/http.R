@@ -13,6 +13,7 @@ api_url <- function(path) {
 #' @examples
 GET <- function(path, query = NULL) {
   url <- api_url(path)
+  log_debug("GET {path}")
   httr::GET(
     url,
     query = query,
