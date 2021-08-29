@@ -15,7 +15,7 @@ vignettes/*.pdf
 *.knit.md
 .Renviron
 test.R
-
+README.html
 clockify*.tar.gz
 clockify*.tgz
 docs/

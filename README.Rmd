@@ -1,4 +1,5 @@
 ---
+title: "{clockify}"
 output: github_document
 ---
 
@@ -24,20 +25,59 @@ The documentation for `{clockify}` is hosted at https://datawookie.github.io/clo
 
 ## API Key
 
-Get your API key from [settings](https://clockify.me/user/settings).
+You're going to need to have an API key from your Clockify account. If you don't yet have an account, create one. Then retrieve the API key from the [account settings](https://clockify.me/user/settings).
 
 ## Get Started
 
 The first thing you'll need to do is set up your API key. I store mine in an environment variable called `CLOCKIFY_API_KEY`.
 
-```{R}
+```{r}
 CLOCKIFY_API_KEY = Sys.getenv("CLOCKIFY_API_KEY")
 ```
 
 Now load the `{clockify}` package and specify the API key.
 
-```
+```{r}
 library(clockify)
 
 set_api_key(CLOCKIFY_API_KEY)
+```
+
+Let's turn on some logging so we can see what's happening behind the scenes.
+
+```{r}
+library(logger)
+
+log_threshold(DEBUG)
+```
+```{r include=FALSE}
+log_appender(appender_stdout)
+```
+
+## Workspaces
+
+Retrieve a list of available workspaces.
+
+```{r}
+workspaces()
+```
+
+Select a specific workspace.
+
+```{r}
+workspace("612b15a5f4c3bf0462192677")
+```
+
+## Users
+
+Retrieve information on your user profile.
+
+```{r}
+user()
+```
+
+Get a list of users.
+
+```{r}
+users()
 ```
