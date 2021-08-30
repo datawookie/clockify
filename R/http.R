@@ -54,3 +54,25 @@ POST <- function(path, body = NULL) {
 
   response
 }
+
+#' DELETE
+#'
+#' @param path The path of the endpoint.
+#'
+#' @inherit httr::DELETE return
+DELETE <- function(path) {
+  url <- api_url(path)
+  log_debug("DELETE {path}")
+
+  response <- httr::DELETE(
+    url,
+    add_headers(
+      "X-Api-Key" = get_api_key()
+    ),
+    encode = "json"
+  )
+
+  check_response(response)
+
+  response
+}
