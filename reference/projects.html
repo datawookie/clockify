@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Title — projects • clockify</title>
+<title>Get projects — projects • clockify</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Title — projects" />
-<meta property="og:description" content="Title" />
+<meta property="og:title" content="Get projects — projects" />
+<meta property="og:description" content="Get projects" />
 
 
 
@@ -106,13 +106,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Title</h1>
+    <h1>Get projects</h1>
     
     <div class="hidden name"><code>projects.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Title</p>
+    <p>Get projects</p>
     </div>
 
     <pre class="usage"><span class='fu'>projects</span><span class='op'>(</span><span class='op'>)</span></pre>
@@ -120,10 +120,17 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    
+    <p>A data frame with one record per project</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='set_api_key.html'>set_api_key</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span><span class='op'>(</span><span class='st'>"CLOCKIFY_API_KEY"</span><span class='op'>)</span><span class='op'>)</span>
 
-
+<span class='fu'>projects</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 7</span>
+#&gt;   project_id    project_name client_id   workspace_id   billable public template
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>   
+#&gt; <span style='color: #BCBCBC;'>1</span> 612b16c0bc32… {clockify}   612b16adff… 612b15a5f4c3b… TRUE     TRUE   FALSE   
+#&gt; <span style='color: #BCBCBC;'>2</span> 612b16b1ff6e… {emayili}    612b16adff… 612b15a5f4c3b… TRUE     TRUE   FALSE   </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

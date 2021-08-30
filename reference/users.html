@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get list of users in workspace — users • clockify</title>
+<title>Get list of users in active workspace — users • clockify</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Get list of users in workspace — users" />
-<meta property="og:description" content="Get list of users in workspace" />
+<meta property="og:title" content="Get list of users in active workspace — users" />
+<meta property="og:description" content="Get list of users in active workspace" />
 
 
 
@@ -106,16 +106,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get list of users in workspace</h1>
+    <h1>Get list of users in active workspace</h1>
     
     <div class="hidden name"><code>users.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get list of users in workspace</p>
+    <p>Get list of users in active workspace</p>
     </div>
 
-    <pre class="usage"><span class='fu'>users</span><span class='op'>(</span>active <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>users</span><span class='op'>(</span>active <span class='op'>=</span> <span class='cn'>TRUE</span>, show_workspace <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -124,13 +124,15 @@
       <th>active</th>
       <td><p>Only include active users</p></td>
     </tr>
+    <tr>
+      <th>show_workspace</th>
+      <td><p>Show active and default workspace IDs</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    
-
-
+    <p>A data frame with one record per user.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

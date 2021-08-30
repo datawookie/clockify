@@ -62,10 +62,16 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="clockify-" class="section level1">
+
+<div id="clockify" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
+<a href="#clockify" class="anchor"></a>{clockify}</h1></div>
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+</div>
+<div id="clockify-" class="section level1">
+<h1 class="hasAnchor">
 <a href="#clockify-" class="anchor"></a>clockify <img src="reference/figures/clockify-hex.png" align="right" alt="" width="120">
-</h1></div>
+</h1>
 <!-- badges: start -->
 
 <p>An R wrapper around the <a href="https://clockify.me/developers-api">Clockify API</a>.</p>
@@ -73,7 +79,7 @@
 <div id="api-key" class="section level2">
 <h2 class="hasAnchor">
 <a href="#api-key" class="anchor"></a>API Key</h2>
-<p>Get your API key from <a href="https://clockify.me/user/settings">settings</a>.</p>
+<p>You’re going to need to have an API key from your Clockify account. If you don’t yet have an account, create one. Then retrieve the API key from the <a href="https://clockify.me/user/settings">account settings</a>.</p>
 </div>
 <div id="get-started" class="section level2">
 <h2 class="hasAnchor">
@@ -82,18 +88,67 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">CLOCKIFY_API_KEY</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"CLOCKIFY_API_KEY"</span><span class="op">)</span></code></pre></div>
 <p>Now load the <code>{clockify}</code> package and specify the API key.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">library</span>(clockify)</span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">set_api_key</span>(CLOCKIFY_API_KEY)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">clockify</span><span class="op">)</span>
+
+<span class="fu"><a href="reference/set_api_key.html">set_api_key</a></span><span class="op">(</span><span class="va">CLOCKIFY_API_KEY</span><span class="op">)</span></code></pre></div>
+<p>Let’s turn on some logging so we can see what’s happening behind the scenes.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://daroczig.github.io/logger/">logger</a></span><span class="op">)</span>
+
+<span class="fu"><a href="https://daroczig.github.io/logger/reference/log_threshold.html">log_threshold</a></span><span class="op">(</span><span class="va">DEBUG</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="workspaces" class="section level2">
+<h2 class="hasAnchor">
+<a href="#workspaces" class="anchor"></a>Workspaces</h2>
+<p>Retrieve a list of available workspaces.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/workspaces.html">workspaces</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>DEBUG [<span class="dv">2021-08-30</span> <span class="dv">04</span><span class="op">:</span><span class="dv">16</span><span class="op">:</span><span class="dv">17</span>] GET <span class="op">/</span>workspaces</span></code></pre></div>
+<pre><code># A tibble: 2 × 2
+  workspace_id             name    
+  &lt;chr&gt;                    &lt;chr&gt;   
+1 612b15a5f4c3bf0462192677 Personal
+2 612b1708f4c3bf0462192861 Work    </code></pre>
+<p>Select a specific workspace.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/workspace.html">workspace</a></span><span class="op">(</span><span class="st">"612b15a5f4c3bf0462192677"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>DEBUG [<span class="dv">2021-08-30</span> <span class="dv">04</span><span class="op">:</span><span class="dv">16</span><span class="op">:</span><span class="dv">17</span>] Set active workspace -&gt;<span class="st"> </span>612b15a5f4c3bf0462192677.</span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a>[<span class="dv">1</span>] <span class="st">"612b15a5f4c3bf0462192677"</span></span></code></pre></div>
+</div>
+<div id="users" class="section level2">
+<h2 class="hasAnchor">
+<a href="#users" class="anchor"></a>Users</h2>
+<p>Retrieve information on your user profile.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/user.html">user</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>DEBUG [<span class="dv">2021-08-30</span> <span class="dv">04</span><span class="op">:</span><span class="dv">16</span><span class="op">:</span><span class="dv">17</span>] GET <span class="op">/</span>user</span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co"># A tibble: 1 × 4</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>  user_id                  email                      name       status</span>
+<span id="cb10-5"><a href="#cb10-5"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">                      </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">      </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st"> </span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="dv">1</span> 612b15a4f4c3bf0462192676 andrew.b.collier<span class="op">@</span>gmail.com datawookie ACTIVE</span></code></pre></div>
+<p>Get a list of users.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/users.html">users</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>DEBUG [<span class="dv">2021-08-30</span> <span class="dv">04</span><span class="op">:</span><span class="dv">16</span><span class="op">:</span><span class="dv">17</span>] GET <span class="op">/</span>workspaces<span class="op">/</span>612b15a5f4c3bf0462192677<span class="op">/</span>users</span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="co"># A tibble: 2 × 4</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  user_id                  email                      name       status</span>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">                      </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">      </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st"> </span></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="dv">1</span> 612b15a4f4c3bf0462192676 andrew.b.collier<span class="op">@</span>gmail.com datawookie ACTIVE</span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="dv">2</span> 5ef46293df73063139f60bf5 emma<span class="op">@</span>fathomdata.dev        Emma       ACTIVE</span></code></pre></div>
 </div>
 </div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
-<li>What license is it under?</li>
+<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></li>
 </ul>
 </div>
 <div class="developers">
