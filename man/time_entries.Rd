@@ -22,6 +22,8 @@ time_entries(
 
 \item{finished}{Whether to include only finished time intervals (intervals with both start and end time).}
 
+\item{concise}{Generate concise output}
+
 \item{...}{Further arguments passed to \code{\link{paginate}}.}
 }
 \value{

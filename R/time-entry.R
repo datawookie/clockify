@@ -43,6 +43,8 @@ time_entries_parse <- function(entries, concise = TRUE) {
 
 #' Get time entries
 #'
+#' @inheritParams users
+#'
 #' @param user_id User ID
 #' @param start Start time
 #' @param end End time
@@ -176,14 +178,17 @@ time_entry_insert <- function(
 #'
 #' @param time_entry_id Time entry ID
 #'
-#' @return
 #' @export
 #'
 #' @examples
+#' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+#'
+#' \dontrun{
+#' time_entry_delete("612c7bd2a34530476ab25c67)
+#' }
 time_entry_delete <- function(time_entry_id = NULL) {
   log_debug("Delete time entry.")
 
   path <- sprintf("/workspaces/%s/time-entries/%s", workspace(), time_entry_id)
-
-  result <- DELETE(path)
+  DELETE(path)
 }
