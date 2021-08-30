@@ -31,13 +31,13 @@ You're going to need to have an API key from your Clockify account. If you don't
 
 The first thing you'll need to do is set up your API key. I store mine in an environment variable called `CLOCKIFY_API_KEY`.
 
-```{r}
+```{r get-api-key}
 CLOCKIFY_API_KEY = Sys.getenv("CLOCKIFY_API_KEY")
 ```
 
 Now load the `{clockify}` package and specify the API key.
 
-```{r}
+```{r set-api-key}
 library(clockify)
 
 set_api_key(CLOCKIFY_API_KEY)
@@ -45,7 +45,7 @@ set_api_key(CLOCKIFY_API_KEY)
 
 Let's turn on some logging so we can see what's happening behind the scenes.
 
-```{r}
+```{r enable-logging}
 library(logger)
 
 log_threshold(DEBUG)
@@ -58,13 +58,13 @@ log_appender(appender_stdout)
 
 Retrieve a list of available workspaces.
 
-```{r}
+```{r get-all-workspaces}
 workspaces()
 ```
 
 Select a specific workspace.
 
-```{r}
+```{r set-workspace}
 workspace("612b15a5f4c3bf0462192677")
 ```
 
@@ -72,12 +72,12 @@ workspace("612b15a5f4c3bf0462192677")
 
 Retrieve information on your user profile.
 
-```{r}
+```{r get-user}
 user()
 ```
 
 Get a list of users.
 
-```{r}
+```{r get-all-users}
 users()
 ```

@@ -64,6 +64,8 @@ Retrieve a list of available workspaces.
 workspaces()
 ```
 
+    DEBUG [2021-08-30 05:12:50] GET /workspaces
+
     # A tibble: 2 × 2
       workspace_id             name    
       <chr>                    <chr>   
@@ -76,7 +78,7 @@ Select a specific workspace.
 workspace("612b15a5f4c3bf0462192677")
 ```
 
-    DEBUG [2021-08-29 11:40:03] Set active workspace -> 612b15a5f4c3bf0462192677.
+    DEBUG [2021-08-30 05:12:51] Set active workspace -> 612b15a5f4c3bf0462192677.
 
     [1] "612b15a5f4c3bf0462192677"
 
@@ -88,7 +90,7 @@ Retrieve information on your user profile.
 user()
 ```
 
-    DEBUG [2021-08-29 11:40:03] GET /user
+    DEBUG [2021-08-30 05:12:51] GET /user
 
     # A tibble: 1 × 4
       user_id                  email                      name       status
@@ -101,7 +103,7 @@ Get a list of users.
 users()
 ```
 
-    DEBUG [2021-08-29 11:40:03] GET /workspaces/612b15a5f4c3bf0462192677/users
+    DEBUG [2021-08-30 05:12:51] GET /workspaces/612b15a5f4c3bf0462192677/users
 
     # A tibble: 2 × 4
       user_id                  email                      name       status
