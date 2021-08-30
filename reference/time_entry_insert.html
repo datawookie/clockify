@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get information for logged in user — user • clockify</title>
+<title>Insert a time entry — time_entry_insert • clockify</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Get information for logged in user — user" />
-<meta property="og:description" content="Get information for logged in user" />
+<meta property="og:title" content="Insert a time entry — time_entry_insert" />
+<meta property="og:description" content="You can only insert time entries for the authenticated used." />
 
 
 
@@ -106,35 +106,52 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get information for logged in user</h1>
+    <h1>Insert a time entry</h1>
     
-    <div class="hidden name"><code>user.Rd</code></div>
+    <div class="hidden name"><code>time_entry_insert.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get information for logged in user</p>
+    <p>You can only insert time entries for the authenticated used.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>user</span><span class='op'>(</span>concise <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>time_entry_insert</span><span class='op'>(</span>project_id <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>start</span>, end <span class='op'>=</span> <span class='cn'>NULL</span>, description <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>concise</th>
-      <td><p>Generate concise output</p></td>
+      <th>project_id</th>
+      <td><p>Project ID</p></td>
+    </tr>
+    <tr>
+      <th>start</th>
+      <td><p>Start time</p></td>
+    </tr>
+    <tr>
+      <th>end</th>
+      <td><p>End time</p></td>
+    </tr>
+    <tr>
+      <th>description</th>
+      <td><p>Description</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame with details of user profile.</p>
+    <p>A time entry ID.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='set_api_key.html'>set_api_key</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span><span class='op'>(</span><span class='st'>"CLOCKIFY_API_KEY"</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'>user</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>time_entry</span><span class='op'>(</span>
+  project_id <span class='op'>=</span> <span class='st'>"600e73263e207962449a2c13"</span>,
+  start <span class='op'>=</span> <span class='st'>"2021-01-02 08:00:00"</span>,
+  end   <span class='op'>=</span> <span class='st'>"2021-01-02 10:00:00"</span>,
+  description <span class='op'>=</span> <span class='st'>"Doing stuff"</span>
+<span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>
