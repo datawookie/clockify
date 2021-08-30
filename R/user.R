@@ -1,4 +1,4 @@
-simplify_user <- function(user, active = TRUE, show_workspace = FALSE) {
+simplify_user <- function(user, active = TRUE, concise = TRUE) {
   user$memberships <- NULL
   user$settings <- NULL
   user$profilePicture <- NULL
@@ -15,7 +15,7 @@ simplify_user <- function(user, active = TRUE, show_workspace = FALSE) {
     )
 
   if (active) user <- user %>% filter(status == "ACTIVE")
-  if (!show_workspace) user <- user %>% select(-ends_with("workspace"))
+  if (concise) user <- user %>% select(-ends_with("workspace"))
 
   user
 }
@@ -33,17 +33,17 @@ simplify_user <- function(user, active = TRUE, show_workspace = FALSE) {
 #' \dontrun{
 #' user()
 #' }
-user <- function(show_workspace = FALSE) {
+user <- function(concise = TRUE) {
   user <- GET("/user")
   user %>%
     content() %>%
-    simplify_user(show_workspace = show_workspace)
+    simplify_user(concise = concise)
 }
 
 #' Get list of users in active workspace
 #'
 #' @param active Only include active users
-#' @param show_workspace Show active and default workspace IDs
+#' @param concise Generate concise output
 #'
 #' @return A data frame with one record per user.
 #' @export
@@ -56,14 +56,13 @@ user <- function(show_workspace = FALSE) {
 #' # Show all users.
 #' users(active = FALSE)
 #' # Show active & default workspace for each user.
-#' users(show_workspace = TRUE)
-#' }
-users <- function(active = TRUE, show_workspace = FALSE) {
+#' users(concise = FALSE)
+users <- function(active = TRUE, concise = TRUE) {
   path <- sprintf("/workspaces/%s/users", workspace())
   users <- GET(path)
 
   users <- content(users) %>%
-    map_dfr(simplify_user, active, show_workspace)
+    map_dfr(simplify_user, active, concise)
 
   users
 }

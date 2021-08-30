@@ -4,16 +4,26 @@
 \alias{users}
 \title{Get list of users in active workspace}
 \usage{
-users(active = TRUE, show_workspace = FALSE)
+users(active = TRUE, concise = TRUE)
 }
 \arguments{
 \item{active}{Only include active users}
 
-\item{show_workspace}{Show active and default workspace IDs}
+\item{concise}{Generate concise output}
 }
 \value{
 A data frame with one record per user.
 }
 \description{
 Get list of users in active workspace
+}
+\examples{
+set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+
+# Show only active users.
+users()
+# Show all users.
+users(active = FALSE)
+# Show active & default workspace for each user.
+users(concise = FALSE)
 }

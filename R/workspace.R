@@ -43,7 +43,10 @@ workspace <- function(workspace_id = NULL) {
   }
 
   workspace_id <- cache_get("workspace_id")
-  if (is.null(workspace_id)) stop("Workspace ID has not been set.")
-
-  workspace_id
+  if (is.null(workspace_id)) {
+    log_debug("Setting default workspace.")
+    workspace(user(concise = FALSE)$default_workspace)
+  } else {
+    workspace_id
+  }
 }

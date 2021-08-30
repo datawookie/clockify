@@ -1,5 +1,7 @@
 #' Get projects
 #'
+#' @param concise Generate concise output
+#'
 #' @return A data frame with one record per project
 #' @export
 #'
@@ -7,12 +9,12 @@
 #' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 #'
 #' projects()
-projects <- function() {
+projects <- function(concise = TRUE) {
   path <- sprintf("/workspaces/%s/projects", workspace())
 
   projects <- paginate(path)
 
-  tibble(projects) %>%
+  projects <- tibble(projects) %>%
     unnest_wider(projects) %>%
     select(
       project_id = id,
@@ -24,4 +26,11 @@ projects <- function() {
       template
     ) %>%
     clean_names()
+
+  if (concise) {
+    projects %>%
+      select(-public, -template)
+  } else {
+    projects
+  }
 }

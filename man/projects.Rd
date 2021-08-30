@@ -4,7 +4,10 @@
 \alias{projects}
 \title{Get projects}
 \usage{
-projects()
+projects(concise = TRUE)
+}
+\arguments{
+\item{concise}{Generate concise output}
 }
 \value{
 A data frame with one record per project

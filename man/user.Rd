@@ -4,10 +4,10 @@
 \alias{user}
 \title{Get information for logged in user}
 \usage{
-user(show_workspace = FALSE)
+user(concise = TRUE)
 }
 \arguments{
-\item{show_workspace}{Show active and default workspace IDs}
+\item{concise}{Generate concise output}
 }
 \value{
 A data frame with details of user profile.

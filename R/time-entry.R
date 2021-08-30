@@ -1,3 +1,15 @@
+EMPTY_ENTRIES <- tibble(
+  id = character(),
+  user_id = character(),
+  workspace_id = character(),
+  project_id = character(),
+  billable = logical(),
+  description = character(),
+  time_start = POSIXct(),
+  time_end = POSIXct(),
+  duration = numeric()
+)
+
 #' Get time entries
 #'
 #' @param user_id User ID
@@ -20,7 +32,10 @@
 #' # Specify number of pages.
 #' time_entries(USER_ID, pages = 3)
 #' }
-time_entries <- function(user_id, start = NULL, end = NULL, finished = TRUE, ...) {
+time_entries <- function(user_id = NULL, start = NULL, end = NULL, finished = TRUE, concise = TRUE, ...) {
+  if (is.null(user_id)) {
+    user_id <- user(concise = FALSE)$user_id
+  }
   path <- sprintf("/workspaces/%s/user/%s/time-entries", workspace(), user_id)
 
   query = list()
@@ -54,16 +69,7 @@ time_entries <- function(user_id, start = NULL, end = NULL, finished = TRUE, ...
 
     if (nrow(entries) == 0) {
       log_debug("No time entries for specified user.")
-      entries <- tibble(
-        id = character(),
-        user_id = character(),
-        workspace_id = character(),
-        project_id = character(),
-        billable = logical(),
-        description = character(),
-        time_start = character(),
-        time_end = character()
-      )
+      entries <- EMPTY_ENTRIES
     }
 
     if (finished) {
@@ -71,7 +77,7 @@ time_entries <- function(user_id, start = NULL, end = NULL, finished = TRUE, ...
         filter(!is.na(time_end))
     }
 
-    entries %>%
+    entries <- entries %>%
       mutate(
         time_start = time_parse(time_start),
         time_end = time_parse(time_end),
@@ -80,17 +86,16 @@ time_entries <- function(user_id, start = NULL, end = NULL, finished = TRUE, ...
       arrange(time_start)
   }
   else {
-    tibble(
-      id = character(),
-      user_id = character(),
-      workspace_id = character(),
-      project_id = character(),
-      billable = logical(),
-      description = character(),
-      time_start = POSIXct(),
-      time_end = POSIXct(),
-      duration = numeric()
-    )
+    entries <- EMPTY_ENTRIES
+  }
+
+  if (concise) {
+    entries %>%
+      select(
+        project_id, description, time_start, time_end, duration
+      )
+  } else {
+    entries
   }
 }
 

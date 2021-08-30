@@ -4,7 +4,14 @@
 \alias{time_entries}
 \title{Get time entries}
 \usage{
-time_entries(user_id, start = NULL, end = NULL, finished = TRUE, ...)
+time_entries(
+  user_id = NULL,
+  start = NULL,
+  end = NULL,
+  finished = TRUE,
+  concise = TRUE,
+  ...
+)
 }
 \arguments{
 \item{user_id}{User ID}
