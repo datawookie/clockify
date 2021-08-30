@@ -2,13 +2,18 @@
 % Please edit documentation in R/user-groups.R
 \name{user_groups}
 \alias{user_groups}
-\title{Title}
+\title{Get user groups}
 \usage{
 user_groups()
 }
 \value{
-
+A data frame with one record per user group.
 }
 \description{
-Title
+Get user groups
+}
+\examples{
+set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+
+user_groups()
 }

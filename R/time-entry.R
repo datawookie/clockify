@@ -1,22 +1,24 @@
-#' Title
+#' Get time entries
 #'
-#' @param user_id
-#' @param start
-#' @param end
+#' @param user_id User ID
+#' @param start Start time
+#' @param end End time
 #' @param finished Whether to include only finished time intervals (intervals with both start and end time).
-#' @param ...
+#' @param ... Further arguments passed to \code{\link{paginate}}.
 #'
-#' @return
+#' @return A data frame with one record per time entry.
 #' @export
 #'
 #' @examples
+#' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+#'
+#' USER_ID <- "612b15a4f4c3bf0462192676"
+#'
+#' \dontrun{
 #' # Specify number of results per page (default: 50).
-#' \dontrun{
-#' time_entries(user_id, page_size = 200)
-#' }
+#' time_entries(USER_ID, page_size = 200)
 #' # Specify number of pages.
-#' \dontrun{
-#' time_entries(user_id, pages = 3)
+#' time_entries(USER_ID, pages = 3)
 #' }
 time_entries <- function(user_id, start = NULL, end = NULL, finished = TRUE, ...) {
   path <- sprintf("/workspaces/%s/user/%s/time-entries", workspace(), user_id)
@@ -25,11 +27,11 @@ time_entries <- function(user_id, start = NULL, end = NULL, finished = TRUE, ...
 
   if (!is.null(start)) {
     query$start = time_format(start)
-    log_debug("start time: {start} → {query$start}")
+    log_debug("start time: {start} - {query$start}")
   }
   if (!is.null(end)) {
     query$end = time_format(end)
-    log_debug("end time:   {end} → {query$end}")
+    log_debug("end time:   {end} - {query$end}")
   }
 
   entries <- paginate(path, query, ...)
@@ -94,20 +96,20 @@ time_entries <- function(user_id, start = NULL, end = NULL, finished = TRUE, ...
 
 #' Insert a time entry
 #'
-#' @param project_id
-#' @param user_id
-#' @param start
-#' @param end
-#' @param description
-#' @param billable
+#' You can only insert time entries for the authenticated used.
 #'
-#' @return
+#' @param project_id Project ID
+#' @param start Start time
+#' @param end End time
+#' @param description Description
+#'
 #' @export
 #'
 #' @examples
+#' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+#'
 #' \dontrun{
 #' time_entry(
-#'   workspace_id = "5ef23294df73064140f60bfc",
 #'   project_id = "600e73263e207962449a2c13",
 #'   start = as.POSIXct("2021-01-02 08:00:00"),
 #'   end   = as.POSIXct("2021-01-02 10:00:00"),
@@ -116,27 +118,25 @@ time_entries <- function(user_id, start = NULL, end = NULL, finished = TRUE, ...
 #' }
 time_entry <- function(
   project_id = NULL,
-  user_id = NULL,
   start,
   end = NULL,
-  description = NULL,
-  billable = NULL
+  description = NULL
 ) {
-  if (!is.null(user_id)) {
-    # TODO: Need to hook up other endpoint to make this work for other users (premium feature).
-    stop("Only able to insert time entries for current user!")
-  }
-
   log_debug("Add time entry.")
 
   path <- sprintf("/workspaces/%s/time-entries", workspace())
+
+  # Convert start and end times to POSIXct.
+  #
+  if (!is.POSIXct(start)) start <- anytime(start)
+  if (!is.POSIXct(end)) start <- anytime(end)
 
   body = list()
 
   if (!is.null(start)) {
     body$start = time_format(start)
   } else {
-    error("Start time must be provided!")
+    stop("Start time must be provided!", call. = FALSE)
   }
   if (!is.null(end)) {
     body$end = time_format(end)

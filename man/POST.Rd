@@ -12,7 +12,7 @@ POST(path, body = NULL)
 \item{body}{The body of the query.}
 }
 \value{
-
+A \code{\link[httr:response]{response()}} object.
 }
 \description{
 POST file to a server

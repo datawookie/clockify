@@ -1,17 +1,13 @@
 #' Title
 #'
-#' @param path
+#' @param path The path of the endpoint.
 #' @param pages Maximum number of pages to retrieve.
+#' @param query The query parameters.
+#' @param page_size Number of results requested per page.
 #'
-#' @return
-#' @export
-#'
-#' @examples
+#' @return Paginated response from API.
 paginate <- function(path, query = NULL, pages = NULL, page_size = 50) {
   if (is.null(query)) query = list()
-
-  # query = list()
-  # query$start <- "2020-12-16T05:15:32.998Z"
 
   page <- 1
   #

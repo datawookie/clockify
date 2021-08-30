@@ -8,31 +8,6 @@
 #' @import lubridate
 NULL
 
-#' Title
-#'
-#' @param api_key
-#'
-#' @return
-#' @export
-#'
-#' @examples
-set_api_key <- function(api_key) {
-  log_debug("Setting API key: {api_key}.")
-  assign("api_key", api_key, envir = cache)
-}
-
-#' Title
-#'
-#' @return
-#' @export
-#'
-#' @examples
-get_api_key <- function() {
-  api_key <- get("api_key", envir = cache)
-  if (is.null(api_key)) stop("API key has not been set.")
-  api_key
-}
-
 BASE_PATH = "https://api.clockify.me/api/v1"
 
 globalVariables(
@@ -44,6 +19,12 @@ globalVariables(
     "timeInterval",
     "time_end",
     "time_start",
-    "workspace_id"
+    "workspace_id",
+    "name",
+    "clientId",
+    "workspaceId",
+    "public",
+    "template",
+    "status"
   )
 )

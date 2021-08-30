@@ -1,6 +1,7 @@
 # {clockify} 0.0.8
 
 * Add GitHub Actions.
+* Started test suite.
 
 # {clockify} 0.0.7
 

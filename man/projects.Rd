@@ -2,13 +2,18 @@
 % Please edit documentation in R/project.R
 \name{projects}
 \alias{projects}
-\title{Title}
+\title{Get projects}
 \usage{
 projects()
 }
 \value{
-
+A data frame with one record per project
 }
 \description{
-Title
+Get projects
+}
+\examples{
+set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+
+projects()
 }

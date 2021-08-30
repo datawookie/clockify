@@ -1,11 +1,14 @@
-#' Title
+#' Get user groups
 #'
-#' @return
+#' @return A data frame with one record per user group.
 #' @export
 #'
 #' @examples
+#' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+#'
+#' user_groups()
 user_groups <- function() {
   path <- sprintf("/workspaces/%s/user-groups", workspace())
-  user <- GET(path)
-  content(user)
+  GET(path) %>%
+    content()
 }

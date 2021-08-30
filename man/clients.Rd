@@ -2,13 +2,18 @@
 % Please edit documentation in R/client.R
 \name{clients}
 \alias{clients}
-\title{Title}
+\title{Get clients}
 \usage{
 clients()
 }
 \value{
-
+A data frame with one record per client.
 }
 \description{
-Title
+Get clients
+}
+\examples{
+set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+
+clients()
 }

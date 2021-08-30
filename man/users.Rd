@@ -12,16 +12,8 @@ users(active = TRUE, show_workspace = FALSE)
 \item{show_workspace}{Show active and default workspace IDs}
 }
 \value{
-
+A data frame with one record per user.
 }
 \description{
 Get list of users in active workspace
-}
-\examples{
-# Show only active users.
-users()
-# Show all users.
-users(active = FALSE)
-# Show active & default workspace for each user.
-users(show_workspace = TRUE)
 }

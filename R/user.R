@@ -22,15 +22,22 @@ simplify_user <- function(user, active = TRUE, show_workspace = FALSE) {
 
 #' Get information for logged in user
 #'
-#' @return
+#' @inheritParams users
+#'
+#' @return A data frame with details of user profile.
 #' @export
 #'
 #' @examples
+#' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+#'
+#' \dontrun{
 #' user()
-user <- function() {
-  GET("/user") %>%
+#' }
+user <- function(show_workspace = FALSE) {
+  user <- GET("/user")
+  user %>%
     content() %>%
-    simplify_user()
+    simplify_user(show_workspace = show_workspace)
 }
 
 #' Get list of users in active workspace
@@ -38,16 +45,19 @@ user <- function() {
 #' @param active Only include active users
 #' @param show_workspace Show active and default workspace IDs
 #'
-#' @return
+#' @return A data frame with one record per user.
 #' @export
 #'
 #' @examples
+#' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+#'
 #' # Show only active users.
 #' users()
 #' # Show all users.
 #' users(active = FALSE)
 #' # Show active & default workspace for each user.
 #' users(show_workspace = TRUE)
+#' }
 users <- function(active = TRUE, show_workspace = FALSE) {
   path <- sprintf("/workspaces/%s/users", workspace())
   users <- GET(path)

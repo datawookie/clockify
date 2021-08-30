@@ -1,9 +1,14 @@
 #' Get a list of workspaces
 #'
-#' @return
+#' @return A data frame with one record per workspace.
 #' @export
 #'
 #' @examples
+#' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+#'
+#' \dontrun{
+#' workspaces()
+#' }
 workspaces <- function() {
   workspaces <- GET("/workspaces")
   content(workspaces) %>%
@@ -17,16 +22,20 @@ workspaces <- function() {
       )
     })
 }
-workspaces <- memoise::memoise(workspaces)
 
-#' Get or set workspace ID
+#' Get or set active workspace ID
 #'
-#' @param workspace_id
+#' @param workspace_id A workspace ID
 #'
-#' @return
+#' @return The ID of the active workspace.
 #' @export
 #'
 #' @examples
+#' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+#'
+#' \dontrun{
+#' workspace("612b15a5f4c3bf0462192677")
+#' }
 workspace <- function(workspace_id = NULL) {
   if (!is.null(workspace_id)) {
     log_debug("Set active workspace -> {workspace_id}.")

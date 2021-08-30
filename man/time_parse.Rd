@@ -2,12 +2,16 @@
 % Please edit documentation in R/time.R
 \name{time_parse}
 \alias{time_parse}
-\title{Title}
+\title{Parse times returned by API}
 \usage{
 time_parse(time, format = "\%Y-\%m-\%dT\%H:\%M:\%SZ", to_local = TRUE)
 }
 \arguments{
-\item{time}{}
+\item{time}{Time string returned by API}
+
+\item{format}{Format string}
+
+\item{to_local}{Whether to convert time to local time zone}
 }
 \value{
 A POSIXct object.

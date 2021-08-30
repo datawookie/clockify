@@ -1,9 +1,12 @@
-#' Title
+#' Get projects
 #'
-#' @return
+#' @return A data frame with one record per project
 #' @export
 #'
 #' @examples
+#' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+#'
+#' projects()
 projects <- function() {
   path <- sprintf("/workspaces/%s/projects", workspace())
 

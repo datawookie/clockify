@@ -4,14 +4,21 @@
 \alias{user}
 \title{Get information for logged in user}
 \usage{
-user()
+user(show_workspace = FALSE)
+}
+\arguments{
+\item{show_workspace}{Show active and default workspace IDs}
 }
 \value{
-
+A data frame with details of user profile.
 }
 \description{
 Get information for logged in user
 }
 \examples{
+set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+
+\dontrun{
 user()
+}
 }

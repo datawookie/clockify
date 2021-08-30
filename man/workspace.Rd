@@ -2,16 +2,23 @@
 % Please edit documentation in R/workspace.R
 \name{workspace}
 \alias{workspace}
-\title{Get or set workspace ID}
+\title{Get or set active workspace ID}
 \usage{
 workspace(workspace_id = NULL)
 }
 \arguments{
-\item{workspace_id}{}
+\item{workspace_id}{A workspace ID}
 }
 \value{
-
+The ID of the active workspace.
 }
 \description{
-Get or set workspace ID
+Get or set active workspace ID
+}
+\examples{
+set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+
+\dontrun{
+workspace("612b15a5f4c3bf0462192677")
+}
 }

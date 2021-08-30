@@ -7,10 +7,7 @@ api_url <- function(path) {
 #' @param path The path of the endpoint.
 #' @param query The query parameters.
 #'
-#' @return
-#' @export
-#'
-#' @examples
+#' @inherit httr::GET return
 GET <- function(path, query = NULL) {
   url <- api_url(path)
   log_debug("GET {path}")
@@ -28,10 +25,7 @@ GET <- function(path, query = NULL) {
 #' @param path The path of the endpoint.
 #' @param body The body of the query.
 #'
-#' @return
-#' @export
-#'
-#' @examples
+#' @inherit httr::POST return
 POST <- function(path, body = NULL) {
   url <- api_url(path)
   httr::POST(

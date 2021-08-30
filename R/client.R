@@ -1,9 +1,12 @@
-#' Title
+#' Get clients
 #'
-#' @return
+#' @return A data frame with one record per client.
 #' @export
 #'
 #' @examples
+#' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+#'
+#' clients()
 clients <- function() {
   path <- sprintf("/workspaces/%s/clients", workspace())
   clients <- GET(path)

@@ -12,7 +12,7 @@ GET(path, query = NULL)
 \item{query}{The query parameters.}
 }
 \value{
-
+A \code{\link[httr:response]{response()}} object.
 }
 \description{
 GET a url

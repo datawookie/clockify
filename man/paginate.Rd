@@ -7,10 +7,16 @@
 paginate(path, query = NULL, pages = NULL, page_size = 50)
 }
 \arguments{
+\item{path}{The path of the endpoint.}
+
+\item{query}{The query parameters.}
+
 \item{pages}{Maximum number of pages to retrieve.}
+
+\item{page_size}{Number of results requested per page.}
 }
 \value{
-
+Paginated response from API.
 }
 \description{
 Title

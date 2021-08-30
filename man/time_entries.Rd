@@ -2,28 +2,36 @@
 % Please edit documentation in R/time-entry.R
 \name{time_entries}
 \alias{time_entries}
-\title{Title}
+\title{Get time entries}
 \usage{
 time_entries(user_id, start = NULL, end = NULL, finished = TRUE, ...)
 }
 \arguments{
+\item{user_id}{User ID}
+
+\item{start}{Start time}
+
+\item{end}{End time}
+
 \item{finished}{Whether to include only finished time intervals (intervals with both start and end time).}
 
-\item{...}{}
+\item{...}{Further arguments passed to \code{\link{paginate}}.}
 }
 \value{
-
+A data frame with one record per time entry.
 }
 \description{
-Title
+Get time entries
 }
 \examples{
+set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+
+USER_ID <- "612b15a4f4c3bf0462192676"
+
+\dontrun{
 # Specify number of results per page (default: 50).
-\dontrun{
-time_entries(user_id, page_size = 200)
-}
+time_entries(USER_ID, page_size = 200)
 # Specify number of pages.
-\dontrun{
-time_entries(user_id, pages = 3)
+time_entries(USER_ID, pages = 3)
 }
 }

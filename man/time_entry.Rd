@@ -4,28 +4,25 @@
 \alias{time_entry}
 \title{Insert a time entry}
 \usage{
-time_entry(
-  project_id = NULL,
-  user_id = NULL,
-  start,
-  end = NULL,
-  description = NULL,
-  billable = NULL
-)
+time_entry(project_id = NULL, start, end = NULL, description = NULL)
 }
 \arguments{
-\item{billable}{}
-}
-\value{
+\item{project_id}{Project ID}
 
+\item{start}{Start time}
+
+\item{end}{End time}
+
+\item{description}{Description}
 }
 \description{
-Insert a time entry
+You can only insert time entries for the authenticated used.
 }
 \examples{
+set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+
 \dontrun{
 time_entry(
-  workspace_id = "5ef23294df73064140f60bfc",
   project_id = "600e73263e207962449a2c13",
   start = as.POSIXct("2021-01-02 08:00:00"),
   end   = as.POSIXct("2021-01-02 10:00:00"),

@@ -7,8 +7,15 @@
 workspaces()
 }
 \value{
-
+A data frame with one record per workspace.
 }
 \description{
 Get a list of workspaces
+}
+\examples{
+set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+
+\dontrun{
+workspaces()
+}
 }

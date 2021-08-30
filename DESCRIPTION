@@ -12,9 +12,10 @@ Authors@R:
              role = "ctb",
              email = "megan@fathomdata.dev"))
 Description: A wrapper for the Clockify API.
-License: What license is it under?
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports:
   httr,
@@ -24,5 +25,7 @@ Imports:
   janitor,
   logger,
   lubridate,
-  anytime,
-  memoise
+  anytime
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
