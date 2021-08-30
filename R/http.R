@@ -2,6 +2,12 @@ api_url <- function(path) {
   paste0(BASE_PATH, path)
 }
 
+check_response <- function(response) {
+  if (status_code(response) == 404) {
+    stop("Page not found!", call. = FALSE)
+  }
+}
+
 #' GET a url
 #'
 #' @param path The path of the endpoint.
@@ -11,13 +17,18 @@ api_url <- function(path) {
 GET <- function(path, query = NULL) {
   url <- api_url(path)
   log_debug("GET {path}")
-  httr::GET(
+
+  response <- httr::GET(
     url,
     query = query,
     add_headers(
       "X-Api-Key" = get_api_key()
     )
   )
+
+  check_response(response)
+
+  response
 }
 
 #' POST file to a server
@@ -28,7 +39,9 @@ GET <- function(path, query = NULL) {
 #' @inherit httr::POST return
 POST <- function(path, body = NULL) {
   url <- api_url(path)
-  httr::POST(
+  log_debug("POST {path}")
+
+  response <- httr::POST(
     url,
     body = body,
     add_headers(
@@ -36,4 +49,8 @@ POST <- function(path, body = NULL) {
     ),
     encode = "json"
   )
+
+  check_response(response)
+
+  response
 }
