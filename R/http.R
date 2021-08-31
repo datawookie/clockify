@@ -8,7 +8,7 @@ check_response <- function(response) {
   }
 }
 
-#' GET a url
+#' GET an URL
 #'
 #' @param path The path of the endpoint.
 #' @param query The query parameters.
@@ -31,7 +31,7 @@ GET <- function(path, query = NULL) {
   response
 }
 
-#' POST file to a server
+#' POST file to an URL
 #'
 #' @param path The path of the endpoint.
 #' @param body The body of the query.

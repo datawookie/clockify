@@ -2,7 +2,7 @@
 % Please edit documentation in R/http.R
 \name{GET}
 \alias{GET}
-\title{GET a url}
+\title{GET an URL}
 \usage{
 GET(path, query = NULL)
 }
@@ -15,5 +15,5 @@ GET(path, query = NULL)
 A \code{\link[httr:response]{response()}} object.
 }
 \description{
-GET a url
+GET an URL
 }

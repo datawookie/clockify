@@ -2,7 +2,7 @@
 % Please edit documentation in R/http.R
 \name{POST}
 \alias{POST}
-\title{POST file to a server}
+\title{POST file to an URL}
 \usage{
 POST(path, body = NULL)
 }
@@ -15,5 +15,5 @@ POST(path, body = NULL)
 A \code{\link[httr:response]{response()}} object.
 }
 \description{
-POST file to a server
+POST file to an URL
 }
