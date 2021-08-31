@@ -178,6 +178,7 @@ time_entry_insert <- function(
 #'
 #' @param time_entry_id Time entry ID
 #'
+#' @return A Boolean: \code{TRUE} on success or \code{FALSE} on failure.
 #' @export
 #'
 #' @examples
@@ -190,5 +191,6 @@ time_entry_delete <- function(time_entry_id = NULL) {
   log_debug("Delete time entry.")
 
   path <- sprintf("/workspaces/%s/time-entries/%s", workspace(), time_entry_id)
-  DELETE(path)
+  result <- DELETE(path)
+  status_code(result) == 204
 }

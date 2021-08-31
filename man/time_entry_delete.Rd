@@ -9,6 +9,9 @@ time_entry_delete(time_entry_id = NULL)
 \arguments{
 \item{time_entry_id}{Time entry ID}
 }
+\value{
+A Boolean: \code{TRUE} on success or \code{FALSE} on failure.
+}
 \description{
 Delete a time entry
 }
