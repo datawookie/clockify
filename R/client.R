@@ -1,5 +1,7 @@
 #' Get clients
 #'
+#' @inheritParams users
+#'
 #' @return A data frame with one record per client.
 #' @export
 #'

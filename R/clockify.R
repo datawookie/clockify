@@ -14,6 +14,8 @@ globalVariables(
   c(
     "billable",
     "clientId",
+    "client_id",
+    "client_name",
     "description",
     "end",
     "error",
@@ -27,6 +29,7 @@ globalVariables(
     "time_end",
     "time_start",
     "user_id",
+    "user_name",
     "workspace_id",
     "workspaceId"
   )
