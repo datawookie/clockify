@@ -15,3 +15,10 @@ A Boolean: \code{TRUE} on success or \code{FALSE} on failure.
 \description{
 Delete a time entry
 }
+\examples{
+set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
+
+\dontrun{
+time_entry_delete("612c7bd2a34530476ab25c67")
+}
+}

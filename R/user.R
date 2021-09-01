@@ -11,11 +11,14 @@ simplify_user <- function(user, active = TRUE, concise = TRUE) {
     as_tibble() %>%
     clean_names() %>%
     rename(
-      user_id = id
+      user_id = id,
+      user_name = name
     )
 
   if (active) user <- user %>% filter(status == "ACTIVE")
-  if (concise) user <- user %>% select(-ends_with("workspace"))
+  if (concise) {
+    user <- user %>% select(user_id, user_name, status)
+  }
 
   user
 }
