@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">clockify</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.8</span>
       </span>
     </div>
 
@@ -117,7 +117,7 @@
     <p>Get clients</p>
     </div>
 
-    <pre class="usage"><span class='fu'>clients</span><span class='op'>(</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>clients</span><span class='op'>(</span>concise <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -128,10 +128,10 @@
     <pre class="examples"><div class='input'><span class='fu'><a href='set_api_key.html'>set_api_key</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span><span class='op'>(</span><span class='st'>"CLOCKIFY_API_KEY"</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='fu'>clients</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 1 × 5</span>
-#&gt;   client_id                client_name workspace_id             archived address
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                    <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>  
-#&gt; <span style='color: #BCBCBC;'>1</span> 612b16adff6efe46f554bf9f Fathom Data 612b15a5f4c3bf0462192677 FALSE    <span style='color: #BB0000;'>NA</span>     </div></pre>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 1 × 3</span>
+#&gt;   client_id                client_name workspace_id            
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                   
+#&gt; <span style='color: #BCBCBC;'>1</span> 612b16adff6efe46f554bf9f Fathom Data 612b15a5f4c3bf0462192677</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

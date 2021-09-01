@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">clockify</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.8</span>
       </span>
     </div>
 
@@ -141,23 +141,23 @@
 
 <span class='co'># Show only active users.</span>
 <span class='fu'>users</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 4</span>
-#&gt;   user_id                  email                      name       status
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> 
-#&gt; <span style='color: #BCBCBC;'>1</span> 612b15a4f4c3bf0462192676 andrew.b.collier@gmail.com datawookie ACTIVE
-#&gt; <span style='color: #BCBCBC;'>2</span> 5ef46293df73063139f60bf5 emma@fathomdata.dev        Emma       ACTIVE</div><div class='input'><span class='co'># Show all users.</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 3</span>
+#&gt;   user_id                  user_name status
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> 
+#&gt; <span style='color: #BCBCBC;'>1</span> 612b15a4f4c3bf0462192676 Andrew    ACTIVE
+#&gt; <span style='color: #BCBCBC;'>2</span> 5ef46293df73063139f60bf5 Emma      ACTIVE</div><div class='input'><span class='co'># Show all users.</span>
 <span class='fu'>users</span><span class='op'>(</span>active <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 4</span>
-#&gt;   user_id                  email                      name       status
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> 
-#&gt; <span style='color: #BCBCBC;'>1</span> 612b15a4f4c3bf0462192676 andrew.b.collier@gmail.com datawookie ACTIVE
-#&gt; <span style='color: #BCBCBC;'>2</span> 5ef46293df73063139f60bf5 emma@fathomdata.dev        Emma       ACTIVE</div><div class='input'><span class='co'># Show active &amp; default workspace for each user.</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 3</span>
+#&gt;   user_id                  user_name status
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> 
+#&gt; <span style='color: #BCBCBC;'>1</span> 612b15a4f4c3bf0462192676 Andrew    ACTIVE
+#&gt; <span style='color: #BCBCBC;'>2</span> 5ef46293df73063139f60bf5 Emma      ACTIVE</div><div class='input'><span class='co'># Show active &amp; default workspace for each user.</span>
 <span class='fu'>users</span><span class='op'>(</span>concise <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 6</span>
-#&gt;   user_id                  email  name  active_workspace default_workspa… status
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> 
-#&gt; <span style='color: #BCBCBC;'>1</span> 612b15a4f4c3bf0462192676 andre… data… 612b15a5f4c3bf0… 612b15a5f4c3bf0… ACTIVE
-#&gt; <span style='color: #BCBCBC;'>2</span> 5ef46293df73063139f60bf5 emma@… Emma  5ef46294df73063… 5ef46294df73063… ACTIVE</div></pre>
+#&gt;   user_id      email      user_name active_workspace   default_workspace  status
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> 
+#&gt; <span style='color: #BCBCBC;'>1</span> 612b15a4f4c… andrew.b.… Andrew    612b15a5f4c3bf046… 612b15a5f4c3bf046… ACTIVE
+#&gt; <span style='color: #BCBCBC;'>2</span> 5ef46293df7… emma@fath… Emma      5ef46294df7306313… 5ef46294df7306313… ACTIVE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
