@@ -7,10 +7,10 @@
 #' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 #'
 #' clients()
-clients <- function() {
+clients <- function(concise = TRUE) {
   path <- sprintf("/workspaces/%s/clients", workspace())
-  clients <- GET(path)
-  content(clients) %>%
+  clients <- GET(path) %>%
+    content() %>%
     map_df(function(client) {
       with(
         client,
@@ -24,4 +24,10 @@ clients <- function() {
       )
     }) %>%
     clean_names()
+
+  if (concise) {
+    clients <- clients %>% select(client_id, client_name, workspace_id)
+  }
+
+  clients
 }

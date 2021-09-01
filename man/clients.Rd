@@ -4,7 +4,7 @@
 \alias{clients}
 \title{Get clients}
 \usage{
-clients()
+clients(concise = TRUE)
 }
 \value{
 A data frame with one record per client.
