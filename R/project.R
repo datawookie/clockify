@@ -29,7 +29,7 @@ projects <- function(concise = TRUE) {
 
   if (concise) {
     projects %>%
-      select(-public, -template)
+      select(-workspace_id, -public, -template)
   } else {
     projects
   }
