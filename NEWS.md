@@ -1,7 +1,12 @@
 # {clockify} 0.0.8
 
+* Add `time_entry_delete()`.
+* Improve styling of code blocks in `README`.
+* Add code coverage checks.
+* Add `concise` argument to various functions.
 * Add GitHub Actions.
 * Started test suite.
+* Return empty tibble (with correct columns) if no time entries.
 
 # {clockify} 0.0.7
 
