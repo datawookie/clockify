@@ -10,7 +10,7 @@ EMPTY_ENTRIES <- tibble(
   duration = numeric()
 )
 
-time_entries_parse <- function(entries, concise = TRUE) {
+time_entries_parse <- function(entries, finished, concise) {
   entries <- tibble(entries) %>%
     unnest_wider(entries) %>%
     unnest_wider(timeInterval) %>%
@@ -29,12 +29,18 @@ time_entries_parse <- function(entries, concise = TRUE) {
       time_start = time_parse(time_start),
       time_end = time_parse(time_end),
       duration = as.numeric(difftime(time_end, time_start, units = "mins"))
-    )
+    ) %>%
+    arrange(time_start)
+
+  if (finished) {
+    entries <- entries %>%
+      filter(!is.na(time_end))
+  }
 
   if (concise) {
     entries %>%
       select(
-        project_id, description, time_start, time_end, duration
+        project_id, description, duration
       )
   } else {
     entries
@@ -85,20 +91,12 @@ time_entries <- function(user_id = NULL, start = NULL, end = NULL, finished = TR
   entries <- paginate(path, query, ...)
 
   if (length(entries)) {
-    entries <- time_entries_parse(entries, concise)
+    entries <- time_entries_parse(entries, finished, concise)
 
     if (nrow(entries) == 0) {
       log_debug("No time entries for specified user.")
       entries <- EMPTY_ENTRIES
     }
-
-    if (finished) {
-      entries <- entries %>%
-        filter(!is.na(time_end))
-    }
-
-    entries <- entries %>%
-      arrange(time_start)
   }
   else {
     entries <- EMPTY_ENTRIES
@@ -169,7 +167,7 @@ time_entry_insert <- function(
 
   httr::content(result) %>%
     list() %>%
-    time_entries_parse(concise = FALSE) %>%
+    time_entries_parse(finished = FALSE, concise = FALSE) %>%
     pull(id)
 }
 
@@ -185,7 +183,7 @@ time_entry_insert <- function(
 #' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 #'
 #' \dontrun{
-#' time_entry_delete("612c7bd2a34530476ab25c67)
+#' time_entry_delete("612c7bd2a34530476ab25c67")
 #' }
 time_entry_delete <- function(time_entry_id = NULL) {
   log_debug("Delete time entry.")
