@@ -4,7 +4,7 @@ simplify_user <- function(user, active = TRUE, concise = TRUE) {
   user$profilePicture <- NULL
 
   for (field in c("name", "activeWorkspace", "defaultWorkspace")) {
-    if (is.null(user[[field]])) user[[field]] <- NA
+    if (is.null(user[[field]])) user[[field]] <- NA_character_
   }
 
   user <- user %>%
