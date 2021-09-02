@@ -10,6 +10,8 @@ check_response <- function(response) {
 
 #' GET an URL
 #'
+#' @noRd
+#'
 #' @param path The path of the endpoint.
 #' @param query The query parameters.
 #'
@@ -32,6 +34,8 @@ GET <- function(path, query = NULL) {
 }
 
 #' POST file to an URL
+#'
+#' @noRd
 #'
 #' @param path The path of the endpoint.
 #' @param body The body of the query.
@@ -56,6 +60,8 @@ POST <- function(path, body = NULL) {
 }
 
 #' DELETE
+#'
+#' @noRd
 #'
 #' @param path The path of the endpoint.
 #'
