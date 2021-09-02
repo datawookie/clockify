@@ -11,7 +11,7 @@ API_KEY = "api_key"
 #' CLOCKIFY_API_KEY <- Sys.getenv("CLOCKIFY_API_KEY")
 #' set_api_key(CLOCKIFY_API_KEY)
 set_api_key <- function(api_key) {
-  assign(API_KEY, api_key, envir = cache)
+  cache_set(API_KEY, api_key)
 
   # Get user associated with this API key and set default workspace.
   api_key_user <- user(concise = FALSE)
@@ -30,7 +30,7 @@ set_api_key <- function(api_key) {
 #' @examples
 #' get_api_key()
 get_api_key <- function() {
-  api_key <- get(API_KEY, envir = cache)
+  api_key <- cache_get(API_KEY)
   if (is.null(api_key)) stop("API key has not been set.")
   api_key
 }
