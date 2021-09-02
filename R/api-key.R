@@ -8,8 +8,10 @@ API_KEY = "api_key"
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' CLOCKIFY_API_KEY <- Sys.getenv("CLOCKIFY_API_KEY")
 #' set_api_key(CLOCKIFY_API_KEY)
+#' }
 set_api_key <- function(api_key) {
   cache_set(API_KEY, api_key)
 
@@ -28,7 +30,11 @@ set_api_key <- function(api_key) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' CLOCKIFY_API_KEY <- Sys.getenv("CLOCKIFY_API_KEY")
+#' set_api_key(CLOCKIFY_API_KEY)
 #' get_api_key()
+#' }
 get_api_key <- function() {
   api_key <- cache_get(API_KEY)
   if (is.null(api_key)) stop("API key has not been set.")

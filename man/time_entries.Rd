@@ -33,11 +33,11 @@ A data frame with one record per time entry.
 Get time entries
 }
 \examples{
+\dontrun{
 set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 
 USER_ID <- "612b15a4f4c3bf0462192676"
 
-\dontrun{
 # Specify number of results per page (default: 50).
 time_entries(USER_ID, page_size = 200)
 # Specify number of pages.

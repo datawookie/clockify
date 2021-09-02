@@ -1,3 +1,8 @@
+# {clockify} 0.0.9
+
+* Add tests.
+* Use NA_character_ in simplify_user().
+
 # {clockify} 0.0.8
 
 * Add `time_entry_delete()`.

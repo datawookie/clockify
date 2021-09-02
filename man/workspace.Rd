@@ -16,9 +16,9 @@ The ID of the active workspace.
 Get or set active workspace ID
 }
 \examples{
+\dontrun{
 set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 
-\dontrun{
 workspace("612b15a5f4c3bf0462192677")
 }
 }

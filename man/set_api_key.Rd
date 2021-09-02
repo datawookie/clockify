@@ -16,6 +16,8 @@ The API key.
 Set API key
 }
 \examples{
+\dontrun{
 CLOCKIFY_API_KEY <- Sys.getenv("CLOCKIFY_API_KEY")
 set_api_key(CLOCKIFY_API_KEY)
+}
 }

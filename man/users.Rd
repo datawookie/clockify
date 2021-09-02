@@ -18,6 +18,7 @@ A data frame with one record per user.
 Get list of users in active workspace
 }
 \examples{
+\dontrun{
 set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 
 # Show only active users.
@@ -26,4 +27,5 @@ users()
 users(active = FALSE)
 # Show active & default workspace for each user.
 users(concise = FALSE)
+}
 }

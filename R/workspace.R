@@ -4,9 +4,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 #'
-#' \dontrun{
 #' workspaces()
 #' }
 workspaces <- function() {
@@ -31,9 +31,9 @@ workspaces <- function() {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 #'
-#' \dontrun{
 #' workspace("612b15a5f4c3bf0462192677")
 #' }
 workspace <- function(workspace_id = NULL) {

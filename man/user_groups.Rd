@@ -13,7 +13,9 @@ A data frame with one record per user group.
 Get user groups
 }
 \examples{
+\dontrun{
 set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 
 user_groups()
+}
 }

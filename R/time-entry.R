@@ -61,11 +61,11 @@ time_entries_parse <- function(entries, finished, concise) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 #'
 #' USER_ID <- "612b15a4f4c3bf0462192676"
 #'
-#' \dontrun{
 #' # Specify number of results per page (default: 50).
 #' time_entries(USER_ID, page_size = 200)
 #' # Specify number of pages.
@@ -118,9 +118,9 @@ time_entries <- function(user_id = NULL, start = NULL, end = NULL, finished = TR
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 #'
-#' \dontrun{
 #' time_entry(
 #'   project_id = "600e73263e207962449a2c13",
 #'   start = "2021-01-02 08:00:00",
@@ -171,7 +171,6 @@ time_entry_insert <- function(
     pull(id)
 }
 
-
 #' Delete a time entry
 #'
 #' @param time_entry_id Time entry ID
@@ -180,9 +179,9 @@ time_entry_insert <- function(
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 #'
-#' \dontrun{
 #' time_entry_delete("612c7bd2a34530476ab25c67")
 #' }
 time_entry_delete <- function(time_entry_id = NULL) {

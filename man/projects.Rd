@@ -16,7 +16,9 @@ A data frame with one record per project
 Get projects
 }
 \examples{
+\dontrun{
 set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 
 projects()
+}
 }

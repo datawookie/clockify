@@ -22,9 +22,9 @@ A time entry ID.
 You can only insert time entries for the authenticated used.
 }
 \examples{
+\dontrun{
 set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 
-\dontrun{
 time_entry(
   project_id = "600e73263e207962449a2c13",
   start = "2021-01-02 08:00:00",

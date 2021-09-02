@@ -6,9 +6,11 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 #'
 #' clients()
+#' }
 clients <- function(concise = TRUE) {
   path <- sprintf("/workspaces/%s/clients", workspace())
   clients <- GET(path) %>%

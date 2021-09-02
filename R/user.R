@@ -31,9 +31,9 @@ simplify_user <- function(user, active = TRUE, concise = TRUE) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 #'
-#' \dontrun{
 #' user()
 #' }
 user <- function(concise = TRUE) {
@@ -52,6 +52,7 @@ user <- function(concise = TRUE) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 #'
 #' # Show only active users.
@@ -60,6 +61,7 @@ user <- function(concise = TRUE) {
 #' users(active = FALSE)
 #' # Show active & default workspace for each user.
 #' users(concise = FALSE)
+#' }
 users <- function(active = TRUE, concise = TRUE) {
   path <- sprintf("/workspaces/%s/users", workspace())
   users <- GET(path)

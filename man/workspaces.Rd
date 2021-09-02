@@ -13,9 +13,9 @@ A data frame with one record per workspace.
 Get a list of workspaces
 }
 \examples{
+\dontrun{
 set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 
-\dontrun{
 workspaces()
 }
 }

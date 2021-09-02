@@ -16,9 +16,9 @@ A data frame with details of user profile.
 Get information for logged in user
 }
 \examples{
+\dontrun{
 set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 
-\dontrun{
 user()
 }
 }
