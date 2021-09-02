@@ -11,7 +11,6 @@ API_KEY = "api_key"
 #' CLOCKIFY_API_KEY <- Sys.getenv("CLOCKIFY_API_KEY")
 #' set_api_key(CLOCKIFY_API_KEY)
 set_api_key <- function(api_key) {
-  log_debug("Setting API key: {api_key}.")
   assign(API_KEY, api_key, envir = cache)
 
   # Get user associated with this API key and set default workspace.
