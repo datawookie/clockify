@@ -33,6 +33,8 @@ You're going to need to have an API key from your Clockify account. If you don't
 
 The first thing you'll need to do is set up your API key. I store mine in an environment variable called `CLOCKIFY_API_KEY`.
 
+<!-- Use API key from demo account. -->
+
 ```{r get-api-key}
 CLOCKIFY_API_KEY = Sys.getenv("CLOCKIFY_API_KEY")
 ```

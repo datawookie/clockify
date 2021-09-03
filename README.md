@@ -14,9 +14,7 @@ status](https://travis-ci.org/datawookie/clockify.svg?branch=master)](https://tr
 [![Codecov test
 coverage](https://img.shields.io/codecov/c/github/datawookie/clockify.svg)](https://codecov.io/github/datawookie/clockify)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
-[![R-CMD-check](https://github.com/datawookie/clockify/workflows/R-CMD-check/badge.svg)](https://github.com/datawookie/clockify/actions)
-<!-- badges: end -->
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)<!-- badges: end -->
 
 An R wrapper around the [Clockify
 API](https://clockify.me/developers-api).
@@ -34,6 +32,8 @@ from the [account settings](https://clockify.me/user/settings).
 
 The first thing you’ll need to do is set up your API key. I store mine
 in an environment variable called `CLOCKIFY_API_KEY`.
+
+<!-- Use API key from demo account. -->
 
 ``` r
 CLOCKIFY_API_KEY = Sys.getenv("CLOCKIFY_API_KEY")
@@ -64,7 +64,7 @@ Retrieve a list of available workspaces.
 workspaces()
 ```
 
-    2021-09-01 03:43:27 — GET /workspaces
+    2021-09-03 03:32:17 — GET /workspaces
 
     # A tibble: 2 × 2
       workspace_id             name    
@@ -78,7 +78,7 @@ Select a specific workspace.
 workspace("612b15a5f4c3bf0462192677")
 ```
 
-    2021-09-01 03:43:27 — Set active workspace -> 612b15a5f4c3bf0462192677.
+    2021-09-03 03:32:17 — Set active workspace -> 612b15a5f4c3bf0462192677.
 
     [1] "612b15a5f4c3bf0462192677"
 
@@ -90,7 +90,7 @@ Retrieve information on your user profile.
 user()
 ```
 
-    2021-09-01 03:43:27 — GET /user
+    2021-09-03 03:32:17 — GET /user
 
     # A tibble: 1 × 3
       user_id                  user_name status
@@ -103,7 +103,7 @@ Get a list of users.
 users()
 ```
 
-    2021-09-01 03:43:27 — GET /workspaces/612b15a5f4c3bf0462192677/users
+    2021-09-03 03:32:17 — GET /workspaces/612b15a5f4c3bf0462192677/users
 
     # A tibble: 2 × 3
       user_id                  user_name status
@@ -119,7 +119,7 @@ Get a list of clients.
 clients()
 ```
 
-    2021-09-01 03:43:27 — GET /workspaces/612b15a5f4c3bf0462192677/clients
+    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/clients
 
     # A tibble: 1 × 3
       client_id                client_name workspace_id            
@@ -134,11 +134,11 @@ Get a list of projects.
 projects()
 ```
 
-    2021-09-01 03:43:27 — GET /workspaces/612b15a5f4c3bf0462192677/projects
-    2021-09-01 03:43:27 — Page contains 2 results.
-    2021-09-01 03:43:27 — GET /workspaces/612b15a5f4c3bf0462192677/projects
-    2021-09-01 03:43:27 — Page is empty.
-    2021-09-01 03:43:27 — API returned 2 results.
+    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/projects
+    2021-09-03 03:32:18 — Page contains 2 results.
+    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/projects
+    2021-09-03 03:32:18 — Page is empty.
+    2021-09-03 03:32:18 — API returned 2 results.
 
     # A tibble: 2 × 4
       project_id               project_name client_id                billable
@@ -156,19 +156,21 @@ Retrieve the time entries for the authenticated user.
 time_entries()
 ```
 
-    2021-09-01 03:43:28 — GET /user
-    2021-09-01 03:43:28 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
-    2021-09-01 03:43:28 — Page contains 3 results.
-    2021-09-01 03:43:28 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
-    2021-09-01 03:43:28 — Page is empty.
-    2021-09-01 03:43:28 — API returned 3 results.
+    2021-09-03 03:32:18 — GET /user
+    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
+    2021-09-03 03:32:18 — Page contains 5 results.
+    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
+    2021-09-03 03:32:18 — Page is empty.
+    2021-09-03 03:32:18 — API returned 5 results.
 
-    # A tibble: 3 × 3
-      project_id               description               duration
-      <chr>                    <chr>                        <dbl>
-    1 612b16c0bc325f120a1e5099 Setting up GitHub Actions       12
-    2 612b16c0bc325f120a1e5099 Make coffee                     18
-    3 612b16c0bc325f120a1e5099 Populating README.Rmd           68
+    # A tibble: 5 × 3
+      project_id               description                 duration
+      <chr>                    <chr>                          <dbl>
+    1 612b16c0bc325f120a1e5099 Setting up GitHub Actions         12
+    2 612b16c0bc325f120a1e5099 Make coffee                       18
+    3 612b16c0bc325f120a1e5099 Populating README.Rmd             68
+    4 612b16c0bc325f120a1e5099 Prepare for CRAN submission      150
+    5 612b16c0bc325f120a1e5099 Prepare for CRAN submission      150
 
 Retrieve time entries for another user specified by their user ID.
 
@@ -176,11 +178,11 @@ Retrieve time entries for another user specified by their user ID.
 time_entries(user_id = "5ef46293df73063139f60bf5")
 ```
 
-    2021-09-01 03:43:28 — GET /workspaces/612b15a5f4c3bf0462192677/user/5ef46293df73063139f60bf5/time-entries
-    2021-09-01 03:43:28 — Page contains 1 results.
-    2021-09-01 03:43:28 — GET /workspaces/612b15a5f4c3bf0462192677/user/5ef46293df73063139f60bf5/time-entries
-    2021-09-01 03:43:28 — Page is empty.
-    2021-09-01 03:43:28 — API returned 1 results.
+    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/user/5ef46293df73063139f60bf5/time-entries
+    2021-09-03 03:32:18 — Page contains 1 results.
+    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/user/5ef46293df73063139f60bf5/time-entries
+    2021-09-03 03:32:18 — Page is empty.
+    2021-09-03 03:32:18 — API returned 1 results.
 
     # A tibble: 1 × 3
       project_id               description       duration
@@ -198,8 +200,8 @@ prepare_cran_id <- time_entry_insert(
 )
 ```
 
-    2021-09-01 03:43:28 — Insert time entry.
-    2021-09-01 03:43:28 — POST /workspaces/612b15a5f4c3bf0462192677/time-entries
+    2021-09-03 03:32:18 — Insert time entry.
+    2021-09-03 03:32:18 — POST /workspaces/612b15a5f4c3bf0462192677/time-entries
 
 Check on the ID for this new time entry.
 
@@ -207,7 +209,7 @@ Check on the ID for this new time entry.
 prepare_cran_id
 ```
 
-    [1] "612ee8d0836477744be266ea"
+    [1] "613189322709570f8606e4ba"
 
 Confirm that it has been inserted.
 
@@ -216,25 +218,29 @@ time_entries("612b15a4f4c3bf0462192676", concise = FALSE) %>%
   select(id, description, time_start, time_end)
 ```
 
-    2021-09-01 03:43:28 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
-    2021-09-01 03:43:28 — Page contains 4 results.
-    2021-09-01 03:43:28 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
-    2021-09-01 03:43:28 — Page is empty.
-    2021-09-01 03:43:28 — API returned 4 results.
+    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
+    2021-09-03 03:32:18 — Page contains 6 results.
+    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
+    2021-09-03 03:32:18 — Page is empty.
+    2021-09-03 03:32:18 — API returned 6 results.
 
-    # A tibble: 4 × 4
+    # A tibble: 6 × 4
       id                       description                 time_start         
       <chr>                    <chr>                       <dttm>             
     1 612b17ff5287f7468e701971 Setting up GitHub Actions   2021-08-29 06:15:00
     2 612b184f5287f7468e7019c3 Make coffee                 2021-08-29 06:27:00
     3 612b1f4f73ce921672c1134b Populating README.Rmd       2021-08-29 06:45:00
-    4 612ee8d0836477744be266ea Prepare for CRAN submission 2021-08-30 09:00:00
+    4 613185c42709570f8606e37b Prepare for CRAN submission 2021-08-30 09:00:00
+    5 61318719d50d0771588814f0 Prepare for CRAN submission 2021-08-30 09:00:00
+    6 613189322709570f8606e4ba Prepare for CRAN submission 2021-08-30 09:00:00
       time_end           
       <dttm>             
     1 2021-08-29 06:27:00
     2 2021-08-29 06:45:00
     3 2021-08-29 07:53:00
     4 2021-08-30 11:30:00
+    5 2021-08-30 11:30:00
+    6 2021-08-30 11:30:00
 
 ### Delete Time Entry
 
@@ -242,8 +248,8 @@ time_entries("612b15a4f4c3bf0462192676", concise = FALSE) %>%
 time_entry_delete(prepare_cran_id)
 ```
 
-    2021-09-01 03:43:28 — Delete time entry.
-    2021-09-01 03:43:28 — DELETE /workspaces/612b15a5f4c3bf0462192677/time-entries/612ee8d0836477744be266ea
+    2021-09-03 03:32:19 — Delete time entry.
+    2021-09-03 03:32:19 — DELETE /workspaces/612b15a5f4c3bf0462192677/time-entries/613189322709570f8606e4ba
 
     [1] TRUE
 
@@ -254,20 +260,24 @@ time_entries("612b15a4f4c3bf0462192676", concise = FALSE) %>%
   select(id, description, time_start, time_end)
 ```
 
-    2021-09-01 03:43:28 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
-    2021-09-01 03:43:28 — Page contains 3 results.
-    2021-09-01 03:43:28 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
-    2021-09-01 03:43:28 — Page is empty.
-    2021-09-01 03:43:28 — API returned 3 results.
+    2021-09-03 03:32:19 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
+    2021-09-03 03:32:19 — Page contains 5 results.
+    2021-09-03 03:32:19 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
+    2021-09-03 03:32:19 — Page is empty.
+    2021-09-03 03:32:19 — API returned 5 results.
 
-    # A tibble: 3 × 4
-      id                       description               time_start         
-      <chr>                    <chr>                     <dttm>             
-    1 612b17ff5287f7468e701971 Setting up GitHub Actions 2021-08-29 06:15:00
-    2 612b184f5287f7468e7019c3 Make coffee               2021-08-29 06:27:00
-    3 612b1f4f73ce921672c1134b Populating README.Rmd     2021-08-29 06:45:00
+    # A tibble: 5 × 4
+      id                       description                 time_start         
+      <chr>                    <chr>                       <dttm>             
+    1 612b17ff5287f7468e701971 Setting up GitHub Actions   2021-08-29 06:15:00
+    2 612b184f5287f7468e7019c3 Make coffee                 2021-08-29 06:27:00
+    3 612b1f4f73ce921672c1134b Populating README.Rmd       2021-08-29 06:45:00
+    4 613185c42709570f8606e37b Prepare for CRAN submission 2021-08-30 09:00:00
+    5 61318719d50d0771588814f0 Prepare for CRAN submission 2021-08-30 09:00:00
       time_end           
       <dttm>             
     1 2021-08-29 06:27:00
     2 2021-08-29 06:45:00
     3 2021-08-29 07:53:00
+    4 2021-08-30 11:30:00
+    5 2021-08-30 11:30:00
