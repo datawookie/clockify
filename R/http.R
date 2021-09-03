@@ -3,7 +3,7 @@ api_url <- function(path) {
 }
 
 check_response <- function(response) {
-  if (status_code(response) != 200) {
+  if (http_error(response)) {
     stop(http_status(response)$message, call. = FALSE)
   }
 }
