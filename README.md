@@ -64,7 +64,7 @@ Retrieve a list of available workspaces.
 workspaces()
 ```
 
-    2021-09-03 03:32:17 — GET /workspaces
+    2021-09-03 06:56:19 — GET /workspaces
 
     # A tibble: 2 × 2
       workspace_id             name    
@@ -78,7 +78,7 @@ Select a specific workspace.
 workspace("612b15a5f4c3bf0462192677")
 ```
 
-    2021-09-03 03:32:17 — Set active workspace -> 612b15a5f4c3bf0462192677.
+    2021-09-03 06:56:19 — Set active workspace -> 612b15a5f4c3bf0462192677.
 
     [1] "612b15a5f4c3bf0462192677"
 
@@ -90,7 +90,7 @@ Retrieve information on your user profile.
 user()
 ```
 
-    2021-09-03 03:32:17 — GET /user
+    2021-09-03 06:56:19 — GET /user
 
     # A tibble: 1 × 3
       user_id                  user_name status
@@ -103,7 +103,7 @@ Get a list of users.
 users()
 ```
 
-    2021-09-03 03:32:17 — GET /workspaces/612b15a5f4c3bf0462192677/users
+    2021-09-03 06:56:19 — GET /workspaces/612b15a5f4c3bf0462192677/users
 
     # A tibble: 2 × 3
       user_id                  user_name status
@@ -119,7 +119,7 @@ Get a list of clients.
 clients()
 ```
 
-    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/clients
+    2021-09-03 06:56:19 — GET /workspaces/612b15a5f4c3bf0462192677/clients
 
     # A tibble: 1 × 3
       client_id                client_name workspace_id            
@@ -134,11 +134,11 @@ Get a list of projects.
 projects()
 ```
 
-    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/projects
-    2021-09-03 03:32:18 — Page contains 2 results.
-    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/projects
-    2021-09-03 03:32:18 — Page is empty.
-    2021-09-03 03:32:18 — API returned 2 results.
+    2021-09-03 06:56:20 — GET /workspaces/612b15a5f4c3bf0462192677/projects
+    2021-09-03 06:56:20 — Page contains 2 results.
+    2021-09-03 06:56:20 — GET /workspaces/612b15a5f4c3bf0462192677/projects
+    2021-09-03 06:56:20 — Page is empty.
+    2021-09-03 06:56:20 — API returned 2 results.
 
     # A tibble: 2 × 4
       project_id               project_name client_id                billable
@@ -156,12 +156,12 @@ Retrieve the time entries for the authenticated user.
 time_entries()
 ```
 
-    2021-09-03 03:32:18 — GET /user
-    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
-    2021-09-03 03:32:18 — Page contains 5 results.
-    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
-    2021-09-03 03:32:18 — Page is empty.
-    2021-09-03 03:32:18 — API returned 5 results.
+    2021-09-03 06:56:20 — GET /user
+    2021-09-03 06:56:20 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
+    2021-09-03 06:56:20 — Page contains 5 results.
+    2021-09-03 06:56:20 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
+    2021-09-03 06:56:20 — Page is empty.
+    2021-09-03 06:56:20 — API returned 5 results.
 
     # A tibble: 5 × 3
       project_id               description                 duration
@@ -178,11 +178,11 @@ Retrieve time entries for another user specified by their user ID.
 time_entries(user_id = "5ef46293df73063139f60bf5")
 ```
 
-    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/user/5ef46293df73063139f60bf5/time-entries
-    2021-09-03 03:32:18 — Page contains 1 results.
-    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/user/5ef46293df73063139f60bf5/time-entries
-    2021-09-03 03:32:18 — Page is empty.
-    2021-09-03 03:32:18 — API returned 1 results.
+    2021-09-03 06:56:20 — GET /workspaces/612b15a5f4c3bf0462192677/user/5ef46293df73063139f60bf5/time-entries
+    2021-09-03 06:56:20 — Page contains 1 results.
+    2021-09-03 06:56:20 — GET /workspaces/612b15a5f4c3bf0462192677/user/5ef46293df73063139f60bf5/time-entries
+    2021-09-03 06:56:20 — Page is empty.
+    2021-09-03 06:56:20 — API returned 1 results.
 
     # A tibble: 1 × 3
       project_id               description       duration
@@ -200,8 +200,8 @@ prepare_cran_id <- time_entry_insert(
 )
 ```
 
-    2021-09-03 03:32:18 — Insert time entry.
-    2021-09-03 03:32:18 — POST /workspaces/612b15a5f4c3bf0462192677/time-entries
+    2021-09-03 06:56:20 — Insert time entry.
+    2021-09-03 06:56:20 — POST /workspaces/612b15a5f4c3bf0462192677/time-entries
 
 Check on the ID for this new time entry.
 
@@ -209,7 +209,7 @@ Check on the ID for this new time entry.
 prepare_cran_id
 ```
 
-    [1] "613189322709570f8606e4ba"
+    [1] "6131b9042709570f8606fb28"
 
 Confirm that it has been inserted.
 
@@ -218,11 +218,11 @@ time_entries("612b15a4f4c3bf0462192676", concise = FALSE) %>%
   select(id, description, time_start, time_end)
 ```
 
-    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
-    2021-09-03 03:32:18 — Page contains 6 results.
-    2021-09-03 03:32:18 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
-    2021-09-03 03:32:18 — Page is empty.
-    2021-09-03 03:32:18 — API returned 6 results.
+    2021-09-03 06:56:20 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
+    2021-09-03 06:56:20 — Page contains 6 results.
+    2021-09-03 06:56:20 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
+    2021-09-03 06:56:20 — Page is empty.
+    2021-09-03 06:56:20 — API returned 6 results.
 
     # A tibble: 6 × 4
       id                       description                 time_start         
@@ -232,7 +232,7 @@ time_entries("612b15a4f4c3bf0462192676", concise = FALSE) %>%
     3 612b1f4f73ce921672c1134b Populating README.Rmd       2021-08-29 06:45:00
     4 613185c42709570f8606e37b Prepare for CRAN submission 2021-08-30 09:00:00
     5 61318719d50d0771588814f0 Prepare for CRAN submission 2021-08-30 09:00:00
-    6 613189322709570f8606e4ba Prepare for CRAN submission 2021-08-30 09:00:00
+    6 6131b9042709570f8606fb28 Prepare for CRAN submission 2021-08-30 09:00:00
       time_end           
       <dttm>             
     1 2021-08-29 06:27:00
@@ -248,8 +248,8 @@ time_entries("612b15a4f4c3bf0462192676", concise = FALSE) %>%
 time_entry_delete(prepare_cran_id)
 ```
 
-    2021-09-03 03:32:19 — Delete time entry.
-    2021-09-03 03:32:19 — DELETE /workspaces/612b15a5f4c3bf0462192677/time-entries/613189322709570f8606e4ba
+    2021-09-03 06:56:20 — Delete time entry.
+    2021-09-03 06:56:20 — DELETE /workspaces/612b15a5f4c3bf0462192677/time-entries/6131b9042709570f8606fb28
 
     [1] TRUE
 
@@ -260,11 +260,11 @@ time_entries("612b15a4f4c3bf0462192676", concise = FALSE) %>%
   select(id, description, time_start, time_end)
 ```
 
-    2021-09-03 03:32:19 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
-    2021-09-03 03:32:19 — Page contains 5 results.
-    2021-09-03 03:32:19 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
-    2021-09-03 03:32:19 — Page is empty.
-    2021-09-03 03:32:19 — API returned 5 results.
+    2021-09-03 06:56:20 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
+    2021-09-03 06:56:21 — Page contains 5 results.
+    2021-09-03 06:56:21 — GET /workspaces/612b15a5f4c3bf0462192677/user/612b15a4f4c3bf0462192676/time-entries
+    2021-09-03 06:56:21 — Page is empty.
+    2021-09-03 06:56:21 — API returned 5 results.
 
     # A tibble: 5 × 4
       id                       description                 time_start         
@@ -281,3 +281,69 @@ time_entries("612b15a4f4c3bf0462192676", concise = FALSE) %>%
     3 2021-08-29 07:53:00
     4 2021-08-30 11:30:00
     5 2021-08-30 11:30:00
+
+## Endpoints
+
+<!-- This list generated by api-get-endpoints.R. -->
+
+Endpoints which have currently been implemented in this package.
+
+-   [x] GET /workspaces/{workspaceId}/clients
+-   [ ] POST /workspaces/{workspaceId}/clients
+-   [ ] PUT /workspaces/{workspaceId}/clients/{clientId}
+-   [ ] DELETE /workspaces/{workspaceId}/clients/{clientId}
+-   [x] GET /workspaces/{workspaceId}/projects
+-   [ ] GET /workspaces/{workspaceId}/projects/{projectId}
+-   [ ] POST /workspaces/{workspaceId}/projects
+-   [ ] PUT /workspaces/{workspaceId}/projects/{projectId}
+-   [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/estimate
+-   [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/memberships
+-   [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/template
+-   [ ] DELETE /workspaces/{workspaceId}/projects/{id}
+-   [ ] GET /workspaces/{workspaceId}/tags
+-   [ ] POST /workspaces/{workspaceId}/tags
+-   [ ] PUT /workspaces/{workspaceId}/tags/{tagId}
+-   [ ] DELETE /workspaces/{workspaceId}/tags/{tagId}
+-   [ ] GET /workspaces/{workspaceId}/projects/{projectId}/tasks
+-   [ ] GET
+    /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
+-   [ ] POST /workspaces/{workspaceId}/projects/{projectId}/tasks
+-   [ ] PUT
+    /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
+-   [ ] DELETE
+    /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
+-   [x] GET /workspaces/{workspaceId}/user/{userId}/time-entries
+-   [ ] GET /workspaces/{workspaceId}/time-entries/{id}
+-   [x] POST /workspaces/{workspaceId}/time-entries
+-   [ ] POST /workspaces/{workspaceId}/user/{userId}/time-entries
+-   [ ] PATCH /workspaces/{workspaceId}/user/{userId}/time-entries
+-   [ ] PUT /workspaces/{workspaceId}/time-entries/{id}
+-   [ ] PATCH /workspaces/{workspaceId}/time-entries/invoiced
+-   [x] DELETE /workspaces/{workspaceId}/time-entries/{id}
+-   [x] GET /user
+-   [x] GET /workspaces/{workspaceId}/users
+-   [ ] POST /workspaces/{workspaceId}/users
+-   [ ] PUT /workspaces/{workspaceId}/users/{userId}
+-   [ ] DELETE /workspaces/{workspaceId}/users/{userId}
+-   [x] GET /workspaces/{workspaceId}/user-groups
+-   [ ] POST /workspaces/{workspaceId}/user-groups
+-   [ ] PUT /workspaces/{workspaceId}/user-groups/{userGroupId}
+-   [ ] DELETE /workspaces/{workspaceId}/user-groups/{userGroupId}
+-   [ ] POST /workspaces/{workspaceId}/user-groups/{userGroupId}/users
+-   [ ] DELETE
+    /workspaces/{workspaceId}/user-groups/{userGroupId}/users/{userId}
+-   [x] GET /workspaces
+-   [ ] GET /workspaces/{workspaceId}/custom-fields
+-   [ ] GET /workspaces/{workspaceId}/projects/{projectid}/custom-fields
+-   [ ] PATCH
+    /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId}
+-   [ ] DELETE
+    /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId}
+-   [ ] POST /workspaces/{workspaceId}/reports/summary
+-   [ ] POST /workspaces/{workspaceId}/reports/detailed
+-   [ ] POST /workspaces/{workspaceId}/reports/weekly
+-   [ ] GET /workspaces/{workspaceId}/shared-reports
+-   [ ] GET /shared-reports/{sharedReportId}
+-   [ ] POST /workspaces/{workspaceId}/shared-reports
+-   [ ] PUT /workspaces/{workspaceId}/shared-reports/{sharedReportId}
+-   [ ] DELETE /workspaces/{workspaceId}/shared-reports/{sharedReportId}

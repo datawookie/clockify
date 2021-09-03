@@ -162,7 +162,7 @@ time_entries("612b15a4f4c3bf0462192676", concise = FALSE) %>%
 
 Endpoints which have currently been implemented in this package.
 
-- [ X GET /workspaces/{workspaceId}/clients
+- [X] GET /workspaces/{workspaceId}/clients
 - [ ] POST /workspaces/{workspaceId}/clients
 - [ ] PUT /workspaces/{workspaceId}/clients/{clientId}
 - [ ] DELETE /workspaces/{workspaceId}/clients/{clientId}
