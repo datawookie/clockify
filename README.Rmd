@@ -162,11 +162,11 @@ time_entries("612b15a4f4c3bf0462192676", concise = FALSE) %>%
 
 Endpoints which have currently been implemented in this package.
 
-- [ ] GET /workspaces/{workspaceId}/clients
+- [ X GET /workspaces/{workspaceId}/clients
 - [ ] POST /workspaces/{workspaceId}/clients
 - [ ] PUT /workspaces/{workspaceId}/clients/{clientId}
 - [ ] DELETE /workspaces/{workspaceId}/clients/{clientId}
-- [ ] GET /workspaces/{workspaceId}/projects
+- [X] GET /workspaces/{workspaceId}/projects
 - [ ] GET /workspaces/{workspaceId}/projects/{projectId}
 - [ ] POST /workspaces/{workspaceId}/projects
 - [ ] PUT /workspaces/{workspaceId}/projects/{projectId}
@@ -183,26 +183,26 @@ Endpoints which have currently been implemented in this package.
 - [ ] POST /workspaces/{workspaceId}/projects/{projectId}/tasks
 - [ ] PUT /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
 - [ ] DELETE /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
-- [ ] GET /workspaces/{workspaceId}/user/{userId}/time-entries
+- [X] GET /workspaces/{workspaceId}/user/{userId}/time-entries
 - [ ] GET /workspaces/{workspaceId}/time-entries/{id}
-- [ ] POST /workspaces/{workspaceId}/time-entries
+- [X] POST /workspaces/{workspaceId}/time-entries
 - [ ] POST /workspaces/{workspaceId}/user/{userId}/time-entries
 - [ ] PATCH /workspaces/{workspaceId}/user/{userId}/time-entries
 - [ ] PUT /workspaces/{workspaceId}/time-entries/{id}
 - [ ] PATCH /workspaces/{workspaceId}/time-entries/invoiced
-- [ ] DELETE /workspaces/{workspaceId}/time-entries/{id}
-- [ ] GET /user
-- [ ] GET /workspaces/{workspaceId}/users
+- [X] DELETE /workspaces/{workspaceId}/time-entries/{id}
+- [X] GET /user
+- [X] GET /workspaces/{workspaceId}/users
 - [ ] POST /workspaces/{workspaceId}/users
 - [ ] PUT /workspaces/{workspaceId}/users/{userId}
 - [ ] DELETE /workspaces/{workspaceId}/users/{userId}
-- [ ] GET /workspaces/{workspaceId}/user-groups
+- [X] GET /workspaces/{workspaceId}/user-groups
 - [ ] POST /workspaces/{workspaceId}/user-groups
 - [ ] PUT /workspaces/{workspaceId}/user-groups/{userGroupId}
 - [ ] DELETE /workspaces/{workspaceId}/user-groups/{userGroupId}
 - [ ] POST /workspaces/{workspaceId}/user-groups/{userGroupId}/users
 - [ ] DELETE /workspaces/{workspaceId}/user-groups/{userGroupId}/users/{userId}
-- [ ] GET /workspaces
+- [X] GET /workspaces
 - [ ] GET /workspaces/{workspaceId}/custom-fields
 - [ ] GET /workspaces/{workspaceId}/projects/{projectid}/custom-fields
 - [ ] PATCH /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId}
