@@ -6,6 +6,7 @@
 #' @import logger
 #' @import anytime
 #' @import lubridate
+#' @import tibble
 NULL
 
 BASE_PATH = "https://api.clockify.me/api/v1"

@@ -70,7 +70,7 @@ workspaces()
 Select a specific workspace.
 
 ```{r set-workspace}
-workspace("612b15a5f4c3bf0462192677")
+workspace("61343c45ab05e02be2c8c1fd")
 ```
 
 ## Users
@@ -123,7 +123,7 @@ time_entries(user_id = "5ef46293df73063139f60bf5")
 
 ```{r put-time-entries}
 prepare_cran_id <- time_entry_insert(
- project_id = "612b16c0bc325f120a1e5099",
+ project_id = "61343c9ba15c1d53ad33369f",
  start = "2021-08-30 08:00:00",
  end   = "2021-08-30 10:30:00",
  description = "Prepare for CRAN submission"
@@ -139,7 +139,7 @@ prepare_cran_id
 Confirm that it has been inserted.
 
 ```{r check-insert-time-entry, concise = FALSE}
-time_entries("612b15a4f4c3bf0462192676", concise = FALSE) %>%
+time_entries(concise = FALSE) %>%
   select(id, description, time_start, time_end)
 ```
 
@@ -152,7 +152,7 @@ time_entry_delete(prepare_cran_id)
 Confirm that it has been deleted.
 
 ```{r check-delete-time-entry, concise = FALSE}
-time_entries("612b15a4f4c3bf0462192676", concise = FALSE) %>%
+time_entries(concise = FALSE) %>%
   select(id, description, time_start, time_end)
 ```
 
@@ -167,14 +167,14 @@ Endpoints which have currently been implemented in this package.
 - [ ] PUT /workspaces/{workspaceId}/clients/{clientId}
 - [ ] DELETE /workspaces/{workspaceId}/clients/{clientId}
 - [X] GET /workspaces/{workspaceId}/projects
-- [ ] GET /workspaces/{workspaceId}/projects/{projectId}
+- [X] GET /workspaces/{workspaceId}/projects/{projectId}
 - [ ] POST /workspaces/{workspaceId}/projects
 - [ ] PUT /workspaces/{workspaceId}/projects/{projectId}
 - [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/estimate
 - [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/memberships
 - [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/template
 - [ ] DELETE /workspaces/{workspaceId}/projects/{id}
-- [ ] GET /workspaces/{workspaceId}/tags
+- [X] GET /workspaces/{workspaceId}/tags
 - [ ] POST /workspaces/{workspaceId}/tags
 - [ ] PUT /workspaces/{workspaceId}/tags/{tagId}
 - [ ] DELETE /workspaces/{workspaceId}/tags/{tagId}

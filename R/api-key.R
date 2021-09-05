@@ -16,10 +16,10 @@ set_api_key <- function(api_key) {
   cache_set(API_KEY, api_key)
 
   # Get user associated with this API key and set default workspace.
-  api_key_user <- user(concise = FALSE)
-  api_key_default_workspace <- api_key_user$default_workspace
+  user <- user(concise = FALSE)
+  default_workspace <- user$default_workspace
   log_debug("Setting default workspace.")
-  workspace(api_key_default_workspace)
+  workspace(default_workspace)
 
   invisible(api_key)
 }
