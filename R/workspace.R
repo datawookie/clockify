@@ -10,8 +10,8 @@
 #' workspaces()
 #' }
 workspaces <- function() {
-  workspaces <- GET("/workspaces")
-  content(workspaces) %>%
+  GET("/workspaces") %>%
+    content() %>%
     map_df(function(workspace) {
       with(
         workspace,
