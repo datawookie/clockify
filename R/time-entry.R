@@ -130,7 +130,7 @@ time_entry <- function(time_entry_id, concise = TRUE) {
 
 #' Insert a time entry
 #'
-#' You can only insert time entries for the authenticated used.
+#' You can only insert time entries for the authenticated user.
 #'
 #' @param project_id Project ID
 #' @param start Start time
