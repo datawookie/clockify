@@ -1,7 +1,7 @@
 Package: clockify
 Type: Package
-Title: A Wrapper for the Clockify API
-Version: 0.0.8
+Title: A Wrapper for the 'Clockify' API
+Version: 0.0.9
 Authors@R: 
     c(person(given = c("Andrew", "B."),
              family = "Collier",
@@ -11,7 +11,7 @@ Authors@R:
              family = "Beckett",
              role = "ctb",
              email = "megan@fathomdata.dev"))
-Description: A wrapper for the Clockify API, making it possible to query, insert and update time keeping data.
+Description: A wrapper for the Clockify API <https://clockify.me/developers-api>, making it possible to query, insert and update time keeping data.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
