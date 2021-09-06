@@ -55,7 +55,6 @@ parse_time_entries <- function(entries, finished, concise) {
 #' @param start Start time
 #' @param end End time
 #' @param finished Whether to include only finished time intervals (intervals with both start and end time)
-#' @param concise Generate concise output
 #' @param ... Further arguments passed to \code{\link{paginate}}.
 #'
 #' @return A data frame with one record per time entry.
@@ -109,13 +108,17 @@ time_entries <- function(user_id = NULL, start = NULL, end = NULL, finished = TR
 #'
 #' Wraps \code{GET /workspaces/{workspaceId}/time-entries/{id}}.
 #'
+#' @inheritParams users
+#'
 #' @param time_entry_id Time entry ID
-#' @param concise Generate concise output
 #'
 #' @return A data frame with one record per time entry.
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' time_entry("61343d27ab05e02be2c8c266")
+#' }
 time_entry <- function(time_entry_id, concise = TRUE) {
   path <- sprintf("/workspaces/%s/time-entries/%s", workspace(), time_entry_id)
 

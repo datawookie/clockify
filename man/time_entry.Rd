@@ -17,3 +17,8 @@ A data frame with one record per time entry.
 \description{
 Wraps \code{GET /workspaces/{workspaceId}/time-entries/{id}}.
 }
+\examples{
+\dontrun{
+time_entry("61343d27ab05e02be2c8c266")
+}
+}
