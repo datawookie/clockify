@@ -52,8 +52,9 @@ projects <- function(concise = TRUE) {
 #' Wraps \code{GET /workspaces/{workspaceId}/projects/{projectId}}.
 #'
 #' @param project_id Project ID
+#' @param concise Generate concise output
 #'
-#' @return
+#' @return A data frame with one record per project
 #' @export
 #'
 #' @examples
@@ -65,7 +66,7 @@ projects <- function(concise = TRUE) {
 project <- function(project_id, concise = TRUE) {
   path <- sprintf("/workspaces/%s/projects/%s", workspace(), project_id)
 
-  clockify:::GET(path) %>%
+  GET(path) %>%
     content() %>% list() %>%
     parse_projects(concise = concise)
 }

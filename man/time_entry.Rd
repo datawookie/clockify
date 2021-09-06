@@ -8,6 +8,8 @@ time_entry(time_entry_id, concise = TRUE)
 }
 \arguments{
 \item{time_entry_id}{Time entry ID}
+
+\item{concise}{Generate concise output}
 }
 \value{
 A data frame with one record per time entry.

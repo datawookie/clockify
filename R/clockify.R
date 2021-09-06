@@ -13,6 +13,9 @@ BASE_PATH = "https://api.clockify.me/api/v1"
 
 globalVariables(
   c(
+    ".",
+    "assignee_id",
+    "assignee_ids",
     "billable",
     "clientId",
     "client_id",

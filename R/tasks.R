@@ -46,6 +46,9 @@ tasks <- function(project_id) {
 #'
 #' Wraps \code{GET /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}}.
 #'
+#' @param project_id Project ID
+#' @param task_id Task ID
+#'
 #' @return A data frame.
 #' @export
 #'
