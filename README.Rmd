@@ -178,13 +178,13 @@ Endpoints which have currently been implemented in this package.
 - [ ] POST /workspaces/{workspaceId}/tags
 - [ ] PUT /workspaces/{workspaceId}/tags/{tagId}
 - [ ] DELETE /workspaces/{workspaceId}/tags/{tagId}
-- [ ] GET /workspaces/{workspaceId}/projects/{projectId}/tasks
-- [ ] GET /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
+- [X] GET /workspaces/{workspaceId}/projects/{projectId}/tasks
+- [X] GET /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
 - [ ] POST /workspaces/{workspaceId}/projects/{projectId}/tasks
 - [ ] PUT /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
 - [ ] DELETE /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
 - [X] GET /workspaces/{workspaceId}/user/{userId}/time-entries
-- [ ] GET /workspaces/{workspaceId}/time-entries/{id}
+- [X] GET /workspaces/{workspaceId}/time-entries/{id}
 - [X] POST /workspaces/{workspaceId}/time-entries
 - [ ] POST /workspaces/{workspaceId}/user/{userId}/time-entries
 - [ ] PATCH /workspaces/{workspaceId}/user/{userId}/time-entries

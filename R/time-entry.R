@@ -10,7 +10,7 @@ EMPTY_ENTRIES <- tibble(
   duration = numeric()
 )
 
-time_entries_parse <- function(entries, finished, concise) {
+parse_time_entries <- function(entries, finished, concise) {
   entries <- tibble(entries) %>%
     unnest_wider(entries) %>%
     unnest_wider(timeInterval) %>%
@@ -40,7 +40,7 @@ time_entries_parse <- function(entries, finished, concise) {
   if (concise) {
     entries %>%
       select(
-        project_id, description, duration
+        id, project_id, description, duration
       )
   } else {
     entries
@@ -91,18 +91,36 @@ time_entries <- function(user_id = NULL, start = NULL, end = NULL, finished = TR
   entries <- paginate(path, query, ...)
 
   if (length(entries)) {
-    entries <- time_entries_parse(entries, finished, concise)
+    entries <- parse_time_entries(entries, finished, concise)
 
     if (nrow(entries) == 0) {
       log_debug("No time entries for specified user.")
       entries <- EMPTY_ENTRIES
     }
-  }
-  else {
+  } else {
     entries <- EMPTY_ENTRIES
   }
 
   entries
+}
+
+#' Get a specific time entry on workspace
+#'
+#' Wraps \code{GET /workspaces/{workspaceId}/time-entries/{id}}.
+#'
+#' @param time_entry_id Time entry ID
+#'
+#' @return A data frame with one record per time entry.
+#' @export
+#'
+#' @examples
+time_entry <- function(time_entry_id, concise = TRUE) {
+  path <- sprintf("/workspaces/%s/time-entries/%s", workspace(), time_entry_id)
+
+  GET(path) %>%
+    content() %>%
+    list() %>%
+    parse_time_entries(finished = FALSE, concise = concise)
 }
 
 #' Insert a time entry
@@ -167,7 +185,7 @@ time_entry_insert <- function(
 
   httr::content(result) %>%
     list() %>%
-    time_entries_parse(finished = FALSE, concise = FALSE) %>%
+    parse_time_entries(finished = FALSE, concise = FALSE) %>%
     pull(id)
 }
 

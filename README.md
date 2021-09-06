@@ -64,7 +64,7 @@ Retrieve a list of available workspaces.
 workspaces()
 ```
 
-    2021-09-05 06:14:39 — GET /workspaces
+    2021-09-06 04:34:35 — GET /workspaces
 
     # A tibble: 2 × 2
       workspace_id             name       
@@ -78,7 +78,7 @@ Select a specific workspace.
 workspace("61343c45ab05e02be2c8c1fd")
 ```
 
-    2021-09-05 06:14:39 — Set active workspace -> 61343c45ab05e02be2c8c1fd.
+    2021-09-06 04:34:35 — Set active workspace -> 61343c45ab05e02be2c8c1fd.
 
     [1] "61343c45ab05e02be2c8c1fd"
 
@@ -90,7 +90,7 @@ Retrieve information on your user profile.
 user()
 ```
 
-    2021-09-05 06:14:39 — GET /user
+    2021-09-06 04:34:35 — GET /user
 
     # A tibble: 1 × 3
       user_id                  user_name status
@@ -103,7 +103,7 @@ Get a list of users.
 users()
 ```
 
-    2021-09-05 06:14:39 — GET /workspaces/61343c45ab05e02be2c8c1fd/users
+    2021-09-06 04:34:35 — GET /workspaces/61343c45ab05e02be2c8c1fd/users
 
     # A tibble: 2 × 3
       user_id                  user_name status
@@ -119,7 +119,7 @@ Get a list of clients.
 clients()
 ```
 
-    2021-09-05 06:14:40 — GET /workspaces/61343c45ab05e02be2c8c1fd/clients
+    2021-09-06 04:34:35 — GET /workspaces/61343c45ab05e02be2c8c1fd/clients
 
     # A tibble: 2 × 3
       client_id                client_name workspace_id            
@@ -135,11 +135,11 @@ Get a list of projects.
 projects()
 ```
 
-    2021-09-05 06:14:40 — GET /workspaces/61343c45ab05e02be2c8c1fd/projects
-    2021-09-05 06:14:40 — Page contains 2 results.
-    2021-09-05 06:14:40 — GET /workspaces/61343c45ab05e02be2c8c1fd/projects
-    2021-09-05 06:14:40 — Page is empty.
-    2021-09-05 06:14:40 — API returned 2 results.
+    2021-09-06 04:34:35 — GET /workspaces/61343c45ab05e02be2c8c1fd/projects
+    2021-09-06 04:34:35 — Page contains 2 results.
+    2021-09-06 04:34:35 — GET /workspaces/61343c45ab05e02be2c8c1fd/projects
+    2021-09-06 04:34:35 — Page is empty.
+    2021-09-06 04:34:35 — API returned 2 results.
 
     # A tibble: 2 × 4
       project_id               project_name client_id                billable
@@ -157,26 +157,34 @@ Retrieve the time entries for the authenticated user.
 time_entries()
 ```
 
-    2021-09-05 06:14:40 — GET /user
-    2021-09-05 06:14:40 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2021-09-05 06:14:40 — Page contains 5 results.
-    2021-09-05 06:14:40 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2021-09-05 06:14:40 — Page is empty.
-    2021-09-05 06:14:40 — API returned 5 results.
+    2021-09-06 04:34:35 — GET /user
+    2021-09-06 04:34:35 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2021-09-06 04:34:36 — Page contains 8 results.
+    2021-09-06 04:34:36 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2021-09-06 04:34:36 — Page is empty.
+    2021-09-06 04:34:36 — API returned 8 results.
 
-    # A tibble: 4 × 3
-      project_id              
-      <chr>                   
-    1 61343c9ba15c1d53ad33369f
-    2 61343c9ba15c1d53ad33369f
-    3 61343c9ba15c1d53ad33369f
-    4 61343c9ba15c1d53ad33369f
-      description                                            duration
-      <chr>                                                     <dbl>
-    1 Setting up GitHub Actions                                  12  
-    2 Make coffee                                                 5  
-    3 Populate README.Rmd                                        68  
-    4 Add GET /workspaces/{workspaceId}/projects/{projectId}     12.0
+    # A tibble: 8 × 4
+      id                       project_id              
+      <chr>                    <chr>                   
+    1 61343cc1777d5361dcdea70a 61343c9ba15c1d53ad33369f
+    2 61343d06777d5361dcdea729 61343c9ba15c1d53ad33369f
+    3 61343d27ab05e02be2c8c266 61343c9ba15c1d53ad33369f
+    4 613448d7777d5361dcdead37 61343c9ba15c1d53ad33369f
+    5 61344bcad01d3b4a27a82310 61343c9ba15c1d53ad33369f
+    6 6134548f00dc8f48962bace7 6134506c777d5361dcdeb3b5
+    7 6134585a777d5361dcdebc5c 6134506c777d5361dcdeb3b5
+    8 61345c45d01d3b4a27a833c7 6134506c777d5361dcdeb3b5
+      description                                                          duration
+      <chr>                                                                   <dbl>
+    1 Setting up GitHub Actions                                                12  
+    2 Make coffee                                                               5  
+    3 Populate README.Rmd                                                      68  
+    4 Add GET /workspaces/{workspaceId}/projects/{projectId}                   12.0
+    5 Add GET /workspaces/{workspaceId}/projects/{projectId}/tasks             31.8
+    6 Add GET https://cex.io/api/ticker/{symbol1}/{symbol2}                    16.0
+    7 Add GET https://cex.io/api/tickers/{symbol1}/{symbol2}/.../{symbolN}     16.5
+    8 Add GET https://cex.io/api/last_price/{symbol1}/{symbol2}                31.6
 
 Retrieve time entries for another user specified by their user ID.
 
@@ -184,9 +192,9 @@ Retrieve time entries for another user specified by their user ID.
 time_entries(user_id = "5ef46293df73063139f60bf5")
 ```
 
-    2021-09-05 06:14:40 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5ef46293df73063139f60bf5/time-entries
-    2021-09-05 06:14:40 — Page is empty.
-    2021-09-05 06:14:40 — API returned 0 results.
+    2021-09-06 04:34:36 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5ef46293df73063139f60bf5/time-entries
+    2021-09-06 04:34:36 — Page is empty.
+    2021-09-06 04:34:36 — API returned 0 results.
 
     # A tibble: 0 × 9
     # … with 9 variables: id <chr>, user_id <chr>, workspace_id <chr>, project_id <chr>, billable <lgl>, description <chr>, time_start <dttm>, time_end <dttm>, duration <dbl>
@@ -202,8 +210,8 @@ prepare_cran_id <- time_entry_insert(
 )
 ```
 
-    2021-09-05 06:14:40 — Insert time entry.
-    2021-09-05 06:14:40 — POST /workspaces/61343c45ab05e02be2c8c1fd/time-entries
+    2021-09-06 04:34:36 — Insert time entry.
+    2021-09-06 04:34:36 — POST /workspaces/61343c45ab05e02be2c8c1fd/time-entries
 
 Check on the ID for this new time entry.
 
@@ -211,7 +219,7 @@ Check on the ID for this new time entry.
 prepare_cran_id
 ```
 
-    [1] "61345240d50d07715889e4ae"
+    [1] "61358c4c2709570f86095a4b"
 
 Confirm that it has been inserted.
 
@@ -220,35 +228,47 @@ time_entries(concise = FALSE) %>%
   select(id, description, time_start, time_end)
 ```
 
-    2021-09-05 06:14:40 — GET /user
-    2021-09-05 06:14:40 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2021-09-05 06:14:40 — Page contains 6 results.
-    2021-09-05 06:14:40 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2021-09-05 06:14:40 — Page is empty.
-    2021-09-05 06:14:40 — API returned 6 results.
+    2021-09-06 04:34:36 — GET /user
+    2021-09-06 04:34:36 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2021-09-06 04:34:36 — Page contains 9 results.
+    2021-09-06 04:34:36 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2021-09-06 04:34:36 — Page is empty.
+    2021-09-06 04:34:36 — API returned 9 results.
 
-    # A tibble: 5 × 4
+    # A tibble: 9 × 4
       id                      
       <chr>                   
-    1 61345240d50d07715889e4ae
+    1 61358c4c2709570f86095a4b
     2 61343cc1777d5361dcdea70a
     3 61343d06777d5361dcdea729
     4 61343d27ab05e02be2c8c266
     5 613448d7777d5361dcdead37
-      description                                            time_start         
-      <chr>                                                  <dttm>             
-    1 Prepare for CRAN submission                            2021-08-30 09:00:00
-    2 Setting up GitHub Actions                              2021-09-03 06:15:00
-    3 Make coffee                                            2021-09-03 06:27:00
-    4 Populate README.Rmd                                    2021-09-03 06:45:00
-    5 Add GET /workspaces/{workspaceId}/projects/{projectId} 2021-09-05 05:34:31
-      time_end           
-      <dttm>             
-    1 2021-08-30 11:30:00
-    2 2021-09-03 06:27:00
-    3 2021-09-03 06:32:00
-    4 2021-09-03 07:53:00
-    5 2021-09-05 05:46:30
+    6 61344bcad01d3b4a27a82310
+    7 6134548f00dc8f48962bace7
+    8 6134585a777d5361dcdebc5c
+    9 61345c45d01d3b4a27a833c7
+      description                                                         
+      <chr>                                                               
+    1 Prepare for CRAN submission                                         
+    2 Setting up GitHub Actions                                           
+    3 Make coffee                                                         
+    4 Populate README.Rmd                                                 
+    5 Add GET /workspaces/{workspaceId}/projects/{projectId}              
+    6 Add GET /workspaces/{workspaceId}/projects/{projectId}/tasks        
+    7 Add GET https://cex.io/api/ticker/{symbol1}/{symbol2}               
+    8 Add GET https://cex.io/api/tickers/{symbol1}/{symbol2}/.../{symbolN}
+    9 Add GET https://cex.io/api/last_price/{symbol1}/{symbol2}           
+      time_start          time_end           
+      <dttm>              <dttm>             
+    1 2021-08-30 09:00:00 2021-08-30 11:30:00
+    2 2021-09-03 06:15:00 2021-09-03 06:27:00
+    3 2021-09-03 06:27:00 2021-09-03 06:32:00
+    4 2021-09-03 06:45:00 2021-09-03 07:53:00
+    5 2021-09-05 05:34:31 2021-09-05 05:46:30
+    6 2021-09-05 05:47:06 2021-09-05 06:18:56
+    7 2021-09-05 06:24:30 2021-09-05 06:40:29
+    8 2021-09-05 06:40:42 2021-09-05 06:57:13
+    9 2021-09-05 06:57:25 2021-09-05 07:29:01
 
 ### Delete Time Entry
 
@@ -256,8 +276,8 @@ time_entries(concise = FALSE) %>%
 time_entry_delete(prepare_cran_id)
 ```
 
-    2021-09-05 06:14:40 — Delete time entry.
-    2021-09-05 06:14:40 — DELETE /workspaces/61343c45ab05e02be2c8c1fd/time-entries/61345240d50d07715889e4ae
+    2021-09-06 04:34:36 — Delete time entry.
+    2021-09-06 04:34:36 — DELETE /workspaces/61343c45ab05e02be2c8c1fd/time-entries/61358c4c2709570f86095a4b
 
     [1] TRUE
 
@@ -268,32 +288,44 @@ time_entries(concise = FALSE) %>%
   select(id, description, time_start, time_end)
 ```
 
-    2021-09-05 06:14:40 — GET /user
-    2021-09-05 06:14:40 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2021-09-05 06:14:41 — Page contains 5 results.
-    2021-09-05 06:14:41 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2021-09-05 06:14:41 — Page is empty.
-    2021-09-05 06:14:41 — API returned 5 results.
+    2021-09-06 04:34:36 — GET /user
+    2021-09-06 04:34:36 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2021-09-06 04:34:36 — Page contains 8 results.
+    2021-09-06 04:34:36 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2021-09-06 04:34:36 — Page is empty.
+    2021-09-06 04:34:36 — API returned 8 results.
 
-    # A tibble: 4 × 4
+    # A tibble: 8 × 4
       id                      
       <chr>                   
     1 61343cc1777d5361dcdea70a
     2 61343d06777d5361dcdea729
     3 61343d27ab05e02be2c8c266
     4 613448d7777d5361dcdead37
-      description                                            time_start         
-      <chr>                                                  <dttm>             
-    1 Setting up GitHub Actions                              2021-09-03 06:15:00
-    2 Make coffee                                            2021-09-03 06:27:00
-    3 Populate README.Rmd                                    2021-09-03 06:45:00
-    4 Add GET /workspaces/{workspaceId}/projects/{projectId} 2021-09-05 05:34:31
-      time_end           
-      <dttm>             
-    1 2021-09-03 06:27:00
-    2 2021-09-03 06:32:00
-    3 2021-09-03 07:53:00
-    4 2021-09-05 05:46:30
+    5 61344bcad01d3b4a27a82310
+    6 6134548f00dc8f48962bace7
+    7 6134585a777d5361dcdebc5c
+    8 61345c45d01d3b4a27a833c7
+      description                                                         
+      <chr>                                                               
+    1 Setting up GitHub Actions                                           
+    2 Make coffee                                                         
+    3 Populate README.Rmd                                                 
+    4 Add GET /workspaces/{workspaceId}/projects/{projectId}              
+    5 Add GET /workspaces/{workspaceId}/projects/{projectId}/tasks        
+    6 Add GET https://cex.io/api/ticker/{symbol1}/{symbol2}               
+    7 Add GET https://cex.io/api/tickers/{symbol1}/{symbol2}/.../{symbolN}
+    8 Add GET https://cex.io/api/last_price/{symbol1}/{symbol2}           
+      time_start          time_end           
+      <dttm>              <dttm>             
+    1 2021-09-03 06:15:00 2021-09-03 06:27:00
+    2 2021-09-03 06:27:00 2021-09-03 06:32:00
+    3 2021-09-03 06:45:00 2021-09-03 07:53:00
+    4 2021-09-05 05:34:31 2021-09-05 05:46:30
+    5 2021-09-05 05:47:06 2021-09-05 06:18:56
+    6 2021-09-05 06:24:30 2021-09-05 06:40:29
+    7 2021-09-05 06:40:42 2021-09-05 06:57:13
+    8 2021-09-05 06:57:25 2021-09-05 07:29:01
 
 ## Endpoints
 
@@ -317,8 +349,8 @@ Endpoints which have currently been implemented in this package.
 -   [ ] POST /workspaces/{workspaceId}/tags
 -   [ ] PUT /workspaces/{workspaceId}/tags/{tagId}
 -   [ ] DELETE /workspaces/{workspaceId}/tags/{tagId}
--   [ ] GET /workspaces/{workspaceId}/projects/{projectId}/tasks
--   [ ] GET
+-   [x] GET /workspaces/{workspaceId}/projects/{projectId}/tasks
+-   [x] GET
     /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
 -   [ ] POST /workspaces/{workspaceId}/projects/{projectId}/tasks
 -   [ ] PUT
@@ -326,7 +358,7 @@ Endpoints which have currently been implemented in this package.
 -   [ ] DELETE
     /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
 -   [x] GET /workspaces/{workspaceId}/user/{userId}/time-entries
--   [ ] GET /workspaces/{workspaceId}/time-entries/{id}
+-   [x] GET /workspaces/{workspaceId}/time-entries/{id}
 -   [x] POST /workspaces/{workspaceId}/time-entries
 -   [ ] POST /workspaces/{workspaceId}/user/{userId}/time-entries
 -   [ ] PATCH /workspaces/{workspaceId}/user/{userId}/time-entries
