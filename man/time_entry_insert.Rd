@@ -19,7 +19,7 @@ time_entry_insert(project_id = NULL, start, end = NULL, description = NULL)
 A time entry ID.
 }
 \description{
-You can only insert time entries for the authenticated used.
+You can only insert time entries for the authenticated user.
 }
 \examples{
 \dontrun{
