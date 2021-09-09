@@ -67,3 +67,19 @@ client_insert <- function(name, concise = TRUE) {
     content() %>%
     parse_client(concise = concise)
 }
+
+#' Delete a client from workspace
+#'
+#' Wraps \code{DELETE /workspaces/{workspaceId}/clients}.
+#'
+#' @param client_id Client ID
+#'
+#' @return A Boolean: \code{TRUE} on success or \code{FALSE} on failure.
+#' @export
+client_delete <- function(client_id) {
+  log_debug("Delete client.")
+
+  path <- sprintf("/workspaces/%s/clients/%s", workspace(), client_id)
+  result <- DELETE(path)
+  status_code(result) == 200
+}
