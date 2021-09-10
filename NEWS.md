@@ -1,7 +1,7 @@
 # {clockify} 0.0.9.9000 (development version)
 
-* Add `time_format` as exported function
-* Add `time_parse` as exported function
+* Hide `time_format` function in the documentation
+* Hide `time_parse` function in the documentation
 
 # {clockify} 0.0.9
 
