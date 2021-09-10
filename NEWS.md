@@ -1,3 +1,8 @@
+# {clockify} 0.0.9.9000 (development version)
+
+* Hide `time_format` function in the documentation
+* Hide `time_parse` function in the documentation
+
 # {clockify} 0.0.9
 
 * Add tests.
