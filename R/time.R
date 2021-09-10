@@ -2,7 +2,7 @@
 #'
 #' @param time String representation of date and time
 #' @param to_utc Whether to convert time to UTC
-#'
+#' @export
 #' @return A string representation of POSIXct.
 time_format <- function(time, to_utc = FALSE) {
   time <- anytime(time)
@@ -24,7 +24,7 @@ time_format <- function(time, to_utc = FALSE) {
 #' @param time Time string returned by API
 #' @param format Format string
 #' @param to_local Whether to convert time to local time zone
-#'
+#' @export
 #' @return A POSIXct object.
 time_parse <- function(time, format = "%Y-%m-%dT%H:%M:%SZ", to_local = TRUE) {
   time <- as.POSIXct(time, format = format, tz = "UTC")
