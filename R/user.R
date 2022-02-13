@@ -1,5 +1,5 @@
 simplify_user <- function(user, active = TRUE, concise = TRUE) {
-  user$memberships <- NULL
+  user$memberships <- list(simplify_membership(user$memberships))
   user$settings <- NULL
   user$profilePicture <- NULL
 
@@ -21,6 +21,20 @@ simplify_user <- function(user, active = TRUE, concise = TRUE) {
   }
 
   user
+}
+
+#' Unpack membership data
+#'
+#' The `target_id` and `membership_type` columns need to be consider together.
+#' For example, if `membership_type` is `WORKSPACE` then the value in the
+#' `target_id` column is a workspace ID. If, however, `membership_type` is
+#' `PROJECT` then the value in the `target_id` column is a project ID.
+#'
+#' @noRd
+simplify_membership <- function(membership) {
+  list_null_to_na(membership) %>%
+    map_dfr(as_tibble) %>%
+    clean_names()
 }
 
 #' Get information for logged in user
@@ -66,8 +80,6 @@ users <- function(active = TRUE, concise = TRUE) {
   path <- sprintf("/workspaces/%s/users", workspace())
   users <- GET(path)
 
-  users <- content(users) %>%
+  content(users) %>%
     map_dfr(simplify_user, active, concise)
-
-  users
 }

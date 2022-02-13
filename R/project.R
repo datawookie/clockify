@@ -13,15 +13,19 @@ parse_projects <- function(projects, concise = TRUE) {
       workspaceId,
       billable,
       public,
-      template
+      template,
+      memberships
     ) %>%
     clean_names()
 
   if (concise) {
     projects %>%
-      select(-workspace_id, -public, -template)
+      select(-workspace_id, -public, -template, -memberships)
   } else {
-    projects
+    projects %>%
+      mutate(
+        memberships = map(memberships, simplify_membership)
+      )
   }
 }
 
