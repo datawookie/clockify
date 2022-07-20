@@ -2,6 +2,7 @@ simplify_user <- function(user, active = TRUE, concise = TRUE) {
   user$memberships <- list(simplify_membership(user$memberships))
   user$settings <- NULL
   user$profilePicture <- NULL
+  user$customFields <- NULL
 
   for (field in c("name", "activeWorkspace", "defaultWorkspace")) {
     if (is.null(user[[field]])) user[[field]] <- NA_character_
