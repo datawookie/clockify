@@ -20,6 +20,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -32,18 +34,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">clockify</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.9.9000</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -64,49 +60,46 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
-<div id="clockify" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#clockify" class="anchor"></a>{clockify}</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="clockify">{clockify}<a class="anchor" aria-label="anchor" href="#clockify"></a>
+</h1></div>
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 </div>
-<div id="clockify-" class="section level1">
-<h1 class="hasAnchor">
-<a href="#clockify-" class="anchor"></a>clockify <img src="reference/figures/clockify-hex.png" align="right" alt="" width="120">
+<div class="section level1">
+<h1 id="clockify-">clockify <img src="reference/figures/clockify-hex.png" align="right" alt="" width="120"><a class="anchor" aria-label="anchor" href="#clockify-"></a>
 </h1>
 <!-- badges: start -->
-
-<p>An R wrapper around the <a href="https://clockify.me/developers-api">Clockify API</a>.</p>
-<p>The documentation for <code>{clockify}</code> is hosted at <a href="https://datawookie.github.io/clockify/" class="uri">https://datawookie.github.io/clockify/</a>.</p>
-<div id="api-key" class="section level2">
-<h2 class="hasAnchor">
-<a href="#api-key" class="anchor"></a>API Key</h2>
-<p>You’re going to need to have an API key from your Clockify account. If you don’t yet have an account, create one. Then retrieve the API key from the <a href="https://clockify.me/user/settings">account settings</a>.</p>
+<p>An R wrapper around the <a href="https://clockify.me/developers-api" class="external-link">Clockify API</a>.</p>
+<p>The documentation for <code>{clockify}</code> is hosted at <a href="https://datawookie.github.io/clockify/" class="external-link uri">https://datawookie.github.io/clockify/</a>.</p>
+<div class="section level2">
+<h2 id="api-key">API Key<a class="anchor" aria-label="anchor" href="#api-key"></a>
+</h2>
+<p>You’re going to need to have an API key from your Clockify account. If you don’t yet have an account, create one. Then retrieve the API key from the <a href="https://clockify.me/user/settings" class="external-link">account settings</a>.</p>
 </div>
-<div id="get-started" class="section level2">
-<h2 class="hasAnchor">
-<a href="#get-started" class="anchor"></a>Get Started</h2>
+<div class="section level2">
+<h2 id="get-started">Get Started<a class="anchor" aria-label="anchor" href="#get-started"></a>
+</h2>
 <p>The first thing you’ll need to do is set up your API key. I store mine in an environment variable called <code>CLOCKIFY_API_KEY</code>.</p>
-<!-- Use API key from demo account. -->
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">CLOCKIFY_API_KEY</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"CLOCKIFY_API_KEY"</span><span class="op">)</span></code></pre></div>
+<!-- Use API key from demo account. --><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">CLOCKIFY_API_KEY</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"CLOCKIFY_API_KEY"</span><span class="op">)</span></span></code></pre></div>
 <p>Now load the <code>{clockify}</code> package and specify the API key.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">clockify</span><span class="op">)</span>
-
-<span class="fu"><a href="reference/set_api_key.html">set_api_key</a></span><span class="op">(</span><span class="va">CLOCKIFY_API_KEY</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">clockify</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/set_api_key.html">set_api_key</a></span><span class="op">(</span><span class="va">CLOCKIFY_API_KEY</span><span class="op">)</span></span></code></pre></div>
 <p>Let’s turn on some logging so we can see what’s happening behind the scenes.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://daroczig.github.io/logger/">logger</a></span><span class="op">)</span>
-
-<span class="fu"><a href="https://daroczig.github.io/logger/reference/log_threshold.html">log_threshold</a></span><span class="op">(</span><span class="va">DEBUG</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://daroczig.github.io/logger/" class="external-link">logger</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://daroczig.github.io/logger/reference/log_threshold.html" class="external-link">log_threshold</a></span><span class="op">(</span><span class="va">DEBUG</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="workspaces" class="section level2">
-<h2 class="hasAnchor">
-<a href="#workspaces" class="anchor"></a>Workspaces</h2>
+<div class="section level2">
+<h2 id="workspaces">Workspaces<a class="anchor" aria-label="anchor" href="#workspaces"></a>
+</h2>
 <p>Retrieve a list of available workspaces.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/workspaces.html">workspaces</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">04</span> — GET <span class="op">/</span>workspaces</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/workspaces.html">workspaces</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">52</span> — GET <span class="op">/</span>workspaces</span></code></pre></div>
 <pre><code># A tibble: 2 × 2
   workspace_id             name       
   &lt;chr&gt;                    &lt;chr&gt;      
@@ -114,18 +107,18 @@
 2 61343c45ab05e02be2c8c1fd Personal   </code></pre>
 <p>Select a specific workspace.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/workspace.html">workspace</a></span><span class="op">(</span><span class="st">"61343c45ab05e02be2c8c1fd"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">04</span> — Set active workspace -&gt;<span class="st"> </span>61343c45ab05e02be2c8c1fd.</span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/workspace.html">workspace</a></span><span class="op">(</span><span class="st">"61343c45ab05e02be2c8c1fd"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">53</span> — Set active workspace -&gt;<span class="st"> </span>61343c45ab05e02be2c8c1fd.</span>
 <span id="cb8-2"><a href="#cb8-2"></a></span>
 <span id="cb8-3"><a href="#cb8-3"></a>[<span class="dv">1</span>] <span class="st">"61343c45ab05e02be2c8c1fd"</span></span></code></pre></div>
 </div>
-<div id="users" class="section level2">
-<h2 class="hasAnchor">
-<a href="#users" class="anchor"></a>Users</h2>
+<div class="section level2">
+<h2 id="users">Users<a class="anchor" aria-label="anchor" href="#users"></a>
+</h2>
 <p>Retrieve information on your user profile.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/user.html">user</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">04</span> — GET <span class="op">/</span>user</span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/user.html">user</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">53</span> — GET <span class="op">/</span>user</span>
 <span id="cb10-2"><a href="#cb10-2"></a></span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="co"># A tibble: 1 × 3</span></span>
 <span id="cb10-4"><a href="#cb10-4"></a>  user_id                  user_name status</span>
@@ -133,8 +126,8 @@
 <span id="cb10-6"><a href="#cb10-6"></a><span class="dv">1</span> 5f227e0cd7176a0e6e754409 Andrew    ACTIVE</span></code></pre></div>
 <p>Get a list of users.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/users.html">users</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">04</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>users</span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/users.html">users</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">53</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>users</span>
 <span id="cb12-2"><a href="#cb12-2"></a></span>
 <span id="cb12-3"><a href="#cb12-3"></a><span class="co"># A tibble: 2 × 3</span></span>
 <span id="cb12-4"><a href="#cb12-4"></a>  user_id                  user_name status</span>
@@ -142,13 +135,13 @@
 <span id="cb12-6"><a href="#cb12-6"></a><span class="dv">1</span> 5f227e0cd7176a0e6e754409 Andrew    ACTIVE</span>
 <span id="cb12-7"><a href="#cb12-7"></a><span class="dv">2</span> 5ef46293df73063139f60bf5 Emma      ACTIVE</span></code></pre></div>
 </div>
-<div id="clients" class="section level2">
-<h2 class="hasAnchor">
-<a href="#clients" class="anchor"></a>Clients</h2>
+<div class="section level2">
+<h2 id="clients">Clients<a class="anchor" aria-label="anchor" href="#clients"></a>
+</h2>
 <p>Get a list of clients.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/clients.html">clients</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">04</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>clients</span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/clients.html">clients</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">53</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>clients</span>
 <span id="cb14-2"><a href="#cb14-2"></a></span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="co"># A tibble: 2 × 3</span></span>
 <span id="cb14-4"><a href="#cb14-4"></a>  client_id                workspace_id             client_name</span>
@@ -156,58 +149,59 @@
 <span id="cb14-6"><a href="#cb14-6"></a><span class="dv">1</span> 61343c6c00dc8f48962b9be9 61343c45ab05e02be2c8c1fd Community  </span>
 <span id="cb14-7"><a href="#cb14-7"></a><span class="dv">2</span> 61343c5d00dc8f48962b9be3 61343c45ab05e02be2c8c1fd Fathom Data</span></code></pre></div>
 </div>
-<div id="projects" class="section level2">
-<h2 class="hasAnchor">
-<a href="#projects" class="anchor"></a>Projects</h2>
+<div class="section level2">
+<h2 id="projects">Projects<a class="anchor" aria-label="anchor" href="#projects"></a>
+</h2>
 <p>Get a list of projects.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/projects.html">projects</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">04</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>projects</span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">04</span> — Page contains <span class="dv">2</span> results.</span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">04</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>projects</span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">04</span> — Page is empty.</span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">04</span> — API returned <span class="dv">2</span> results.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/projects.html">projects</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">53</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>projects</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">53</span> — Page contains <span class="dv">2</span> results.</span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">53</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>projects</span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">54</span> — Page is empty.</span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">54</span> — API returned <span class="dv">2</span> results.</span></code></pre></div>
 <pre><code># A tibble: 2 × 4
   project_id               project_name client_id                billable
   &lt;chr&gt;                    &lt;chr&gt;        &lt;chr&gt;                    &lt;lgl&gt;   
 1 6134506c777d5361dcdeb3b5 {cex}        61343c5d00dc8f48962b9be3 TRUE    
 2 61343c9ba15c1d53ad33369f {clockify}   61343c5d00dc8f48962b9be3 FALSE   </code></pre>
 </div>
-<div id="time-entries" class="section level2">
-<h2 class="hasAnchor">
-<a href="#time-entries" class="anchor"></a>Time Entries</h2>
-<div id="retrieve-time-entries" class="section level3">
-<h3 class="hasAnchor">
-<a href="#retrieve-time-entries" class="anchor"></a>Retrieve Time Entries</h3>
+<div class="section level2">
+<h2 id="time-entries">Time Entries<a class="anchor" aria-label="anchor" href="#time-entries"></a>
+</h2>
+<div class="section level3">
+<h3 id="retrieve-time-entries">Retrieve Time Entries<a class="anchor" aria-label="anchor" href="#retrieve-time-entries"></a>
+</h3>
 <p>Retrieve the time entries for the authenticated user.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — GET <span class="op">/</span>user</span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5f227e0cd7176a0e6e754409<span class="op">/</span>time<span class="op">-</span>entries</span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — Page contains <span class="dv">8</span> results.</span>
-<span id="cb19-4"><a href="#cb19-4"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5f227e0cd7176a0e6e754409<span class="op">/</span>time<span class="op">-</span>entries</span>
-<span id="cb19-5"><a href="#cb19-5"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — Page is empty.</span>
-<span id="cb19-6"><a href="#cb19-6"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — API returned <span class="dv">8</span> results.</span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">54</span> — GET <span class="op">/</span>user</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">54</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5f227e0cd7176a0e6e754409<span class="op">/</span>time<span class="op">-</span>entries</span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">54</span> — Page contains <span class="dv">8</span> results.</span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">54</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5f227e0cd7176a0e6e754409<span class="op">/</span>time<span class="op">-</span>entries</span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">54</span> — Page is empty.</span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">54</span> — API returned <span class="dv">8</span> results.</span>
 <span id="cb19-7"><a href="#cb19-7"></a></span>
 <span id="cb19-8"><a href="#cb19-8"></a><span class="co"># A tibble: 8 × 4</span></span>
-<span id="cb19-9"><a href="#cb19-9"></a>  id                       project_id               description         duration</span>
+<span id="cb19-9"><a href="#cb19-9"></a>  id                       project_id               description          durat…¹</span>
 <span id="cb19-10"><a href="#cb19-10"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">                  </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></span>
-<span id="cb19-11"><a href="#cb19-11"></a><span class="dv">1</span> 61343cc1777d5361dcdea70a 61343c9ba15c1d53ad33369f Set up GitHub Acti…     <span class="dv">12</span>  </span>
+<span id="cb19-11"><a href="#cb19-11"></a><span class="dv">1</span> 61343cc1777d5361dcdea70a 61343c9ba15c1d53ad33369f Set up GitHub Actio…    <span class="dv">12</span>  </span>
 <span id="cb19-12"><a href="#cb19-12"></a><span class="dv">2</span> 61343d06777d5361dcdea729 61343c9ba15c1d53ad33369f Make coffee              <span class="dv">5</span>  </span>
 <span id="cb19-13"><a href="#cb19-13"></a><span class="dv">3</span> 61343d27ab05e02be2c8c266 61343c9ba15c1d53ad33369f Populate README.Rmd     <span class="dv">68</span>  </span>
-<span id="cb19-14"><a href="#cb19-14"></a><span class="dv">4</span> 613448d7777d5361dcdead37 61343c9ba15c1d53ad33369f Add GET <span class="op">/</span>workspace…     <span class="fl">12.0</span></span>
-<span id="cb19-15"><a href="#cb19-15"></a><span class="dv">5</span> 61344bcad01d3b4a27a82310 61343c9ba15c1d53ad33369f Add GET <span class="op">/</span>workspace…     <span class="fl">31.8</span></span>
-<span id="cb19-16"><a href="#cb19-16"></a><span class="dv">6</span> 6134548f00dc8f48962bace7 6134506c777d5361dcdeb3b5 Add GET <span class="op">/</span>ticker<span class="op">/</span>{s…     <span class="fl">16.0</span></span>
-<span id="cb19-17"><a href="#cb19-17"></a><span class="dv">7</span> 6134585a777d5361dcdebc5c 6134506c777d5361dcdeb3b5 Add GET <span class="op">/</span>tickers<span class="op">/</span>{…     <span class="fl">16.5</span></span>
-<span id="cb19-18"><a href="#cb19-18"></a><span class="dv">8</span> 61345c45d01d3b4a27a833c7 6134506c777d5361dcdeb3b5 Add GET <span class="op">/</span>last_pric…     <span class="fl">31.6</span></span></code></pre></div>
+<span id="cb19-14"><a href="#cb19-14"></a><span class="dv">4</span> 613448d7777d5361dcdead37 61343c9ba15c1d53ad33369f Add GET <span class="op">/</span>workspaces…    <span class="fl">12.0</span></span>
+<span id="cb19-15"><a href="#cb19-15"></a><span class="dv">5</span> 61344bcad01d3b4a27a82310 61343c9ba15c1d53ad33369f Add GET <span class="op">/</span>workspaces…    <span class="fl">31.8</span></span>
+<span id="cb19-16"><a href="#cb19-16"></a><span class="dv">6</span> 6134548f00dc8f48962bace7 6134506c777d5361dcdeb3b5 Add GET <span class="op">/</span>ticker<span class="op">/</span>{sy…    <span class="fl">16.0</span></span>
+<span id="cb19-17"><a href="#cb19-17"></a><span class="dv">7</span> 6134585a777d5361dcdebc5c 6134506c777d5361dcdeb3b5 Add GET <span class="op">/</span>tickers<span class="op">/</span>{s…    <span class="fl">16.5</span></span>
+<span id="cb19-18"><a href="#cb19-18"></a><span class="dv">8</span> 61345c45d01d3b4a27a833c7 6134506c777d5361dcdeb3b5 Add GET <span class="op">/</span>last_price…    <span class="fl">31.6</span></span>
+<span id="cb19-19"><a href="#cb19-19"></a><span class="co"># … with abbreviated variable name ¹​duration</span></span></code></pre></div>
 <p>Retrieve time entries for another user specified by their user ID.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span>user_id <span class="op">=</span> <span class="st">"5ef46293df73063139f60bf5"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5ef46293df73063139f60bf5<span class="op">/</span>time<span class="op">-</span>entries</span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — Page contains <span class="dv">2</span> results.</span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5ef46293df73063139f60bf5<span class="op">/</span>time<span class="op">-</span>entries</span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — Page is empty.</span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — API returned <span class="dv">2</span> results.</span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span>user_id <span class="op">=</span> <span class="st">"5ef46293df73063139f60bf5"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">54</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5ef46293df73063139f60bf5<span class="op">/</span>time<span class="op">-</span>entries</span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">54</span> — Page contains <span class="dv">2</span> results.</span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">54</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5ef46293df73063139f60bf5<span class="op">/</span>time<span class="op">-</span>entries</span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">55</span> — Page is empty.</span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">55</span> — API returned <span class="dv">2</span> results.</span>
 <span id="cb21-6"><a href="#cb21-6"></a></span>
 <span id="cb21-7"><a href="#cb21-7"></a><span class="co"># A tibble: 2 × 4</span></span>
 <span id="cb21-8"><a href="#cb21-8"></a>  id                       project_id               description        duration</span>
@@ -215,37 +209,37 @@
 <span id="cb21-10"><a href="#cb21-10"></a><span class="dv">1</span> 613630ebba4b374e57155a72 61343c9ba15c1d53ad33369f Another test entry     <span class="dv">87</span>  </span>
 <span id="cb21-11"><a href="#cb21-11"></a><span class="dv">2</span> 613630cb89516b1767a56a08 61343c9ba15c1d53ad33369f Creating hex logo      <span class="fl">45.4</span></span></code></pre></div>
 </div>
-<div id="insert-time-entry" class="section level3">
-<h3 class="hasAnchor">
-<a href="#insert-time-entry" class="anchor"></a>Insert Time Entry</h3>
+<div class="section level3">
+<h3 id="insert-time-entry">Insert Time Entry<a class="anchor" aria-label="anchor" href="#insert-time-entry"></a>
+</h3>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">prepare_cran_id</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/time_entry_insert.html">time_entry_insert</a></span><span class="op">(</span>
- project_id <span class="op">=</span> <span class="st">"61343c9ba15c1d53ad33369f"</span>,
- start <span class="op">=</span> <span class="st">"2021-08-30 08:00:00"</span>,
- end   <span class="op">=</span> <span class="st">"2021-08-30 10:30:00"</span>,
- description <span class="op">=</span> <span class="st">"Prepare for CRAN submission"</span>
-<span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — Insert time entry.</span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — POST <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>time<span class="op">-</span>entries</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">prepare_cran_id</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/time_entry_insert.html">time_entry_insert</a></span><span class="op">(</span></span>
+<span> project_id <span class="op">=</span> <span class="st">"61343c9ba15c1d53ad33369f"</span>,</span>
+<span> start <span class="op">=</span> <span class="st">"2021-08-30 08:00:00"</span>,</span>
+<span> end   <span class="op">=</span> <span class="st">"2021-08-30 10:30:00"</span>,</span>
+<span> description <span class="op">=</span> <span class="st">"Prepare for CRAN submission"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">55</span> — Insert time entry.</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">55</span> — POST <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>time<span class="op">-</span>entries</span></code></pre></div>
 <p>Check on the ID for this new time entry.</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">prepare_cran_id</span></code></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>[<span class="dv">1</span>] <span class="st">"613b96d15fed1049e3dfedc7"</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">prepare_cran_id</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>[<span class="dv">1</span>] <span class="st">"62d7c35740c2517b961238ae"</span></span></code></pre></div>
 <p>Confirm that it has been inserted.</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span>concise <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">select</span><span class="op">(</span><span class="va">id</span>, <span class="va">description</span>, <span class="va">time_start</span>, <span class="va">time_end</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — GET <span class="op">/</span>user</span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">05</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5f227e0cd7176a0e6e754409<span class="op">/</span>time<span class="op">-</span>entries</span>
-<span id="cb27-3"><a href="#cb27-3"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">06</span> — Page contains <span class="dv">9</span> results.</span>
-<span id="cb27-4"><a href="#cb27-4"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">06</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5f227e0cd7176a0e6e754409<span class="op">/</span>time<span class="op">-</span>entries</span>
-<span id="cb27-5"><a href="#cb27-5"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">06</span> — Page is empty.</span>
-<span id="cb27-6"><a href="#cb27-6"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">06</span> — API returned <span class="dv">9</span> results.</span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span>concise <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">id</span>, <span class="va">description</span>, <span class="va">time_start</span>, <span class="va">time_end</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">55</span> — GET <span class="op">/</span>user</span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">55</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5f227e0cd7176a0e6e754409<span class="op">/</span>time<span class="op">-</span>entries</span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">55</span> — Page contains <span class="dv">9</span> results.</span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">55</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5f227e0cd7176a0e6e754409<span class="op">/</span>time<span class="op">-</span>entries</span>
+<span id="cb27-5"><a href="#cb27-5"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">56</span> — Page is empty.</span>
+<span id="cb27-6"><a href="#cb27-6"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">56</span> — API returned <span class="dv">9</span> results.</span>
 <span id="cb27-7"><a href="#cb27-7"></a></span>
 <span id="cb27-8"><a href="#cb27-8"></a><span class="co"># A tibble: 9 × 4</span></span>
 <span id="cb27-9"><a href="#cb27-9"></a>  id                       description   time_start          time_end           </span>
 <span id="cb27-10"><a href="#cb27-10"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">         </span><span class="er">&lt;</span>dttm<span class="op">&gt;</span><span class="st">              </span><span class="er">&lt;</span>dttm<span class="op">&gt;</span><span class="st">             </span></span>
-<span id="cb27-11"><a href="#cb27-11"></a><span class="dv">1</span> 613b96d15fed1049e3dfedc7 Prepare <span class="cf">for</span> … <span class="dv">2021-08-30</span> <span class="dv">08</span><span class="op">:</span><span class="dv">00</span><span class="op">:</span><span class="dv">00</span> <span class="dv">2021-08-30</span> <span class="dv">10</span><span class="op">:</span><span class="dv">30</span><span class="op">:</span><span class="dv">00</span></span>
+<span id="cb27-11"><a href="#cb27-11"></a><span class="dv">1</span> 62d7c35740c2517b961238ae Prepare <span class="cf">for</span> … <span class="dv">2021-08-30</span> <span class="dv">08</span><span class="op">:</span><span class="dv">00</span><span class="op">:</span><span class="dv">00</span> <span class="dv">2021-08-30</span> <span class="dv">10</span><span class="op">:</span><span class="dv">30</span><span class="op">:</span><span class="dv">00</span></span>
 <span id="cb27-12"><a href="#cb27-12"></a><span class="dv">2</span> 61343cc1777d5361dcdea70a Set up GitHu… <span class="dv">2021-09-03</span> <span class="dv">05</span><span class="op">:</span><span class="dv">15</span><span class="op">:</span><span class="dv">00</span> <span class="dv">2021-09-03</span> <span class="dv">05</span><span class="op">:</span><span class="dv">27</span><span class="op">:</span><span class="dv">00</span></span>
 <span id="cb27-13"><a href="#cb27-13"></a><span class="dv">3</span> 61343d06777d5361dcdea729 Make coffee   <span class="dv">2021-09-03</span> <span class="dv">05</span><span class="op">:</span><span class="dv">27</span><span class="op">:</span><span class="dv">00</span> <span class="dv">2021-09-03</span> <span class="dv">05</span><span class="op">:</span><span class="dv">32</span><span class="op">:</span><span class="dv">00</span></span>
 <span id="cb27-14"><a href="#cb27-14"></a><span class="dv">4</span> 61343d27ab05e02be2c8c266 Populate REA… <span class="dv">2021-09-03</span> <span class="dv">05</span><span class="op">:</span><span class="dv">45</span><span class="op">:</span><span class="dv">00</span> <span class="dv">2021-09-03</span> <span class="dv">06</span><span class="op">:</span><span class="dv">53</span><span class="op">:</span><span class="dv">00</span></span>
@@ -255,25 +249,25 @@
 <span id="cb27-18"><a href="#cb27-18"></a><span class="dv">8</span> 6134585a777d5361dcdebc5c Add GET <span class="op">/</span>tic… <span class="dv">2021-09-05</span> <span class="dv">05</span><span class="op">:</span><span class="dv">40</span><span class="op">:</span><span class="dv">42</span> <span class="dv">2021-09-05</span> <span class="dv">05</span><span class="op">:</span><span class="dv">57</span><span class="op">:</span><span class="dv">13</span></span>
 <span id="cb27-19"><a href="#cb27-19"></a><span class="dv">9</span> 61345c45d01d3b4a27a833c7 Add GET <span class="op">/</span>las… <span class="dv">2021-09-05</span> <span class="dv">05</span><span class="op">:</span><span class="dv">57</span><span class="op">:</span><span class="dv">25</span> <span class="dv">2021-09-05</span> <span class="dv">06</span><span class="op">:</span><span class="dv">29</span><span class="op">:</span><span class="dv">01</span></span></code></pre></div>
 </div>
-<div id="delete-time-entry" class="section level3">
-<h3 class="hasAnchor">
-<a href="#delete-time-entry" class="anchor"></a>Delete Time Entry</h3>
+<div class="section level3">
+<h3 id="delete-time-entry">Delete Time Entry<a class="anchor" aria-label="anchor" href="#delete-time-entry"></a>
+</h3>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/time_entry_delete.html">time_entry_delete</a></span><span class="op">(</span><span class="va">prepare_cran_id</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">06</span> — Delete time entry.</span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">06</span> — DELETE <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>time<span class="op">-</span>entries<span class="op">/</span>613b96d15fed1049e3dfedc7</span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/time_entry_delete.html">time_entry_delete</a></span><span class="op">(</span><span class="va">prepare_cran_id</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">56</span> — Delete time entry.</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">56</span> — DELETE <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>time<span class="op">-</span>entries<span class="op">/</span>62d7c35740c2517b961238ae</span>
 <span id="cb29-3"><a href="#cb29-3"></a></span>
 <span id="cb29-4"><a href="#cb29-4"></a>[<span class="dv">1</span>] <span class="ot">TRUE</span></span></code></pre></div>
 <p>Confirm that it has been deleted.</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span>concise <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">select</span><span class="op">(</span><span class="va">id</span>, <span class="va">description</span>, <span class="va">time_start</span>, <span class="va">time_end</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb31"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">06</span> — GET <span class="op">/</span>user</span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">06</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5f227e0cd7176a0e6e754409<span class="op">/</span>time<span class="op">-</span>entries</span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">06</span> — Page contains <span class="dv">8</span> results.</span>
-<span id="cb31-4"><a href="#cb31-4"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">06</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5f227e0cd7176a0e6e754409<span class="op">/</span>time<span class="op">-</span>entries</span>
-<span id="cb31-5"><a href="#cb31-5"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">06</span> — Page is empty.</span>
-<span id="cb31-6"><a href="#cb31-6"></a><span class="dv">2021-09-10</span> <span class="dv">17</span><span class="op">:</span><span class="dv">33</span><span class="op">:</span><span class="dv">06</span> — API returned <span class="dv">8</span> results.</span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span>concise <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">id</span>, <span class="va">description</span>, <span class="va">time_start</span>, <span class="va">time_end</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">56</span> — GET <span class="op">/</span>user</span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">56</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5f227e0cd7176a0e6e754409<span class="op">/</span>time<span class="op">-</span>entries</span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">56</span> — Page contains <span class="dv">8</span> results.</span>
+<span id="cb31-4"><a href="#cb31-4"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">56</span> — GET <span class="op">/</span>workspaces<span class="op">/</span>61343c45ab05e02be2c8c1fd<span class="op">/</span>user<span class="op">/</span>5f227e0cd7176a0e6e754409<span class="op">/</span>time<span class="op">-</span>entries</span>
+<span id="cb31-5"><a href="#cb31-5"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">56</span> — Page is empty.</span>
+<span id="cb31-6"><a href="#cb31-6"></a><span class="dv">2022-07-20</span> <span class="dv">08</span><span class="op">:</span><span class="dv">56</span><span class="op">:</span><span class="dv">56</span> — API returned <span class="dv">8</span> results.</span>
 <span id="cb31-7"><a href="#cb31-7"></a></span>
 <span id="cb31-8"><a href="#cb31-8"></a><span class="co"># A tibble: 8 × 4</span></span>
 <span id="cb31-9"><a href="#cb31-9"></a>  id                       description   time_start          time_end           </span>
@@ -288,171 +282,117 @@
 <span id="cb31-18"><a href="#cb31-18"></a><span class="dv">8</span> 61345c45d01d3b4a27a833c7 Add GET <span class="op">/</span>las… <span class="dv">2021-09-05</span> <span class="dv">05</span><span class="op">:</span><span class="dv">57</span><span class="op">:</span><span class="dv">25</span> <span class="dv">2021-09-05</span> <span class="dv">06</span><span class="op">:</span><span class="dv">29</span><span class="op">:</span><span class="dv">01</span></span></code></pre></div>
 </div>
 </div>
-<div id="endpoints" class="section level2">
-<h2 class="hasAnchor">
-<a href="#endpoints" class="anchor"></a>Endpoints</h2>
-<!-- This list generated by api-get-endpoints.R. -->
-<p>Endpoints which have currently been implemented in this package.</p>
+<div class="section level2">
+<h2 id="endpoints">Endpoints<a class="anchor" aria-label="anchor" href="#endpoints"></a>
+</h2>
+<!-- This list generated by api-get-endpoints.R. --><p>Endpoints which have currently been implemented in this package.</p>
 <ul>
 <li>
-<input type="checkbox" disabled checked>
-GET /workspaces/{workspaceId}/clients</li>
+<input type="checkbox" disabled checked>GET /workspaces/{workspaceId}/clients</li>
 <li>
-<input type="checkbox" disabled checked>
-POST /workspaces/{workspaceId}/clients</li>
+<input type="checkbox" disabled checked>POST /workspaces/{workspaceId}/clients</li>
 <li>
-<input type="checkbox" disabled>
-PUT /workspaces/{workspaceId}/clients/{clientId}</li>
+<input type="checkbox" disabled>PUT /workspaces/{workspaceId}/clients/{clientId}</li>
 <li>
-<input type="checkbox" disabled checked>
-DELETE /workspaces/{workspaceId}/clients/{clientId}</li>
+<input type="checkbox" disabled checked>DELETE /workspaces/{workspaceId}/clients/{clientId}</li>
 <li>
-<input type="checkbox" disabled checked>
-GET /workspaces/{workspaceId}/projects</li>
+<input type="checkbox" disabled checked>GET /workspaces/{workspaceId}/projects</li>
 <li>
-<input type="checkbox" disabled checked>
-GET /workspaces/{workspaceId}/projects/{projectId}</li>
+<input type="checkbox" disabled checked>GET /workspaces/{workspaceId}/projects/{projectId}</li>
 <li>
-<input type="checkbox" disabled>
-POST /workspaces/{workspaceId}/projects</li>
+<input type="checkbox" disabled>POST /workspaces/{workspaceId}/projects</li>
 <li>
-<input type="checkbox" disabled>
-PUT /workspaces/{workspaceId}/projects/{projectId}</li>
+<input type="checkbox" disabled>PUT /workspaces/{workspaceId}/projects/{projectId}</li>
 <li>
-<input type="checkbox" disabled>
-PATCH /workspaces/{workspaceId}/projects/{projectId}/estimate</li>
+<input type="checkbox" disabled>PATCH /workspaces/{workspaceId}/projects/{projectId}/estimate</li>
 <li>
-<input type="checkbox" disabled>
-PATCH /workspaces/{workspaceId}/projects/{projectId}/memberships</li>
+<input type="checkbox" disabled>PATCH /workspaces/{workspaceId}/projects/{projectId}/memberships</li>
 <li>
-<input type="checkbox" disabled>
-PATCH /workspaces/{workspaceId}/projects/{projectId}/template</li>
+<input type="checkbox" disabled>PATCH /workspaces/{workspaceId}/projects/{projectId}/template</li>
 <li>
-<input type="checkbox" disabled>
-DELETE /workspaces/{workspaceId}/projects/{id}</li>
+<input type="checkbox" disabled>DELETE /workspaces/{workspaceId}/projects/{id}</li>
 <li>
-<input type="checkbox" disabled checked>
-GET /workspaces/{workspaceId}/tags</li>
+<input type="checkbox" disabled checked>GET /workspaces/{workspaceId}/tags</li>
 <li>
-<input type="checkbox" disabled>
-POST /workspaces/{workspaceId}/tags</li>
+<input type="checkbox" disabled>POST /workspaces/{workspaceId}/tags</li>
 <li>
-<input type="checkbox" disabled>
-PUT /workspaces/{workspaceId}/tags/{tagId}</li>
+<input type="checkbox" disabled>PUT /workspaces/{workspaceId}/tags/{tagId}</li>
 <li>
-<input type="checkbox" disabled>
-DELETE /workspaces/{workspaceId}/tags/{tagId}</li>
+<input type="checkbox" disabled>DELETE /workspaces/{workspaceId}/tags/{tagId}</li>
 <li>
-<input type="checkbox" disabled checked>
-GET /workspaces/{workspaceId}/projects/{projectId}/tasks</li>
+<input type="checkbox" disabled checked>GET /workspaces/{workspaceId}/projects/{projectId}/tasks</li>
 <li>
-<input type="checkbox" disabled checked>
-GET /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}</li>
+<input type="checkbox" disabled checked>GET /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}</li>
 <li>
-<input type="checkbox" disabled>
-POST /workspaces/{workspaceId}/projects/{projectId}/tasks</li>
+<input type="checkbox" disabled>POST /workspaces/{workspaceId}/projects/{projectId}/tasks</li>
 <li>
-<input type="checkbox" disabled>
-PUT /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}</li>
+<input type="checkbox" disabled>PUT /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}</li>
 <li>
-<input type="checkbox" disabled>
-DELETE /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}</li>
+<input type="checkbox" disabled>DELETE /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}</li>
 <li>
-<input type="checkbox" disabled checked>
-GET /workspaces/{workspaceId}/user/{userId}/time-entries</li>
+<input type="checkbox" disabled checked>GET /workspaces/{workspaceId}/user/{userId}/time-entries</li>
 <li>
-<input type="checkbox" disabled checked>
-GET /workspaces/{workspaceId}/time-entries/{id}</li>
+<input type="checkbox" disabled checked>GET /workspaces/{workspaceId}/time-entries/{id}</li>
 <li>
-<input type="checkbox" disabled checked>
-POST /workspaces/{workspaceId}/time-entries</li>
+<input type="checkbox" disabled checked>POST /workspaces/{workspaceId}/time-entries</li>
 <li>
-<input type="checkbox" disabled>
-POST /workspaces/{workspaceId}/user/{userId}/time-entries</li>
+<input type="checkbox" disabled>POST /workspaces/{workspaceId}/user/{userId}/time-entries</li>
 <li>
-<input type="checkbox" disabled>
-PATCH /workspaces/{workspaceId}/user/{userId}/time-entries</li>
+<input type="checkbox" disabled>PATCH /workspaces/{workspaceId}/user/{userId}/time-entries</li>
 <li>
-<input type="checkbox" disabled>
-PUT /workspaces/{workspaceId}/time-entries/{id}</li>
+<input type="checkbox" disabled>PUT /workspaces/{workspaceId}/time-entries/{id}</li>
 <li>
-<input type="checkbox" disabled>
-PATCH /workspaces/{workspaceId}/time-entries/invoiced</li>
+<input type="checkbox" disabled>PATCH /workspaces/{workspaceId}/time-entries/invoiced</li>
 <li>
-<input type="checkbox" disabled checked>
-DELETE /workspaces/{workspaceId}/time-entries/{id}</li>
+<input type="checkbox" disabled checked>DELETE /workspaces/{workspaceId}/time-entries/{id}</li>
 <li>
-<input type="checkbox" disabled checked>
-GET /user</li>
+<input type="checkbox" disabled checked>GET /user</li>
 <li>
-<input type="checkbox" disabled checked>
-GET /workspaces/{workspaceId}/users</li>
+<input type="checkbox" disabled checked>GET /workspaces/{workspaceId}/users</li>
 <li>
-<input type="checkbox" disabled>
-POST /workspaces/{workspaceId}/users</li>
+<input type="checkbox" disabled>POST /workspaces/{workspaceId}/users</li>
 <li>
-<input type="checkbox" disabled>
-PUT /workspaces/{workspaceId}/users/{userId}</li>
+<input type="checkbox" disabled>PUT /workspaces/{workspaceId}/users/{userId}</li>
 <li>
-<input type="checkbox" disabled>
-DELETE /workspaces/{workspaceId}/users/{userId}</li>
+<input type="checkbox" disabled>DELETE /workspaces/{workspaceId}/users/{userId}</li>
 <li>
-<input type="checkbox" disabled checked>
-GET /workspaces/{workspaceId}/user-groups</li>
+<input type="checkbox" disabled checked>GET /workspaces/{workspaceId}/user-groups</li>
 <li>
-<input type="checkbox" disabled>
-POST /workspaces/{workspaceId}/user-groups</li>
+<input type="checkbox" disabled>POST /workspaces/{workspaceId}/user-groups</li>
 <li>
-<input type="checkbox" disabled>
-PUT /workspaces/{workspaceId}/user-groups/{userGroupId}</li>
+<input type="checkbox" disabled>PUT /workspaces/{workspaceId}/user-groups/{userGroupId}</li>
 <li>
-<input type="checkbox" disabled>
-DELETE /workspaces/{workspaceId}/user-groups/{userGroupId}</li>
+<input type="checkbox" disabled>DELETE /workspaces/{workspaceId}/user-groups/{userGroupId}</li>
 <li>
-<input type="checkbox" disabled>
-POST /workspaces/{workspaceId}/user-groups/{userGroupId}/users</li>
+<input type="checkbox" disabled>POST /workspaces/{workspaceId}/user-groups/{userGroupId}/users</li>
 <li>
-<input type="checkbox" disabled>
-DELETE /workspaces/{workspaceId}/user-groups/{userGroupId}/users/{userId}</li>
+<input type="checkbox" disabled>DELETE /workspaces/{workspaceId}/user-groups/{userGroupId}/users/{userId}</li>
 <li>
-<input type="checkbox" disabled checked>
-GET /workspaces</li>
+<input type="checkbox" disabled checked>GET /workspaces</li>
 <li>
-<input type="checkbox" disabled>
-GET /workspaces/{workspaceId}/custom-fields (<em>PRO feature</em>)</li>
+<input type="checkbox" disabled>GET /workspaces/{workspaceId}/custom-fields (<em>PRO feature</em>)</li>
 <li>
-<input type="checkbox" disabled>
-GET /workspaces/{workspaceId}/projects/{projectid}/custom-fields (<em>PRO feature</em>)</li>
+<input type="checkbox" disabled>GET /workspaces/{workspaceId}/projects/{projectid}/custom-fields (<em>PRO feature</em>)</li>
 <li>
-<input type="checkbox" disabled>
-PATCH /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId} (<em>PRO feature</em>)</li>
+<input type="checkbox" disabled>PATCH /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId} (<em>PRO feature</em>)</li>
 <li>
-<input type="checkbox" disabled>
-DELETE /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId} (<em>PRO feature</em>)</li>
+<input type="checkbox" disabled>DELETE /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId} (<em>PRO feature</em>)</li>
 <li>
-<input type="checkbox" disabled>
-POST /workspaces/{workspaceId}/reports/summary</li>
+<input type="checkbox" disabled>POST /workspaces/{workspaceId}/reports/summary</li>
 <li>
-<input type="checkbox" disabled>
-POST /workspaces/{workspaceId}/reports/detailed</li>
+<input type="checkbox" disabled>POST /workspaces/{workspaceId}/reports/detailed</li>
 <li>
-<input type="checkbox" disabled>
-POST /workspaces/{workspaceId}/reports/weekly</li>
+<input type="checkbox" disabled>POST /workspaces/{workspaceId}/reports/weekly</li>
 <li>
-<input type="checkbox" disabled>
-GET /workspaces/{workspaceId}/shared-reports</li>
+<input type="checkbox" disabled>GET /workspaces/{workspaceId}/shared-reports</li>
 <li>
-<input type="checkbox" disabled>
-GET /shared-reports/{sharedReportId}</li>
+<input type="checkbox" disabled>GET /shared-reports/{sharedReportId}</li>
 <li>
-<input type="checkbox" disabled>
-POST /workspaces/{workspaceId}/shared-reports</li>
+<input type="checkbox" disabled>POST /workspaces/{workspaceId}/shared-reports</li>
 <li>
-<input type="checkbox" disabled>
-PUT /workspaces/{workspaceId}/shared-reports/{sharedReportId}</li>
+<input type="checkbox" disabled>PUT /workspaces/{workspaceId}/shared-reports/{sharedReportId}</li>
 <li>
-<input type="checkbox" disabled>
-DELETE /workspaces/{workspaceId}/shared-reports/{sharedReportId}</li>
+<input type="checkbox" disabled>DELETE /workspaces/{workspaceId}/shared-reports/{sharedReportId}</li>
 </ul>
 </div>
 </div>
@@ -461,45 +401,57 @@ DELETE /workspaces/{workspaceId}/shared-reports/{sharedReportId}</li>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=clockify">https://​cloud.r-project.org/​package=clockify</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Andrew B. Collier <br><small class="roles"> Author, maintainer </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="https://cloud.r-project.org/package=clockify" class="external-link">View on CRAN</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://cran.r-project.org/package=clockify"><img src="https://www.r-pkg.org/badges/version/clockify" alt="CRAN status"></a></li>
-<li><a href="https://travis-ci.org/datawookie/clockify"><img src="https://travis-ci.org/datawookie/clockify.svg?branch=master" alt="Travis-CI build status"></a></li>
-<li><a href="https://codecov.io/github/datawookie/clockify"><img src="https://img.shields.io/codecov/c/github/datawookie/clockify.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://www.r-project.org/Licenses/GPL-3" class="external-link">GPL-3</a></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing clockify</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Andrew B. Collier <br><small class="roles"> Author, maintainer </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/package=clockify" class="external-link"><img src="https://www.r-pkg.org/badges/version/clockify" alt="CRAN status"></a></li>
+<li><a href="https://travis-ci.org/datawookie/clockify" class="external-link"><img src="https://travis-ci.org/datawookie/clockify.svg?branch=master" alt="Travis-CI build status"></a></li>
+<li><a href="https://codecov.io/github/datawookie/clockify" class="external-link"><img src="https://img.shields.io/codecov/c/github/datawookie/clockify.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Andrew B. Collier.</p>
+  <p></p>
+<p>Developed by Andrew B. Collier.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -507,6 +459,8 @@ DELETE /workspaces/{workspaceId}/shared-reports/{sharedReportId}</li>
 
   
 
+
+  
 
   </body>
 </html>
