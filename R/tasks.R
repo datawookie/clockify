@@ -7,15 +7,17 @@ EXTRA_COLS <- c(assignee_ids = NA_character_)
 #' @noRd
 #'
 parse_tasks <- function(tasks) {
-  tibble(tasks) %>%
-    unnest_wider(tasks) %>%
-    clean_names() %>%
-    add_column(!!!EXTRA_COLS[!names(EXTRA_COLS) %in% names(.)]) %>%
-    rename(assignee_id = assignee_ids) %>%
-    mutate(
-      assignee_id = assignee_id %>% map(unlist)
-    ) %>%
-    select(id, name,  project_id, status, billable, assignee_id)
+  if (!length(tasks)) {
+    NULL
+  } else {
+    tibble(tasks) %>%
+      unnest_wider(tasks) %>%
+      clean_names() %>%
+      add_column(!!!EXTRA_COLS[!names(EXTRA_COLS) %in% names(.)]) %>%
+      select(-assignee_id) %>%
+      rename(assignee_id = assignee_ids) %>%
+      select(id, name,  project_id, status, billable, assignee_id)
+  }
 }
 
 #' Get tasks
