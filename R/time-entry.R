@@ -103,8 +103,9 @@ time_entries <- function(user_id = NULL, start = NULL, end = NULL, description =
     query$task <- task
   }
   if (!is.null(tags)) {
-    # if you have multiple tags, they need to be passed as multiple parameters,
-    # i.e. ?tags=tagId_1&tags=tagId_2
+    # Multiple tags need to be passed as separate parameters. For example,
+    # ?tags=tagId_1&tags=tagId_2.
+    #
     tag_list <- as.list(setNames(tags, rep("tags", length(tags))))
     query <- c(query, tag_list)
   }

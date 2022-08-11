@@ -1,8 +1,11 @@
-# {clockify} 0.0.9.9000 (development version)
+# {clockify} 0.0.11
+
+* Add the ability to filter time entries by `description`, `project`, `task`, or `tag`.
+
+# {clockify} 0.0.10
 
 * Hide `time_format` function in the documentation
 * Hide `time_parse` function in the documentation
-* Add the ability to filter time entries by `description`, `project`, `task`, or `tag`.
 
 # {clockify} 0.0.9
 
