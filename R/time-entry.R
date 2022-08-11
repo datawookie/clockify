@@ -49,11 +49,17 @@ parse_time_entries <- function(entries, finished, concise) {
 
 #' Get time entries
 #'
+#' You send time according to your account's timezone (from Profile Settings) and get response with time in UTC.
+#'
 #' @inheritParams users
 #'
 #' @param user_id User ID
-#' @param start Start time
-#' @param end End time
+#' @param start If provided, only time entries that started after the specified datetime will be returned.
+#' @param end If provided, only time entries that started before the specified datetime will be returned.
+#' @param description If provided, time entries will be filtered by description.
+#' @param project If provided, time entries will be filtered by project.
+#' @param task If provided, time entries will be filtered by task.
+#' @param tags If provided, time entries will be filtered by tags. You can provide one or more tags.
 #' @param finished Whether to include only finished time intervals (intervals with both start and end time)
 #' @param ... Further arguments passed to \code{\link{paginate}}.
 #'
@@ -71,21 +77,36 @@ parse_time_entries <- function(entries, finished, concise) {
 #' # Specify number of pages.
 #' time_entries(USER_ID, pages = 3)
 #' }
-time_entries <- function(user_id = NULL, start = NULL, end = NULL, finished = TRUE, concise = TRUE, ...) {
+time_entries <- function(user_id = NULL, start = NULL, end = NULL, description = NULL, project = NULL, task = NULL, tags = NULL, finished = TRUE, concise = TRUE, ...) {
   if (is.null(user_id)) {
     user_id <- user(concise = FALSE)$user_id
   }
   path <- sprintf("/workspaces/%s/user/%s/time-entries", workspace(), user_id)
 
-  query = list()
+  query <- list()
 
   if (!is.null(start)) {
-    query$start = time_format(start)
+    query$start <- time_format(start)
     log_debug("start time: {start} - {query$start}")
   }
   if (!is.null(end)) {
-    query$end = time_format(end)
+    query$end <- time_format(end)
     log_debug("end time:   {end} - {query$end}")
+  }
+  if (!is.null(description)) {
+    query$description <- description
+  }
+  if (!is.null(project)) {
+    query$project <- project
+  }
+  if (!is.null(task)) {
+    query$task <- task
+  }
+  if (!is.null(tags)) {
+    # if you have multiple tags, they need to be passed as multiple parameters,
+    # i.e. ?tags=tagId_1&tags=tagId_2
+    tag_list <- as.list(setNames(tags, rep("tags", length(tags))))
+    query <- c(query, tag_list)
   }
 
   entries <- paginate(path, query, ...)
