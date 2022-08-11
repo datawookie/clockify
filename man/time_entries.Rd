@@ -8,6 +8,10 @@ time_entries(
   user_id = NULL,
   start = NULL,
   end = NULL,
+  description = NULL,
+  project = NULL,
+  task = NULL,
+  tags = NULL,
   finished = TRUE,
   concise = TRUE,
   ...
@@ -16,9 +20,17 @@ time_entries(
 \arguments{
 \item{user_id}{User ID}
 
-\item{start}{Start time}
+\item{start}{If provided, only time entries that started after the specified datetime will be returned.}
 
-\item{end}{End time}
+\item{end}{If provided, only time entries that started before the specified datetime will be returned.}
+
+\item{description}{If provided, time entries will be filtered by description.}
+
+\item{project}{If provided, time entries will be filtered by project.}
+
+\item{task}{If provided, time entries will be filtered by task.}
+
+\item{tags}{If provided, time entries will be filtered by tags. You can provide one or more tags.}
 
 \item{finished}{Whether to include only finished time intervals (intervals with both start and end time)}
 
@@ -30,7 +42,7 @@ time_entries(
 A data frame with one record per time entry.
 }
 \description{
-Get time entries
+You send time according to your account's timezone (from Profile Settings) and get response with time in UTC.
 }
 \examples{
 \dontrun{
