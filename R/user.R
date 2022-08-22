@@ -38,7 +38,13 @@ simplify_membership <- function(membership) {
     clean_names()
 }
 
-#' Get information for logged in user
+#' Get ID for authenticated user.
+#' @noRd
+user_get_id <- function() {
+  user(concise = FALSE)$user_id
+}
+
+#' Get information for authenticated user
 #'
 #' @inheritParams users
 #'

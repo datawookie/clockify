@@ -53,7 +53,7 @@ parse_time_entries <- function(entries, finished, concise) {
 #'
 #' @inheritParams users
 #'
-#' @param user_id User ID
+#' @param user_id User ID. If not specified then use authenticated user.
 #' @param start If provided, only time entries that started after the specified datetime will be returned.
 #' @param end If provided, only time entries that started before the specified datetime will be returned.
 #' @param description If provided, time entries will be filtered by description.
@@ -78,9 +78,7 @@ parse_time_entries <- function(entries, finished, concise) {
 #' time_entries(USER_ID, pages = 3)
 #' }
 time_entries <- function(user_id = NULL, start = NULL, end = NULL, description = NULL, project = NULL, task = NULL, tags = NULL, finished = TRUE, concise = TRUE, ...) {
-  if (is.null(user_id)) {
-    user_id <- user(concise = FALSE)$user_id
-  }
+  if (is.null(user_id)) user_id <- user_get_id()
   path <- sprintf("/workspaces/%s/user/%s/time-entries", workspace(), user_id)
 
   query <- list()

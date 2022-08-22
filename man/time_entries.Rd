@@ -18,7 +18,7 @@ time_entries(
 )
 }
 \arguments{
-\item{user_id}{User ID}
+\item{user_id}{User ID. If not specified then use authenticated user.}
 
 \item{start}{If provided, only time entries that started after the specified datetime will be returned.}
 

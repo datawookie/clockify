@@ -2,7 +2,7 @@
 % Please edit documentation in R/user.R
 \name{user}
 \alias{user}
-\title{Get information for logged in user}
+\title{Get information for authenticated user}
 \usage{
 user(concise = TRUE)
 }
@@ -13,7 +13,7 @@ user(concise = TRUE)
 A data frame with details of user profile.
 }
 \description{
-Get information for logged in user
+Get information for authenticated user
 }
 \examples{
 \dontrun{
