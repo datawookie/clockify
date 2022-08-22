@@ -7,6 +7,7 @@
 #' @import anytime
 #' @import lubridate
 #' @import tibble
+#' @importFrom stats setNames
 NULL
 
 BASE_PATH = "https://api.clockify.me/api/v1"
@@ -25,6 +26,7 @@ globalVariables(
     "description",
     "end",
     "error",
+    "memberships",
     "name",
     "project_id",
     "public",
