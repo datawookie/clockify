@@ -186,14 +186,14 @@ Endpoints which have currently been implemented in this package. Endpoints which
 - [X] GET /workspaces/{workspaceId}/user/{userId}/time-entries
 - [X] GET /workspaces/{workspaceId}/time-entries/{id}
 - [X] POST /workspaces/{workspaceId}/time-entries
-- [💰] POST /workspaces/{workspaceId}/user/{userId}/time-entries
-- [💰] PATCH /workspaces/{workspaceId}/user/{userId}/time-entries
+- [ ] POST /workspaces/{workspaceId}/user/{userId}/time-entries 💰
+- [ ] PATCH /workspaces/{workspaceId}/user/{userId}/time-entries 💰
 - [X] PUT /workspaces/{workspaceId}/time-entries/{id}
 - [?] PATCH /workspaces/{workspaceId}/time-entries/invoiced
 - [X] DELETE /workspaces/{workspaceId}/time-entries/{id}
 - [X] GET /user
 - [X] GET /workspaces/{workspaceId}/users
-- [ ] POST /workspaces/{workspaceId}/users
+- [ ] POST /workspaces/{workspaceId}/users 💰
 - [ ] PUT /workspaces/{workspaceId}/users/{userId}
 - [ ] DELETE /workspaces/{workspaceId}/users/{userId}
 - [X] GET /workspaces/{workspaceId}/user-groups
