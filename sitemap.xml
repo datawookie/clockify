@@ -49,6 +49,9 @@
     <loc>/reference/tasks.html</loc>
   </url>
   <url>
+    <loc>/reference/time-entry-parameters.html</loc>
+  </url>
+  <url>
     <loc>/reference/time_entries.html</loc>
   </url>
   <url>
@@ -59,6 +62,12 @@
   </url>
   <url>
     <loc>/reference/time_entry_insert.html</loc>
+  </url>
+  <url>
+    <loc>/reference/time_entry_invoiced.html</loc>
+  </url>
+  <url>
+    <loc>/reference/time_entry_set.html</loc>
   </url>
   <url>
     <loc>/reference/user.html</loc>
