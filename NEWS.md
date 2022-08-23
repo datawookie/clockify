@@ -1,3 +1,7 @@
+# {clockify} 0.0.12
+
+* Add endpoints for dealing with custom fields.
+
 # {clockify} 0.0.11
 
 * Add the ability to filter time entries by `description`, `project`, `task`, or `tag`.
