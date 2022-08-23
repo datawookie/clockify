@@ -189,7 +189,7 @@ prepare_body <- function(
 
 #' Insert a time entry
 #'
-#' You can only insert time entries for the authenticated user.
+#' Inserting time entries for other users is a paid feature.
 #'
 #' @inheritParams time-entry-parameters
 #'
@@ -200,14 +200,24 @@ prepare_body <- function(
 #' \dontrun{
 #' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 #'
+#' # Insert a time entry for the authenticated user.
 #' time_entry(
 #'   project_id = "600e73263e207962449a2c13",
 #'   start = "2021-01-02 08:00:00",
 #'   end   = "2021-01-02 10:00:00",
 #'   description = "Doing stuff"
 #' )
+#' # Insert a time entry for another user.
+#' time_entry(
+#'   user_id = "5df56293df753263139e60cf5",
+#'   project_id = "600e73263e207962449a2c13",
+#'   start = "2021-01-02 10:00:00",
+#'   end   = "2021-01-02 12:00:00",
+#'   description = "Doing other stuff"
+#' )
 #' }
 time_entry_insert <- function(
+    user_id = NULL,
     project_id = NULL,
     start,
     end = NULL,
@@ -215,7 +225,12 @@ time_entry_insert <- function(
 ) {
   log_debug("Insert time entry.")
 
-  path <- sprintf("/workspaces/%s/time-entries", workspace())
+  path <- sprintf("/workspaces/%s/", workspace())
+  if (!is.null(user_id)) {
+    warning("Inserting time entries for other users is a paid feature.", call. = FALSE, immediate. = TRUE)
+    path <- paste0(path, sprintf("user/%s/", user_id))
+  }
+  path <- paste0(path, "time-entries")
 
   body <- prepare_body(project_id, start, end, description)
 

@@ -10,5 +10,5 @@ time_entry_invoiced(time_entry_id, invoiced = TRUE)
 \item{time_entry_id}{Time entry ID}
 }
 \description{
-Mark time entries as invoiced
+Have not yet managed to test this because the response is always a 403.
 }

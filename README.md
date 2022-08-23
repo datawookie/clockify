@@ -64,7 +64,7 @@ Retrieve a list of available workspaces.
 workspaces()
 ```
 
-    2022-08-23 07:44:24 — GET /workspaces
+    2022-08-23 14:43:38 — GET /workspaces
 
     # A tibble: 2 × 2
       workspace_id             name       
@@ -78,7 +78,7 @@ Select a specific workspace.
 workspace("61343c45ab05e02be2c8c1fd")
 ```
 
-    2022-08-23 07:44:24 — Set active workspace -> 61343c45ab05e02be2c8c1fd.
+    2022-08-23 14:43:38 — Set active workspace -> 61343c45ab05e02be2c8c1fd.
 
     [1] "61343c45ab05e02be2c8c1fd"
 
@@ -90,7 +90,7 @@ Retrieve information on your user profile.
 user()
 ```
 
-    2022-08-23 07:44:24 — GET /user
+    2022-08-23 14:43:38 — GET /user
 
     # A tibble: 1 × 3
       user_id                  user_name status
@@ -103,7 +103,7 @@ Get a list of users.
 users()
 ```
 
-    2022-08-23 07:44:24 — GET /workspaces/61343c45ab05e02be2c8c1fd/users
+    2022-08-23 14:43:38 — GET /workspaces/61343c45ab05e02be2c8c1fd/users
 
     # A tibble: 2 × 3
       user_id                  user_name status
@@ -119,7 +119,7 @@ Get a list of clients.
 clients()
 ```
 
-    2022-08-23 07:44:24 — GET /workspaces/61343c45ab05e02be2c8c1fd/clients
+    2022-08-23 14:43:38 — GET /workspaces/61343c45ab05e02be2c8c1fd/clients
 
     # A tibble: 2 × 3
       client_id                workspace_id             client_name
@@ -135,11 +135,11 @@ Get a list of projects.
 projects()
 ```
 
-    2022-08-23 07:44:25 — GET /workspaces/61343c45ab05e02be2c8c1fd/projects
-    2022-08-23 07:44:25 — Page contains 2 results.
-    2022-08-23 07:44:25 — GET /workspaces/61343c45ab05e02be2c8c1fd/projects
-    2022-08-23 07:44:25 — Page is empty.
-    2022-08-23 07:44:25 — API returned 2 results.
+    2022-08-23 14:43:38 — GET /workspaces/61343c45ab05e02be2c8c1fd/projects
+    2022-08-23 14:43:38 — Page contains 2 results.
+    2022-08-23 14:43:38 — GET /workspaces/61343c45ab05e02be2c8c1fd/projects
+    2022-08-23 14:43:38 — Page is empty.
+    2022-08-23 14:43:38 — API returned 2 results.
 
     # A tibble: 2 × 4
       project_id               project_name client_id                billable
@@ -157,12 +157,12 @@ Retrieve the time entries for the authenticated user.
 time_entries()
 ```
 
-    2022-08-23 07:44:25 — GET /user
-    2022-08-23 07:44:25 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-23 07:44:25 — Page contains 8 results.
-    2022-08-23 07:44:25 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-23 07:44:25 — Page is empty.
-    2022-08-23 07:44:25 — API returned 8 results.
+    2022-08-23 14:43:38 — GET /user
+    2022-08-23 14:43:38 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-23 14:43:38 — Page contains 8 results.
+    2022-08-23 14:43:38 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-23 14:43:39 — Page is empty.
+    2022-08-23 14:43:39 — API returned 8 results.
 
     # A tibble: 8 × 4
       id                       project_id               description          durat…¹
@@ -183,11 +183,11 @@ Retrieve time entries for another user specified by their user ID.
 time_entries(user_id = "5ef46293df73063139f60bf5")
 ```
 
-    2022-08-23 07:44:25 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5ef46293df73063139f60bf5/time-entries
-    2022-08-23 07:44:25 — Page contains 2 results.
-    2022-08-23 07:44:25 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5ef46293df73063139f60bf5/time-entries
-    2022-08-23 07:44:25 — Page is empty.
-    2022-08-23 07:44:25 — API returned 2 results.
+    2022-08-23 14:43:39 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5ef46293df73063139f60bf5/time-entries
+    2022-08-23 14:43:39 — Page contains 2 results.
+    2022-08-23 14:43:39 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5ef46293df73063139f60bf5/time-entries
+    2022-08-23 14:43:39 — Page is empty.
+    2022-08-23 14:43:39 — API returned 2 results.
 
     # A tibble: 2 × 4
       id                       project_id               description        duration
@@ -206,8 +206,8 @@ prepare_cran_id <- time_entry_insert(
 )
 ```
 
-    2022-08-23 07:44:25 — Insert time entry.
-    2022-08-23 07:44:25 — POST /workspaces/61343c45ab05e02be2c8c1fd/time-entries
+    2022-08-23 14:43:39 — Insert time entry.
+    2022-08-23 14:43:39 — POST /workspaces/61343c45ab05e02be2c8c1fd/time-entries
 
 Check on the ID for this new time entry.
 
@@ -215,7 +215,7 @@ Check on the ID for this new time entry.
 prepare_cran_id
 ```
 
-    [1] "630477494c77844e56852058"
+    [1] "6304d98b2134f92441e43f5e"
 
 Confirm that it has been inserted.
 
@@ -224,26 +224,25 @@ time_entries(concise = FALSE) %>%
   select(id, description, time_start, time_end)
 ```
 
-    2022-08-23 07:44:25 — GET /user
-    2022-08-23 07:44:25 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-23 07:44:26 — Page contains 10 results.
-    2022-08-23 07:44:26 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-23 07:44:26 — Page is empty.
-    2022-08-23 07:44:26 — API returned 10 results.
+    2022-08-23 14:43:39 — GET /user
+    2022-08-23 14:43:39 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-23 14:43:39 — Page contains 9 results.
+    2022-08-23 14:43:39 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-23 14:43:39 — Page is empty.
+    2022-08-23 14:43:39 — API returned 9 results.
 
-    # A tibble: 10 × 4
-       id                       description  time_start          time_end           
-       <chr>                    <chr>        <dttm>              <dttm>             
-     1 63047749bd14056f0378d891 Prepare for… 2021-08-30 09:00:00 2021-08-30 11:30:00
-     2 630477494c77844e56852058 Prepare for… 2021-08-30 09:00:00 2021-08-30 11:30:00
-     3 61343cc1777d5361dcdea70a Set up GitH… 2021-09-03 06:15:00 2021-09-03 06:27:00
-     4 61343d06777d5361dcdea729 Make coffee  2021-09-03 06:27:00 2021-09-03 06:32:00
-     5 61343d27ab05e02be2c8c266 Populate RE… 2021-09-03 06:45:00 2021-09-03 07:53:00
-     6 613448d7777d5361dcdead37 Add GET /wo… 2021-09-05 05:34:31 2021-09-05 05:46:30
-     7 61344bcad01d3b4a27a82310 Add GET /wo… 2021-09-05 05:47:06 2021-09-05 06:18:56
-     8 6134548f00dc8f48962bace7 Add GET /ti… 2021-09-05 06:24:30 2021-09-05 06:40:29
-     9 6134585a777d5361dcdebc5c Add GET /ti… 2021-09-05 06:40:42 2021-09-05 06:57:13
-    10 61345c45d01d3b4a27a833c7 Add GET /la… 2021-09-05 06:57:25 2021-09-05 07:29:01
+    # A tibble: 9 × 4
+      id                       description   time_start          time_end           
+      <chr>                    <chr>         <dttm>              <dttm>             
+    1 6304d98b2134f92441e43f5e Prepare for … 2021-08-30 09:00:00 2021-08-30 11:30:00
+    2 61343cc1777d5361dcdea70a Set up GitHu… 2021-09-03 06:15:00 2021-09-03 06:27:00
+    3 61343d06777d5361dcdea729 Make coffee   2021-09-03 06:27:00 2021-09-03 06:32:00
+    4 61343d27ab05e02be2c8c266 Populate REA… 2021-09-03 06:45:00 2021-09-03 07:53:00
+    5 613448d7777d5361dcdead37 Add GET /wor… 2021-09-05 05:34:31 2021-09-05 05:46:30
+    6 61344bcad01d3b4a27a82310 Add GET /wor… 2021-09-05 05:47:06 2021-09-05 06:18:56
+    7 6134548f00dc8f48962bace7 Add GET /tic… 2021-09-05 06:24:30 2021-09-05 06:40:29
+    8 6134585a777d5361dcdebc5c Add GET /tic… 2021-09-05 06:40:42 2021-09-05 06:57:13
+    9 61345c45d01d3b4a27a833c7 Add GET /las… 2021-09-05 06:57:25 2021-09-05 07:29:01
 
 ### Delete Time Entry
 
@@ -251,8 +250,8 @@ time_entries(concise = FALSE) %>%
 time_entry_delete(prepare_cran_id)
 ```
 
-    2022-08-23 07:44:26 — Delete time entry.
-    2022-08-23 07:44:26 — DELETE /workspaces/61343c45ab05e02be2c8c1fd/time-entries/630477494c77844e56852058
+    2022-08-23 14:43:39 — Delete time entry.
+    2022-08-23 14:43:39 — DELETE /workspaces/61343c45ab05e02be2c8c1fd/time-entries/6304d98b2134f92441e43f5e
 
     [1] TRUE
 
@@ -263,25 +262,24 @@ time_entries(concise = FALSE) %>%
   select(id, description, time_start, time_end)
 ```
 
-    2022-08-23 07:44:26 — GET /user
-    2022-08-23 07:44:26 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-23 07:44:26 — Page contains 9 results.
-    2022-08-23 07:44:26 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-23 07:44:26 — Page is empty.
-    2022-08-23 07:44:26 — API returned 9 results.
+    2022-08-23 14:43:39 — GET /user
+    2022-08-23 14:43:39 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-23 14:43:39 — Page contains 8 results.
+    2022-08-23 14:43:39 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-23 14:43:39 — Page is empty.
+    2022-08-23 14:43:39 — API returned 8 results.
 
-    # A tibble: 9 × 4
+    # A tibble: 8 × 4
       id                       description   time_start          time_end           
       <chr>                    <chr>         <dttm>              <dttm>             
-    1 63047749bd14056f0378d891 Prepare for … 2021-08-30 09:00:00 2021-08-30 11:30:00
-    2 61343cc1777d5361dcdea70a Set up GitHu… 2021-09-03 06:15:00 2021-09-03 06:27:00
-    3 61343d06777d5361dcdea729 Make coffee   2021-09-03 06:27:00 2021-09-03 06:32:00
-    4 61343d27ab05e02be2c8c266 Populate REA… 2021-09-03 06:45:00 2021-09-03 07:53:00
-    5 613448d7777d5361dcdead37 Add GET /wor… 2021-09-05 05:34:31 2021-09-05 05:46:30
-    6 61344bcad01d3b4a27a82310 Add GET /wor… 2021-09-05 05:47:06 2021-09-05 06:18:56
-    7 6134548f00dc8f48962bace7 Add GET /tic… 2021-09-05 06:24:30 2021-09-05 06:40:29
-    8 6134585a777d5361dcdebc5c Add GET /tic… 2021-09-05 06:40:42 2021-09-05 06:57:13
-    9 61345c45d01d3b4a27a833c7 Add GET /las… 2021-09-05 06:57:25 2021-09-05 07:29:01
+    1 61343cc1777d5361dcdea70a Set up GitHu… 2021-09-03 06:15:00 2021-09-03 06:27:00
+    2 61343d06777d5361dcdea729 Make coffee   2021-09-03 06:27:00 2021-09-03 06:32:00
+    3 61343d27ab05e02be2c8c266 Populate REA… 2021-09-03 06:45:00 2021-09-03 07:53:00
+    4 613448d7777d5361dcdead37 Add GET /wor… 2021-09-05 05:34:31 2021-09-05 05:46:30
+    5 61344bcad01d3b4a27a82310 Add GET /wor… 2021-09-05 05:47:06 2021-09-05 06:18:56
+    6 6134548f00dc8f48962bace7 Add GET /tic… 2021-09-05 06:24:30 2021-09-05 06:40:29
+    7 6134585a777d5361dcdebc5c Add GET /tic… 2021-09-05 06:40:42 2021-09-05 06:57:13
+    8 61345c45d01d3b4a27a833c7 Add GET /las… 2021-09-05 06:57:25 2021-09-05 07:29:01
 
 ## Endpoints
 
@@ -318,10 +316,10 @@ Endpoints which are only available on a paid plan are indicated with a
 -   [x] GET /workspaces/{workspaceId}/user/{userId}/time-entries
 -   [x] GET /workspaces/{workspaceId}/time-entries/{id}
 -   [x] POST /workspaces/{workspaceId}/time-entries
--   [ ] POST /workspaces/{workspaceId}/user/{userId}/time-entries 💰
+-   [x] POST /workspaces/{workspaceId}/user/{userId}/time-entries 💰
 -   [ ] PATCH /workspaces/{workspaceId}/user/{userId}/time-entries 💰
 -   [x] PUT /workspaces/{workspaceId}/time-entries/{id}
--   \[?\] PATCH /workspaces/{workspaceId}/time-entries/invoiced
+-   [x] PATCH /workspaces/{workspaceId}/time-entries/invoiced
 -   [x] DELETE /workspaces/{workspaceId}/time-entries/{id}
 -   [x] GET /user
 -   [x] GET /workspaces/{workspaceId}/users

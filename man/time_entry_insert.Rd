@@ -4,7 +4,13 @@
 \alias{time_entry_insert}
 \title{Insert a time entry}
 \usage{
-time_entry_insert(project_id = NULL, start, end = NULL, description = NULL)
+time_entry_insert(
+  user_id = NULL,
+  project_id = NULL,
+  start,
+  end = NULL,
+  description = NULL
+)
 }
 \arguments{
 \item{project_id}{Project ID}
@@ -19,17 +25,26 @@ time_entry_insert(project_id = NULL, start, end = NULL, description = NULL)
 A time entry ID.
 }
 \description{
-You can only insert time entries for the authenticated user.
+Inserting time entries for other users is a paid feature.
 }
 \examples{
 \dontrun{
 set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 
+# Insert a time entry for the authenticated user.
 time_entry(
   project_id = "600e73263e207962449a2c13",
   start = "2021-01-02 08:00:00",
   end   = "2021-01-02 10:00:00",
   description = "Doing stuff"
+)
+# Insert a time entry for another user.
+time_entry(
+  user_id = "5df56293df753263139e60cf5",
+  project_id = "600e73263e207962449a2c13",
+  start = "2021-01-02 10:00:00",
+  end   = "2021-01-02 12:00:00",
+  description = "Doing other stuff"
 )
 }
 }
