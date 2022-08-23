@@ -148,14 +148,50 @@ time_entry <- function(time_entry_id, concise = TRUE) {
     parse_time_entries(finished = FALSE, concise = concise)
 }
 
-#' Insert a time entry
+#' Time Entry Parameters
 #'
-#' You can only insert time entries for the authenticated user.
+#' These are parameters which occur commonly across functions for time entries.
 #'
+#' @name time-entry-parameters
+#'
+#' @param time_entry_id Time entry ID
 #' @param project_id Project ID
 #' @param start Start time
 #' @param end End time
 #' @param description Description
+NULL
+
+prepare_body <- function(
+    project_id = NULL,
+    start = NULL,
+    end = NULL,
+    description = NULL
+) {
+  body = list()
+
+  if (!is.null(start)) {
+    if (!is.POSIXct(start)) start <- anytime(start)
+    body$start = time_format(start)
+  }
+  if (!is.null(end)) {
+    if (!is.POSIXct(end)) end <- anytime(end)
+    body$end = time_format(end)
+  }
+  if (!is.null(project_id)) {
+    body$projectId = project_id
+  }
+  if (!is.null(description)) {
+    body$description = description
+  }
+
+  body
+}
+
+#' Insert a time entry
+#'
+#' You can only insert time entries for the authenticated user.
+#'
+#' @inheritParams time-entry-parameters
 #'
 #' @return A time entry ID.
 #' @export
@@ -172,36 +208,16 @@ time_entry <- function(time_entry_id, concise = TRUE) {
 #' )
 #' }
 time_entry_insert <- function(
-  project_id = NULL,
-  start,
-  end = NULL,
-  description = NULL
+    project_id = NULL,
+    start,
+    end = NULL,
+    description = NULL
 ) {
   log_debug("Insert time entry.")
 
   path <- sprintf("/workspaces/%s/time-entries", workspace())
 
-  # Convert start and end times to POSIXct.
-  #
-  if (!is.POSIXct(start)) start <- anytime(start)
-  if (!is.POSIXct(end)) end <- anytime(end)
-
-  body = list()
-
-  if (!is.null(start)) {
-    body$start = time_format(start)
-  } else {
-    stop("Start time must be provided!", call. = FALSE)
-  }
-  if (!is.null(end)) {
-    body$end = time_format(end)
-  }
-  if (!is.null(project_id)) {
-    body$projectId = project_id
-  }
-  if (!is.null(description)) {
-    body$description = description
-  }
+  body <- prepare_body(project_id, start, end, description)
 
   result <- POST(
     path,
@@ -216,7 +232,7 @@ time_entry_insert <- function(
 
 #' Delete a time entry
 #'
-#' @param time_entry_id Time entry ID
+#' @inheritParams time-entry-parameters
 #'
 #' @return A Boolean: \code{TRUE} on success or \code{FALSE} on failure.
 #' @export
@@ -233,4 +249,63 @@ time_entry_delete <- function(time_entry_id = NULL) {
   path <- sprintf("/workspaces/%s/time-entries/%s", workspace(), time_entry_id)
   result <- DELETE(path)
   status_code(result) == 204
+}
+
+#' Replace a time entry
+#'
+#' This does not update the time entry. It uses the same time entry ID but sets
+#' all details from scratch.
+#'
+#' @inheritParams time-entry-parameters
+#'
+#' @export
+time_entry_set <- function(
+    time_entry_id,
+    project_id = NULL,
+    start,
+    end = NULL,
+    description = NULL
+) {
+  log_debug("Set time entry.")
+
+  path <- sprintf("/workspaces/%s/time-entries/%s", workspace(), time_entry_id)
+
+  body <- prepare_body(project_id, start, end, description)
+
+  result <- PUT(
+    path,
+    body = body
+  )
+
+  httr::content(result) %>%
+    list() %>%
+    parse_time_entries(finished = FALSE, concise = FALSE) %>%
+    pull(id)
+}
+
+#' Mark time entries as invoiced
+#'
+#' Have not yet managed to test this because the response is always a 403.
+#'
+#' @inheritParams time-entry-parameters
+#'
+#' @export
+time_entry_invoiced <- function(
+    time_entry_id,
+    invoiced = TRUE
+) {
+  log_debug("Mark time entry as invoiced.")
+
+  path <- sprintf("/workspaces/%s/time-entries/invoiced", workspace())
+
+  body <- list(
+    timeEntryIds = I(c(time_entry_id)),
+    invoiced = invoiced
+  )
+
+  result <- PATCH(
+    path,
+    body = body
+  )
+  status_code(result) == 200
 }

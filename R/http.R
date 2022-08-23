@@ -82,3 +82,53 @@ DELETE <- function(path) {
 
   response
 }
+
+#' PUT
+#'
+#' @noRd
+#'
+#' @param path The path of the endpoint.
+#'
+#' @inherit httr::PUT return
+PUT <- function(path, body = NULL) {
+  url <- api_url(path)
+  log_debug("PUT {path}")
+
+  response <- httr::PUT(
+    url,
+    body = body,
+    add_headers(
+      "X-Api-Key" = get_api_key()
+    ),
+    encode = "json"
+  )
+
+  check_response(response)
+
+  response
+}
+
+#' PATCH
+#'
+#' @noRd
+#'
+#' @param path The path of the endpoint.
+#'
+#' @inherit httr::PATCH return
+PATCH <- function(path, body = NULL) {
+  url <- api_url(path)
+  log_debug("PATCH {path}")
+
+  response <- httr::PATCH(
+    url,
+    body = body,
+    add_headers(
+      "X-Api-Key" = get_api_key()
+    ),
+    encode = "json"
+  )
+
+  check_response(response)
+
+  response
+}
