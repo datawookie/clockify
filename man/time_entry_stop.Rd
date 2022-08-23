@@ -12,3 +12,19 @@ time_entry_stop(user_id = NULL, end = NULL)
 \description{
 Stop currently running timer
 }
+\examples{
+\dontrun{
+# Start timer running.
+time_entry_insert(
+  user_id = "5df56293df753263139e60c5",
+  project_id = "600e73263e207962449a2c13",
+  start = "2022-09-02 14:00:00",
+  description = "Doing other stuff"
+)
+# Stop timer.
+time_entry_stop(
+  user_id = "5df56293df753263139e60c5",
+  end = "2022-09-02 15:00:00"
+)
+}
+}

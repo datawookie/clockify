@@ -203,10 +203,10 @@ Endpoints which have currently been implemented in this package. Endpoints which
 - [ ] POST /workspaces/{workspaceId}/user-groups/{userGroupId}/users
 - [ ] DELETE /workspaces/{workspaceId}/user-groups/{userGroupId}/users/{userId}
 - [X] GET /workspaces
-- [ ] GET /workspaces/{workspaceId}/custom-fields (_PRO feature_)
-- [ ] GET /workspaces/{workspaceId}/projects/{projectid}/custom-fields (_PRO feature_)
-- [ ] PATCH /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId} (_PRO feature_)
-- [ ] DELETE /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId} (_PRO feature_)
+- [X] GET /workspaces/{workspaceId}/custom-fields
+- [X] GET /workspaces/{workspaceId}/projects/{projectid}/custom-fields
+- [X] PATCH /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId}
+- [X] DELETE /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId}
 - [ ] POST /workspaces/{workspaceId}/reports/summary
 - [ ] POST /workspaces/{workspaceId}/reports/detailed
 - [ ] POST /workspaces/{workspaceId}/reports/weekly

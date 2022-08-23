@@ -41,13 +41,14 @@ GET <- function(path, query = NULL) {
 #' @param body The body of the query.
 #'
 #' @inherit httr::POST return
-POST <- function(path, body = NULL) {
+POST <- function(path, body = NULL, query = NULL) {
   url <- api_url(path)
   log_debug("POST {path}")
 
   response <- httr::POST(
     url,
     body = body,
+    query = query,
     add_headers(
       "X-Api-Key" = get_api_key()
     ),

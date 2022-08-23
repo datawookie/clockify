@@ -90,3 +90,28 @@ users <- function(active = TRUE, concise = TRUE) {
   content(users) %>%
     map_dfr(simplify_user, active, concise)
 }
+
+#' Create a user
+#'
+#' @export
+user_create <- function(email, send_email = TRUE) {
+  warning("Creating users is a paid feature.", call. = FALSE, immediate. = TRUE)
+
+  path <- sprintf("/workspaces/%s/users", workspace())
+
+  body <- list(
+    email = email
+  )
+  query <- list(
+    sendEmail = ifelse(send_email, "true", "false")
+  )
+
+  result <- POST(
+    path,
+    body = body,
+    query = query
+  )
+
+  print(result)
+  print(content(result))
+}
