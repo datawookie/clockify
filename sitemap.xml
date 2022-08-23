@@ -22,6 +22,15 @@
     <loc>/reference/clients.html</loc>
   </url>
   <url>
+    <loc>/reference/custom_field_delete.html</loc>
+  </url>
+  <url>
+    <loc>/reference/custom_field_update.html</loc>
+  </url>
+  <url>
+    <loc>/reference/custom_fields.html</loc>
+  </url>
+  <url>
     <loc>/reference/get_api_key.html</loc>
   </url>
   <url>
@@ -70,7 +79,13 @@
     <loc>/reference/time_entry_set.html</loc>
   </url>
   <url>
+    <loc>/reference/time_entry_stop.html</loc>
+  </url>
+  <url>
     <loc>/reference/user.html</loc>
+  </url>
+  <url>
+    <loc>/reference/user_create.html</loc>
   </url>
   <url>
     <loc>/reference/user_groups.html</loc>
