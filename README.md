@@ -64,7 +64,7 @@ Retrieve a list of available workspaces.
 workspaces()
 ```
 
-    2022-08-23 16:16:03 — GET /workspaces
+    2022-08-24 07:35:06 — GET https://api.clockify.me/api/v1/workspaces
 
     # A tibble: 2 × 2
       workspace_id             name       
@@ -78,7 +78,7 @@ Select a specific workspace.
 workspace("61343c45ab05e02be2c8c1fd")
 ```
 
-    2022-08-23 16:16:04 — Set active workspace -> 61343c45ab05e02be2c8c1fd.
+    2022-08-24 07:35:06 — Set active workspace -> 61343c45ab05e02be2c8c1fd.
 
     [1] "61343c45ab05e02be2c8c1fd"
 
@@ -90,7 +90,7 @@ Retrieve information on your user profile.
 user()
 ```
 
-    2022-08-23 16:16:04 — GET /user
+    2022-08-24 07:35:06 — GET https://api.clockify.me/api/v1/user
 
     # A tibble: 1 × 3
       user_id                  user_name status
@@ -103,7 +103,7 @@ Get a list of users.
 users()
 ```
 
-    2022-08-23 16:16:04 — GET /workspaces/61343c45ab05e02be2c8c1fd/users
+    2022-08-24 07:35:06 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/users
 
     # A tibble: 2 × 3
       user_id                  user_name status
@@ -119,7 +119,7 @@ Get a list of clients.
 clients()
 ```
 
-    2022-08-23 16:16:04 — GET /workspaces/61343c45ab05e02be2c8c1fd/clients
+    2022-08-24 07:35:06 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/clients
 
     # A tibble: 2 × 3
       client_id                workspace_id             client_name
@@ -135,11 +135,11 @@ Get a list of projects.
 projects()
 ```
 
-    2022-08-23 16:16:04 — GET /workspaces/61343c45ab05e02be2c8c1fd/projects
-    2022-08-23 16:16:04 — Page contains 2 results.
-    2022-08-23 16:16:04 — GET /workspaces/61343c45ab05e02be2c8c1fd/projects
-    2022-08-23 16:16:04 — Page is empty.
-    2022-08-23 16:16:04 — API returned 2 results.
+    2022-08-24 07:35:06 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/projects
+    2022-08-24 07:35:06 — Page contains 2 results.
+    2022-08-24 07:35:06 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/projects
+    2022-08-24 07:35:06 — Page is empty.
+    2022-08-24 07:35:06 — API returned 2 results.
 
     # A tibble: 2 × 4
       project_id               project_name client_id                billable
@@ -157,12 +157,12 @@ Retrieve the time entries for the authenticated user.
 time_entries()
 ```
 
-    2022-08-23 16:16:04 — GET /user
-    2022-08-23 16:16:04 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-23 16:16:04 — Page contains 8 results.
-    2022-08-23 16:16:04 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-23 16:16:04 — Page is empty.
-    2022-08-23 16:16:04 — API returned 8 results.
+    2022-08-24 07:35:07 — GET https://api.clockify.me/api/v1/user
+    2022-08-24 07:35:07 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-24 07:35:07 — Page contains 8 results.
+    2022-08-24 07:35:07 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-24 07:35:07 — Page is empty.
+    2022-08-24 07:35:07 — API returned 8 results.
 
     # A tibble: 8 × 4
       id                       project_id               description          durat…¹
@@ -183,11 +183,11 @@ Retrieve time entries for another user specified by their user ID.
 time_entries(user_id = "5ef46293df73063139f60bf5")
 ```
 
-    2022-08-23 16:16:04 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5ef46293df73063139f60bf5/time-entries
-    2022-08-23 16:16:04 — Page contains 2 results.
-    2022-08-23 16:16:04 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5ef46293df73063139f60bf5/time-entries
-    2022-08-23 16:16:04 — Page is empty.
-    2022-08-23 16:16:04 — API returned 2 results.
+    2022-08-24 07:35:07 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5ef46293df73063139f60bf5/time-entries
+    2022-08-24 07:35:07 — Page contains 2 results.
+    2022-08-24 07:35:07 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5ef46293df73063139f60bf5/time-entries
+    2022-08-24 07:35:07 — Page is empty.
+    2022-08-24 07:35:07 — API returned 2 results.
 
     # A tibble: 2 × 4
       id                       project_id               description        duration
@@ -206,8 +206,8 @@ prepare_cran_id <- time_entry_insert(
 )
 ```
 
-    2022-08-23 16:16:04 — Insert time entry.
-    2022-08-23 16:16:04 — POST /workspaces/61343c45ab05e02be2c8c1fd/time-entries
+    2022-08-24 07:35:07 — Insert time entry.
+    2022-08-24 07:35:07 — POST https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/time-entries
 
 Check on the ID for this new time entry.
 
@@ -215,7 +215,7 @@ Check on the ID for this new time entry.
 prepare_cran_id
 ```
 
-    [1] "6304ef34fdb74a2e0829c8de"
+    [1] "6305c69be05dbb6bfcaf598c"
 
 Confirm that it has been inserted.
 
@@ -224,17 +224,17 @@ time_entries(concise = FALSE) %>%
   select(id, description, time_start, time_end)
 ```
 
-    2022-08-23 16:16:05 — GET /user
-    2022-08-23 16:16:05 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-23 16:16:05 — Page contains 9 results.
-    2022-08-23 16:16:05 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-23 16:16:05 — Page is empty.
-    2022-08-23 16:16:05 — API returned 9 results.
+    2022-08-24 07:35:07 — GET https://api.clockify.me/api/v1/user
+    2022-08-24 07:35:07 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-24 07:35:07 — Page contains 9 results.
+    2022-08-24 07:35:07 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-24 07:35:07 — Page is empty.
+    2022-08-24 07:35:07 — API returned 9 results.
 
     # A tibble: 9 × 4
       id                       description   time_start          time_end           
       <chr>                    <chr>         <dttm>              <dttm>             
-    1 6304ef34fdb74a2e0829c8de Prepare for … 2021-08-30 09:00:00 2021-08-30 11:30:00
+    1 6305c69be05dbb6bfcaf598c Prepare for … 2021-08-30 09:00:00 2021-08-30 11:30:00
     2 61343cc1777d5361dcdea70a Set up GitHu… 2021-09-03 06:15:00 2021-09-03 06:27:00
     3 61343d06777d5361dcdea729 Make coffee   2021-09-03 06:27:00 2021-09-03 06:32:00
     4 61343d27ab05e02be2c8c266 Populate REA… 2021-09-03 06:45:00 2021-09-03 07:53:00
@@ -250,8 +250,8 @@ time_entries(concise = FALSE) %>%
 time_entry_delete(prepare_cran_id)
 ```
 
-    2022-08-23 16:16:05 — Delete time entry.
-    2022-08-23 16:16:05 — DELETE /workspaces/61343c45ab05e02be2c8c1fd/time-entries/6304ef34fdb74a2e0829c8de
+    2022-08-24 07:35:07 — Delete time entry.
+    2022-08-24 07:35:07 — DELETE https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/time-entries/6305c69be05dbb6bfcaf598c
 
     [1] TRUE
 
@@ -262,12 +262,12 @@ time_entries(concise = FALSE) %>%
   select(id, description, time_start, time_end)
 ```
 
-    2022-08-23 16:16:05 — GET /user
-    2022-08-23 16:16:05 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-23 16:16:05 — Page contains 8 results.
-    2022-08-23 16:16:05 — GET /workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-23 16:16:05 — Page is empty.
-    2022-08-23 16:16:05 — API returned 8 results.
+    2022-08-24 07:35:07 — GET https://api.clockify.me/api/v1/user
+    2022-08-24 07:35:07 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-24 07:35:07 — Page contains 8 results.
+    2022-08-24 07:35:07 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-24 07:35:07 — Page is empty.
+    2022-08-24 07:35:07 — API returned 8 results.
 
     # A tibble: 8 × 4
       id                       description   time_start          time_end           
@@ -340,7 +340,7 @@ Endpoints which are only available on a paid plan are indicated with a
     /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId}
 -   [x] DELETE
     /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId}
--   [ ] POST /workspaces/{workspaceId}/reports/summary
+-   [x] POST /workspaces/{workspaceId}/reports/summary
 -   [ ] POST /workspaces/{workspaceId}/reports/detailed
 -   [ ] POST /workspaces/{workspaceId}/reports/weekly
 -   [ ] GET /workspaces/{workspaceId}/shared-reports

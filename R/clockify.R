@@ -10,7 +10,8 @@
 #' @importFrom stats setNames
 NULL
 
-BASE_PATH = "https://api.clockify.me/api/v1"
+BASE_PATH <- "https://api.clockify.me/api/v1"
+REPORTS_BASE_PATH <- "https://reports.api.clockify.me/v1"
 
 globalVariables(
   c(

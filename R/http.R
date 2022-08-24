@@ -1,5 +1,11 @@
 api_url <- function(path) {
-  paste0(BASE_PATH, path)
+  if (grepl("reports", path)) {
+    base_path <- REPORTS_BASE_PATH
+  } else {
+    base_path <- BASE_PATH
+  }
+
+  paste0(base_path, path)
 }
 
 check_response <- function(response) {
@@ -18,7 +24,7 @@ check_response <- function(response) {
 #' @inherit httr::GET return
 GET <- function(path, query = NULL) {
   url <- api_url(path)
-  log_debug("GET {path}")
+  log_debug("GET {url}")
 
   response <- httr::GET(
     url,
@@ -43,7 +49,7 @@ GET <- function(path, query = NULL) {
 #' @inherit httr::POST return
 POST <- function(path, body = NULL, query = NULL) {
   url <- api_url(path)
-  log_debug("POST {path}")
+  log_debug("POST {url}")
 
   response <- httr::POST(
     url,
@@ -69,7 +75,7 @@ POST <- function(path, body = NULL, query = NULL) {
 #' @inherit httr::DELETE return
 DELETE <- function(path) {
   url <- api_url(path)
-  log_debug("DELETE {path}")
+  log_debug("DELETE {url}")
 
   response <- httr::DELETE(
     url,
@@ -93,7 +99,7 @@ DELETE <- function(path) {
 #' @inherit httr::PUT return
 PUT <- function(path, body = NULL) {
   url <- api_url(path)
-  log_debug("PUT {path}")
+  log_debug("PUT {url}")
 
   response <- httr::PUT(
     url,
@@ -118,7 +124,7 @@ PUT <- function(path, body = NULL) {
 #' @inherit httr::PATCH return
 PATCH <- function(path, body = NULL) {
   url <- api_url(path)
-  log_debug("PATCH {path}")
+  log_debug("PATCH {url}")
 
   response <- httr::PATCH(
     url,
