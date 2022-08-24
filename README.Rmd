@@ -207,9 +207,9 @@ Endpoints which have currently been implemented in this package. Endpoints which
 - [X] GET /workspaces/{workspaceId}/projects/{projectid}/custom-fields
 - [X] PATCH /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId}
 - [X] DELETE /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId}
-- [ ] POST /workspaces/{workspaceId}/reports/summary
-- [ ] POST /workspaces/{workspaceId}/reports/detailed
-- [ ] POST /workspaces/{workspaceId}/reports/weekly
+- [X] POST /workspaces/{workspaceId}/reports/summary
+- [X] POST /workspaces/{workspaceId}/reports/detailed
+- [X] POST /workspaces/{workspaceId}/reports/weekly
 - [ ] GET /workspaces/{workspaceId}/shared-reports
 - [ ] GET /shared-reports/{sharedReportId}
 - [ ] POST /workspaces/{workspaceId}/shared-reports
