@@ -1,3 +1,7 @@
+# {clockify} 0.0.13
+
+* Add endpoints for reports.
+
 # {clockify} 0.0.12
 
 * Add endpoints for dealing with custom fields.
