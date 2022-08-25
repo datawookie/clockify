@@ -32,6 +32,6 @@ report \%>\%
   select(-duration, -amount, -amounts) \%>\%
   unnest(projects) \%>\%
   select(-duration, -amount) \%>\%
-  unnest(children)
+  unnest(entries)
 }
 }
