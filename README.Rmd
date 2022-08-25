@@ -210,8 +210,8 @@ Endpoints which have currently been implemented in this package. Endpoints which
 - [X] POST /workspaces/{workspaceId}/reports/summary
 - [X] POST /workspaces/{workspaceId}/reports/detailed
 - [X] POST /workspaces/{workspaceId}/reports/weekly
-- [ ] GET /workspaces/{workspaceId}/shared-reports
-- [ ] GET /shared-reports/{sharedReportId}
-- [ ] POST /workspaces/{workspaceId}/shared-reports
-- [ ] PUT /workspaces/{workspaceId}/shared-reports/{sharedReportId}
-- [ ] DELETE /workspaces/{workspaceId}/shared-reports/{sharedReportId}
+- [X] GET /workspaces/{workspaceId}/shared-reports
+- [X] GET /shared-reports/{sharedReportId}
+- [X] POST /workspaces/{workspaceId}/shared-reports
+- [X] PUT /workspaces/{workspaceId}/shared-reports/{sharedReportId}
+- [X] DELETE /workspaces/{workspaceId}/shared-reports/{sharedReportId}
