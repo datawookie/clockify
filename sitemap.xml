@@ -46,7 +46,37 @@
     <loc>/reference/projects.html</loc>
   </url>
   <url>
+    <loc>/reference/reports-parameters.html</loc>
+  </url>
+  <url>
+    <loc>/reference/reports_detailed.html</loc>
+  </url>
+  <url>
+    <loc>/reference/reports_summary.html</loc>
+  </url>
+  <url>
+    <loc>/reference/reports_weekly.html</loc>
+  </url>
+  <url>
     <loc>/reference/set_api_key.html</loc>
+  </url>
+  <url>
+    <loc>/reference/shared-reports-parameters.html</loc>
+  </url>
+  <url>
+    <loc>/reference/shared_report.html</loc>
+  </url>
+  <url>
+    <loc>/reference/shared_report_create.html</loc>
+  </url>
+  <url>
+    <loc>/reference/shared_report_delete.html</loc>
+  </url>
+  <url>
+    <loc>/reference/shared_report_update.html</loc>
+  </url>
+  <url>
+    <loc>/reference/shared_reports.html</loc>
   </url>
   <url>
     <loc>/reference/tags.html</loc>
