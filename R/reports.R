@@ -37,8 +37,8 @@ reports_summary <- function(start, end) {
   path <- sprintf("/workspaces/%s/reports/summary", workspace())
 
   body <- list(
-    dateRangeStart = clockify:::time_format(start),
-    dateRangeEnd = clockify:::time_format(end),
+    dateRangeStart = time_format(start),
+    dateRangeEnd = time_format(end),
     summaryFilter = list(
       groups = c(
         "USER",
@@ -48,7 +48,7 @@ reports_summary <- function(start, end) {
     )
   )
 
-  response <- clockify:::POST(
+  response <- POST(
     path,
     body = body
   ) %>% content()
