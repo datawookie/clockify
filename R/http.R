@@ -22,7 +22,7 @@ check_response <- function(response) {
 #' @param query The query parameters.
 #'
 #' @inherit httr::GET return
-GET <- function(path, query = NULL) {
+GET <- function(path, query = NULL, ...) {
   url <- api_url(path)
   log_debug("GET {url}")
 
@@ -31,7 +31,8 @@ GET <- function(path, query = NULL) {
     query = query,
     add_headers(
       "X-Api-Key" = get_api_key()
-    )
+    ),
+    ...
   )
 
   check_response(response)
@@ -47,7 +48,7 @@ GET <- function(path, query = NULL) {
 #' @param body The body of the query.
 #'
 #' @inherit httr::POST return
-POST <- function(path, body = NULL, query = NULL) {
+POST <- function(path, body = NULL, query = NULL, ...) {
   url <- api_url(path)
   log_debug("POST {url}")
 
@@ -58,7 +59,8 @@ POST <- function(path, body = NULL, query = NULL) {
     add_headers(
       "X-Api-Key" = get_api_key()
     ),
-    encode = "json"
+    encode = "json",
+    ...
   )
 
   check_response(response)
@@ -73,7 +75,7 @@ POST <- function(path, body = NULL, query = NULL) {
 #' @param path The path of the endpoint.
 #'
 #' @inherit httr::DELETE return
-DELETE <- function(path) {
+DELETE <- function(path, ...) {
   url <- api_url(path)
   log_debug("DELETE {url}")
 
@@ -82,7 +84,8 @@ DELETE <- function(path) {
     add_headers(
       "X-Api-Key" = get_api_key()
     ),
-    encode = "json"
+    encode = "json",
+    ...
   )
 
   check_response(response)
@@ -97,7 +100,7 @@ DELETE <- function(path) {
 #' @param path The path of the endpoint.
 #'
 #' @inherit httr::PUT return
-PUT <- function(path, body = NULL) {
+PUT <- function(path, body = NULL, ...) {
   url <- api_url(path)
   log_debug("PUT {url}")
 
@@ -107,7 +110,8 @@ PUT <- function(path, body = NULL) {
     add_headers(
       "X-Api-Key" = get_api_key()
     ),
-    encode = "json"
+    encode = "json",
+    ...
   )
 
   check_response(response)
@@ -122,7 +126,7 @@ PUT <- function(path, body = NULL) {
 #' @param path The path of the endpoint.
 #'
 #' @inherit httr::PATCH return
-PATCH <- function(path, body = NULL) {
+PATCH <- function(path, body = NULL, ...) {
   url <- api_url(path)
   log_debug("PATCH {url}")
 
@@ -132,7 +136,8 @@ PATCH <- function(path, body = NULL) {
     add_headers(
       "X-Api-Key" = get_api_key()
     ),
-    encode = "json"
+    encode = "json",
+    ...
   )
 
   check_response(response)
