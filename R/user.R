@@ -112,6 +112,54 @@ user_create <- function(email, send_email = TRUE) {
     query = query
   )
 
-  print(result)
-  print(content(result))
+  status_code(result) %in% c(200, 201)
+}
+
+#' Update status
+#'
+#' @param user_id User ID
+#' @param active A Boolean indicating whether or not user is active.
+#'
+#' @export
+user_update_status <- function(user_id, active) {
+  path <- sprintf("/workspaces/%s/users/%s", workspace(), user_id)
+
+  body <- list(
+    membershipStatus = ifelse(active, "ACTIVE", "INACTIVE")
+  )
+
+  result <- clockify:::PUT(
+    path,
+    body = body
+  )
+
+  status_code(result) %in% c(200, 201)
+}
+
+#' Update billable rate
+#'
+#' @param user_id User ID
+#' @param amount Amount
+#' @param since New rate will be applied to all time entries after this time.
+#'
+#' @export
+user_update_billable_rate <- function(user_id, amount, since = NULL) {
+  path <- sprintf("/workspaces/%s/users/%s/hourly-rate", workspace(), user_id)
+
+  # The API interprets this amount in cents.
+  amount <- amount * 100
+
+  if (!is.null(since)) since <- clockify:::time_format(since)
+
+  body <- list(
+    amount = amount,
+    since = since
+  )
+
+  result <- clockify:::PUT(
+    path,
+    body = body
+  )
+
+  status_code(result) %in% c(200, 201)
 }

@@ -194,7 +194,11 @@ Endpoints which have currently been implemented in this package. Endpoints which
 - [X] GET /user
 - [X] GET /workspaces/{workspaceId}/users
 - [ ] POST /workspaces/{workspaceId}/users 💰
-- [ ] PUT /workspaces/{workspaceId}/users/{userId}
+- [X] PUT /workspaces/{workspaceId}/users/{userId}
+- [X] PUT /workspaces/{workspaceId}/users/{userId}/hourly-rate
+- [ ] PUT /workspaces/{workspaceId}/users/{userId}/cost-rate
+- [ ] POST /workspaces/{workspaceId}/users/{userId}/roles
+- [ ] DELETE /workspaces/{workspaceId}/users/{userId}/roles
 - [ ] DELETE /workspaces/{workspaceId}/users/{userId}
 - [X] GET /workspaces/{workspaceId}/user-groups
 - [ ] POST /workspaces/{workspaceId}/user-groups
