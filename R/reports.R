@@ -31,7 +31,7 @@ NULL
 #'   select(-duration, -amount, -amounts) %>%
 #'   unnest(projects) %>%
 #'   select(-duration, -amount) %>%
-#'   unnest(children)
+#'   unnest(entries)
 #' }
 reports_summary <- function(start, end) {
   path <- sprintf("/workspaces/%s/reports/summary", workspace())
@@ -71,16 +71,15 @@ reports_summary <- function(start, end) {
                 project_name = project$name,
                 duration = project$duration,
                 amount = project$amount,
-                children = list(
+                entries = list(
                   map_dfr(
                     project$children,
                     function(entry) {
                       # Unpack data for each time entry.
-                      tibble(
-                        description = entry$name,
-                        duration = entry$duration,
-                        amount = entry$amount
-                      )
+                      entry$amounts <- NULL
+                      as_tibble(entry) %>%
+                        clean_names() %>%
+                        select(id, description = name, duration, amount)
                     }
                   )
                 )
