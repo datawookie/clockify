@@ -1,3 +1,7 @@
+# {clockify} 0.0.14
+
+* Add minimal support for shared report endpoints.
+
 # {clockify} 0.0.13
 
 * Add endpoints for reports.
