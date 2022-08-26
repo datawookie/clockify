@@ -1,3 +1,7 @@
+# {clockify} 0.0.15
+
+* Result from `clients()` is paginated (so goes beyond 50 items).
+
 # {clockify} 0.0.14
 
 * Add minimal support for shared report endpoints.
