@@ -34,11 +34,9 @@ parse_client <- function(client, concise) {
 #' }
 clients <- function(concise = TRUE) {
   path <- sprintf("/workspaces/%s/clients", workspace())
-  clients <- GET(path) %>%
-    content() %>%
-    map_df(parse_client, concise = concise)
 
-  clients
+  paginate(path) %>%
+    map_df(parse_client, concise = concise)
 }
 
 #' Add a new client to workspace
