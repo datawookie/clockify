@@ -164,7 +164,7 @@ Endpoints which have currently been implemented in this package. Endpoints which
 
 - [X] GET /workspaces/{workspaceId}/clients
 - [X] POST /workspaces/{workspaceId}/clients
-- [ ] PUT /workspaces/{workspaceId}/clients/{clientId}
+- [X] PUT /workspaces/{workspaceId}/clients/{clientId}
 - [X] DELETE /workspaces/{workspaceId}/clients/{clientId}
 - [X] GET /workspaces/{workspaceId}/projects
 - [X] GET /workspaces/{workspaceId}/projects/{projectId}

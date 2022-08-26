@@ -47,124 +47,6 @@ library(clockify)
 set_api_key(CLOCKIFY_API_KEY)
 ```
 
-    $id
-    [1] "5f227e0cd7176a0e6e754409"
-
-    $email
-    [1] "andrew@fathomdata.dev"
-
-    $name
-    [1] "Andrew"
-
-    $memberships
-    list()
-
-    $profilePicture
-    [1] "https://img.clockify.me/2021-05-23T16%3A36%3A28.787Zcollierab-centred.jpg"
-
-    $activeWorkspace
-    [1] "5ef46294df73063139f60bfc"
-
-    $defaultWorkspace
-    [1] "5ef46294df73063139f60bfc"
-
-    $settings
-    $settings$weekStart
-    [1] "SATURDAY"
-
-    $settings$timeZone
-    [1] "Europe/London"
-
-    $settings$timeFormat
-    [1] "HOUR12"
-
-    $settings$dateFormat
-    [1] "MM/DD/YYYY"
-
-    $settings$sendNewsletter
-    [1] FALSE
-
-    $settings$weeklyUpdates
-    [1] FALSE
-
-    $settings$longRunning
-    [1] FALSE
-
-    $settings$scheduledReports
-    [1] TRUE
-
-    $settings$approval
-    [1] TRUE
-
-    $settings$pto
-    [1] TRUE
-
-    $settings$alerts
-    [1] TRUE
-
-    $settings$reminders
-    [1] TRUE
-
-    $settings$timeTrackingManual
-    [1] FALSE
-
-    $settings$summaryReportSettings
-    $settings$summaryReportSettings$group
-    [1] "Project"
-
-    $settings$summaryReportSettings$subgroup
-    [1] "Time Entry"
-
-
-    $settings$isCompactViewOn
-    [1] FALSE
-
-    $settings$dashboardSelection
-    [1] "ME"
-
-    $settings$dashboardViewType
-    [1] "PROJECT"
-
-    $settings$dashboardPinToTop
-    [1] FALSE
-
-    $settings$projectListCollapse
-    [1] 50
-
-    $settings$collapseAllProjectLists
-    [1] FALSE
-
-    $settings$groupSimilarEntriesDisabled
-    [1] FALSE
-
-    $settings$myStartOfDay
-    [1] "09:00"
-
-    $settings$projectPickerTaskFilter
-    [1] FALSE
-
-    $settings$lang
-    NULL
-
-    $settings$multiFactorEnabled
-    [1] FALSE
-
-    $settings$theme
-    [1] "DEFAULT"
-
-    $settings$scheduling
-    [1] TRUE
-
-    $settings$onboarding
-    [1] TRUE
-
-
-    $status
-    [1] "ACTIVE"
-
-    $customFields
-    list()
-
 Let’s turn on some logging so we can see what’s happening behind the
 scenes.
 
@@ -182,7 +64,7 @@ Retrieve a list of available workspaces.
 workspaces()
 ```
 
-    2022-08-25 18:12:08 — GET https://api.clockify.me/api/v1/workspaces
+    2022-08-26 18:26:20 — GET https://api.clockify.me/api/v1/workspaces
 
     # A tibble: 2 × 2
       workspace_id             name       
@@ -196,7 +78,7 @@ Select a specific workspace.
 workspace("61343c45ab05e02be2c8c1fd")
 ```
 
-    2022-08-25 18:12:08 — Set active workspace -> 61343c45ab05e02be2c8c1fd.
+    2022-08-26 18:26:20 — Set active workspace -> 61343c45ab05e02be2c8c1fd.
 
     [1] "61343c45ab05e02be2c8c1fd"
 
@@ -208,124 +90,7 @@ Retrieve information on your user profile.
 user()
 ```
 
-    2022-08-25 18:12:08 — GET https://api.clockify.me/api/v1/user
-    $id
-    [1] "5f227e0cd7176a0e6e754409"
-
-    $email
-    [1] "andrew@fathomdata.dev"
-
-    $name
-    [1] "Andrew"
-
-    $memberships
-    list()
-
-    $profilePicture
-    [1] "https://img.clockify.me/2021-05-23T16%3A36%3A28.787Zcollierab-centred.jpg"
-
-    $activeWorkspace
-    [1] "5ef46294df73063139f60bfc"
-
-    $defaultWorkspace
-    [1] "5ef46294df73063139f60bfc"
-
-    $settings
-    $settings$weekStart
-    [1] "SATURDAY"
-
-    $settings$timeZone
-    [1] "Europe/London"
-
-    $settings$timeFormat
-    [1] "HOUR12"
-
-    $settings$dateFormat
-    [1] "MM/DD/YYYY"
-
-    $settings$sendNewsletter
-    [1] FALSE
-
-    $settings$weeklyUpdates
-    [1] FALSE
-
-    $settings$longRunning
-    [1] FALSE
-
-    $settings$scheduledReports
-    [1] TRUE
-
-    $settings$approval
-    [1] TRUE
-
-    $settings$pto
-    [1] TRUE
-
-    $settings$alerts
-    [1] TRUE
-
-    $settings$reminders
-    [1] TRUE
-
-    $settings$timeTrackingManual
-    [1] FALSE
-
-    $settings$summaryReportSettings
-    $settings$summaryReportSettings$group
-    [1] "Project"
-
-    $settings$summaryReportSettings$subgroup
-    [1] "Time Entry"
-
-
-    $settings$isCompactViewOn
-    [1] FALSE
-
-    $settings$dashboardSelection
-    [1] "ME"
-
-    $settings$dashboardViewType
-    [1] "PROJECT"
-
-    $settings$dashboardPinToTop
-    [1] FALSE
-
-    $settings$projectListCollapse
-    [1] 50
-
-    $settings$collapseAllProjectLists
-    [1] FALSE
-
-    $settings$groupSimilarEntriesDisabled
-    [1] FALSE
-
-    $settings$myStartOfDay
-    [1] "09:00"
-
-    $settings$projectPickerTaskFilter
-    [1] FALSE
-
-    $settings$lang
-    NULL
-
-    $settings$multiFactorEnabled
-    [1] FALSE
-
-    $settings$theme
-    [1] "DEFAULT"
-
-    $settings$scheduling
-    [1] TRUE
-
-    $settings$onboarding
-    [1] TRUE
-
-
-    $status
-    [1] "ACTIVE"
-
-    $customFields
-    list()
+    2022-08-26 18:26:20 — GET https://api.clockify.me/api/v1/user
 
     # A tibble: 1 × 3
       user_id                  user_name status
@@ -338,242 +103,7 @@ Get a list of users.
 users()
 ```
 
-    2022-08-25 18:12:08 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/users
-    $id
-    [1] "5f227e0cd7176a0e6e754409"
-
-    $email
-    [1] "andrew@fathomdata.dev"
-
-    $name
-    [1] "Andrew"
-
-    $memberships
-    list()
-
-    $profilePicture
-    [1] "https://img.clockify.me/2021-05-23T16%3A36%3A28.787Zcollierab-centred.jpg"
-
-    $activeWorkspace
-    [1] "5ef46294df73063139f60bfc"
-
-    $defaultWorkspace
-    [1] "5ef46294df73063139f60bfc"
-
-    $settings
-    $settings$weekStart
-    [1] "SATURDAY"
-
-    $settings$timeZone
-    [1] "Europe/London"
-
-    $settings$timeFormat
-    [1] "HOUR12"
-
-    $settings$dateFormat
-    [1] "MM/DD/YYYY"
-
-    $settings$sendNewsletter
-    [1] FALSE
-
-    $settings$weeklyUpdates
-    [1] FALSE
-
-    $settings$longRunning
-    [1] FALSE
-
-    $settings$scheduledReports
-    [1] TRUE
-
-    $settings$approval
-    [1] TRUE
-
-    $settings$pto
-    [1] TRUE
-
-    $settings$alerts
-    [1] TRUE
-
-    $settings$reminders
-    [1] TRUE
-
-    $settings$timeTrackingManual
-    [1] FALSE
-
-    $settings$summaryReportSettings
-    $settings$summaryReportSettings$group
-    [1] "Project"
-
-    $settings$summaryReportSettings$subgroup
-    [1] "Time Entry"
-
-
-    $settings$isCompactViewOn
-    [1] FALSE
-
-    $settings$dashboardSelection
-    [1] "ME"
-
-    $settings$dashboardViewType
-    [1] "PROJECT"
-
-    $settings$dashboardPinToTop
-    [1] FALSE
-
-    $settings$projectListCollapse
-    [1] 50
-
-    $settings$collapseAllProjectLists
-    [1] FALSE
-
-    $settings$groupSimilarEntriesDisabled
-    [1] FALSE
-
-    $settings$myStartOfDay
-    [1] "09:00"
-
-    $settings$projectPickerTaskFilter
-    [1] FALSE
-
-    $settings$lang
-    NULL
-
-    $settings$multiFactorEnabled
-    [1] FALSE
-
-    $settings$theme
-    [1] "DEFAULT"
-
-    $settings$scheduling
-    [1] TRUE
-
-    $settings$onboarding
-    [1] TRUE
-
-
-    $status
-    [1] "ACTIVE"
-
-    $customFields
-    list()
-
-    $id
-    [1] "5ef46293df73063139f60bf5"
-
-    $email
-    [1] "emma@fathomdata.dev"
-
-    $name
-    [1] "Emma"
-
-    $memberships
-    list()
-
-    $profilePicture
-    [1] "https://img.clockify.me/no-user-image.png"
-
-    $activeWorkspace
-    [1] "5ef46294df73063139f60bfc"
-
-    $defaultWorkspace
-    [1] "5ef46294df73063139f60bfc"
-
-    $settings
-    $settings$weekStart
-    [1] "MONDAY"
-
-    $settings$timeZone
-    [1] "Europe/Tallinn"
-
-    $settings$timeFormat
-    [1] "HOUR12"
-
-    $settings$dateFormat
-    [1] "YYYY/MM/DD"
-
-    $settings$sendNewsletter
-    [1] FALSE
-
-    $settings$weeklyUpdates
-    [1] FALSE
-
-    $settings$longRunning
-    [1] FALSE
-
-    $settings$scheduledReports
-    [1] TRUE
-
-    $settings$approval
-    [1] TRUE
-
-    $settings$pto
-    [1] TRUE
-
-    $settings$alerts
-    [1] TRUE
-
-    $settings$reminders
-    [1] TRUE
-
-    $settings$timeTrackingManual
-    [1] FALSE
-
-    $settings$summaryReportSettings
-    $settings$summaryReportSettings$group
-    [1] "Project"
-
-    $settings$summaryReportSettings$subgroup
-    [1] "Time Entry"
-
-
-    $settings$isCompactViewOn
-    [1] FALSE
-
-    $settings$dashboardSelection
-    [1] "TEAM"
-
-    $settings$dashboardViewType
-    [1] "PROJECT"
-
-    $settings$dashboardPinToTop
-    [1] FALSE
-
-    $settings$projectListCollapse
-    [1] 50
-
-    $settings$collapseAllProjectLists
-    [1] FALSE
-
-    $settings$groupSimilarEntriesDisabled
-    [1] TRUE
-
-    $settings$myStartOfDay
-    [1] "08:00"
-
-    $settings$projectPickerTaskFilter
-    [1] FALSE
-
-    $settings$lang
-    NULL
-
-    $settings$multiFactorEnabled
-    [1] FALSE
-
-    $settings$theme
-    [1] "DARK"
-
-    $settings$scheduling
-    [1] TRUE
-
-    $settings$onboarding
-    [1] TRUE
-
-
-    $status
-    [1] "ACTIVE"
-
-    $customFields
-    list()
+    2022-08-26 18:26:20 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/users
 
     # A tibble: 2 × 3
       user_id                  user_name status
@@ -589,7 +119,9 @@ Get a list of clients.
 clients()
 ```
 
-    2022-08-25 18:12:08 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/clients
+    2022-08-26 18:26:21 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/clients
+    2022-08-26 18:26:21 — Page contains 2 results.
+    2022-08-26 18:26:21 — API returned 2 results.
 
     # A tibble: 2 × 3
       client_id                workspace_id             client_name
@@ -605,11 +137,9 @@ Get a list of projects.
 projects()
 ```
 
-    2022-08-25 18:12:08 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/projects
-    2022-08-25 18:12:08 — Page contains 2 results.
-    2022-08-25 18:12:08 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/projects
-    2022-08-25 18:12:08 — Page is empty.
-    2022-08-25 18:12:08 — API returned 2 results.
+    2022-08-26 18:26:21 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/projects
+    2022-08-26 18:26:21 — Page contains 2 results.
+    2022-08-26 18:26:21 — API returned 2 results.
 
     # A tibble: 2 × 4
       project_id               project_name client_id                billable
@@ -627,130 +157,10 @@ Retrieve the time entries for the authenticated user.
 time_entries()
 ```
 
-    2022-08-25 18:12:08 — GET https://api.clockify.me/api/v1/user
-    $id
-    [1] "5f227e0cd7176a0e6e754409"
-
-    $email
-    [1] "andrew@fathomdata.dev"
-
-    $name
-    [1] "Andrew"
-
-    $memberships
-    list()
-
-    $profilePicture
-    [1] "https://img.clockify.me/2021-05-23T16%3A36%3A28.787Zcollierab-centred.jpg"
-
-    $activeWorkspace
-    [1] "5ef46294df73063139f60bfc"
-
-    $defaultWorkspace
-    [1] "5ef46294df73063139f60bfc"
-
-    $settings
-    $settings$weekStart
-    [1] "SATURDAY"
-
-    $settings$timeZone
-    [1] "Europe/London"
-
-    $settings$timeFormat
-    [1] "HOUR12"
-
-    $settings$dateFormat
-    [1] "MM/DD/YYYY"
-
-    $settings$sendNewsletter
-    [1] FALSE
-
-    $settings$weeklyUpdates
-    [1] FALSE
-
-    $settings$longRunning
-    [1] FALSE
-
-    $settings$scheduledReports
-    [1] TRUE
-
-    $settings$approval
-    [1] TRUE
-
-    $settings$pto
-    [1] TRUE
-
-    $settings$alerts
-    [1] TRUE
-
-    $settings$reminders
-    [1] TRUE
-
-    $settings$timeTrackingManual
-    [1] FALSE
-
-    $settings$summaryReportSettings
-    $settings$summaryReportSettings$group
-    [1] "Project"
-
-    $settings$summaryReportSettings$subgroup
-    [1] "Time Entry"
-
-
-    $settings$isCompactViewOn
-    [1] FALSE
-
-    $settings$dashboardSelection
-    [1] "ME"
-
-    $settings$dashboardViewType
-    [1] "PROJECT"
-
-    $settings$dashboardPinToTop
-    [1] FALSE
-
-    $settings$projectListCollapse
-    [1] 50
-
-    $settings$collapseAllProjectLists
-    [1] FALSE
-
-    $settings$groupSimilarEntriesDisabled
-    [1] FALSE
-
-    $settings$myStartOfDay
-    [1] "09:00"
-
-    $settings$projectPickerTaskFilter
-    [1] FALSE
-
-    $settings$lang
-    NULL
-
-    $settings$multiFactorEnabled
-    [1] FALSE
-
-    $settings$theme
-    [1] "DEFAULT"
-
-    $settings$scheduling
-    [1] TRUE
-
-    $settings$onboarding
-    [1] TRUE
-
-
-    $status
-    [1] "ACTIVE"
-
-    $customFields
-    list()
-
-    2022-08-25 18:12:08 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-25 18:12:08 — Page contains 8 results.
-    2022-08-25 18:12:08 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-25 18:12:09 — Page is empty.
-    2022-08-25 18:12:09 — API returned 8 results.
+    2022-08-26 18:26:21 — GET https://api.clockify.me/api/v1/user
+    2022-08-26 18:26:21 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-26 18:26:21 — Page contains 8 results.
+    2022-08-26 18:26:21 — API returned 8 results.
 
     # A tibble: 8 × 4
       id                       project_id               description          durat…¹
@@ -771,11 +181,9 @@ Retrieve time entries for another user specified by their user ID.
 time_entries(user_id = "5ef46293df73063139f60bf5")
 ```
 
-    2022-08-25 18:12:09 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5ef46293df73063139f60bf5/time-entries
-    2022-08-25 18:12:09 — Page contains 2 results.
-    2022-08-25 18:12:09 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5ef46293df73063139f60bf5/time-entries
-    2022-08-25 18:12:09 — Page is empty.
-    2022-08-25 18:12:09 — API returned 2 results.
+    2022-08-26 18:26:21 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5ef46293df73063139f60bf5/time-entries
+    2022-08-26 18:26:21 — Page contains 2 results.
+    2022-08-26 18:26:21 — API returned 2 results.
 
     # A tibble: 2 × 4
       id                       project_id               description        duration
@@ -794,8 +202,8 @@ prepare_cran_id <- time_entry_insert(
 )
 ```
 
-    2022-08-25 18:12:09 — Insert time entry.
-    2022-08-25 18:12:09 — POST https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/time-entries
+    2022-08-26 18:26:21 — Insert time entry.
+    2022-08-26 18:26:21 — POST https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/time-entries
 
 Check on the ID for this new time entry.
 
@@ -803,7 +211,7 @@ Check on the ID for this new time entry.
 prepare_cran_id
 ```
 
-    [1] "6307ad697f2691737398e8ea"
+    [1] "6309023d7f269173739a9a4d"
 
 Confirm that it has been inserted.
 
@@ -812,135 +220,15 @@ time_entries(concise = FALSE) %>%
   select(id, description, time_start, time_end)
 ```
 
-    2022-08-25 18:12:09 — GET https://api.clockify.me/api/v1/user
-    $id
-    [1] "5f227e0cd7176a0e6e754409"
-
-    $email
-    [1] "andrew@fathomdata.dev"
-
-    $name
-    [1] "Andrew"
-
-    $memberships
-    list()
-
-    $profilePicture
-    [1] "https://img.clockify.me/2021-05-23T16%3A36%3A28.787Zcollierab-centred.jpg"
-
-    $activeWorkspace
-    [1] "5ef46294df73063139f60bfc"
-
-    $defaultWorkspace
-    [1] "5ef46294df73063139f60bfc"
-
-    $settings
-    $settings$weekStart
-    [1] "SATURDAY"
-
-    $settings$timeZone
-    [1] "Europe/London"
-
-    $settings$timeFormat
-    [1] "HOUR12"
-
-    $settings$dateFormat
-    [1] "MM/DD/YYYY"
-
-    $settings$sendNewsletter
-    [1] FALSE
-
-    $settings$weeklyUpdates
-    [1] FALSE
-
-    $settings$longRunning
-    [1] FALSE
-
-    $settings$scheduledReports
-    [1] TRUE
-
-    $settings$approval
-    [1] TRUE
-
-    $settings$pto
-    [1] TRUE
-
-    $settings$alerts
-    [1] TRUE
-
-    $settings$reminders
-    [1] TRUE
-
-    $settings$timeTrackingManual
-    [1] FALSE
-
-    $settings$summaryReportSettings
-    $settings$summaryReportSettings$group
-    [1] "Project"
-
-    $settings$summaryReportSettings$subgroup
-    [1] "Time Entry"
-
-
-    $settings$isCompactViewOn
-    [1] FALSE
-
-    $settings$dashboardSelection
-    [1] "ME"
-
-    $settings$dashboardViewType
-    [1] "PROJECT"
-
-    $settings$dashboardPinToTop
-    [1] FALSE
-
-    $settings$projectListCollapse
-    [1] 50
-
-    $settings$collapseAllProjectLists
-    [1] FALSE
-
-    $settings$groupSimilarEntriesDisabled
-    [1] FALSE
-
-    $settings$myStartOfDay
-    [1] "09:00"
-
-    $settings$projectPickerTaskFilter
-    [1] FALSE
-
-    $settings$lang
-    NULL
-
-    $settings$multiFactorEnabled
-    [1] FALSE
-
-    $settings$theme
-    [1] "DEFAULT"
-
-    $settings$scheduling
-    [1] TRUE
-
-    $settings$onboarding
-    [1] TRUE
-
-
-    $status
-    [1] "ACTIVE"
-
-    $customFields
-    list()
-
-    2022-08-25 18:12:09 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-25 18:12:09 — Page contains 9 results.
-    2022-08-25 18:12:09 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-25 18:12:09 — Page is empty.
-    2022-08-25 18:12:09 — API returned 9 results.
+    2022-08-26 18:26:21 — GET https://api.clockify.me/api/v1/user
+    2022-08-26 18:26:21 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-26 18:26:22 — Page contains 9 results.
+    2022-08-26 18:26:22 — API returned 9 results.
 
     # A tibble: 9 × 4
       id                       description   time_start          time_end           
       <chr>                    <chr>         <dttm>              <dttm>             
-    1 6307ad697f2691737398e8ea Prepare for … 2021-08-30 09:00:00 2021-08-30 11:30:00
+    1 6309023d7f269173739a9a4d Prepare for … 2021-08-30 09:00:00 2021-08-30 11:30:00
     2 61343cc1777d5361dcdea70a Set up GitHu… 2021-09-03 06:15:00 2021-09-03 06:27:00
     3 61343d06777d5361dcdea729 Make coffee   2021-09-03 06:27:00 2021-09-03 06:32:00
     4 61343d27ab05e02be2c8c266 Populate REA… 2021-09-03 06:45:00 2021-09-03 07:53:00
@@ -956,8 +244,8 @@ time_entries(concise = FALSE) %>%
 time_entry_delete(prepare_cran_id)
 ```
 
-    2022-08-25 18:12:09 — Delete time entry.
-    2022-08-25 18:12:09 — DELETE https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/time-entries/6307ad697f2691737398e8ea
+    2022-08-26 18:26:22 — Delete time entry.
+    2022-08-26 18:26:22 — DELETE https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/time-entries/6309023d7f269173739a9a4d
 
     [1] TRUE
 
@@ -968,130 +256,10 @@ time_entries(concise = FALSE) %>%
   select(id, description, time_start, time_end)
 ```
 
-    2022-08-25 18:12:09 — GET https://api.clockify.me/api/v1/user
-    $id
-    [1] "5f227e0cd7176a0e6e754409"
-
-    $email
-    [1] "andrew@fathomdata.dev"
-
-    $name
-    [1] "Andrew"
-
-    $memberships
-    list()
-
-    $profilePicture
-    [1] "https://img.clockify.me/2021-05-23T16%3A36%3A28.787Zcollierab-centred.jpg"
-
-    $activeWorkspace
-    [1] "5ef46294df73063139f60bfc"
-
-    $defaultWorkspace
-    [1] "5ef46294df73063139f60bfc"
-
-    $settings
-    $settings$weekStart
-    [1] "SATURDAY"
-
-    $settings$timeZone
-    [1] "Europe/London"
-
-    $settings$timeFormat
-    [1] "HOUR12"
-
-    $settings$dateFormat
-    [1] "MM/DD/YYYY"
-
-    $settings$sendNewsletter
-    [1] FALSE
-
-    $settings$weeklyUpdates
-    [1] FALSE
-
-    $settings$longRunning
-    [1] FALSE
-
-    $settings$scheduledReports
-    [1] TRUE
-
-    $settings$approval
-    [1] TRUE
-
-    $settings$pto
-    [1] TRUE
-
-    $settings$alerts
-    [1] TRUE
-
-    $settings$reminders
-    [1] TRUE
-
-    $settings$timeTrackingManual
-    [1] FALSE
-
-    $settings$summaryReportSettings
-    $settings$summaryReportSettings$group
-    [1] "Project"
-
-    $settings$summaryReportSettings$subgroup
-    [1] "Time Entry"
-
-
-    $settings$isCompactViewOn
-    [1] FALSE
-
-    $settings$dashboardSelection
-    [1] "ME"
-
-    $settings$dashboardViewType
-    [1] "PROJECT"
-
-    $settings$dashboardPinToTop
-    [1] FALSE
-
-    $settings$projectListCollapse
-    [1] 50
-
-    $settings$collapseAllProjectLists
-    [1] FALSE
-
-    $settings$groupSimilarEntriesDisabled
-    [1] FALSE
-
-    $settings$myStartOfDay
-    [1] "09:00"
-
-    $settings$projectPickerTaskFilter
-    [1] FALSE
-
-    $settings$lang
-    NULL
-
-    $settings$multiFactorEnabled
-    [1] FALSE
-
-    $settings$theme
-    [1] "DEFAULT"
-
-    $settings$scheduling
-    [1] TRUE
-
-    $settings$onboarding
-    [1] TRUE
-
-
-    $status
-    [1] "ACTIVE"
-
-    $customFields
-    list()
-
-    2022-08-25 18:12:09 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-25 18:12:10 — Page contains 8 results.
-    2022-08-25 18:12:10 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-25 18:12:10 — Page is empty.
-    2022-08-25 18:12:10 — API returned 8 results.
+    2022-08-26 18:26:22 — GET https://api.clockify.me/api/v1/user
+    2022-08-26 18:26:22 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-08-26 18:26:22 — Page contains 8 results.
+    2022-08-26 18:26:22 — API returned 8 results.
 
     # A tibble: 8 × 4
       id                       description   time_start          time_end           
@@ -1115,7 +283,7 @@ Endpoints which are only available on a paid plan are indicated with a
 
 -   [x] GET /workspaces/{workspaceId}/clients
 -   [x] POST /workspaces/{workspaceId}/clients
--   [ ] PUT /workspaces/{workspaceId}/clients/{clientId}
+-   [x] PUT /workspaces/{workspaceId}/clients/{clientId}
 -   [x] DELETE /workspaces/{workspaceId}/clients/{clientId}
 -   [x] GET /workspaces/{workspaceId}/projects
 -   [x] GET /workspaces/{workspaceId}/projects/{projectId}

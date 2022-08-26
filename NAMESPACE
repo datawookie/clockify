@@ -2,6 +2,7 @@
 
 export(client_delete)
 export(client_insert)
+export(client_update)
 export(clients)
 export(custom_field_delete)
 export(custom_field_update)

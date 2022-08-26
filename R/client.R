@@ -66,6 +66,35 @@ client_insert <- function(name, concise = TRUE) {
     parse_client(concise = concise)
 }
 
+#' Update a client
+#'
+#' @param client_id Client ID
+#' @param name Client name
+#' @param note Note about client
+#' @param archived Whether or not client is archived
+#'
+#' @return A data frame with one record for the updated client.
+#' @export
+client_update <- function(
+    client_id,
+    name = NULL,
+    note = NULL,
+    archived = NULL
+) {
+  path <- sprintf("/workspaces/%s/clients/%s", workspace(), client_id)
+
+  body <- list(
+    name = name,
+    note = note,
+    archived = as.logical(archived)
+  ) %>%
+    list_remove_empty
+
+  PUT(path, body = body) %>%
+    content() %>%
+    parse_client(concise = concise)
+}
+
 #' Delete a client from workspace
 #'
 #' Wraps \code{DELETE /workspaces/{workspaceId}/clients}.
