@@ -139,20 +139,17 @@ user_update_status <- function(user_id, active) {
 #' Update billable rate
 #'
 #' @param user_id User ID
-#' @param amount Amount
-#' @param since New rate will be applied to all time entries after this time.
+#' @param rate Rate
+#' @param since New rate will be applied to all time entries after this time
 #'
 #' @export
-user_update_billable_rate <- function(user_id, amount, since = NULL) {
+user_update_billable_rate <- function(user_id, rate, since = NULL) {
   path <- sprintf("/workspaces/%s/users/%s/hourly-rate", workspace(), user_id)
-
-  # The API interprets this amount in cents.
-  amount <- amount * 100
 
   if (!is.null(since)) since <- clockify:::time_format(since)
 
   body <- list(
-    amount = amount,
+    amount = rate * 100,
     since = since
   )
 

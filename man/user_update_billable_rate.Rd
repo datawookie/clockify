@@ -4,14 +4,14 @@
 \alias{user_update_billable_rate}
 \title{Update billable rate}
 \usage{
-user_update_billable_rate(user_id, amount, since = NULL)
+user_update_billable_rate(user_id, rate, since = NULL)
 }
 \arguments{
 \item{user_id}{User ID}
 
-\item{amount}{Amount}
+\item{rate}{Rate}
 
-\item{since}{New rate will be applied to all time entries after this time.}
+\item{since}{New rate will be applied to all time entries after this time}
 }
 \description{
 Update billable rate

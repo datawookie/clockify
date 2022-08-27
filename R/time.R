@@ -6,16 +6,20 @@
 #' @noRd
 #' @return A string representation of POSIXct.
 time_format <- function(time, to_utc = FALSE) {
-  time <- anytime(time)
-
-  if (to_utc) {
-    time <- with_tz(time, tzone = "UTC")
-    tz = "GMT"
+  if (is.null(time)) {
+    NULL
   } else {
-    tz = ""
-  }
+    time <- anytime(time)
 
-  strftime(time, "%Y-%m-%dT%H:%M:%OS3Z", tz = tz)
+    if (to_utc) {
+      time <- with_tz(time, tzone = "UTC")
+      tz = "GMT"
+    } else {
+      tz = ""
+    }
+
+    strftime(time, "%Y-%m-%dT%H:%M:%OS3Z", tz = tz)
+  }
 }
 
 #' Parse times returned by API

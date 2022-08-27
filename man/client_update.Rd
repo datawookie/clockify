@@ -15,6 +15,9 @@ client_update(client_id, name = NULL, note = NULL, archived = NULL)
 
 \item{archived}{Whether or not client is archived}
 }
+\value{
+A data frame with one record for the updated client.
+}
 \description{
 Update a client
 }

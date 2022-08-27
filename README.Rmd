@@ -168,12 +168,14 @@ Endpoints which have currently been implemented in this package. Endpoints which
 - [X] DELETE /workspaces/{workspaceId}/clients/{clientId}
 - [X] GET /workspaces/{workspaceId}/projects
 - [X] GET /workspaces/{workspaceId}/projects/{projectId}
-- [ ] POST /workspaces/{workspaceId}/projects
-- [ ] PUT /workspaces/{workspaceId}/projects/{projectId}
+- [X] POST /workspaces/{workspaceId}/projects
+- [X] PUT /workspaces/{workspaceId}/projects/{projectId}
+- [X] PUT /workspaces/{workspaceId}/projects/{projectId}/users/{userId}/hourly-rate
+- [X] PUT /workspaces/{workspaceId}/projects/{projectId}/users/{userId}/cost-rate
 - [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/estimate
 - [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/memberships
 - [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/template
-- [ ] DELETE /workspaces/{workspaceId}/projects/{id}
+- [X] DELETE /workspaces/{workspaceId}/projects/{id}
 - [X] GET /workspaces/{workspaceId}/tags
 - [ ] POST /workspaces/{workspaceId}/tags
 - [ ] PUT /workspaces/{workspaceId}/tags/{tagId}
