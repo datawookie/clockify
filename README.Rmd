@@ -172,7 +172,7 @@ Endpoints which have currently been implemented in this package. Endpoints which
 - [X] PUT /workspaces/{workspaceId}/projects/{projectId}
 - [X] PUT /workspaces/{workspaceId}/projects/{projectId}/users/{userId}/hourly-rate
 - [X] PUT /workspaces/{workspaceId}/projects/{projectId}/users/{userId}/cost-rate
-- [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/estimate
+- [X] PATCH /workspaces/{workspaceId}/projects/{projectId}/estimate
 - [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/memberships
 - [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/template
 - [X] DELETE /workspaces/{workspaceId}/projects/{id}

@@ -184,7 +184,7 @@ project_update_user_billable_rate <- function(project_id, user_id, rate, since =
     body = body
   )
 
-  content(response) %>%
+  content(result) %>%
     list() %>%
     parse_projects()
 }
@@ -210,11 +210,76 @@ project_update_user_cost_rate <- function(project_id, user_id, rate, since = NUL
     body = body
   )
 
-  content(response) %>%
+  content(result) %>%
     list() %>%
     parse_projects()
 }
 
-# - [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/estimate
+project_update_estimate <- function(project_id, quantity = "budget", estimate, manual, active, monthly) {
+  if (!(quantity %in% c("budget", "time"))) stop("Invalid quantity.")
+
+  body <- list(
+    estimate = list(
+      estimate = estimate,
+      type = ifelse(manual, "MANUAL", "AUTO"),
+      active = active,
+      resetOption = if (monthly) "MONTHLY" else NULL
+    )
+  ) %>% list_remove_empty()
+
+  names(body) <- paste0(quantity, "Estimate")
+
+  result <- clockify:::PATCH(
+    sprintf("/workspaces/%s/projects/%s/estimate", workspace(), project_id),
+    body = body
+  )
+
+  content(result) %>%
+    list() %>%
+    parse_projects()
+}
+
+#' Update project time & budget estimates
+#'
+#' Wraps `PATCH /workspaces/{workspaceId}/projects/{projectId}/estimate`.
+#'
+#' @name project-update-estimate
+#' @rdname project-update-estimate
+#'
+#' @param project_id Project ID
+#' @param estimate Updated estimate
+#' @param manual Is the estimate for the whole project (`TRUE`) or should task-base estimate be enabled (`FALSE`).
+#' @param active Activate this estimate. Only one of either time or budget estimate may be active.
+#' @param monthly Should estimate be reset monthly?
+NULL
+
+#' @rdname project-update-estimate
+#' @export
+#' @examples
+#' \dontrun{
+#' project_update_estimate_time("612b16c0bc325f120a1e5099", "PT1H0M0S", TRUE, TRUE)
+#' }
+project_update_estimate_time <- function(project_id, estimate = NULL, manual = TRUE, active = TRUE, monthly = FALSE) {
+  if (active) {
+    # Deactivate budget estimate.
+    project_update_estimate(project_id, "budget", active = FALSE)
+  }
+  project_update_estimate(project_id, "time", estimate, manual, active)
+}
+
+#' @rdname project-update-estimate
+#' @export
+#' @examples
+#' \dontrun{
+#' project_update_estimate_budget("612b16c0bc325f120a1e5099", 1000, TRUE, TRUE)
+#' }
+project_update_estimate_budget <- function(project_id, estimate = NULL, manual = TRUE, active = TRUE, monthly = FALSE) {
+  if (active) {
+    # Deactivate time estimate.
+    project_update_estimate(project_id, "time", active = FALSE)
+  }
+  project_update_estimate(project_id, "budget", estimate, manual, active)
+}
+
 # - [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/memberships
 # - [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/template
