@@ -24,7 +24,7 @@ parse_projects <- function(projects, concise = TRUE) {
   } else {
     projects %>%
       mutate(
-        memberships = map(memberships, simplify_membership)
+        memberships = map(memberships, clockify:::simplify_membership)
       )
   }
 }
@@ -131,18 +131,18 @@ project_delete <- function(project_id) {
 
 #' Update project
 #'
-#' Wraps `PUT /workspaces/{workspaceId}/projects/{projectId}`.
+#' @name project-update
+#' @rdname project-update
 #'
 #' @param project_id Project ID
 #' @param name Project name
 #' @param client_id Client ID
 #' @param archived Whether or not item is archived
-#'
+#' @param is_template Is project a template?
+NULL
+
+#' @rdname project-update
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#' }
 project_update <- function(
     project_id,
     name = NULL,
@@ -161,6 +161,23 @@ project_update <- function(
     body = body
   )
   status_code(result) == 200
+}
+
+#' @rdname project-update
+#' @export
+project_update_template <- function(project_id, is_template = TRUE) {
+  body <- list(
+    isTemplate = is_template
+  )
+
+  result <- clockify:::PATCH(
+    sprintf("/workspaces/%s/projects/%s/template", workspace(), project_id),
+    body = body
+  )
+
+  content(result) %>%
+    list() %>%
+    parse_projects(concise = FALSE)
 }
 
 #' Update user billable rate on project
@@ -282,4 +299,6 @@ project_update_estimate_budget <- function(project_id, estimate = NULL, manual =
 }
 
 # - [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/memberships
-# - [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/template
+
+project_update_memberships <- function(project_id, user_id) {
+}
