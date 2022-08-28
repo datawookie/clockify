@@ -11,7 +11,5 @@ list_null_to_na <- function(l) {
 }
 
 list_remove_empty <- function(l) {
-  l <- l[!sapply(l, is.null)]
-  l <- l[sapply(l, length) != 0]
-  l
+  rlist::list.clean(l, recursive = TRUE)
 }

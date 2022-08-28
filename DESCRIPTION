@@ -26,6 +26,7 @@ Imports:
   logger,
   lubridate,
   anytime,
+  rlist,
   tibble
 Suggests: 
     testthat (>= 3.0.0)
