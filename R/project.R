@@ -261,8 +261,6 @@ project_update_estimate <- function(project_id, quantity = "budget", estimate, m
 
 #' Update project time & budget estimates
 #'
-#' Wraps `PATCH /workspaces/{workspaceId}/projects/{projectId}/estimate`.
-#'
 #' @name project-update-estimate
 #' @rdname project-update-estimate
 #'
@@ -301,7 +299,31 @@ project_update_estimate_budget <- function(project_id, estimate = NULL, manual =
   project_update_estimate(project_id, "budget", estimate, manual, active)
 }
 
-# - [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/memberships
-
+#' Update project memberships
+#'
+#' @param project_id Project ID
+#' @param user_id One or more user IDs
+#'
+#' @export
+#' @examples
+#' \dontrun{
+#' }
 project_update_memberships <- function(project_id, user_id) {
+  body <- list(
+    memberships = lapply(
+      user_id,
+      function(user_id) {
+        list(userId = user_id)
+        }
+      )
+  )
+
+  result <- clockify:::PATCH(
+    sprintf("/workspaces/%s/projects/%s/memberships", workspace(), project_id),
+    body = body
+  )
+
+  content(result) %>%
+    list() %>%
+    clockify:::parse_projects(concise = FALSE)
 }
