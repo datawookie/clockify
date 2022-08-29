@@ -16,5 +16,5 @@ project_update_user_cost_rate(project_id, user_id, rate, since = NULL)
 \item{since}{New rate will be applied to all time entries after this time}
 }
 \description{
-Wraps \code{PUT /workspaces/{workspaceId}/projects/{projectId}/users/{userId}/cost-rate}.
+Update user cost rate on project
 }

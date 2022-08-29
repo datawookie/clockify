@@ -15,7 +15,7 @@ task(project_id, task_id)
 A data frame.
 }
 \description{
-Wraps \code{GET /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}}.
+Get task
 }
 \examples{
 \dontrun{

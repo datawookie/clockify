@@ -10,7 +10,7 @@ tags()
 A data frame.
 }
 \description{
-Wraps \code{GET /workspaces/{workspaceId}/tags}.
+Get tags
 }
 \examples{
 \dontrun{

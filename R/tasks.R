@@ -22,8 +22,6 @@ parse_tasks <- function(tasks) {
 
 #' Get tasks
 #'
-#' Wraps \code{GET /workspaces/{workspaceId}/projects/{projectId}/tasks}.
-#'
 #' @param project_id Project ID
 #'
 #' @return A data frame.
@@ -45,8 +43,6 @@ tasks <- function(project_id) {
 }
 
 #' Get task
-#'
-#' Wraps \code{GET /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}}.
 #'
 #' @param project_id Project ID
 #' @param task_id Task ID

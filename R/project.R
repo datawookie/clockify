@@ -34,8 +34,6 @@ parse_projects <- function(projects, concise = TRUE) {
 
 #' Get projects
 #'
-#' Wraps \code{GET /workspaces/{workspaceId}/projects}.
-#'
 #' @param concise Generate concise output
 #'
 #' @return A data frame with one record per project
@@ -55,8 +53,6 @@ projects <- function(concise = TRUE) {
 }
 
 #' Get project
-#'
-#' Wraps \code{GET /workspaces/{workspaceId}/projects/{projectId}}.
 #'
 #' @param project_id Project ID
 #' @param concise Generate concise output
@@ -79,8 +75,6 @@ project <- function(project_id, concise = TRUE) {
 }
 
 #' Create project
-#'
-#' Wraps `POST /workspaces/{workspaceId}/projects`.
 #'
 #' @param name Project name
 #' @param client_id Client ID
@@ -113,8 +107,6 @@ project_create <- function(
 }
 
 #' Delete project
-#'
-#' Wraps `DELETE /workspaces/{workspaceId}/projects/{id}`.
 #'
 #' An active project cannot be deleted. Archive the project first.
 #'
@@ -185,8 +177,6 @@ project_update_template <- function(project_id, is_template = TRUE) {
 
 #' Update user billable rate on project
 #'
-#' Wraps `PUT /workspaces/{workspaceId}/projects/{projectId}/users/{userId}/hourly-rate`.
-#'
 #' @param project_id Project ID
 #' @param user_id User ID
 #' @param rate Rate
@@ -210,8 +200,6 @@ project_update_user_billable_rate <- function(project_id, user_id, rate, since =
 }
 
 #' Update user cost rate on project
-#'
-#' Wraps `PUT /workspaces/{workspaceId}/projects/{projectId}/users/{userId}/cost-rate`.
 #'
 #' @param project_id Project ID
 #' @param user_id User ID

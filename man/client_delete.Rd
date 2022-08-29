@@ -13,5 +13,5 @@ client_delete(client_id)
 A Boolean: \code{TRUE} on success or \code{FALSE} on failure.
 }
 \description{
-Wraps \code{DELETE /workspaces/{workspaceId}/clients}.
+Delete a client from workspace
 }

@@ -16,5 +16,5 @@ project_update_user_billable_rate(project_id, user_id, rate, since = NULL)
 \item{since}{New rate will be applied to all time entries after this time}
 }
 \description{
-Wraps \code{PUT /workspaces/{workspaceId}/projects/{projectId}/users/{userId}/hourly-rate}.
+Update user billable rate on project
 }

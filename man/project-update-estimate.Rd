@@ -34,7 +34,7 @@ project_update_estimate_budget(
 \item{monthly}{Should estimate be reset monthly?}
 }
 \description{
-Wraps \code{PATCH /workspaces/{workspaceId}/projects/{projectId}/estimate}.
+Update project time & budget estimates
 }
 \examples{
 \dontrun{

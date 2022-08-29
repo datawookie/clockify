@@ -41,8 +41,6 @@ clients <- function(concise = TRUE) {
 
 #' Add a new client to workspace
 #'
-#' Wraps \code{POST /workspaces/{workspaceId}/clients}.
-#'
 #' @inheritParams users
 #'
 #' @param name Client name
@@ -96,8 +94,6 @@ client_update <- function(
 }
 
 #' Delete a client from workspace
-#'
-#' Wraps \code{DELETE /workspaces/{workspaceId}/clients}.
 #'
 #' @param client_id Client ID
 #'

@@ -10,9 +10,6 @@ project_delete(project_id)
 \item{project_id}{Project ID}
 }
 \description{
-Wraps \code{DELETE /workspaces/{workspaceId}/projects/{id}}.
-}
-\details{
 An active project cannot be deleted. Archive the project first.
 }
 \examples{

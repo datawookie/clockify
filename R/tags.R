@@ -11,8 +11,6 @@ parse_tags <- function(tags) {
 
 #' Get tags
 #'
-#' Wraps \code{GET /workspaces/{workspaceId}/tags}.
-#'
 #' @return A data frame.
 #' @export
 #'

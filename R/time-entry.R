@@ -126,8 +126,6 @@ time_entries <- function(user_id = NULL, start = NULL, end = NULL, description =
 
 #' Get a specific time entry on workspace
 #'
-#' Wraps \code{GET /workspaces/{workspaceId}/time-entries/{id}}.
-#'
 #' @inheritParams users
 #'
 #' @param time_entry_id Time entry ID

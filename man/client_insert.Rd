@@ -15,7 +15,7 @@ client_insert(name, concise = TRUE)
 A data frame with one row per record.
 }
 \description{
-Wraps \code{POST /workspaces/{workspaceId}/clients}.
+Add a new client to workspace
 }
 \examples{
 \dontrun{

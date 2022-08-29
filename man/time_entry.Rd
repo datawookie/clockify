@@ -15,7 +15,7 @@ time_entry(time_entry_id, concise = TRUE)
 A data frame with one record per time entry.
 }
 \description{
-Wraps \code{GET /workspaces/{workspaceId}/time-entries/{id}}.
+Get a specific time entry on workspace
 }
 \examples{
 \dontrun{

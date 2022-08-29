@@ -12,7 +12,7 @@ project_create(name, client_id = NULL)
 \item{client_id}{Client ID}
 }
 \description{
-Wraps \code{POST /workspaces/{workspaceId}/projects}.
+Create project
 }
 \examples{
 \dontrun{

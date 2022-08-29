@@ -13,7 +13,7 @@ projects(concise = TRUE)
 A data frame with one record per project
 }
 \description{
-Wraps \code{GET /workspaces/{workspaceId}/projects}.
+Get projects
 }
 \examples{
 \dontrun{
