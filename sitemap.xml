@@ -19,6 +19,9 @@
     <loc>/reference/client_insert.html</loc>
   </url>
   <url>
+    <loc>/reference/client_update.html</loc>
+  </url>
+  <url>
     <loc>/reference/clients.html</loc>
   </url>
   <url>
@@ -40,7 +43,28 @@
     <loc>/reference/paginate.html</loc>
   </url>
   <url>
+    <loc>/reference/project-update-estimate.html</loc>
+  </url>
+  <url>
+    <loc>/reference/project-update.html</loc>
+  </url>
+  <url>
     <loc>/reference/project.html</loc>
+  </url>
+  <url>
+    <loc>/reference/project_create.html</loc>
+  </url>
+  <url>
+    <loc>/reference/project_delete.html</loc>
+  </url>
+  <url>
+    <loc>/reference/project_update_memberships.html</loc>
+  </url>
+  <url>
+    <loc>/reference/project_update_user_billable_rate.html</loc>
+  </url>
+  <url>
+    <loc>/reference/project_update_user_cost_rate.html</loc>
   </url>
   <url>
     <loc>/reference/projects.html</loc>
@@ -119,6 +143,12 @@
   </url>
   <url>
     <loc>/reference/user_groups.html</loc>
+  </url>
+  <url>
+    <loc>/reference/user_update_billable_rate.html</loc>
+  </url>
+  <url>
+    <loc>/reference/user_update_status.html</loc>
   </url>
   <url>
     <loc>/reference/users.html</loc>
