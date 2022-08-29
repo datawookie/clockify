@@ -1,3 +1,11 @@
+# {clockify} 0.0.18
+
+* Add `task_create()`.
+* Add `task_update()`.
+* Add `task_update_billable_rate()`.
+* Add `task_update_cost_rate()`.
+* Add `task_delete()`.
+
 # {clockify} 0.0.17
 
 * Add `tag()`.
