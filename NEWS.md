@@ -1,3 +1,15 @@
+# {clockify} 0.0.16
+
+* Add `project_create()`.
+* Add `project_delete()`.
+* Add `project_update()`.
+* Add `project_update_template()`.
+* Add `project_update_user_billable_rate()`.
+* Add `project_update_user_cost_rate()`.
+* Add `project_update_estimate_time()` & `project_update_estimate_budget()`.
+* Add `project_update_memberships()`.
+* On `NULL` argument to `time_format()` return `NULL`.
+
 # {clockify} 0.0.15
 
 * Result from `clients()` is paginated (so goes beyond 50 items).
