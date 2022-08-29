@@ -173,13 +173,14 @@ Endpoints which have currently been implemented in this package. Endpoints which
 - [X] PUT /workspaces/{workspaceId}/projects/{projectId}/users/{userId}/hourly-rate
 - [X] PUT /workspaces/{workspaceId}/projects/{projectId}/users/{userId}/cost-rate
 - [X] PATCH /workspaces/{workspaceId}/projects/{projectId}/estimate
-- [ ] PATCH /workspaces/{workspaceId}/projects/{projectId}/memberships
+- [X] PATCH /workspaces/{workspaceId}/projects/{projectId}/memberships
 - [X] PATCH /workspaces/{workspaceId}/projects/{projectId}/template
 - [X] DELETE /workspaces/{workspaceId}/projects/{id}
 - [X] GET /workspaces/{workspaceId}/tags
-- [ ] POST /workspaces/{workspaceId}/tags
-- [ ] PUT /workspaces/{workspaceId}/tags/{tagId}
-- [ ] DELETE /workspaces/{workspaceId}/tags/{tagId}
+- [X] GET /workspaces/{workspaceId}/tags/{tagId}
+- [X] POST /workspaces/{workspaceId}/tags
+- [X] PUT /workspaces/{workspaceId}/tags/{tagId}
+- [X] DELETE /workspaces/{workspaceId}/tags/{tagId}
 - [X] GET /workspaces/{workspaceId}/projects/{projectId}/tasks
 - [X] GET /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
 - [ ] POST /workspaces/{workspaceId}/projects/{projectId}/tasks
