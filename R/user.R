@@ -33,9 +33,16 @@ simplify_user <- function(user, active = TRUE, concise = TRUE) {
 #'
 #' @noRd
 simplify_membership <- function(membership) {
-  list_null_to_na(membership) %>%
+  membership <- list_null_to_na(membership) %>%
     map_dfr(as_tibble) %>%
     clean_names()
+
+  if ("target_id" %in% names(membership)) {
+    membership <- membership %>%
+      rename(project_id = target_id)
+  }
+
+  membership
 }
 
 #' Get ID for authenticated user.
