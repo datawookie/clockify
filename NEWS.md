@@ -1,3 +1,10 @@
+# {clockify} 0.0.17
+
+* Add `tag()`.
+* Add `tag_create()`.
+* Add `tag_update()`.
+* Add `tag_delete()`.
+
 # {clockify} 0.0.16
 
 * Add `project_create()`.
