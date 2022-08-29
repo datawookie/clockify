@@ -183,9 +183,11 @@ Endpoints which have currently been implemented in this package. Endpoints which
 - [X] DELETE /workspaces/{workspaceId}/tags/{tagId}
 - [X] GET /workspaces/{workspaceId}/projects/{projectId}/tasks
 - [X] GET /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
-- [ ] POST /workspaces/{workspaceId}/projects/{projectId}/tasks
-- [ ] PUT /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
-- [ ] DELETE /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
+- [X] POST /workspaces/{workspaceId}/projects/{projectId}/tasks
+- [X] PUT /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
+- [X] PUT /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}/hourly-rate
+- [X] PUT /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}/cost-rate
+- [X] DELETE /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
 - [X] GET /workspaces/{workspaceId}/user/{userId}/time-entries
 - [X] GET /workspaces/{workspaceId}/time-entries/{id}
 - [X] POST /workspaces/{workspaceId}/time-entries
