@@ -16,7 +16,10 @@ parse_projects <- function(projects, concise = TRUE) {
       template,
       memberships
     ) %>%
-    clean_names()
+    clean_names() %>%
+    mutate(
+      client_id = ifelse(client_id == "", NA, client_id)
+    )
 
   if (concise) {
     projects %>%
