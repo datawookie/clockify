@@ -1,3 +1,10 @@
+# {clockify} 0.0.19
+
+* Add `user_update_cost_rate()`.
+* Add `user_update_role`.
+* Add `user_delete_role`.
+* Add `user_delete`.
+
 # {clockify} 0.0.18
 
 * Add `task_create()`.
