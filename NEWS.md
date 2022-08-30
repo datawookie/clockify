@@ -1,3 +1,11 @@
+# {clockify} 0.1.0
+
+* Add `user_group_create()`.
+* Add `user_group_update()`.
+* Add `user_group_delete()`.
+* Add `user_group_user_add()`.
+* Add `user_group_user_delete()`.
+
 # {clockify} 0.0.19
 
 * Add `user_update_cost_rate()`.
