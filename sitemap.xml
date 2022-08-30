@@ -103,10 +103,37 @@
     <loc>/reference/shared_reports.html</loc>
   </url>
   <url>
+    <loc>/reference/tag.html</loc>
+  </url>
+  <url>
+    <loc>/reference/tag_create.html</loc>
+  </url>
+  <url>
+    <loc>/reference/tag_delete.html</loc>
+  </url>
+  <url>
+    <loc>/reference/tag_update.html</loc>
+  </url>
+  <url>
     <loc>/reference/tags.html</loc>
   </url>
   <url>
+    <loc>/reference/task-create.html</loc>
+  </url>
+  <url>
     <loc>/reference/task.html</loc>
+  </url>
+  <url>
+    <loc>/reference/task_delete.html</loc>
+  </url>
+  <url>
+    <loc>/reference/task_update.html</loc>
+  </url>
+  <url>
+    <loc>/reference/task_update_billable_rate.html</loc>
+  </url>
+  <url>
+    <loc>/reference/task_update_cost_rate.html</loc>
   </url>
   <url>
     <loc>/reference/tasks.html</loc>
