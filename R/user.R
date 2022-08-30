@@ -90,9 +90,8 @@ user <- function(concise = TRUE) {
 #' # Show active & default workspace for each user.
 #' users(concise = FALSE)
 #' }
-users <- function(active = TRUE, concise = TRUE) {
-  path <- sprintf("/workspaces/%s/users", workspace())
-  users <- GET(path)
+users <- function(active = NULL, concise = TRUE) {
+  users <- GET(sprintf("/workspaces/%s/users", workspace()))
 
   content(users) %>%
     map_dfr(simplify_user, active, concise)
@@ -104,8 +103,6 @@ users <- function(active = TRUE, concise = TRUE) {
 user_create <- function(email, send_email = TRUE) {
   warning("Creating users is a paid feature.", call. = FALSE, immediate. = TRUE)
 
-  path <- sprintf("/workspaces/%s/users", workspace())
-
   body <- list(
     email = email
   )
@@ -114,7 +111,7 @@ user_create <- function(email, send_email = TRUE) {
   )
 
   result <- POST(
-    path,
+    sprintf("/workspaces/%s/users", workspace()),
     body = body,
     query = query
   )
@@ -151,18 +148,103 @@ user_update_status <- function(user_id, active) {
 #'
 #' @export
 user_update_billable_rate <- function(user_id, rate, since = NULL) {
-  path <- sprintf("/workspaces/%s/users/%s/hourly-rate", workspace(), user_id)
-
-  if (!is.null(since)) since <- clockify:::time_format(since)
-
   body <- list(
     amount = rate * 100,
-    since = since
+    since = clockify:::time_format(since)
   )
 
   result <- clockify:::PUT(
-    path,
+    sprintf("/workspaces/%s/users/%s/hourly-rate", workspace(), user_id),
     body = body
+  )
+
+  status_code(result) %in% c(200, 201)
+}
+
+#' Update cost rate
+#'
+#' @param user_id User ID
+#' @param rate Rate
+#' @param since New rate will be applied to all time entries after this time
+#'
+#' @export
+user_update_cost_rate <- function(user_id, rate, since = NULL) {
+  body <- list(
+    amount = rate * 100,
+    since = clockify:::time_format(since)
+  )
+
+  result <- clockify:::PUT(
+    sprintf("/workspaces/%s/users/%s/cost-rate", workspace(), user_id),
+    body = body
+  )
+
+  status_code(result) %in% c(200, 201)
+}
+
+check_valid_role <- function(role) {
+  if (!(role %in% c("TEAM_MANAGER", "PROJECT_MANAGER", "WORKSPACE_ADMIN"))) {
+    stop("Invalid role.")
+  }
+}
+
+#' Update user roles
+#'
+#' @name user-update-role
+#'
+#' @param user_id User ID
+#' @param role One of `"TEAM_MANAGER"`, `"PROJECT_MANAGER"` or
+#'   `"WORKSPACE_ADMIN"`.
+#' @param entity_id Depending on `role`, this is a user ID (for
+#'   `"TEAM_MANAGER"`), a project ID (for `"PROJECT_MANAGER"`) or a workspace ID
+#'   (for `"WORKSPACE_ADMIN"`).
+#'
+#' @export
+user_update_role <- function(user_id, role, entity_id) {
+  check_valid_role(role)
+
+  body <- list(
+    role = role,
+    entity_id = entity_id
+  )
+
+  result <- clockify:::POST(
+    sprintf("/workspaces/%s/users/%s/roles", workspace(), user_id),
+    body = body
+  )
+
+  status_code(result) %in% c(200, 201)
+}
+
+#' Delete user roles
+#'
+#' @inheritParams user-update-role
+#'
+#' @export
+user_delete_role <- function(user_id, role, entity_id) {
+  check_valid_role(role)
+
+  body <- list(
+    role = role,
+    entity_id = entity_id
+  )
+
+  result <- clockify:::DELETE(
+    sprintf("/workspaces/%s/users/%s/roles", workspace(), user_id),
+    body = body
+  )
+
+  status_code(result) %in% c(200, 201)
+}
+
+#' Delete user
+#'
+#' @param user_id User ID
+#'
+#' @export
+user_delete <- function(user_id) {
+  result <- clockify:::DELETE(
+    sprintf("/workspaces/%s/users/%s", workspace(), user_id)
   )
 
   status_code(result) %in% c(200, 201)
