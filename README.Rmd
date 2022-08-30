@@ -206,11 +206,11 @@ Endpoints which have currently been implemented in this package. Endpoints which
 - [X] DELETE /workspaces/{workspaceId}/users/{userId}/roles
 - [X] DELETE /workspaces/{workspaceId}/users/{userId}
 - [X] GET /workspaces/{workspaceId}/user-groups
-- [ ] POST /workspaces/{workspaceId}/user-groups
-- [ ] PUT /workspaces/{workspaceId}/user-groups/{userGroupId}
-- [ ] DELETE /workspaces/{workspaceId}/user-groups/{userGroupId}
-- [ ] POST /workspaces/{workspaceId}/user-groups/{userGroupId}/users
-- [ ] DELETE /workspaces/{workspaceId}/user-groups/{userGroupId}/users/{userId}
+- [X] POST /workspaces/{workspaceId}/user-groups
+- [X] PUT /workspaces/{workspaceId}/user-groups/{userGroupId}
+- [X] DELETE /workspaces/{workspaceId}/user-groups/{userGroupId}
+- [X] POST /workspaces/{workspaceId}/user-groups/{userGroupId}/users
+- [X] DELETE /workspaces/{workspaceId}/user-groups/{userGroupId}/users/{userId}
 - [X] GET /workspaces
 - [X] GET /workspaces/{workspaceId}/custom-fields
 - [X] GET /workspaces/{workspaceId}/projects/{projectid}/custom-fields

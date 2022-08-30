@@ -1,3 +1,15 @@
+simplify_group <- function(group) {
+  group$userIds <- tibble(user_id = group$userIds %>% unlist()) %>% list()
+
+  group %>%
+    as_tibble() %>%
+    clean_names() %>%
+    rename(
+      group_id = id,
+      user_id = user_ids
+    )
+}
+
 #' Get user groups
 #'
 #' @return A data frame with one record per user group.
@@ -10,7 +22,112 @@
 #' user_groups()
 #' }
 user_groups <- function() {
-  path <- sprintf("/workspaces/%s/user-groups", workspace())
-  GET(path) %>%
-    content()
+  result <- clockify:::GET(sprintf("/workspaces/%s/user-groups", workspace()))
+
+  content(result) %>%
+    map_dfr(simplify_group)
+}
+
+#' Create a user group
+#'
+#' @param Name of user group
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' }
+user_group_create <- function(name) {
+  body <- list(
+    name = name
+  )
+
+  result <- clockify:::POST(
+    sprintf("/workspaces/%s/user-groups", workspace()),
+    body = body
+  )
+
+  content(result) %>% simplify_group()
+}
+
+#' Update a user group
+#'
+#' @param group_id User group ID
+#' @param Name of user group
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' }
+user_group_update <- function(group_id, name) {
+  body <- list(
+    name = name
+  )
+
+  result <- clockify:::PUT(
+    sprintf("/workspaces/%s/user-groups/%s", workspace(), group_id),
+    body = body
+  )
+
+  content(result) %>% simplify_group()
+}
+
+#' Delete a user group
+#'
+#' @param group_id User group ID
+#' @param user_id User ID
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' }
+user_group_delete <- function(group_id) {
+  result <- clockify:::DELETE(
+    sprintf("/workspaces/%s/user-groups/%s", workspace(), group_id)
+  )
+
+  status_code(result) == 200
+}
+
+#' Add a user to a user group
+#'
+#' @param group_id User group ID
+#' @param user_id User ID
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' }
+user_group_user_add <- function(group_id, user_id) {
+  body <- list(
+    userId = user_id
+  )
+
+  result <- clockify:::POST(
+    sprintf("/workspaces/%s/user-groups/%s/users", workspace(), group_id),
+    body = body
+  )
+
+  content(result) %>% simplify_group()
+}
+
+#' Remove a user from a user group
+#'
+#' @param group_id User group ID
+#' @param user_id User ID
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' }
+user_group_user_delete <- function(group_id, user_id) {
+  result <- clockify:::DELETE(
+    sprintf("/workspaces/%s/user-groups/%s/users/%s", workspace(), group_id, user_id)
+  )
+
+  content(result) %>% simplify_group()
 }
