@@ -1,4 +1,4 @@
-simplify_user <- function(user, active = TRUE, concise = TRUE) {
+simplify_user <- function(user, active = NULL, concise = TRUE) {
   user$memberships <- list(simplify_membership(user$memberships))
   user$settings <- NULL
   user$profilePicture <- NULL
@@ -16,7 +16,7 @@ simplify_user <- function(user, active = TRUE, concise = TRUE) {
       user_name = name
     )
 
-  if (active) user <- user %>% filter(status == "ACTIVE")
+  if (!is.null(active) && active) user <- user %>% filter(status == "ACTIVE")
   if (concise) {
     user <- user %>% select(user_id, user_name, status)
   }
