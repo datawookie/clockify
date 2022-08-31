@@ -33,9 +33,23 @@ simplify_user <- function(user, active = NULL, concise = TRUE) {
 #'
 #' @noRd
 simplify_membership <- function(membership) {
-  membership <- list_null_to_na(membership) %>%
-    map_dfr(as_tibble) %>%
+  membership <- membership %>% map_dfr(function(m) {
+    if (is.null(m$hourlyRate)) {
+      } else {
+      m$hourlyRate <- list(as_tibble(m$hourlyRate))
+    }
+    m
+  }) %>%
     clean_names()
+
+  if ("hourly_rate" %in% names(membership)) {
+    membership <- membership %>%
+      unnest(hourly_rate, keep_empty = TRUE) %>%
+      rename(
+        rate_amount = amount,
+        rate_currency = currency
+      )
+  }
 
   if ("target_id" %in% names(membership)) {
     membership <- membership %>%
@@ -156,7 +170,7 @@ user_update_billable_rate <- function(user_id, rate, since = NULL) {
     body = body
   )
 
-  status_code(result) %in% c(200, 201)
+  content(result) %>% unpack_workspace()
 }
 
 #' Update cost rate
@@ -177,13 +191,7 @@ user_update_cost_rate <- function(user_id, rate, since = NULL) {
     body = body
   )
 
-  status_code(result) %in% c(200, 201)
-}
-
-check_valid_role <- function(role) {
-  if (!(role %in% c("TEAM_MANAGER", "PROJECT_MANAGER", "WORKSPACE_ADMIN"))) {
-    stop("Invalid role.")
-  }
+  content(result) %>% unpack_workspace()
 }
 
 #' Update user roles
