@@ -147,7 +147,7 @@ user_update_status <- function(user_id, active) {
 #' @export
 user_update_billable_rate <- function(user_id, rate, since = NULL) {
   body <- list(
-    amount = rate * 100,
+    amount = rate,
     since = clockify:::time_format(since)
   )
 
@@ -168,7 +168,7 @@ user_update_billable_rate <- function(user_id, rate, since = NULL) {
 #' @export
 user_update_cost_rate <- function(user_id, rate, since = NULL) {
   body <- list(
-    amount = rate * 100,
+    amount = rate,
     since = clockify:::time_format(since)
   )
 

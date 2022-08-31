@@ -134,7 +134,7 @@ task_update <- function(project_id, task_id, name = NULL, billable = NULL) {
 #' @export
 task_update_billable_rate <- function(project_id, task_id, rate, since = NULL) {
   body <- list(
-    amount = rate * 100,
+    amount = rate,
     since = clockify:::time_format(since)
   ) %>% clockify:::list_remove_empty()
 
@@ -157,7 +157,7 @@ task_update_billable_rate <- function(project_id, task_id, rate, since = NULL) {
 #' @export
 task_update_cost_rate <- function(project_id, task_id, rate, since = NULL) {
   body <- list(
-    amount = rate * 100,
+    amount = rate,
     since = clockify:::time_format(since)
   )
 

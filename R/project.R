@@ -185,7 +185,7 @@ project_update_template <- function(project_id, is_template = TRUE) {
 #' @export
 project_update_user_billable_rate <- function(project_id, user_id, rate, since = NULL) {
   body <- list(
-    amount = rate * 100,
+    amount = rate,
     since = since
   )
 
@@ -209,7 +209,7 @@ project_update_user_billable_rate <- function(project_id, user_id, rate, since =
 #' @export
 project_update_user_cost_rate <- function(project_id, user_id, rate, since = NULL) {
   body <- list(
-    amount = rate * 100,
+    amount = rate,
     since = since
   )
 
