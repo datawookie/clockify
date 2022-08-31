@@ -126,18 +126,16 @@ user_create <- function(email, send_email = TRUE) {
 #'
 #' @export
 user_update_status <- function(user_id, active) {
-  path <- sprintf("/workspaces/%s/users/%s", workspace(), user_id)
-
   body <- list(
     membershipStatus = ifelse(active, "ACTIVE", "INACTIVE")
   )
 
   result <- clockify:::PUT(
-    path,
+    sprintf("/workspaces/%s/users/%s", workspace(), user_id),
     body = body
   )
 
-  status_code(result) %in% c(200, 201)
+  content(result) %>% simplify_workspace()
 }
 
 #' Update billable rate

@@ -1,3 +1,13 @@
+simplify_workspace <- function(workspace) {
+  with(
+    workspace,
+    tibble(
+      workspace_id = id,
+      name
+    )
+  )
+}
+
 #' Get a list of workspaces
 #'
 #' @return A data frame with one record per workspace.
@@ -10,17 +20,9 @@
 #' workspaces()
 #' }
 workspaces <- function() {
-  GET("/workspaces") %>%
+  clockify:::GET("/workspaces") %>%
     content() %>%
-    map_df(function(workspace) {
-      with(
-        workspace,
-        tibble(
-          workspace_id = id,
-          name
-        )
-      )
-    })
+    map_df(simplify_workspace)
 }
 
 #' Get or set active workspace ID
