@@ -8,6 +8,17 @@ simplify_workspace <- function(workspace) {
   )
 }
 
+unpack_workspace <- function(workspace) {
+  workspace$imageUrl <- NULL
+  workspace$featureSubscriptionType <- NULL
+  workspace$workspaceSettings <- NULL
+  workspace$hourlyRate <- NULL
+
+  workspace$memberships <- list(simplify_membership(workspace$memberships))
+
+  as_tibble(workspace)
+}
+
 #' Get a list of workspaces
 #'
 #' @return A data frame with one record per workspace.
