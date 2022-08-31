@@ -32,8 +32,9 @@ workspaces <- function() {
 #'
 #' @examples
 #' \dontrun{
-#' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
-#'
+#' # Select default workspace for authenticated user.
+#' workspace()
+#' # Select a specific workspace.
 #' workspace("612b15a5f4c3bf0462192677")
 #' }
 workspace <- function(workspace_id = NULL) {

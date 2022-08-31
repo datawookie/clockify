@@ -7,3 +7,7 @@ cache_get <- function(x) {
 cache_set <- function(x, value) {
   assign(x, value, envir = cache)
 }
+
+cache_delete <- function(x) {
+  rm(x, envir = cache)
+}
