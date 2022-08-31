@@ -27,7 +27,7 @@ parse_projects <- function(projects, concise = TRUE) {
   } else {
     projects %>%
       mutate(
-        memberships = map(memberships, clockify:::simplify_membership)
+        memberships = map(memberships, simplify_membership)
       )
   }
 }
