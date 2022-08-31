@@ -40,3 +40,17 @@ test_that("NA for missing username", {
     users() %>% filter(user_id == USER_ID_MISSING_NAME) %>% pull(user_name) %>% is.na()
   )
 })
+
+test_that("update billable rate", {
+  skip_on_cran()
+  skip_if(NO_API_KEY_IN_ENVIRONMENT)
+
+  rate <- runif(1, 0, 1000) %>% ceiling()
+
+  workspace <- user_update_billable_rate(USER_ID_ALICE, rate, NULL)
+
+  expect_equal(
+    workspace %>% unnest(memberships) %>% filter(user_id == USER_ID_ALICE) %>% pull(rate_amount),
+    rate
+  )
+})
