@@ -9,3 +9,7 @@ USER_ID_ALICE <-         "630f15d3b59c366b0e3ae2e6"   # Alice
 USER_ID_CAROL <-         "630f1cb9cb18da61cfd58659"   # Carol
 
 NO_API_KEY_IN_ENVIRONMENT <- CLOCKIFY_API_KEY == ""
+
+random_string <- function(length = 24) {
+  stringi::stri_rand_strings(1, length)
+}
