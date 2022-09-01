@@ -144,7 +144,7 @@ user_update_status <- function(user_id, active) {
     membershipStatus = ifelse(active, "ACTIVE", "INACTIVE")
   )
 
-  result <- clockify:::PUT(
+  result <- PUT(
     sprintf("/workspaces/%s/users/%s", workspace(), user_id),
     body = body
   )
@@ -162,10 +162,10 @@ user_update_status <- function(user_id, active) {
 user_update_billable_rate <- function(user_id, rate, since = NULL) {
   body <- list(
     amount = rate,
-    since = clockify:::time_format(since)
+    since = time_format(since)
   )
 
-  result <- clockify:::PUT(
+  result <- PUT(
     sprintf("/workspaces/%s/users/%s/hourly-rate", workspace(), user_id),
     body = body
   )
@@ -183,10 +183,10 @@ user_update_billable_rate <- function(user_id, rate, since = NULL) {
 user_update_cost_rate <- function(user_id, rate, since = NULL) {
   body <- list(
     amount = rate,
-    since = clockify:::time_format(since)
+    since = time_format(since)
   )
 
-  result <- clockify:::PUT(
+  result <- PUT(
     sprintf("/workspaces/%s/users/%s/cost-rate", workspace(), user_id),
     body = body
   )
@@ -214,7 +214,7 @@ user_update_role <- function(user_id, role, entity_id) {
     entity_id = entity_id
   )
 
-  result <- clockify:::POST(
+  result <- POST(
     sprintf("/workspaces/%s/users/%s/roles", workspace(), user_id),
     body = body
   )
@@ -235,7 +235,7 @@ user_delete_role <- function(user_id, role, entity_id) {
     entity_id = entity_id
   )
 
-  result <- clockify:::DELETE(
+  result <- DELETE(
     sprintf("/workspaces/%s/users/%s/roles", workspace(), user_id),
     body = body
   )
@@ -249,7 +249,7 @@ user_delete_role <- function(user_id, role, entity_id) {
 #'
 #' @export
 user_delete <- function(user_id) {
-  result <- clockify:::DELETE(
+  result <- DELETE(
     sprintf("/workspaces/%s/users/%s", workspace(), user_id)
   )
 

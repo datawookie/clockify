@@ -86,14 +86,14 @@ task_create <- function(project_id, name) {
     name = name
   )
 
-  result <- clockify:::POST(
+  result <- POST(
     sprintf("/workspaces/%s/projects/%s/tasks", workspace(), project_id),
     body = body
   )
 
   content(result) %>%
     list() %>%
-    clockify:::parse_tasks()
+    parse_tasks()
 }
 
 #' Update a task
@@ -113,16 +113,16 @@ task_update <- function(project_id, task_id, name = NULL, billable = NULL) {
   body <- list(
     name = name,
     billable = billable
-  ) %>% clockify:::list_remove_empty()
+  ) %>% list_remove_empty()
 
-  result <- clockify:::PUT(
+  result <- PUT(
     sprintf("/workspaces/%s/projects/%s/tasks/%s", workspace(), project_id, task_id),
     body = body
   )
 
   content(result) %>%
     list() %>%
-    clockify:::parse_tasks()
+    parse_tasks()
 }
 
 #' Update task billable rate
@@ -135,17 +135,17 @@ task_update <- function(project_id, task_id, name = NULL, billable = NULL) {
 task_update_billable_rate <- function(project_id, task_id, rate, since = NULL) {
   body <- list(
     amount = rate,
-    since = clockify:::time_format(since)
-  ) %>% clockify:::list_remove_empty()
+    since = time_format(since)
+  ) %>% list_remove_empty()
 
-  result <- clockify:::PUT(
+  result <- PUT(
     sprintf("/workspaces/%s/projects/%s/tasks/%s/hourly-rate", workspace(), project_id, task_id),
     body = body
   )
 
   content(result) %>%
     list() %>%
-    clockify:::parse_tasks()
+    parse_tasks()
 }
 
 #' Update task cost rate
@@ -158,17 +158,17 @@ task_update_billable_rate <- function(project_id, task_id, rate, since = NULL) {
 task_update_cost_rate <- function(project_id, task_id, rate, since = NULL) {
   body <- list(
     amount = rate,
-    since = clockify:::time_format(since)
+    since = time_format(since)
   )
 
-  result <- clockify:::PUT(
+  result <- PUT(
     sprintf("/workspaces/%s/projects/%s/tasks/%s/cost-rate", workspace(), project_id, task_id),
     body = body
   )
 
   content(result) %>%
     list() %>%
-    clockify:::parse_tasks()
+    parse_tasks()
 }
 
 #' Delete task
@@ -182,7 +182,7 @@ task_update_cost_rate <- function(project_id, task_id, rate, since = NULL) {
 #' task_delete("630ce53290cfd8789366fd49", "630ce57e25e863294e5c6cf2")
 #' }
 task_delete <- function(project_id, task_id) {
-  result <- clockify:::DELETE(
+  result <- DELETE(
     sprintf("/workspaces/%s/projects/%s/tasks/%s", workspace(), project_id, task_id)
   )
   status_code(result) == 200

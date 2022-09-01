@@ -22,7 +22,7 @@ simplify_group <- function(group) {
 #' user_groups()
 #' }
 user_groups <- function() {
-  result <- clockify:::GET(sprintf("/workspaces/%s/user-groups", workspace()))
+  result <- GET(sprintf("/workspaces/%s/user-groups", workspace()))
 
   content(result) %>%
     map_dfr(simplify_group)
@@ -42,7 +42,7 @@ user_group_create <- function(name) {
     name = name
   )
 
-  result <- clockify:::POST(
+  result <- POST(
     sprintf("/workspaces/%s/user-groups", workspace()),
     body = body
   )
@@ -65,7 +65,7 @@ user_group_update <- function(group_id, name) {
     name = name
   )
 
-  result <- clockify:::PUT(
+  result <- PUT(
     sprintf("/workspaces/%s/user-groups/%s", workspace(), group_id),
     body = body
   )
@@ -84,7 +84,7 @@ user_group_update <- function(group_id, name) {
 #' \dontrun{
 #' }
 user_group_delete <- function(group_id) {
-  result <- clockify:::DELETE(
+  result <- DELETE(
     sprintf("/workspaces/%s/user-groups/%s", workspace(), group_id)
   )
 
@@ -106,7 +106,7 @@ user_group_user_add <- function(group_id, user_id) {
     userId = user_id
   )
 
-  result <- clockify:::POST(
+  result <- POST(
     sprintf("/workspaces/%s/user-groups/%s/users", workspace(), group_id),
     body = body
   )
@@ -125,7 +125,7 @@ user_group_user_add <- function(group_id, user_id) {
 #' \dontrun{
 #' }
 user_group_user_delete <- function(group_id, user_id) {
-  result <- clockify:::DELETE(
+  result <- DELETE(
     sprintf("/workspaces/%s/user-groups/%s/users/%s", workspace(), group_id, user_id)
   )
 

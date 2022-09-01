@@ -39,13 +39,13 @@ tags <- function() {
 #' tag("5f2d9bc659badb2a849c027e")
 #' }
 tag <- function(tag_id) {
-  result <- clockify:::GET(
+  result <- GET(
     sprintf("/workspaces/%s/tags/%s", workspace(), tag_id)
   )
 
   content(result) %>%
     list() %>%
-    clockify:::parse_tags()
+    parse_tags()
 }
 
 #' Create tag
@@ -66,14 +66,14 @@ tag_create <- function(name) {
     name = name
   )
 
-  result <- clockify:::POST(
+  result <- POST(
     sprintf("/workspaces/%s/tags", workspace()),
     body = body
   )
 
   content(result) %>%
     list() %>%
-    clockify:::parse_tags()
+    parse_tags()
 }
 
 #' Update tag
@@ -95,16 +95,16 @@ tag_update <- function(tag_id, name = NULL, archived = NULL) {
     name = name,
     archived = archived
   ) %>%
-    clockify:::list_remove_empty()
+    list_remove_empty()
 
-  result <- clockify:::PUT(
+  result <- PUT(
     sprintf("/workspaces/%s/tags/%s", workspace(), tag_id),
     body = body
   )
 
   content(result) %>%
     list() %>%
-    clockify:::parse_tags()
+    parse_tags()
 }
 
 #' Delete tag
@@ -118,7 +118,7 @@ tag_update <- function(tag_id, name = NULL, archived = NULL) {
 #' tag_delete("5f2d9bc659badb2a849c027e")
 #' }
 tag_delete <- function(tag_id) {
-  result <- clockify:::DELETE(
+  result <- DELETE(
     sprintf("/workspaces/%s/tags/%s", workspace(), tag_id)
   )
   status_code(result) == 200

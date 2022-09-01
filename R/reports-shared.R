@@ -21,7 +21,7 @@ shared_reports <- function() {
   reports <- list()
 
   while (TRUE) {
-    response <- clockify:::GET(
+    response <- GET(
       path,
       query = query
     ) %>% content()
@@ -58,7 +58,7 @@ shared_reports <- function() {
 shared_report <- function(shared_report_id) {
   path <- sprintf("/shared-reports/%s", shared_report_id)
 
-  report <- clockify:::GET(
+  report <- GET(
     path,
     query = query
   ) %>% content()
@@ -105,15 +105,15 @@ shared_report_create <- function(
     fixedDate = fixed_date,
     type = "SUMMARY",
     filter = list(
-      dateRangeStart = clockify:::time_format(start),
-      dateRangeEnd = clockify:::time_format(end),
+      dateRangeStart = time_format(start),
+      dateRangeEnd = time_format(end),
       summaryFilter = list(
         groups = c("USER", "PROJECT", "TIMEENTRY")
       )
     )
   )
 
-  response <- clockify:::POST(
+  response <- POST(
     path,
     body = body
   )
@@ -147,7 +147,7 @@ shared_report_update <- function(shared_report_id, name = NULL, is_public = NULL
     visibleToUserGroups = c()
   )
 
-  response <- clockify:::PUT(
+  response <- PUT(
     path,
     body = body
   )
@@ -166,7 +166,7 @@ shared_report_update <- function(shared_report_id, name = NULL, is_public = NULL
 shared_report_delete <- function(shared_report_id) {
   path <- sprintf("/workspaces/%s/shared-reports/%s", workspace(), shared_report_id)
 
-  response <- clockify:::DELETE(path)
+  response <- DELETE(path)
 
   status_code(response) == 204
 }

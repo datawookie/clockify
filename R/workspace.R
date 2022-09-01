@@ -31,7 +31,7 @@ unpack_workspace <- function(workspace) {
 #' workspaces()
 #' }
 workspaces <- function() {
-  clockify:::GET("/workspaces") %>%
+  GET("/workspaces") %>%
     content() %>%
     map_df(simplify_workspace)
 }

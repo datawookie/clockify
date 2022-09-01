@@ -94,9 +94,9 @@ project_create <- function(
     name = name,
     client_id = client_id
   ) %>%
-    clockify:::list_remove_empty()
+    list_remove_empty()
 
-  response <- clockify:::POST(
+  response <- POST(
     path,
     body = body
   )
@@ -118,7 +118,7 @@ project_create <- function(
 #' \dontrun{
 #' }
 project_delete <- function(project_id) {
-  result <- clockify:::DELETE(
+  result <- DELETE(
     sprintf("/workspaces/%s/projects/%s", workspace(), project_id)
   )
   status_code(result) == 200
@@ -149,9 +149,9 @@ project_update <- function(
     client_id = client_id,
     archived = archived
   ) %>%
-    clockify:::list_remove_empty()
+    list_remove_empty()
 
-  result <- clockify:::PUT(
+  result <- PUT(
     sprintf("/workspaces/%s/projects/%s", workspace(), project_id),
     body = body
   )
@@ -165,7 +165,7 @@ project_update_template <- function(project_id, is_template = TRUE) {
     isTemplate = is_template
   )
 
-  result <- clockify:::PATCH(
+  result <- PATCH(
     sprintf("/workspaces/%s/projects/%s/template", workspace(), project_id),
     body = body
   )
@@ -189,7 +189,7 @@ project_update_user_billable_rate <- function(project_id, user_id, rate, since =
     since = since
   )
 
-  result <- clockify:::PUT(
+  result <- PUT(
     sprintf("/workspaces/%s/projects/%s/users/%s/hourly-rate", workspace(), project_id, user_id),
     body = body
   )
@@ -213,7 +213,7 @@ project_update_user_cost_rate <- function(project_id, user_id, rate, since = NUL
     since = since
   )
 
-  result <- clockify:::PUT(
+  result <- PUT(
     sprintf("/workspaces/%s/projects/%s/users/%s/cost-rate", workspace(), project_id, user_id),
     body = body
   )
@@ -237,7 +237,7 @@ project_update_estimate <- function(project_id, quantity = "budget", estimate, m
 
   names(body) <- paste0(quantity, "Estimate")
 
-  result <- clockify:::PATCH(
+  result <- PATCH(
     sprintf("/workspaces/%s/projects/%s/estimate", workspace(), project_id),
     body = body
   )
@@ -306,12 +306,12 @@ project_update_memberships <- function(project_id, user_id) {
       )
   )
 
-  result <- clockify:::PATCH(
+  result <- PATCH(
     sprintf("/workspaces/%s/projects/%s/memberships", workspace(), project_id),
     body = body
   )
 
   content(result) %>%
     list() %>%
-    clockify:::parse_projects(concise = FALSE)
+    parse_projects(concise = FALSE)
 }
