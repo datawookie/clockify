@@ -5,7 +5,7 @@
 parse_tags <- function(tags) {
   tibble(tags) %>%
     unnest_wider(tags) %>%
-    select(id, workspaceId, everything()) %>%
+    select(tag_id = id, workspaceId, everything()) %>%
     clean_names()
 }
 

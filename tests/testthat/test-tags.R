@@ -1,7 +1,3 @@
-TAG_NAME <- random_string()
-TAG_ID <- NULL
-TAG_NAME_UPDATED <- random_string()
-
 test_that("create tag", {
   skip_on_cran()
   skip_if(NO_API_KEY_IN_ENVIRONMENT)
@@ -19,9 +15,9 @@ test_that("get tags", {
 
   TAG_ID <<- tags %>%
     filter(name == TAG_NAME) %>%
-    pull(id)
+    pull(tag_id)
 
-  expect_identical(names(tags), c("id", "workspace_id", "name", "archived"))
+  expect_identical(names(tags), c("tag_id", "workspace_id", "name", "archived"))
 })
 
 test_that("get tag from ID", {
@@ -49,5 +45,5 @@ test_that("delete tag", {
 
   tag_delete(TAG_ID)
 
-  expect_false(TAG_ID %in% (tags() %>% pull(id)))
+  expect_false(TAG_ID %in% (tags() %>% pull(tag_id)))
 })
