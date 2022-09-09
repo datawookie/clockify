@@ -149,7 +149,7 @@ user_update_status <- function(user_id, active) {
     body = body
   )
 
-  content(result) %>% simplify_workspace()
+  content(result) %>% unpack_workspace()
 }
 
 #' Update billable rate

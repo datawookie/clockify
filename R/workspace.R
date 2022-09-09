@@ -1,13 +1,3 @@
-simplify_workspace <- function(workspace) {
-  with(
-    workspace,
-    tibble(
-      workspace_id = id,
-      name
-    )
-  )
-}
-
 unpack_workspace <- function(workspace) {
   workspace$imageUrl <- NULL
   workspace$featureSubscriptionType <- NULL
@@ -16,7 +6,8 @@ unpack_workspace <- function(workspace) {
 
   workspace$memberships <- list(simplify_membership(workspace$memberships))
 
-  as_tibble(workspace)
+  as_tibble(workspace) %>%
+    rename(workspace_id = id)
 }
 
 #' Get a list of workspaces
@@ -33,7 +24,7 @@ unpack_workspace <- function(workspace) {
 workspaces <- function() {
   GET("/workspaces") %>%
     content() %>%
-    map_df(simplify_workspace)
+    map_df(unpack_workspace)
 }
 
 #' Get or set active workspace ID
