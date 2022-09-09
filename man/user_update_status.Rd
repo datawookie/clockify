@@ -9,7 +9,7 @@ user_update_status(user_id, active)
 \arguments{
 \item{user_id}{User ID}
 
-\item{active}{A Boolean indicating whether or not user is active.}
+\item{active}{A Boolean indicating whether or not user is active. Can also specify either \code{"ACTIVE"} or \code{"INACTIVE"}.}
 }
 \description{
 Update status

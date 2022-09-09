@@ -136,12 +136,12 @@ user_create <- function(email, send_email = TRUE) {
 #' Update status
 #'
 #' @param user_id User ID
-#' @param active A Boolean indicating whether or not user is active.
+#' @param active A Boolean indicating whether or not user is active. Can also specify either `"ACTIVE"` or `"INACTIVE"`.
 #'
 #' @export
 user_update_status <- function(user_id, active) {
   body <- list(
-    membershipStatus = ifelse(active, "ACTIVE", "INACTIVE")
+    membershipStatus = check_active(active)
   )
 
   result <- PUT(
