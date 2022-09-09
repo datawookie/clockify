@@ -54,3 +54,22 @@ test_that("update billable rate", {
     rate
   )
 })
+
+test_that("update user status", {
+  skip_on_cran()
+  skip_if(NO_API_KEY_IN_ENVIRONMENT)
+
+  workspace <- user_update_status(USER_ID_CAROL, FALSE)
+  #
+  expect_equal(
+    workspace %>% unnest(cols = c(memberships)) %>% filter(user_id == USER_ID_CAROL) %>% pull(membership_status),
+    "INACTIVE"
+    )
+
+  workspace <- user_update_status(USER_ID_CAROL, "ACTIVE")
+  #
+  expect_equal(
+    workspace %>% unnest(cols = c(memberships)) %>% filter(user_id == USER_ID_CAROL) %>% pull(membership_status),
+    "ACTIVE"
+  )
+})
