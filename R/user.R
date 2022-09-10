@@ -24,6 +24,20 @@ simplify_user <- function(user, active = NULL, concise = TRUE) {
   user
 }
 
+simplify_role <- function(user) {
+  map_dfr(user, function(user) {
+    user <- list_null_to_na(user)
+    user$role = as_tibble(user$role) %>%
+      rename(
+        role_name = name,
+        entity_id = id
+      )
+    user$role = list(user$role)
+    as_tibble(user)
+  }) %>%
+    clean_names()
+}
+
 #' Unpack membership data
 #'
 #' The `target_id` and `membership_type` columns need to be consider together.
@@ -213,7 +227,7 @@ user_update_role <- function(user_id, role, entity_id) {
 
   body <- list(
     role = role,
-    entity_id = entity_id
+    entityId = entity_id
   )
 
   result <- POST(
@@ -221,7 +235,7 @@ user_update_role <- function(user_id, role, entity_id) {
     body = body
   )
 
-  status_code(result) %in% c(200, 201)
+  content(result) %>% simplify_role()
 }
 
 #' Delete user roles
@@ -234,7 +248,7 @@ user_delete_role <- function(user_id, role, entity_id) {
 
   body <- list(
     role = role,
-    entity_id = entity_id
+    entityId = entity_id
   )
 
   result <- DELETE(
@@ -242,7 +256,7 @@ user_delete_role <- function(user_id, role, entity_id) {
     body = body
   )
 
-  status_code(result) %in% c(200, 201)
+  status_code(result) %in% c(200, 201, 204)
 }
 
 #' Delete user

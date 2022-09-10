@@ -73,3 +73,22 @@ test_that("update user status", {
     "ACTIVE"
   )
 })
+
+test_that("update user role", {
+  skip_on_cran()
+  skip_if(NO_API_KEY_IN_ENVIRONMENT)
+
+  role <- user_update_role(USER_ID_BOB, "WORKSPACE_ADMIN", CLOCKIFY_WORKSPACE)
+
+  expect_equal(
+    role %>% unnest(cols = c(role)) %>% pull(role_name),
+    "WORKSPACE_ADMIN"
+  )
+})
+
+test_that("delete user role", {
+  skip_on_cran()
+  skip_if(NO_API_KEY_IN_ENVIRONMENT)
+
+  expect_true(user_delete_role(USER_ID_BOB, "WORKSPACE_ADMIN", CLOCKIFY_WORKSPACE))
+})
