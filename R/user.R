@@ -152,14 +152,14 @@ user_update_status <- function(user_id, active) {
   content(result) %>% unpack_workspace()
 }
 
-#' Update billable rate
+#' Update hourly rate
 #'
 #' @param user_id User ID
 #' @param rate Rate
 #' @param since New rate will be applied to all time entries after this time
 #'
 #' @export
-user_update_billable_rate <- function(user_id, rate, since = NULL) {
+user_update_hourly_rate <- function(user_id, rate, since = NULL) {
   body <- list(
     amount = rate,
     since = time_format(since)
@@ -174,6 +174,8 @@ user_update_billable_rate <- function(user_id, rate, since = NULL) {
 }
 
 #' Update cost rate
+#'
+#' For this to work you need to enable expenses (under the _General_ tab in _Workspace Settings_). It's only available on the PRO plan.
 #'
 #' @param user_id User ID
 #' @param rate Rate
