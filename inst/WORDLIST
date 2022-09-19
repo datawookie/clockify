@@ -1,6 +1,7 @@
 andrew
 api
 aut
+bumpversion
 clockify
 Clockify
 Config
@@ -14,6 +15,7 @@ httr
 LazyData
 lubridate
 megan
+pre
 purrr
 rlist
 Roxygen

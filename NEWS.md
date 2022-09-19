@@ -1,3 +1,9 @@
+# {clockify} 0.1.1
+
+* Improved test coverage.
+* Add pre-commit hooks.
+* Rate no longer scaled by 100.
+
 # {clockify} 0.1.0
 
 * Add `user_group_create()`.
