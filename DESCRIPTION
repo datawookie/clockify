@@ -16,7 +16,7 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.1
 Imports:
   httr,
   dplyr,
@@ -28,7 +28,9 @@ Imports:
   anytime,
   rlist,
   tibble
-Suggests: 
-    testthat (>= 3.0.0)
+Suggests:
+  here,
+  stringi,
+  testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Config/testthat/start-first: api-key, workspace

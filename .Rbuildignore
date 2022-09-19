@@ -1,10 +1,11 @@
-^.*\.Rproj$
-^\.Rproj\.user$
 .bumpversion.cfg
 .travis.yml
 README.Rmd
 README.html
-pkgdown
-docs/
-test.R
+^.*\.Rproj$
+^\.Rproj\.user$
 ^\.github$
+^\.pre-commit-config\.yaml$
+docs/
+pkgdown
+test.R

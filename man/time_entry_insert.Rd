@@ -35,7 +35,7 @@ set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
 time_entry(
   project_id = "600e73263e207962449a2c13",
   start = "2021-01-02 08:00:00",
-  end   = "2021-01-02 10:00:00",
+  end = "2021-01-02 10:00:00",
   description = "Doing stuff"
 )
 # Insert a time entry for another user.
@@ -43,7 +43,7 @@ time_entry(
   user_id = "5df56293df753263139e60c5",
   project_id = "600e73263e207962449a2c13",
   start = "2021-01-02 10:00:00",
-  end   = "2021-01-02 12:00:00",
+  end = "2021-01-02 12:00:00",
   description = "Doing other stuff"
 )
 }

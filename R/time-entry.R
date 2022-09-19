@@ -77,7 +77,16 @@ parse_time_entries <- function(entries, finished, concise) {
 #' # Specify number of pages.
 #' time_entries(USER_ID, pages = 3)
 #' }
-time_entries <- function(user_id = NULL, start = NULL, end = NULL, description = NULL, project = NULL, task = NULL, tags = NULL, finished = TRUE, concise = TRUE, ...) {
+time_entries <- function(user_id = NULL,
+                         start = NULL,
+                         end = NULL,
+                         description = NULL,
+                         project = NULL,
+                         task = NULL,
+                         tags = NULL,
+                         finished = TRUE,
+                         concise = TRUE,
+                         ...) {
   if (is.null(user_id)) user_id <- user_get_id()
   path <- sprintf("/workspaces/%s/user/%s/time-entries", workspace(), user_id)
 
@@ -159,27 +168,25 @@ time_entry <- function(time_entry_id, concise = TRUE) {
 #' @param description Description
 NULL
 
-prepare_body <- function(
-    project_id = NULL,
-    start = NULL,
-    end = NULL,
-    description = NULL
-) {
-  body = list()
+prepare_body <- function(project_id = NULL,
+                         start = NULL,
+                         end = NULL,
+                         description = NULL) {
+  body <- list()
 
   if (!is.null(start)) {
     if (!is.POSIXct(start)) start <- anytime(start)
-    body$start = time_format(start)
+    body$start <- time_format(start)
   }
   if (!is.null(end)) {
     if (!is.POSIXct(end)) end <- anytime(end)
-    body$end = time_format(end)
+    body$end <- time_format(end)
   }
   if (!is.null(project_id)) {
-    body$projectId = project_id
+    body$projectId <- project_id
   }
   if (!is.null(description)) {
-    body$description = description
+    body$description <- description
   }
 
   body
@@ -202,7 +209,7 @@ prepare_body <- function(
 #' time_entry(
 #'   project_id = "600e73263e207962449a2c13",
 #'   start = "2021-01-02 08:00:00",
-#'   end   = "2021-01-02 10:00:00",
+#'   end = "2021-01-02 10:00:00",
 #'   description = "Doing stuff"
 #' )
 #' # Insert a time entry for another user.
@@ -210,17 +217,15 @@ prepare_body <- function(
 #'   user_id = "5df56293df753263139e60c5",
 #'   project_id = "600e73263e207962449a2c13",
 #'   start = "2021-01-02 10:00:00",
-#'   end   = "2021-01-02 12:00:00",
+#'   end = "2021-01-02 12:00:00",
 #'   description = "Doing other stuff"
 #' )
 #' }
-time_entry_insert <- function(
-    user_id = NULL,
-    project_id = NULL,
-    start,
-    end = NULL,
-    description = NULL
-) {
+time_entry_insert <- function(user_id = NULL,
+                              project_id = NULL,
+                              start,
+                              end = NULL,
+                              description = NULL) {
   log_debug("Insert time entry.")
 
   path <- sprintf("/workspaces/%s/", workspace())
@@ -272,13 +277,11 @@ time_entry_delete <- function(time_entry_id = NULL) {
 #' @inheritParams time-entry-parameters
 #'
 #' @export
-time_entry_set <- function(
-    time_entry_id,
-    project_id = NULL,
-    start,
-    end = NULL,
-    description = NULL
-) {
+time_entry_set <- function(time_entry_id,
+                           project_id = NULL,
+                           start,
+                           end = NULL,
+                           description = NULL) {
   log_debug("Set time entry.")
 
   path <- sprintf("/workspaces/%s/time-entries/%s", workspace(), time_entry_id)
@@ -303,10 +306,8 @@ time_entry_set <- function(
 #' @inheritParams time-entry-parameters
 #'
 #' @export
-time_entry_invoiced <- function(
-    time_entry_id,
-    invoiced = TRUE
-) {
+time_entry_invoiced <- function(time_entry_id,
+                                invoiced = TRUE) {
   log_debug("Mark time entry as invoiced.")
 
   path <- sprintf("/workspaces/%s/time-entries/invoiced", workspace())
@@ -344,10 +345,8 @@ time_entry_invoiced <- function(
 #'   end = "2022-09-02 15:00:00"
 #' )
 #' }
-time_entry_stop <- function(
-    user_id = NULL,
-    end = NULL
-) {
+time_entry_stop <- function(user_id = NULL,
+                            end = NULL) {
   path <- sprintf("/workspaces/%s/user/%s/time-entries", workspace(), user_id)
 
   body <- prepare_body(NULL, NULL, end, NULL)

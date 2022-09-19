@@ -1,4 +1,4 @@
-WORKSPACE_COLS <- c("workspace_id", "name", "memberships")
+WORKSPACE_COLS <- c("workspace_id", "name", "memberships") # nolint
 
 test_that("get workspaces", {
   skip_on_cran()

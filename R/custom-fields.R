@@ -22,12 +22,10 @@ custom_fields <- function(project_id = NULL) {
 #' Update a custom field on a project
 #'
 #' @export
-custom_field_update <- function(
-    project_id,
-    custom_field_id,
-    default_value = NULL,
-    status = NULL
-) {
+custom_field_update <- function(project_id,
+                                custom_field_id,
+                                default_value = NULL,
+                                status = NULL) {
   path <- sprintf("/workspaces/%s/projects/%s/custom-fields/%s", workspace(), project_id, custom_field_id)
 
   body <- list(
@@ -40,19 +38,21 @@ custom_field_update <- function(
     body = body
   )
 
-  tibble(fields = list(content(response))) %>% unnest_wider(fields) %>% clean_names()
+  tibble(fields = list(content(response))) %>%
+    unnest_wider(fields) %>%
+    clean_names()
 }
 
 #' Remove a custom field from a project
 #'
 #' @export
-custom_field_delete <- function(
-    project_id,
-    custom_field_id
-) {
+custom_field_delete <- function(project_id,
+                                custom_field_id) {
   path <- sprintf("/workspaces/%s/projects/%s/custom-fields/%s", workspace(), project_id, custom_field_id)
 
   response <- DELETE(path)
 
-  tibble(fields = list(content(response))) %>% unnest_wider(fields) %>% clean_names()
+  tibble(fields = list(content(response))) %>%
+    unnest_wider(fields) %>%
+    clean_names()
 }

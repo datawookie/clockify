@@ -14,7 +14,3 @@ user_group_user_add(group_id, user_id)
 \description{
 Add a user to a user group
 }
-\examples{
-\dontrun{
-}
-}

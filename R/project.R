@@ -70,7 +70,8 @@ project <- function(project_id, concise = TRUE) {
   path <- sprintf("/workspaces/%s/projects/%s", workspace(), project_id)
 
   GET(path) %>%
-    content() %>% list() %>%
+    content() %>%
+    list() %>%
     parse_projects(concise = concise)
 }
 
@@ -83,11 +84,10 @@ project <- function(project_id, concise = TRUE) {
 #'
 #' @examples
 #' \dontrun{
+#'
 #' }
-project_create <- function(
-    name,
-    client_id = NULL
-) {
+project_create <- function(name,
+                           client_id = NULL) {
   path <- sprintf("/workspaces/%s/projects", workspace())
 
   body <- list(
@@ -116,6 +116,7 @@ project_create <- function(
 #'
 #' @examples
 #' \dontrun{
+#'
 #' }
 project_delete <- function(project_id) {
   result <- DELETE(
@@ -138,12 +139,10 @@ NULL
 
 #' @rdname project-update
 #' @export
-project_update <- function(
-    project_id,
-    name = NULL,
-    client_id = NULL,
-    archived = NULL
-) {
+project_update <- function(project_id,
+                           name = NULL,
+                           client_id = NULL,
+                           archived = NULL) {
   body <- list(
     name = name,
     client_id = client_id,
@@ -183,7 +182,7 @@ project_update_template <- function(project_id, is_template = TRUE) {
 #' @param since New rate will be applied to all time entries after this time
 #'
 #' @export
-project_update_user_billable_rate <- function(project_id, user_id, rate, since = NULL) {
+project_update_billable_rate <- function(project_id, user_id, rate, since = NULL) {
   body <- list(
     amount = rate,
     since = since
@@ -207,7 +206,7 @@ project_update_user_billable_rate <- function(project_id, user_id, rate, since =
 #' @param since New rate will be applied to all time entries after this time
 #'
 #' @export
-project_update_user_cost_rate <- function(project_id, user_id, rate, since = NULL) {
+project_update_cost_rate <- function(project_id, user_id, rate, since = NULL) {
   body <- list(
     amount = rate,
     since = since
@@ -295,6 +294,7 @@ project_update_estimate_budget <- function(project_id, estimate = NULL, manual =
 #' @export
 #' @examples
 #' \dontrun{
+#'
 #' }
 project_update_memberships <- function(project_id, user_id) {
   body <- list(
@@ -302,8 +302,8 @@ project_update_memberships <- function(project_id, user_id) {
       user_id,
       function(user_id) {
         list(userId = user_id)
-        }
-      )
+      }
+    )
   )
 
   result <- PATCH(

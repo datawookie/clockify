@@ -12,7 +12,3 @@ user_group_create(name)
 \description{
 Create a user group
 }
-\examples{
-\dontrun{
-}
-}

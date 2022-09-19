@@ -27,12 +27,12 @@ simplify_user <- function(user, active = NULL, concise = TRUE) {
 simplify_role <- function(user) {
   map_dfr(user, function(user) {
     user <- list_null_to_na(user)
-    user$role = as_tibble(user$role) %>%
+    user$role <- as_tibble(user$role) %>%
       rename(
         role_name = name,
         entity_id = id
       )
-    user$role = list(user$role)
+    user$role <- list(user$role)
     as_tibble(user)
   }) %>%
     clean_names()
@@ -47,13 +47,14 @@ simplify_role <- function(user) {
 #'
 #' @noRd
 simplify_membership <- function(membership) {
-  membership <- membership %>% map_dfr(function(m) {
-    if (is.null(m$hourlyRate)) {
+  membership <- membership %>%
+    map_dfr(function(m) {
+      if (is.null(m$hourlyRate)) {
       } else {
-      m$hourlyRate <- list(as_tibble(m$hourlyRate))
-    }
-    m
-  }) %>%
+        m$hourlyRate <- list(as_tibble(m$hourlyRate))
+      }
+      m
+    }) %>%
     clean_names()
 
   if ("hourly_rate" %in% names(membership)) {
@@ -189,7 +190,8 @@ user_update_hourly_rate <- function(user_id, rate, since = NULL) {
 
 #' Update cost rate
 #'
-#' For this to work you need to enable expenses (under the _General_ tab in _Workspace Settings_). It's only available on the PRO plan.
+#' For this to work you need to enable expenses (under the _General_ tab in
+#' _Workspace Settings_). It's only available on the PRO plan.
 #'
 #' @param user_id User ID
 #' @param rate Rate

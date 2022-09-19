@@ -14,5 +14,6 @@ user_update_cost_rate(user_id, rate, since = NULL)
 \item{since}{New rate will be applied to all time entries after this time}
 }
 \description{
-For this to work you need to enable expenses (under the \emph{General} tab in \emph{Workspace Settings}). It's only available on the PRO plan.
+For this to work you need to enable expenses (under the \emph{General} tab in
+\emph{Workspace Settings}). It's only available on the PRO plan.
 }

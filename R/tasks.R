@@ -16,7 +16,7 @@ parse_tasks <- function(tasks) {
       add_column(!!!EXTRA_COLS[!names(EXTRA_COLS) %in% names(.)]) %>%
       select(-assignee_id) %>%
       rename(assignee_id = assignee_ids) %>%
-      select(task_id = id, name,  project_id, status, billable, assignee_id)
+      select(task_id = id, name, project_id, status, billable, assignee_id)
   }
 }
 

@@ -5,7 +5,8 @@
 #' @keywords internal
 #' @noRd
 #' @return A string representation of POSIXct.
-time_format <- function(time, to_utc = FALSE) {                 # nocov start
+time_format <- function(time, to_utc = FALSE) {
+  # nocov start
   if (is.null(time)) {
     NULL
   } else {
@@ -13,14 +14,14 @@ time_format <- function(time, to_utc = FALSE) {                 # nocov start
 
     if (to_utc) {
       time <- with_tz(time, tzone = "UTC")
-      tz = "GMT"
+      tz <- "GMT"
     } else {
-      tz = ""
+      tz <- ""
     }
 
     strftime(time, "%Y-%m-%dT%H:%M:%OS3Z", tz = tz)
   }
-}                                                               # nocov end
+} # nocov end
 
 #' Parse times returned by API
 #'
@@ -32,11 +33,10 @@ time_format <- function(time, to_utc = FALSE) {                 # nocov start
 #' @keywords internal
 #' @noRd
 #' @return A POSIXct object.
-time_parse <- function(
-    time,
-    format = "%Y-%m-%dT%H:%M:%SZ",
-    to_local = TRUE
-) {                                                             # nocov start
+time_parse <- function(time,
+                       format = "%Y-%m-%dT%H:%M:%SZ",
+                       to_local = TRUE) {
+  # nocov start
   time <- as.POSIXct(time, format = format, tz = "UTC")
 
   if (to_local) {
@@ -44,4 +44,4 @@ time_parse <- function(
   } else {
     time
   }
-}                                                               # nocov end
+} # nocov end

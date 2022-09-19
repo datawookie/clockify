@@ -3,19 +3,22 @@
 #' @param l A list.
 #' @return A list.
 #' @noRd
-list_null_to_na <- function(l) {                                # nocov start
+list_null_to_na <- function(l) {
+  # nocov start
   map(l, function(l) {
     l[sapply(l, is.null)] <- NA
     l
   })
-}                                                               # nocov end
+} # nocov end
 
-list_remove_empty <- function(l) {                              # nocov start
+list_remove_empty <- function(l) {
+  # nocov start
   rlist::list.clean(l, recursive = TRUE)
-}                                                               # nocov end
+} # nocov end
 
-check_valid_role <- function(role) {                            # nocov start
+check_valid_role <- function(role) {
+  # nocov start
   if (!(role %in% c("TEAM_MANAGER", "PROJECT_MANAGER", "WORKSPACE_ADMIN"))) {
     stop("Invalid role.")
   }
-}                                                               # nocov end
+} # nocov end

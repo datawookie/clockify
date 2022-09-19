@@ -59,8 +59,7 @@ shared_report <- function(shared_report_id) {
   path <- sprintf("/shared-reports/%s", shared_report_id)
 
   report <- GET(
-    path,
-    query = query
+    path
   ) %>% content()
 
   tibble(group = report$groupOne) %>%
@@ -90,13 +89,11 @@ shared_report <- function(shared_report_id) {
 #' \dontrun{
 #' shared_report_create("Sample Report", "2022-03-01", "2022-04-01")
 #' }
-shared_report_create <- function(
-    name,
-    start,
-    end,
-    is_public = TRUE,
-    fixed_date = FALSE
-) {
+shared_report_create <- function(name,
+                                 start,
+                                 end,
+                                 is_public = TRUE,
+                                 fixed_date = FALSE) {
   path <- sprintf("/workspaces/%s/shared-reports", workspace())
 
   body <- list(
@@ -120,7 +117,7 @@ shared_report_create <- function(
 
   # This contains the report parameters. Could be unpacked into return value.
   #
-  report <- content(response)
+  # report <- content(response)
 
   status_code(response) == 200
 }

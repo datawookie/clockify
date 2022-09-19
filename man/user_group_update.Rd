@@ -14,7 +14,3 @@ user_group_update(group_id, name)
 \description{
 Update a user group
 }
-\examples{
-\dontrun{
-}
-}

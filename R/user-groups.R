@@ -33,10 +33,6 @@ user_groups <- function() {
 #' @param Name of user group
 #'
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#' }
 user_group_create <- function(name) {
   body <- list(
     name = name
@@ -56,10 +52,6 @@ user_group_create <- function(name) {
 #' @param Name of user group
 #'
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#' }
 user_group_update <- function(group_id, name) {
   body <- list(
     name = name
@@ -79,10 +71,6 @@ user_group_update <- function(group_id, name) {
 #' @param user_id User ID
 #'
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#' }
 user_group_delete <- function(group_id) {
   result <- DELETE(
     sprintf("/workspaces/%s/user-groups/%s", workspace(), group_id)
@@ -97,10 +85,6 @@ user_group_delete <- function(group_id) {
 #' @param user_id User ID
 #'
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#' }
 user_group_user_add <- function(group_id, user_id) {
   body <- list(
     userId = user_id
@@ -120,10 +104,6 @@ user_group_user_add <- function(group_id, user_id) {
 #' @param user_id User ID
 #'
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#' }
 user_group_user_delete <- function(group_id, user_id) {
   result <- DELETE(
     sprintf("/workspaces/%s/user-groups/%s/users/%s", workspace(), group_id, user_id)

@@ -14,7 +14,3 @@ user_group_user_delete(group_id, user_id)
 \description{
 Remove a user from a user group
 }
-\examples{
-\dontrun{
-}
-}

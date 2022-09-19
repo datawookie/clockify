@@ -1,4 +1,4 @@
-parse_client <- function(client, concise) {
+parse_client <- function(client, concise = TRUE) {
   client <- with(
     client,
     tibble(
@@ -73,12 +73,10 @@ client_insert <- function(name, concise = TRUE) {
 #'
 #' @return A data frame with one record for the updated client.
 #' @export
-client_update <- function(
-    client_id,
-    name = NULL,
-    note = NULL,
-    archived = NULL
-) {
+client_update <- function(client_id,
+                          name = NULL,
+                          note = NULL,
+                          archived = NULL) {
   path <- sprintf("/workspaces/%s/clients/%s", workspace(), client_id)
 
   body <- list(
@@ -86,11 +84,11 @@ client_update <- function(
     note = note,
     archived = as.logical(archived)
   ) %>%
-    list_remove_empty
+    list_remove_empty()
 
   PUT(path, body = body) %>%
     content() %>%
-    parse_client(concise = concise)
+    parse_client()
 }
 
 #' Delete a client from workspace

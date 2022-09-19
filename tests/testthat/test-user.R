@@ -1,5 +1,10 @@
+# nolint start
 USERS_COLS_CONCISE <- c("user_id", "user_name", "status")
-USERS_COLS <- c("user_id", "email", "user_name", "memberships", "active_workspace", "default_workspace", "status")
+USERS_COLS <- c(
+  "user_id", "email", "user_name", "memberships", "active_workspace",
+  "default_workspace", "status"
+)
+# nolint end
 
 test_that("get active users", {
   skip_on_cran()
@@ -37,7 +42,10 @@ test_that("NA for missing username", {
   skip_if(NO_API_KEY_IN_ENVIRONMENT)
 
   expect_true(
-    users() %>% filter(user_id == USER_ID_MISSING_NAME) %>% pull(user_name) %>% is.na()
+    users() %>%
+      filter(user_id == USER_ID_MISSING_NAME) %>%
+      pull(user_name) %>%
+      is.na()
   )
 })
 
@@ -50,7 +58,10 @@ test_that("update hourly rate", {
   workspace <- user_update_hourly_rate(USER_ID_ALICE, rate, NULL)
 
   expect_equal(
-    workspace %>% unnest(memberships) %>% filter(user_id == USER_ID_ALICE) %>% pull(rate_amount),
+    workspace %>%
+      unnest(memberships) %>%
+      filter(user_id == USER_ID_ALICE) %>%
+      pull(rate_amount),
     rate
   )
 })
@@ -62,14 +73,20 @@ test_that("update user status", {
   workspace <- user_update_status(USER_ID_CAROL, FALSE)
   #
   expect_equal(
-    workspace %>% unnest(cols = c(memberships)) %>% filter(user_id == USER_ID_CAROL) %>% pull(membership_status),
+    workspace %>%
+      unnest(cols = c(memberships)) %>%
+      filter(user_id == USER_ID_CAROL) %>%
+      pull(membership_status),
     "INACTIVE"
-    )
+  )
 
   workspace <- user_update_status(USER_ID_CAROL, "ACTIVE")
   #
   expect_equal(
-    workspace %>% unnest(cols = c(memberships)) %>% filter(user_id == USER_ID_CAROL) %>% pull(membership_status),
+    workspace %>%
+      unnest(cols = c(memberships)) %>%
+      filter(user_id == USER_ID_CAROL) %>%
+      pull(membership_status),
     "ACTIVE"
   )
 })
