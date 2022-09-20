@@ -1,10 +1,8 @@
-# nolint start
 USERS_COLS_CONCISE <- c("user_id", "user_name", "status")
 USERS_COLS <- c(
   "user_id", "email", "user_name", "memberships", "active_workspace",
   "default_workspace", "status"
 )
-# nolint end
 
 test_that("get active users", {
   skip_on_cran()

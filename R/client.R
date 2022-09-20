@@ -50,11 +50,9 @@ clients <- function(concise = TRUE) {
 #'
 #' @examples
 #' \dontrun{
-#' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
-#'
-#' client_insert("RStudio")
+#' client_create("RStudio")
 #' }
-client_insert <- function(name, concise = TRUE) {
+client_create <- function(name, concise = TRUE) {
   path <- sprintf("/workspaces/%s/clients", workspace())
 
   body <- list("name" = name)

@@ -1,9 +1,7 @@
-# nolint start
 PROJECTS_COLS_CONCISE <- c("project_id", "project_name", "client_id", "billable")
 PROJECTS_COLS <- c(
   "project_id", "project_name", "client_id", "workspace_id", "billable", "public", "template", "memberships"
 )
-# nolint end
 
 test_that("get projects", {
   skip_on_cran()

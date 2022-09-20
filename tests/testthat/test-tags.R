@@ -13,7 +13,7 @@ test_that("get tags", {
 
   tags <- tags()
 
-  TAG_ID <<- tags %>% # nolint
+  TAG_ID <<- tags %>%
     filter(name == TAG_NAME) %>%
     pull(tag_id)
 
