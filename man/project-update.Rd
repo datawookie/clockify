@@ -17,10 +17,19 @@ project_update_template(project_id, is_template = TRUE)
 
 \item{client_id}{Client ID}
 
-\item{archived}{Whether or not item is archived}
+\item{archived}{Whether or not project is archived}
 
-\item{is_template}{Is project a template?}
+\item{is_template}{Whether or not project is a template}
 }
 \description{
-Update project
+Adjust the project characteristics.
+}
+\details{
+These functions enable the following functionality:
+\itemize{
+\item change the project name
+\item change the client ID associated with the project
+\item toggle whether project is archived and
+\item toggle whether project is a template (paid plan only).
+}
 }

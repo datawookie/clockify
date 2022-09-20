@@ -4,7 +4,9 @@
 #'
 parse_projects <- function(projects, concise = TRUE) {
   projects <- tibble(projects) %>%
-    unnest_wider(projects) %>%
+    unnest_wider(projects)
+
+  projects <- projects %>%
     # TODO: There are a lot more fields which can be included here.
     select(
       project_id = id,
@@ -15,16 +17,23 @@ parse_projects <- function(projects, concise = TRUE) {
       public,
       archived,
       template,
-      memberships
+      memberships,
+      timeEstimate
     ) %>%
     clean_names() %>%
     mutate(
-      client_id = ifelse(client_id == "", NA, client_id)
+      client_id = ifelse(client_id == "", NA, client_id),
+      time_estimate = map(time_estimate, function(estimate) {
+        if (is.null(estimate$resetOption)) estimate$resetOption <- NA
+        estimate %>%
+          as_tibble() %>%
+          clean_names()
+      })
     )
 
   if (concise) {
     projects %>%
-      select(-workspace_id, -public, -template, -memberships)
+      select(-workspace_id, -public, -template, -memberships, -time_estimate)
   } else {
     projects %>%
       mutate(
@@ -93,7 +102,7 @@ project_create <- function(name,
 
   body <- list(
     name = name,
-    client_id = client_id
+    clientId = client_id
   ) %>%
     list_remove_empty()
 
@@ -128,14 +137,23 @@ project_delete <- function(project_id) {
 
 #' Update project
 #'
+#' Adjust the project characteristics.
+#'
+#' These functions enable the following functionality:
+#'
+#' - change the project name
+#' - change the client ID associated with the project
+#' - toggle whether project is archived and
+#' - toggle whether project is a template (paid plan only).
+#'
 #' @name project-update
 #' @rdname project-update
 #'
 #' @param project_id Project ID
 #' @param name Project name
 #' @param client_id Client ID
-#' @param archived Whether or not item is archived
-#' @param is_template Is project a template?
+#' @param archived Whether or not project is archived
+#' @param is_template Whether or not project is a template
 NULL
 
 #' @rdname project-update
@@ -161,6 +179,8 @@ project_update <- function(project_id,
     parse_projects()
 }
 
+#' This `project_update_template()` function will only work on a paid plan.
+#'
 #' @rdname project-update
 #' @export
 project_update_template <- function(project_id, is_template = TRUE) {
@@ -226,7 +246,12 @@ project_update_cost_rate <- function(project_id, user_id, rate, since = NULL) {
     parse_projects()
 }
 
-project_update_estimate <- function(project_id, quantity = "budget", estimate, manual, active, monthly) {
+project_update_estimate <- function(project_id,
+                                    quantity = "budget",
+                                    estimate = NULL,
+                                    manual = TRUE,
+                                    active = NULL,
+                                    monthly = FALSE) {
   if (!(quantity %in% c("budget", "time"))) stop("Invalid quantity.")
 
   body <- list(
