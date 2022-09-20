@@ -13,6 +13,7 @@ parse_projects <- function(projects, concise = TRUE) {
       workspaceId,
       billable,
       public,
+      archived,
       template,
       memberships
     ) %>%
@@ -150,11 +151,14 @@ project_update <- function(project_id,
   ) %>%
     list_remove_empty()
 
-  result <- PUT(
+  response <- PUT(
     sprintf("/workspaces/%s/projects/%s", workspace(), project_id),
     body = body
   )
-  status_code(result) == 200
+
+  content(response) %>%
+    list() %>%
+    parse_projects()
 }
 
 #' @rdname project-update
