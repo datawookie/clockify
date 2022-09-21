@@ -15,7 +15,7 @@ Stop currently running timer
 \examples{
 \dontrun{
 # Start timer running.
-time_entry_insert(
+time_entry_create(
   user_id = "5df56293df753263139e60c5",
   project_id = "600e73263e207962449a2c13",
   start = "2022-09-02 14:00:00",

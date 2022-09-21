@@ -192,9 +192,9 @@ prepare_body <- function(project_id = NULL,
   body
 }
 
-#' Insert a time entry
+#' Create a time entry
 #'
-#' Inserting time entries for other users is a paid feature.
+#' Creating time entries for other users is a paid feature.
 #'
 #' @inheritParams time-entry-parameters
 #'
@@ -203,33 +203,29 @@ prepare_body <- function(project_id = NULL,
 #'
 #' @examples
 #' \dontrun{
-#' set_api_key(Sys.getenv("CLOCKIFY_API_KEY"))
-#'
-#' # Insert a time entry for the authenticated user.
-#' time_entry(
+#' # Create a time entry for the authenticated user.
+#' time_entry_create(
 #'   project_id = "600e73263e207962449a2c13",
 #'   start = "2021-01-02 08:00:00",
 #'   end = "2021-01-02 10:00:00",
 #'   description = "Doing stuff"
 #' )
-#' # Insert a time entry for another user.
-#' time_entry(
-#'   user_id = "5df56293df753263139e60c5",
-#'   project_id = "600e73263e207962449a2c13",
-#'   start = "2021-01-02 10:00:00",
-#'   end = "2021-01-02 12:00:00",
-#'   description = "Doing other stuff"
+#' # Create a time entry for another user (paid feature).
+#' time_entry_create(
+#'   "5df56293df753263139e60c5",
+#'   "600e73263e207962449a2c13",
+#'   "2021-01-02 10:00:00",
+#'   "2021-01-02 12:00:00",
+#'   "Doing other stuff"
 #' )
 #' }
-time_entry_insert <- function(user_id = NULL,
+time_entry_create <- function(user_id = NULL,
                               project_id = NULL,
                               start,
                               end = NULL,
                               description = NULL) {
-  log_debug("Insert time entry.")
-
   path <- sprintf("/workspaces/%s/", workspace())
-  if (!is.null(user_id)) {
+  if (!is.null(user_id) && user_id != user()$user_id) {
     warning("Inserting time entries for other users is a paid feature.", call. = FALSE, immediate. = TRUE)
     path <- paste0(path, sprintf("user/%s/", user_id))
   }
@@ -242,10 +238,9 @@ time_entry_insert <- function(user_id = NULL,
     body = body
   )
 
-  httr::content(result) %>%
+  content(result) %>%
     list() %>%
-    parse_time_entries(finished = FALSE, concise = FALSE) %>%
-    pull(id)
+    parse_time_entries(finished = FALSE, concise = FALSE)
 }
 
 #' Delete a time entry
@@ -262,8 +257,6 @@ time_entry_insert <- function(user_id = NULL,
 #' time_entry_delete("612c7bd2a34530476ab25c67")
 #' }
 time_entry_delete <- function(time_entry_id = NULL) {
-  log_debug("Delete time entry.")
-
   path <- sprintf("/workspaces/%s/time-entries/%s", workspace(), time_entry_id)
   result <- DELETE(path)
   status_code(result) == 204
@@ -293,15 +286,14 @@ time_entry_set <- function(time_entry_id,
     body = body
   )
 
-  httr::content(result) %>%
+  content(result) %>%
     list() %>%
-    parse_time_entries(finished = FALSE, concise = FALSE) %>%
-    pull(id)
+    parse_time_entries(finished = FALSE, concise = FALSE)
 }
 
 #' Mark time entries as invoiced
 #'
-#' Have not yet managed to test this because the response is always a 403.
+#' The `time_entry_invoiced()` function will only work on a paid plan.
 #'
 #' @inheritParams time-entry-parameters
 #'
@@ -333,7 +325,7 @@ time_entry_invoiced <- function(time_entry_id,
 #' @examples
 #' \dontrun{
 #' # Start timer running.
-#' time_entry_insert(
+#' time_entry_create(
 #'   user_id = "5df56293df753263139e60c5",
 #'   project_id = "600e73263e207962449a2c13",
 #'   start = "2022-09-02 14:00:00",
