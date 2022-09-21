@@ -16,7 +16,7 @@ parse_time_entries <- function(entries, finished, concise) {
     unnest_wider(timeInterval) %>%
     clean_names() %>%
     select(
-      id,
+      time_entry_id = id,
       user_id,
       workspace_id,
       project_id,
@@ -40,7 +40,7 @@ parse_time_entries <- function(entries, finished, concise) {
   if (concise) {
     entries %>%
       select(
-        id, project_id, description, duration
+        time_entry_id, project_id, description, duration
       )
   } else {
     entries
@@ -347,5 +347,8 @@ time_entry_stop <- function(user_id = NULL,
     path,
     body = body
   )
-  status_code(result) == 200
+
+  content(result) %>%
+    list() %>%
+    parse_time_entries(finished = FALSE, concise = FALSE)
 }

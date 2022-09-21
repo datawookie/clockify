@@ -10,5 +10,5 @@ time_entry_invoiced(time_entry_id, invoiced = TRUE)
 \item{time_entry_id}{Time entry ID}
 }
 \description{
-Have not yet managed to test this because the response is always a 403.
+The \code{time_entry_invoiced()} function will only work on a paid plan.
 }
