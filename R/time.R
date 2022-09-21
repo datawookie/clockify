@@ -5,7 +5,7 @@
 #' @keywords internal
 #' @noRd
 #' @return A string representation of POSIXct.
-time_format <- function(time, to_utc = FALSE) {
+time_format <- function(time, to_utc = TRUE) {
   # nocov start
   if (is.null(time)) {
     NULL
