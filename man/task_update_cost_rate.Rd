@@ -16,5 +16,5 @@ task_update_cost_rate(project_id, task_id, rate, since = NULL)
 \item{since}{New rate will be applied to all time entries after this time}
 }
 \description{
-Update task cost rate
+This feature is only available on the Pro & Enterprise plans.
 }

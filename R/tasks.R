@@ -127,6 +127,8 @@ task_update <- function(project_id, task_id, name = NULL, billable = NULL) {
 
 #' Update task billable rate
 #'
+#' This feature is only available on the Standard, Pro & Enterprise plans.
+#'
 #' @inheritParams task
 #' @param rate Rate
 #' @param since New rate will be applied to all time entries after this time
@@ -149,6 +151,8 @@ task_update_billable_rate <- function(project_id, task_id, rate, since = NULL) {
 }
 
 #' Update task cost rate
+#'
+#' This feature is only available on the Pro & Enterprise plans.
 #'
 #' @inheritParams task
 #' @param rate Rate
