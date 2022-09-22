@@ -1,5 +1,5 @@
 EMPTY_ENTRIES <- tibble(
-  id = character(),
+  time_entry_id = character(),
   user_id = character(),
   workspace_id = character(),
   project_id = character(),
