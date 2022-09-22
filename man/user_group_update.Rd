@@ -9,7 +9,7 @@ user_group_update(group_id, name)
 \arguments{
 \item{group_id}{User group ID}
 
-\item{Name}{of user group}
+\item{name}{Name of user group}
 }
 \description{
 Update a user group

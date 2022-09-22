@@ -7,7 +7,7 @@
 user_group_create(name)
 }
 \arguments{
-\item{Name}{of user group}
+\item{name}{Name of user group}
 }
 \description{
 Create a user group
