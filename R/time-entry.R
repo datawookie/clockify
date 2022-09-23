@@ -28,7 +28,7 @@ parse_time_entries <- function(entries, finished, concise) {
     mutate(
       time_start = time_parse(time_start),
       time_end = time_parse(time_end),
-      duration = as.numeric(difftime(time_end, time_start, units = "mins"))
+      duration = as.numeric(difftime(time_end, time_start, units = get_option_duration_units()))
     ) %>%
     arrange(time_start)
 
@@ -60,7 +60,7 @@ parse_time_entries <- function(entries, finished, concise) {
 #' @param project If provided, time entries will be filtered by project.
 #' @param task If provided, time entries will be filtered by task.
 #' @param tags If provided, time entries will be filtered by tags. You can provide one or more tags.
-#' @param finished Whether to include only finished time intervals (intervals with both start and end time)
+#' @param finished Whether to include only finished time intervals (intervals with both start and end time).
 #' @param ... Further arguments passed to \code{\link{paginate}}.
 #'
 #' @return A data frame with one record per time entry.

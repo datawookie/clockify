@@ -32,7 +32,7 @@ time_entries(
 
 \item{tags}{If provided, time entries will be filtered by tags. You can provide one or more tags.}
 
-\item{finished}{Whether to include only finished time intervals (intervals with both start and end time)}
+\item{finished}{Whether to include only finished time intervals (intervals with both start and end time).}
 
 \item{concise}{Generate concise output}
 
