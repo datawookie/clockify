@@ -8,8 +8,6 @@ test_that("create time entry", {
   skip_on_cran()
   skip_if(NO_API_KEY_IN_ENVIRONMENT)
 
-  TIME_CURRENT <- Sys.time()
-
   TIME_END <- TIME_CURRENT - random_integer(86400)
   TIME_START <- TIME_END - random_integer(3600 * 6)
   TIME_DESCRIPTION <- random_string()
@@ -50,8 +48,6 @@ test_that("update time entry", {
   skip_on_cran()
   skip_if(NO_API_KEY_IN_ENVIRONMENT)
 
-  TIME_CURRENT <- Sys.time()
-
   TIME_END <- TIME_CURRENT - random_integer(86400)
   TIME_START <- TIME_END - random_integer(3600 * 6)
   TIME_DESCRIPTION <- random_string()
@@ -66,8 +62,6 @@ test_that("update time entry", {
 test_that("stop running time entry", {
   skip_on_cran()
   skip_if(NO_API_KEY_IN_ENVIRONMENT)
-
-  TIME_CURRENT <- Sys.time()
 
   TIME_END <- TIME_CURRENT - random_integer(86400)
   TIME_START <- TIME_END - random_integer(3600 * 6)

@@ -31,3 +31,7 @@ TAG_NAME_UPDATED <- random_string()
 TASK_NAME <- random_string()
 TASK_ID <- NULL
 TASK_NAME_UPDATED <- random_string()
+
+TIME_CURRENT <- Sys.time()
+
+options(duration.units = "secs")
