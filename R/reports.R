@@ -45,7 +45,8 @@ reports_summary <- function(start, end) {
         "PROJECT",
         "TIMEENTRY"
       )
-    )
+    ),
+    timeZone = "Etc/UTC"
   )
 
   response <- POST(
@@ -113,7 +114,8 @@ reports_detailed <- function(start, end) {
     detailedFilter = list(
       page = 1,
       pageSize = 50
-    )
+    ),
+    timeZone = "Etc/UTC"
   )
 
   results <- list()
@@ -167,7 +169,8 @@ reports_weekly <- function(start, end) {
     weeklyFilter = list(
       group = "USER",
       subgroup = "TIME"
-    )
+    ),
+    timeZone = "Etc/UTC"
   )
 
   response <- POST(
