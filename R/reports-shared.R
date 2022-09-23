@@ -1,3 +1,23 @@
+EMPTY_SHARED_REPORTS <- tibble(
+  shared_report_id = character(),
+  name = character(),
+  link = character(),
+  visible_to_users = logical(),
+  fixed_date = logical(),
+  type = character(),
+  visible_to_user_groups = logical(),
+  is_public = logical()
+)
+
+parse_shared_report <- function(report) {
+  report <- tibble(report) %>%
+    unnest_wider(report) %>%
+    clean_names() %>%
+    rename(
+      shared_report_id = id
+    )
+}
+
 #' Shared Reports Parameters
 #'
 #' These are parameters which occur commonly across functions for shared reports.
@@ -33,13 +53,17 @@ shared_reports <- function() {
     query$page <- query$page + 1
   }
 
-  tibble(reports = reports) %>%
-    unnest_wider(reports) %>%
-    clean_names() %>%
-    select(
-      shared_report_id = id,
-      everything()
-    )
+  if (length(reports)) {
+    tibble(reports = reports) %>%
+      unnest_wider(reports) %>%
+      clean_names() %>%
+      select(
+        shared_report_id = id,
+        everything()
+      )
+  } else {
+    EMPTY_SHARED_REPORTS
+  }
 }
 
 #' Get a specific shared report
@@ -115,11 +139,9 @@ shared_report_create <- function(name,
     body = body
   )
 
-  # This contains the report parameters. Could be unpacked into return value.
-  #
-  # report <- content(response)
-
-  status_code(response) == 200
+  content(response) %>%
+    list() %>%
+    parse_shared_report()
 }
 
 #' Update a shared report
