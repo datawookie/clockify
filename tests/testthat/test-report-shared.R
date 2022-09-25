@@ -28,6 +28,17 @@ test_that("create shared report", {
   SHARED_REPORT_ID <<- report$shared_report_id
 })
 
+test_that("get shared reports", {
+  skip_on_cran()
+  skip_if(NO_API_KEY_IN_ENVIRONMENT)
+
+  reports <- shared_reports()
+  print(reports)
+
+  expect_identical(names(reports), SHARED_REPORT_COLS)
+  expect_true(SHARED_REPORT_ID %in% reports$shared_report_id)
+})
+
 test_that("delete shared report", {
   skip_on_cran()
   skip_if(NO_API_KEY_IN_ENVIRONMENT)
@@ -39,15 +50,6 @@ test_that("delete shared report", {
   expect_false(SHARED_REPORT_ID %in% reports$shared_report_id)
 })
 
-#' #' Shared Reports Parameters
-#' #'
-#' #' These are parameters which occur commonly across functions for shared reports.
-#' #'
-#' #' @name shared-reports-parameters
-#' #'
-#' #' @param shared_report_id Identifier for a specific shared report
-#' NULL
-#'
 #' #' Get all shared reports
 #' #'
 #' #' @export

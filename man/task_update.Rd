@@ -4,7 +4,13 @@
 \alias{task_update}
 \title{Update a task}
 \usage{
-task_update(project_id, task_id, name = NULL, billable = NULL)
+task_update(
+  project_id,
+  task_id,
+  name = NULL,
+  billable = NULL,
+  assignee_id = NULL
+)
 }
 \arguments{
 \item{project_id}{Project ID}
