@@ -109,10 +109,11 @@ task_create <- function(project_id, name) {
 #' task_update("630ce53290cfd8789366fd49", "630ce57e25e863294e5c6cf2", "Tests")
 #' task_create("630ce53290cfd8789366fd49", "630ce80a7f07da44c14ca9a2", "Docs", FALSE)
 #' }
-task_update <- function(project_id, task_id, name = NULL, billable = NULL) {
+task_update <- function(project_id, task_id, name, billable = NULL, status = NULL) {
   body <- list(
     name = name,
-    billable = billable
+    billable = billable,
+    status = status
   ) %>% list_remove_empty()
 
   result <- PUT(
