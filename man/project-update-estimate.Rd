@@ -35,6 +35,8 @@ project_update_estimate_budget(
 }
 \description{
 Update project time & budget estimates
+
+Only available on a paid plan.
 }
 \examples{
 \dontrun{

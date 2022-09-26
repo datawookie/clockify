@@ -16,5 +16,5 @@ project_update_cost_rate(project_id, user_id, rate, since = NULL)
 \item{since}{New rate will be applied to all time entries after this time}
 }
 \description{
-Update user cost rate on project
+Only available on a paid plan.
 }

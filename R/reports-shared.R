@@ -17,8 +17,31 @@ parse_shared_report_list <- function(reports) {
 }
 
 parse_shared_report <- function(report) {
-  tibble(report) %>%
-    unnest_wider(report)
+  report <- tibble(report) %>%
+    unnest_wider(report) %>%
+    rename(groups = groupOne)
+
+  if (!is.na(report$groups)) {
+    report <- report %>%
+      mutate(
+        groups = groups %>%
+          unlist(recursive = FALSE) %>%
+          tibble(groups = .) %>%
+          unnest_wider(groups) %>%
+          clean_names() %>%
+          select(user_id = id, everything()) %>%
+          list()
+      )
+  }
+
+  report <- report %>%
+    mutate(
+      filters = filters %>%
+        tibble(filters = .) %>%
+        unnest_wider(filters) %>%
+        clean_names() %>%
+        list()
+    )
 
   # NOTE: Filters might have common structure with regular reports.
   # NOTE: Filters might have common structure with regular reports.
