@@ -4,7 +4,7 @@
 \alias{task_update}
 \title{Update a task}
 \usage{
-task_update(project_id, task_id, name = NULL, billable = NULL)
+task_update(project_id, task_id, name, billable = NULL, status = NULL)
 }
 \arguments{
 \item{project_id}{Project ID}
@@ -14,6 +14,8 @@ task_update(project_id, task_id, name = NULL, billable = NULL)
 \item{name}{Task name}
 
 \item{billable}{Is the task billable?}
+
+\item{status}{Is the task ACTIVE or DONE?}
 }
 \description{
 Update a task

@@ -101,6 +101,7 @@ task_create <- function(project_id, name) {
 #' @inheritParams task
 #' @inheritParams task-create
 #' @param billable Is the task billable?
+#' @param status Is the task ACTIVE or DONE?
 #'
 #' @export
 #'
