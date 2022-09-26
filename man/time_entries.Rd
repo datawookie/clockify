@@ -9,7 +9,7 @@ time_entries(
   start = NULL,
   end = NULL,
   description = NULL,
-  project = NULL,
+  project_id = NULL,
   task = NULL,
   tags = NULL,
   finished = TRUE,
@@ -26,7 +26,7 @@ time_entries(
 
 \item{description}{If provided, time entries will be filtered by description.}
 
-\item{project}{If provided, time entries will be filtered by project.}
+\item{project_id}{If provided, time entries will be filtered by project.}
 
 \item{task}{If provided, time entries will be filtered by task.}
 

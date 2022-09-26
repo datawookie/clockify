@@ -4,19 +4,29 @@ TIME_ENTRIES_COLS <- c(
   "duration"
 )
 
+test_that("no time entries", {
+  skip_on_cran()
+  skip_if(NO_API_KEY_IN_ENVIRONMENT)
+
+  entries <- time_entries(user_id = USER_ID_BOB)
+
+  expect_identical(names(entries), TIME_ENTRIES_COLS_CONCISE)
+  expect_equal(nrow(entries), 0)
+})
+
 test_that("create time entry", {
   skip_on_cran()
   skip_if(NO_API_KEY_IN_ENVIRONMENT)
 
   TIME_END <- TIME_CURRENT - random_integer(86400)
   TIME_START <- TIME_END - random_integer(3600 * 6)
-  TIME_DESCRIPTION <- random_string()
+  TIME_ENTRY_DESCRIPTION <<- random_string()
 
-  entry <- time_entry_create(USER_ID_AUTHENTICATED, PROJECT_ID_CLOCKIFY, TIME_START, TIME_END, TIME_DESCRIPTION)
+  entry <- time_entry_create(USER_ID_AUTHENTICATED, PROJECT_ID_CLOCKIFY, TIME_START, TIME_END, TIME_ENTRY_DESCRIPTION)
 
   expect_equal(entry$user_id, USER_ID_AUTHENTICATED)
   expect_equal(entry$project_id, PROJECT_ID_CLOCKIFY)
-  expect_equal(entry$description, TIME_DESCRIPTION)
+  expect_equal(entry$description, TIME_ENTRY_DESCRIPTION)
 
   TIME_ENTRY_ID <<- entry$time_entry_id
 })
@@ -32,6 +42,20 @@ test_that("get time entries", {
   expect_identical(names(entries), TIME_ENTRIES_COLS)
 
   expect_true(TIME_ENTRY_ID %in% entries$time_entry_id)
+})
+
+test_that("filter time entries", {
+  skip_on_cran()
+  skip_if(NO_API_KEY_IN_ENVIRONMENT)
+
+  entry <- time_entries(
+    # start = TIME_START,
+    # end = TIME_END,
+    description = TIME_ENTRY_DESCRIPTION,
+    project_id = PROJECT_ID_CLOCKIFY
+  )
+
+  expect_equal(entry$description, TIME_ENTRY_DESCRIPTION)
 })
 
 test_that("get time entry", {
