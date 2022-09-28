@@ -1,3 +1,5 @@
+# nocov start
+
 check_active <- function(active) {
   if (is.logical(active)) {
     active <- ifelse(active, "ACTIVE", "INACTIVE")
@@ -7,3 +9,9 @@ check_active <- function(active) {
 
   active
 }
+
+check_quantity <- function(quantity) {
+  if (!(quantity %in% c("budget", "time"))) stop("Invalid quantity.")
+}
+
+# nocov end

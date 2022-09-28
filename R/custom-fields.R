@@ -3,6 +3,8 @@
 #' Custom fields are only listed for specific projects if the default values for
 #' those fields have been modified for those projects.
 #'
+#' Custom fields are only available on the Pro and Enterprise plans.
+#'
 #' @export
 custom_fields <- function(project_id = NULL) {
   path <- sprintf("/workspaces/%s/", workspace())

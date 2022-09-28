@@ -10,3 +10,6 @@ custom_fields(project_id = NULL)
 Custom fields are only listed for specific projects if the default values for
 those fields have been modified for those projects.
 }
+\details{
+Custom fields are only available on the Pro and Enterprise plans.
+}

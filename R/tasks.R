@@ -1,22 +1,43 @@
-# Columns which might not be present in data.
-#
-EXTRA_COLS <- c(assignee_ids = NA_character_)
+EMPTY_TASKS <- tibble(
+  task_id = character(),
+  name = character(),
+  project_id = character(),
+  status = character(),
+  billable = logical(),
+  assignees = list()
+)
 
-#' Helper function for parsing tags
+EMPTY_ASSIGNEES <- tibble(user_id = list())
+
+#' Helper function for parsing tasks
 #'
 #' @noRd
 #'
 parse_tasks <- function(tasks) {
   if (!length(tasks)) {
-    NULL
+    EMPTY_TASKS
   } else {
     tibble(tasks) %>%
       unnest_wider(tasks) %>%
       clean_names() %>%
-      add_column(!!!EXTRA_COLS[!names(EXTRA_COLS) %in% names(.)]) %>%
       select(-assignee_id) %>%
-      rename(assignee_id = assignee_ids) %>%
-      select(task_id = id, name, project_id, status, billable, assignee_id)
+      rename(assignees = assignee_ids) %>%
+      select(task_id = id, name, project_id, status, billable, assignees) %>%
+      mutate(
+        assignees = map(assignees, ~ if (is.null(.)) {
+          NA
+        } else {
+          unlist(.)
+        }),
+        assignees = map(
+          assignees,
+          ~ if (length(.) == 1 && is.na(.)) {
+            EMPTY_ASSIGNEES
+          } else {
+            tibble(user_id = .)
+          }
+        )
+      )
   }
 }
 
@@ -110,11 +131,14 @@ task_create <- function(project_id, name) {
 #' task_update("630ce53290cfd8789366fd49", "630ce57e25e863294e5c6cf2", "Tests")
 #' task_create("630ce53290cfd8789366fd49", "630ce80a7f07da44c14ca9a2", "Docs", FALSE)
 #' }
-task_update <- function(project_id, task_id, name, billable = NULL, status = NULL) {
+task_update <- function(project_id, task_id, name, billable = NULL, status = NULL, assignee_id = NULL) {
+  if (!is.null(assignee_id)) assignee_id <- as.list(assignee_id)
+
   body <- list(
     name = name,
     billable = billable,
-    status = status
+    status = status,
+    assigneeIds = assignee_id
   ) %>% list_remove_empty()
 
   result <- PUT(
@@ -129,7 +153,7 @@ task_update <- function(project_id, task_id, name, billable = NULL, status = NUL
 
 #' Update task billable rate
 #'
-#' This feature is only available on the Standard, Pro & Enterprise plans.
+#' This feature is only available on the Standard, Pro and Enterprise plans.
 #'
 #' @inheritParams task
 #' @param rate Rate
@@ -154,7 +178,7 @@ task_update_billable_rate <- function(project_id, task_id, rate, since = NULL) {
 
 #' Update task cost rate
 #'
-#' This feature is only available on the Pro & Enterprise plans.
+#' This feature is only available on the Pro and Enterprise plans.
 #'
 #' @inheritParams task
 #' @param rate Rate

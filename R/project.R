@@ -179,7 +179,7 @@ project_update <- function(project_id,
     parse_projects()
 }
 
-#' This `project_update_template()` function will only work on a paid plan.
+#' Only available on a paid plan.
 #'
 #' @rdname project-update
 #' @export
@@ -224,6 +224,8 @@ project_update_billable_rate <- function(project_id, user_id, rate, since = NULL
 
 #' Update user cost rate on project
 #'
+#' Only available on a paid plan.
+#'
 #' @param project_id Project ID
 #' @param user_id User ID
 #' @param rate Rate
@@ -252,7 +254,7 @@ project_update_estimate <- function(project_id,
                                     manual = TRUE,
                                     active = NULL,
                                     monthly = FALSE) {
-  if (!(quantity %in% c("budget", "time"))) stop("Invalid quantity.")
+  check_quantity(quantity) # nocov
 
   body <- list(
     estimate = list(
@@ -301,6 +303,8 @@ project_update_estimate_time <- function(project_id, estimate = NULL, manual = T
   project_update_estimate(project_id, "time", estimate, manual, active)
 }
 
+#' Only available on a paid plan.
+#'
 #' @rdname project-update-estimate
 #' @export
 #' @examples

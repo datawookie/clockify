@@ -11,30 +11,34 @@ EMPTY_ENTRIES <- tibble(
 )
 
 parse_time_entries <- function(entries, finished, concise) {
-  entries <- tibble(entries) %>%
-    unnest_wider(entries) %>%
-    unnest_wider(timeInterval) %>%
-    clean_names() %>%
-    select(
-      time_entry_id = id,
-      user_id,
-      workspace_id,
-      project_id,
-      billable,
-      description,
-      time_start = start,
-      time_end = end
-    ) %>%
-    mutate(
-      time_start = time_parse(time_start),
-      time_end = time_parse(time_end),
-      duration = as.numeric(difftime(time_end, time_start, units = get_option_duration_units()))
-    ) %>%
-    arrange(time_start)
+  if (length(entries)) {
+    entries <- tibble(entries) %>%
+      unnest_wider(entries) %>%
+      unnest_wider(timeInterval) %>%
+      clean_names() %>%
+      select(
+        time_entry_id = id,
+        user_id,
+        workspace_id,
+        project_id,
+        billable,
+        description,
+        time_start = start,
+        time_end = end
+      ) %>%
+      mutate(
+        time_start = time_parse(time_start),
+        time_end = time_parse(time_end),
+        duration = as.numeric(difftime(time_end, time_start, units = get_option_duration_units()))
+      ) %>%
+      arrange(time_start)
 
-  if (finished) {
-    entries <- entries %>%
-      filter(!is.na(time_end))
+    if (finished) {
+      entries <- entries %>%
+        filter(!is.na(time_end))
+    }
+  } else {
+    entries <- EMPTY_ENTRIES
   }
 
   if (concise) {
@@ -57,7 +61,7 @@ parse_time_entries <- function(entries, finished, concise) {
 #' @param start If provided, only time entries that started after the specified datetime will be returned.
 #' @param end If provided, only time entries that started before the specified datetime will be returned.
 #' @param description If provided, time entries will be filtered by description.
-#' @param project If provided, time entries will be filtered by project.
+#' @param project_id If provided, time entries will be filtered by project.
 #' @param task If provided, time entries will be filtered by task.
 #' @param tags If provided, time entries will be filtered by tags. You can provide one or more tags.
 #' @param finished Whether to include only finished time intervals (intervals with both start and end time).
@@ -81,7 +85,7 @@ time_entries <- function(user_id = NULL,
                          start = NULL,
                          end = NULL,
                          description = NULL,
-                         project = NULL,
+                         project_id = NULL,
                          task = NULL,
                          tags = NULL,
                          finished = TRUE,
@@ -103,8 +107,8 @@ time_entries <- function(user_id = NULL,
   if (!is.null(description)) {
     query$description <- description
   }
-  if (!is.null(project)) {
-    query$project <- project
+  if (!is.null(project_id)) {
+    query$project <- project_id
   }
   if (!is.null(task)) {
     query$task <- task
@@ -117,20 +121,7 @@ time_entries <- function(user_id = NULL,
     query <- c(query, tag_list)
   }
 
-  entries <- paginate(path, query, ...)
-
-  if (length(entries)) {
-    entries <- parse_time_entries(entries, finished, concise)
-
-    if (nrow(entries) == 0) {
-      log_debug("No time entries for specified user.")
-      entries <- EMPTY_ENTRIES
-    }
-  } else {
-    entries <- EMPTY_ENTRIES
-  }
-
-  entries
+  parse_time_entries(paginate(path, query, ...), finished, concise)
 }
 
 #' Get a specific time entry on workspace
@@ -168,10 +159,11 @@ time_entry <- function(time_entry_id, concise = TRUE) {
 #' @param description Description
 NULL
 
-prepare_body <- function(project_id = NULL,
-                         start = NULL,
-                         end = NULL,
-                         description = NULL) {
+prepare_body <- function(project_id,
+                         start,
+                         end,
+                         description,
+                         task_id) {
   body <- list()
 
   if (!is.null(start)) {
@@ -187,6 +179,9 @@ prepare_body <- function(project_id = NULL,
   }
   if (!is.null(description)) {
     body$description <- description
+  }
+  if (!is.null(task_id)) {
+    body$taskId <- task_id
   }
 
   body
@@ -223,7 +218,8 @@ time_entry_create <- function(user_id = NULL,
                               project_id = NULL,
                               start,
                               end = NULL,
-                              description = NULL) {
+                              description = NULL,
+                              task_id = NULL) {
   path <- sprintf("/workspaces/%s/", workspace())
   if (!is.null(user_id) && user_id != user()$user_id) {
     warning("Inserting time entries for other users is a paid feature.", call. = FALSE, immediate. = TRUE)
@@ -231,7 +227,7 @@ time_entry_create <- function(user_id = NULL,
   }
   path <- paste0(path, "time-entries")
 
-  body <- prepare_body(project_id, start, end, description)
+  body <- prepare_body(project_id, start, end, description, task_id)
 
   result <- POST(
     path,
@@ -279,7 +275,7 @@ time_entry_set <- function(time_entry_id,
 
   path <- sprintf("/workspaces/%s/time-entries/%s", workspace(), time_entry_id)
 
-  body <- prepare_body(project_id, start, end, description)
+  body <- prepare_body(project_id, start, end, description, NULL)
 
   result <- PUT(
     path,
@@ -341,7 +337,7 @@ time_entry_stop <- function(user_id = NULL,
                             end = NULL) {
   path <- sprintf("/workspaces/%s/user/%s/time-entries", workspace(), user_id)
 
-  body <- prepare_body(NULL, NULL, end, NULL)
+  body <- prepare_body(NULL, NULL, end, NULL, NULL)
 
   result <- PATCH(
     path,

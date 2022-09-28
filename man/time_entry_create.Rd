@@ -9,7 +9,8 @@ time_entry_create(
   project_id = NULL,
   start,
   end = NULL,
-  description = NULL
+  description = NULL,
+  task_id = NULL
 )
 }
 \arguments{

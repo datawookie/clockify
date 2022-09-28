@@ -1,3 +1,70 @@
+EMPTY_SHARED_REPORTS <- tibble(
+  shared_report_id = character(),
+  name = character(),
+  link = character(),
+  visible_to_users = logical(),
+  fixed_date = logical(),
+  type = character(),
+  visible_to_user_groups = logical(),
+  is_public = logical()
+)
+
+parse_shared_report_list <- function(reports) {
+  tibble(reports) %>%
+    unnest_wider(reports) %>%
+    clean_names() %>%
+    select(shared_report_id = id, everything())
+}
+
+parse_shared_report <- function(report) {
+  report <- tibble(report) %>%
+    unnest_wider(report) %>%
+    rename(groups = groupOne)
+
+  if (!is.na(report$groups)) {
+    report <- report %>%
+      mutate(
+        groups = groups %>%
+          unlist(recursive = FALSE) %>%
+          tibble(groups = .) %>%
+          unnest_wider(groups) %>%
+          clean_names() %>%
+          select(user_id = id, everything()) %>%
+          list()
+      )
+  }
+
+  report <- report %>%
+    mutate(
+      filters = filters %>%
+        tibble(filters = .) %>%
+        unnest_wider(filters) %>%
+        clean_names() %>%
+        list()
+    )
+
+  # NOTE: Filters might have common structure with regular reports.
+  # NOTE: Filters might have common structure with regular reports.
+  # NOTE: Filters might have common structure with regular reports.
+  # NOTE: Filters might have common structure with regular reports.
+
+  # %>%
+  #   select(id, name, client_name, duration, amount, amounts, children) %>%
+  #   mutate(
+  #     children = map(
+  #       children,
+  #       function(children) {
+  #         map_dfr(children, identity) %>%
+  #           mutate(
+  #             amounts = map(amounts, ~ map_dfr(., identity))
+  #           ) %>%
+  #           clean_names() %>%
+  #           select(id, name, duration, amount, amounts)
+  #       }
+  #     )
+  #   )
+}
+
 #' Shared Reports Parameters
 #'
 #' These are parameters which occur commonly across functions for shared reports.
@@ -33,13 +100,12 @@ shared_reports <- function() {
     query$page <- query$page + 1
   }
 
-  tibble(reports = reports) %>%
-    unnest_wider(reports) %>%
-    clean_names() %>%
-    select(
-      shared_report_id = id,
-      everything()
-    )
+  if (length(reports)) {
+    reports %>%
+      parse_shared_report_list()
+  } else {
+    EMPTY_SHARED_REPORTS
+  }
 }
 
 #' Get a specific shared report
@@ -58,27 +124,13 @@ shared_reports <- function() {
 shared_report <- function(shared_report_id) {
   path <- sprintf("/shared-reports/%s", shared_report_id)
 
-  report <- GET(
+  response <- GET(
     path
-  ) %>% content()
+  )
 
-  tibble(group = report$groupOne) %>%
-    unnest_wider(group) %>%
-    clean_names() %>%
-    select(id, name, client_name, duration, amount, amounts, children) %>%
-    mutate(
-      children = map(
-        children,
-        function(children) {
-          map_dfr(children, identity) %>%
-            mutate(
-              amounts = map(amounts, ~ map_dfr(., identity))
-            ) %>%
-            clean_names() %>%
-            select(id, name, duration, amount, amounts)
-        }
-      )
-    )
+  content(response) %>%
+    list() %>%
+    parse_shared_report()
 }
 
 #' Create a shared report
@@ -115,11 +167,9 @@ shared_report_create <- function(name,
     body = body
   )
 
-  # This contains the report parameters. Could be unpacked into return value.
-  #
-  # report <- content(response)
-
-  status_code(response) == 200
+  content(response) %>%
+    list() %>%
+    parse_shared_report_list()
 }
 
 #' Update a shared report

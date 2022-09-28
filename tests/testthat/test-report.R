@@ -6,29 +6,6 @@ REPORT_DETAILED_COLS <- c(
 )
 REPORT_WEEKLY_COLS <- c("user_name", "duration", "amount", "projects")
 
-# Time entries for reports.
-#
-for (i in 1:3) {
-  for (project_id in c(PROJECT_ID_CLOCKIFY, PROJECT_ID_EMAYILI)) {
-    TIME_END <- TIME_CURRENT - random_integer(86400)
-    TIME_START <- TIME_END - random_integer(3600 * 6)
-
-    time_entry_create(USER_ID_AUTHENTICATED, project_id, TIME_START, TIME_END, random_string())
-  }
-}
-
-entries <- time_entries(concise = FALSE)
-
-DURATION_TOTAL <- entries %>%
-  pull(duration) %>%
-  sum()
-
-TIME_START <- min(entries$time_start)
-TIME_END <- max(entries$time_end)
-
-WEEK_END <- ceiling_date(TIME_END, unit = "day") %>% as.Date() + 1
-WEEK_START <- WEEK_END - 7
-
 test_that("summary report", {
   skip_on_cran()
   skip_if(NO_API_KEY_IN_ENVIRONMENT)

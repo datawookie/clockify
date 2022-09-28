@@ -16,5 +16,5 @@ task_update_billable_rate(project_id, task_id, rate, since = NULL)
 \item{since}{New rate will be applied to all time entries after this time}
 }
 \description{
-This feature is only available on the Standard, Pro & Enterprise plans.
+This feature is only available on the Standard, Pro and Enterprise plans.
 }
