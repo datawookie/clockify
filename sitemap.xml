@@ -163,16 +163,43 @@
     <loc>/reference/time_entry_stop.html</loc>
   </url>
   <url>
+    <loc>/reference/user-update-role.html</loc>
+  </url>
+  <url>
     <loc>/reference/user.html</loc>
   </url>
   <url>
     <loc>/reference/user_create.html</loc>
   </url>
   <url>
+    <loc>/reference/user_delete.html</loc>
+  </url>
+  <url>
+    <loc>/reference/user_delete_role.html</loc>
+  </url>
+  <url>
+    <loc>/reference/user_group_create.html</loc>
+  </url>
+  <url>
+    <loc>/reference/user_group_delete.html</loc>
+  </url>
+  <url>
+    <loc>/reference/user_group_update.html</loc>
+  </url>
+  <url>
+    <loc>/reference/user_group_user_add.html</loc>
+  </url>
+  <url>
+    <loc>/reference/user_group_user_delete.html</loc>
+  </url>
+  <url>
     <loc>/reference/user_groups.html</loc>
   </url>
   <url>
     <loc>/reference/user_update_billable_rate.html</loc>
+  </url>
+  <url>
+    <loc>/reference/user_update_cost_rate.html</loc>
   </url>
   <url>
     <loc>/reference/user_update_status.html</loc>
