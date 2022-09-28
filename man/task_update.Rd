@@ -9,6 +9,7 @@ task_update(
   task_id,
   name = NULL,
   billable = NULL,
+  status = status,
   assignee_id = NULL
 )
 }
@@ -20,6 +21,8 @@ task_update(
 \item{name}{Task name}
 
 \item{billable}{Is the task billable?}
+
+\item{status}{Is the task ACTIVE or DONE?}
 }
 \description{
 Update a task

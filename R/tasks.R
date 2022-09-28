@@ -122,6 +122,7 @@ task_create <- function(project_id, name) {
 #' @inheritParams task
 #' @inheritParams task-create
 #' @param billable Is the task billable?
+#' @param status Is the task ACTIVE or DONE?
 #'
 #' @export
 #'
@@ -130,12 +131,13 @@ task_create <- function(project_id, name) {
 #' task_update("630ce53290cfd8789366fd49", "630ce57e25e863294e5c6cf2", "Tests")
 #' task_create("630ce53290cfd8789366fd49", "630ce80a7f07da44c14ca9a2", "Docs", FALSE)
 #' }
-task_update <- function(project_id, task_id, name = NULL, billable = NULL, assignee_id = NULL) {
+task_update <- function(project_id, task_id, name, billable = NULL, status = NULL, assignee_id = NULL) {
   if (!is.null(assignee_id)) assignee_id <- as.list(assignee_id)
 
   body <- list(
     name = name,
     billable = billable,
+    status = status,
     assigneeIds = assignee_id
   ) %>% list_remove_empty()
 
