@@ -8,7 +8,7 @@ editor_options:
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(comment=NA)
+knitr::opts_chunk$set(comment = NA)
 
 library(dplyr)
 ```
@@ -36,7 +36,7 @@ The first thing you'll need to do is set up your API key. I store mine in an env
 <!-- Use API key from demo account. -->
 
 ```{r get-api-key}
-CLOCKIFY_API_KEY = Sys.getenv("CLOCKIFY_API_KEY")
+CLOCKIFY_API_KEY <- Sys.getenv("CLOCKIFY_API_KEY")
 ```
 
 Now load the `{clockify}` package and specify the API key.
@@ -56,7 +56,7 @@ log_threshold(DEBUG)
 ```
 ```{r include=FALSE}
 log_appender(appender_stdout)
-log_layout(layout_glue_generator(format = '{time} — {msg}'))
+log_layout(layout_glue_generator(format = "{time} — {msg}"))
 ```
 
 ## Workspaces
@@ -123,10 +123,10 @@ time_entries(user_id = "5ef46293df73063139f60bf5")
 
 ```{r put-time-entries}
 prepare_cran_id <- time_entry_insert(
- project_id = "61343c9ba15c1d53ad33369f",
- start = "2021-08-30 08:00:00",
- end   = "2021-08-30 10:30:00",
- description = "Prepare for CRAN submission"
+  project_id = "61343c9ba15c1d53ad33369f",
+  start = "2021-08-30 08:00:00",
+  end = "2021-08-30 10:30:00",
+  description = "Prepare for CRAN submission"
 )
 ```
 
