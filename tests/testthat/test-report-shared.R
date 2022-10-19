@@ -1,5 +1,6 @@
 SHARED_REPORT_LIST_COLS <- c(
-  "shared_report_id", "name", "link", "visible_to_users", "fixed_date", "type", "visible_to_user_groups", "is_public"
+  "shared_report_id", "report_author", "name", "link", "visible_to_users", "fixed_date",
+  "type", "visible_to_user_groups", "is_public"
 )
 
 entries <- time_entries(concise = FALSE)

@@ -1,5 +1,6 @@
 EMPTY_SHARED_REPORTS <- tibble(
   shared_report_id = character(),
+  report_author = character(),
   name = character(),
   link = character(),
   visible_to_users = logical(),
