@@ -93,6 +93,7 @@ task <- function(project_id, task_id) {
 #'
 #' @name task-create
 #'
+#' @param project_id Project ID
 #' @param name Task name
 #'
 #' @export
@@ -123,6 +124,7 @@ task_create <- function(project_id, name) {
 #' @inheritParams task-create
 #' @param billable Is the task billable?
 #' @param status Is the task ACTIVE or DONE?
+#' @param assignee_id Assignee ID
 #'
 #' @export
 #'

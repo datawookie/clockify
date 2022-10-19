@@ -6,6 +6,11 @@
 \usage{
 custom_field_delete(project_id, custom_field_id)
 }
+\arguments{
+\item{project_id}{Project ID}
+
+\item{custom_field_id}{Custom field ID}
+}
 \description{
 Remove a custom field from a project
 }

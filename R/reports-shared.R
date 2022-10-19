@@ -72,6 +72,11 @@ parse_shared_report <- function(report) {
 #' @name shared-reports-parameters
 #'
 #' @param shared_report_id Identifier for a specific shared report
+#' @param name Name of the report
+#' @param start Start time
+#' @param end End time
+#' @param is_public Is this a public report?
+#' @param fixed_date Are the dates fixed?
 NULL
 
 #' Get all shared reports
@@ -135,6 +140,8 @@ shared_report <- function(shared_report_id) {
 
 #' Create a shared report
 #'
+#' @inheritParams shared-reports-parameters
+#'
 #' @export
 #'
 #' @examples
@@ -174,6 +181,11 @@ shared_report_create <- function(name,
 
 #' Update a shared report
 #'
+#' @inheritParams shared-reports-parameters
+#' @param name Report name
+#' @param is_public Is this a public report?
+#' @param fixed_date Are the dates fixed?
+#'
 #' @export
 #'
 #' @examples
@@ -203,6 +215,8 @@ shared_report_update <- function(shared_report_id, name = NULL, is_public = NULL
 }
 
 #' Delete a shared report
+#'
+#' @inheritParams shared-reports-parameters
 #'
 #' @export
 #'

@@ -5,6 +5,16 @@
 \title{Shared Reports Parameters}
 \arguments{
 \item{shared_report_id}{Identifier for a specific shared report}
+
+\item{name}{Name of the report}
+
+\item{start}{Start time}
+
+\item{end}{End time}
+
+\item{is_public}{Is this a public report?}
+
+\item{fixed_date}{Are the dates fixed?}
 }
 \description{
 These are parameters which occur commonly across functions for shared reports.

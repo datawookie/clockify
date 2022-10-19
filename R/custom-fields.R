@@ -5,6 +5,8 @@
 #'
 #' Custom fields are only available on the Pro and Enterprise plans.
 #'
+#' @param project_id Project ID
+#'
 #' @export
 custom_fields <- function(project_id = NULL) {
   path <- sprintf("/workspaces/%s/", workspace())
@@ -22,6 +24,11 @@ custom_fields <- function(project_id = NULL) {
 }
 
 #' Update a custom field on a project
+#'
+#' @param project_id Project ID
+#' @param custom_field_id Custom field ID
+#' @param default_value A default value for the field
+#' @param status Status
 #'
 #' @export
 custom_field_update <- function(project_id,
@@ -46,6 +53,9 @@ custom_field_update <- function(project_id,
 }
 
 #' Remove a custom field from a project
+#'
+#' @param project_id Project ID
+#' @param custom_field_id Custom field ID
 #'
 #' @export
 custom_field_delete <- function(project_id,

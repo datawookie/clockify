@@ -7,6 +7,8 @@
 time_entry_stop(user_id = NULL, end = NULL)
 }
 \arguments{
+\item{user_id}{User ID. If not specified then use authenticated user.}
+
 \item{end}{End time}
 }
 \description{

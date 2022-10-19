@@ -11,6 +11,15 @@ custom_field_update(
   status = NULL
 )
 }
+\arguments{
+\item{project_id}{Project ID}
+
+\item{custom_field_id}{Custom field ID}
+
+\item{default_value}{A default value for the field}
+
+\item{status}{Status}
+}
 \description{
 Update a custom field on a project
 }

@@ -6,6 +6,17 @@
 \usage{
 shared_report_create(name, start, end, is_public = TRUE, fixed_date = FALSE)
 }
+\arguments{
+\item{name}{Name of the report}
+
+\item{start}{Start time}
+
+\item{end}{End time}
+
+\item{is_public}{Is this a public report?}
+
+\item{fixed_date}{Are the dates fixed?}
+}
 \description{
 Create a shared report
 }

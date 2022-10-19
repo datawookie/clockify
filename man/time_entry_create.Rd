@@ -14,6 +14,8 @@ time_entry_create(
 )
 }
 \arguments{
+\item{user_id}{User ID}
+
 \item{project_id}{Project ID}
 
 \item{start}{Start time}
@@ -21,6 +23,8 @@ time_entry_create(
 \item{end}{End time}
 
 \item{description}{Description}
+
+\item{task_id}{Task ID}
 }
 \value{
 A time entry ID.

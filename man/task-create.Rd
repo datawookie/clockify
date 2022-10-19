@@ -8,6 +8,8 @@
 task_create(project_id, name)
 }
 \arguments{
+\item{project_id}{Project ID}
+
 \item{name}{Task name}
 }
 \description{

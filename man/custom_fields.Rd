@@ -6,6 +6,9 @@
 \usage{
 custom_fields(project_id = NULL)
 }
+\arguments{
+\item{project_id}{Project ID}
+}
 \description{
 Custom fields are only listed for specific projects if the default values for
 those fields have been modified for those projects.

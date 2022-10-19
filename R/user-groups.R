@@ -86,7 +86,6 @@ user_group_update <- function(group_id, name) {
 #' Delete a user group
 #'
 #' @param group_id User group ID
-#' @param user_id User ID
 #'
 #' @export
 user_group_delete <- function(group_id) {

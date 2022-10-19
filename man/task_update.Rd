@@ -23,6 +23,8 @@ task_update(
 \item{billable}{Is the task billable?}
 
 \item{status}{Is the task ACTIVE or DONE?}
+
+\item{assignee_id}{Assignee ID}
 }
 \description{
 Update a task

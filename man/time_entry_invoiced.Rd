@@ -8,6 +8,8 @@ time_entry_invoiced(time_entry_id, invoiced = TRUE)
 }
 \arguments{
 \item{time_entry_id}{Time entry ID}
+
+\item{invoiced}{Has this time entry been invoiced?}
 }
 \description{
 The \code{time_entry_invoiced()} function will only work on a paid plan.

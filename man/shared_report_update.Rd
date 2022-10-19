@@ -11,6 +11,15 @@ shared_report_update(
   fixed_date = NULL
 )
 }
+\arguments{
+\item{shared_report_id}{Identifier for a specific shared report}
+
+\item{name}{Report name}
+
+\item{is_public}{Is this a public report?}
+
+\item{fixed_date}{Are the dates fixed?}
+}
 \description{
 Update a shared report
 }

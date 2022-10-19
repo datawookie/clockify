@@ -14,8 +14,3 @@ project_update_memberships(project_id, user_id)
 \description{
 Update project memberships
 }
-\examples{
-\dontrun{
-
-}
-}

@@ -8,8 +8,6 @@ user_group_delete(group_id)
 }
 \arguments{
 \item{group_id}{User group ID}
-
-\item{user_id}{User ID}
 }
 \description{
 Delete a user group

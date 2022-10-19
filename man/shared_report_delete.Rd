@@ -6,6 +6,9 @@
 \usage{
 shared_report_delete(shared_report_id)
 }
+\arguments{
+\item{shared_report_id}{Identifier for a specific shared report}
+}
 \description{
 Delete a shared report
 }

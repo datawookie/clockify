@@ -128,6 +128,9 @@ users <- function(active = NULL, concise = TRUE) {
 
 #' Create a user
 #'
+#' @param email Email address for user
+#' @param send_email Whether to send email to user
+#'
 #' @export
 user_create <- function(email, send_email = TRUE) {
   warning("Creating users is a paid feature.", call. = FALSE, immediate. = TRUE)

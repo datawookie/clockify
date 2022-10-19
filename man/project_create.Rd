@@ -14,8 +14,3 @@ project_create(name, client_id = NULL)
 \description{
 Create project
 }
-\examples{
-\dontrun{
-
-}
-}

@@ -6,6 +6,11 @@
 \usage{
 user_create(email, send_email = TRUE)
 }
+\arguments{
+\item{email}{Email address for user}
+
+\item{send_email}{Whether to send email to user}
+}
 \description{
 Create a user
 }

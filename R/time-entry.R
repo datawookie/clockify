@@ -192,6 +192,8 @@ prepare_body <- function(project_id,
 #' Creating time entries for other users is a paid feature.
 #'
 #' @inheritParams time-entry-parameters
+#' @param user_id User ID
+#' @param task_id Task ID
 #'
 #' @return A time entry ID.
 #' @export
@@ -292,6 +294,7 @@ time_entry_set <- function(time_entry_id,
 #' The `time_entry_invoiced()` function will only work on a paid plan.
 #'
 #' @inheritParams time-entry-parameters
+#' @param invoiced Has this time entry been invoiced?
 #'
 #' @export
 time_entry_invoiced <- function(time_entry_id,
@@ -315,6 +318,7 @@ time_entry_invoiced <- function(time_entry_id,
 #' Stop currently running timer
 #'
 #' @inheritParams time-entry-parameters
+#' @param user_id User ID. If not specified then use authenticated user.
 #'
 #' @export
 #'
