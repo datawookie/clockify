@@ -1,3 +1,7 @@
+# {clockify} 0.1.2
+
+* Improve test coverage.
+
 # {clockify} 0.1.1
 
 * Improved test coverage.
