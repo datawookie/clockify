@@ -91,11 +91,6 @@ project <- function(project_id, concise = TRUE) {
 #' @param client_id Client ID
 #'
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#'
-#' }
 project_create <- function(name,
                            client_id = NULL) {
   path <- sprintf("/workspaces/%s/projects", workspace())
@@ -123,11 +118,6 @@ project_create <- function(name,
 #' @param project_id Project ID
 #'
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#'
-#' }
 project_delete <- function(project_id) {
   result <- DELETE(
     sprintf("/workspaces/%s/projects/%s", workspace(), project_id)
@@ -325,10 +315,6 @@ project_update_estimate_budget <- function(project_id, estimate = NULL, manual =
 #' @param user_id One or more user IDs
 #'
 #' @export
-#' @examples
-#' \dontrun{
-#'
-#' }
 project_update_memberships <- function(project_id, user_id) {
   body <- list(
     memberships = lapply(
