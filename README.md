@@ -36,7 +36,7 @@ in an environment variable called `CLOCKIFY_API_KEY`.
 <!-- Use API key from demo account. -->
 
 ``` r
-CLOCKIFY_API_KEY = Sys.getenv("CLOCKIFY_API_KEY")
+CLOCKIFY_API_KEY <- Sys.getenv("CLOCKIFY_API_KEY")
 ```
 
 Now load the `{clockify}` package and specify the API key.
@@ -64,24 +64,24 @@ Retrieve a list of available workspaces.
 workspaces()
 ```
 
-    2022-08-30 06:55:23 — GET https://api.clockify.me/api/v1/workspaces
+    2022-10-19 16:44:47 — GET https://api.clockify.me/api/v1/workspaces
 
-    # A tibble: 3 × 2
-      workspace_id             name              
-      <chr>                    <chr>             
-    1 5ef46294df73063139f60bfc Fathom Data       
-    2 61343c45ab05e02be2c8c1fd Personal          
-    3 630c61ba9c3a3c3112812332 {clockify} sandbox
+    # A tibble: 3 × 3
+      workspace_id             name               memberships      
+      <chr>                    <chr>              <list>           
+    1 5ef46294df73063139f60bfc Fathom Data        <tibble [17 × 6]>
+    2 61343c45ab05e02be2c8c1fd Personal           <tibble [2 × 4]> 
+    3 630c61ba9c3a3c3112812332 {clockify} sandbox <tibble [5 × 6]> 
 
 Select a specific workspace.
 
 ``` r
-workspace("61343c45ab05e02be2c8c1fd")
+workspace("630c61ba9c3a3c3112812332")
 ```
 
-    2022-08-30 06:55:23 — Set active workspace -> 61343c45ab05e02be2c8c1fd.
+    2022-10-19 16:44:47 — Set active workspace -> 630c61ba9c3a3c3112812332.
 
-    [1] "61343c45ab05e02be2c8c1fd"
+    [1] "630c61ba9c3a3c3112812332"
 
 ## Users
 
@@ -91,7 +91,7 @@ Retrieve information on your user profile.
 user()
 ```
 
-    2022-08-30 06:55:23 — GET https://api.clockify.me/api/v1/user
+    2022-10-19 16:44:47 — GET https://api.clockify.me/api/v1/user
 
     # A tibble: 1 × 3
       user_id                  user_name status
@@ -104,13 +104,16 @@ Get a list of users.
 users()
 ```
 
-    2022-08-30 06:55:23 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/users
+    2022-10-19 16:44:47 — GET https://api.clockify.me/api/v1/workspaces/630c61ba9c3a3c3112812332/users
 
-    # A tibble: 2 × 3
-      user_id                  user_name status
-      <chr>                    <chr>     <chr> 
-    1 5f227e0cd7176a0e6e754409 Andrew    ACTIVE
-    2 5ef46293df73063139f60bf5 Emma      ACTIVE
+    # A tibble: 5 × 3
+      user_id                  user_name   status                    
+      <chr>                    <chr>       <chr>                     
+    1 5f227e0cd7176a0e6e754409 Andrew      ACTIVE                    
+    2 630f17f04a05b20faf7e0afc Bob Smith   ACTIVE                    
+    3 630f16ab90cfd878937a7997 <NA>        NOT_REGISTERED            
+    4 630f1cb9cb18da61cfd58659 Carol Brown PENDING_EMAIL_VERIFICATION
+    5 630f15d3b59c366b0e3ae2e6 Alice Jones ACTIVE                    
 
 ## Clients
 
@@ -120,15 +123,14 @@ Get a list of clients.
 clients()
 ```
 
-    2022-08-30 06:55:24 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/clients
-    2022-08-30 06:55:24 — Page contains 2 results.
-    2022-08-30 06:55:24 — API returned 2 results.
+    2022-10-19 16:44:47 — GET https://api.clockify.me/api/v1/workspaces/630c61ba9c3a3c3112812332/clients
+    2022-10-19 16:44:47 — Page contains 1 results.
+    2022-10-19 16:44:47 — API returned 1 results.
 
-    # A tibble: 2 × 3
+    # A tibble: 1 × 3
       client_id                workspace_id             client_name
       <chr>                    <chr>                    <chr>      
-    1 61343c6c00dc8f48962b9be9 61343c45ab05e02be2c8c1fd Community  
-    2 61343c5d00dc8f48962b9be3 61343c45ab05e02be2c8c1fd Fathom Data
+    1 630ce46090cfd8789366f4fb 630c61ba9c3a3c3112812332 RStudio    
 
 ## Projects
 
@@ -138,15 +140,17 @@ Get a list of projects.
 projects()
 ```
 
-    2022-08-30 06:55:24 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/projects
-    2022-08-30 06:55:24 — Page contains 2 results.
-    2022-08-30 06:55:24 — API returned 2 results.
+    2022-10-19 16:44:47 — GET https://api.clockify.me/api/v1/workspaces/630c61ba9c3a3c3112812332/projects
+    2022-10-19 16:44:47 — Page contains 3 results.
+    2022-10-19 16:44:47 — API returned 3 results.
 
-    # A tibble: 2 × 4
-      project_id               project_name client_id                billable
-      <chr>                    <chr>        <chr>                    <lgl>   
-    1 6134506c777d5361dcdeb3b5 {cex}        61343c5d00dc8f48962b9be3 TRUE    
-    2 61343c9ba15c1d53ad33369f {clockify}   61343c5d00dc8f48962b9be3 FALSE   
+    # A tibble: 3 × 5
+      project_id               project_name client_id                billa…¹ archi…²
+      <chr>                    <chr>        <chr>                    <lgl>   <lgl>  
+    1 632a94f8d801fa1178d366b8 test         <NA>                     TRUE    FALSE  
+    2 630ce53290cfd8789366fd49 {clockify}   630ce46090cfd8789366f4fb TRUE    FALSE  
+    3 630ce53cb59c366b0e27743f {emayili}    630ce46090cfd8789366f4fb TRUE    FALSE  
+    # … with abbreviated variable names ¹​billable, ²​archived
 
 ## Time Entries
 
@@ -158,95 +162,59 @@ Retrieve the time entries for the authenticated user.
 time_entries()
 ```
 
-    2022-08-30 06:55:24 — GET https://api.clockify.me/api/v1/user
-    2022-08-30 06:55:24 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-30 06:55:24 — Page contains 8 results.
-    2022-08-30 06:55:24 — API returned 8 results.
-
-    # A tibble: 8 × 4
-      id                       project_id               description          durat…¹
-      <chr>                    <chr>                    <chr>                  <dbl>
-    1 61343cc1777d5361dcdea70a 61343c9ba15c1d53ad33369f Set up GitHub Actio…    12  
-    2 61343d06777d5361dcdea729 61343c9ba15c1d53ad33369f Make coffee              5  
-    3 61343d27ab05e02be2c8c266 61343c9ba15c1d53ad33369f Populate README.Rmd     68  
-    4 613448d7777d5361dcdead37 61343c9ba15c1d53ad33369f Add GET /workspaces…    12.0
-    5 61344bcad01d3b4a27a82310 61343c9ba15c1d53ad33369f Add GET /workspaces…    31.8
-    6 6134548f00dc8f48962bace7 6134506c777d5361dcdeb3b5 Add GET /ticker/{sy…    16.0
-    7 6134585a777d5361dcdebc5c 6134506c777d5361dcdeb3b5 Add GET /tickers/{s…    16.5
-    8 61345c45d01d3b4a27a833c7 6134506c777d5361dcdeb3b5 Add GET /last_price…    31.6
-    # … with abbreviated variable name ¹​duration
-
 Retrieve time entries for another user specified by their user ID.
 
 ``` r
-time_entries(user_id = "5ef46293df73063139f60bf5")
+time_entries(user_id = "630f15d3b59c366b0e3ae2e6")
 ```
-
-    2022-08-30 06:55:24 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5ef46293df73063139f60bf5/time-entries
-    2022-08-30 06:55:24 — Page contains 2 results.
-    2022-08-30 06:55:24 — API returned 2 results.
-
-    # A tibble: 2 × 4
-      id                       project_id               description        duration
-      <chr>                    <chr>                    <chr>                 <dbl>
-    1 613630ebba4b374e57155a72 61343c9ba15c1d53ad33369f Another test entry     87  
-    2 613630cb89516b1767a56a08 61343c9ba15c1d53ad33369f Creating hex logo      45.4
 
 ### Insert Time Entry
 
 ``` r
-prepare_cran_id <- time_entry_insert(
- project_id = "61343c9ba15c1d53ad33369f",
- start = "2021-08-30 08:00:00",
- end   = "2021-08-30 10:30:00",
- description = "Prepare for CRAN submission"
+prepare_cran_entry <- time_entry_create(
+  project_id = "630ce53290cfd8789366fd49",
+  start = "2021-08-30 08:00:00",
+  end = "2021-08-30 10:30:00",
+  description = "Prepare for CRAN submission"
 )
 ```
 
-    2022-08-30 06:55:24 — Insert time entry.
-    2022-08-30 06:55:24 — POST https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/time-entries
+    2022-10-19 16:44:48 — POST https://api.clockify.me/api/v1/workspaces/630c61ba9c3a3c3112812332/time-entries
 
 Check on the ID for this new time entry.
 
 ``` r
-prepare_cran_id
+prepare_cran_entry$time_entry_id
 ```
 
-    [1] "630da64c25e863294e5cfceb"
+    [1] "63501b7041407109a86a9737"
 
 Confirm that it has been inserted.
 
 ``` r
 time_entries(concise = FALSE) %>%
-  select(id, description, time_start, time_end)
+  select(time_entry_id, description, time_start, time_end)
 ```
 
-    2022-08-30 06:55:24 — GET https://api.clockify.me/api/v1/user
-    2022-08-30 06:55:24 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-30 06:55:24 — Page contains 9 results.
-    2022-08-30 06:55:24 — API returned 9 results.
+    2022-10-19 16:44:48 — GET https://api.clockify.me/api/v1/user
+    2022-10-19 16:44:48 — GET https://api.clockify.me/api/v1/workspaces/630c61ba9c3a3c3112812332/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-10-19 16:44:48 — Page contains 3 results.
+    2022-10-19 16:44:48 — API returned 3 results.
 
-    # A tibble: 9 × 4
-      id                       description   time_start          time_end           
+    # A tibble: 3 × 4
+      time_entry_id            description   time_start          time_end           
       <chr>                    <chr>         <dttm>              <dttm>             
-    1 630da64c25e863294e5cfceb Prepare for … 2021-08-30 09:00:00 2021-08-30 11:30:00
-    2 61343cc1777d5361dcdea70a Set up GitHu… 2021-09-03 06:15:00 2021-09-03 06:27:00
-    3 61343d06777d5361dcdea729 Make coffee   2021-09-03 06:27:00 2021-09-03 06:32:00
-    4 61343d27ab05e02be2c8c266 Populate REA… 2021-09-03 06:45:00 2021-09-03 07:53:00
-    5 613448d7777d5361dcdead37 Add GET /wor… 2021-09-05 05:34:31 2021-09-05 05:46:30
-    6 61344bcad01d3b4a27a82310 Add GET /wor… 2021-09-05 05:47:06 2021-09-05 06:18:56
-    7 6134548f00dc8f48962bace7 Add GET /tic… 2021-09-05 06:24:30 2021-09-05 06:40:29
-    8 6134585a777d5361dcdebc5c Add GET /tic… 2021-09-05 06:40:42 2021-09-05 06:57:13
-    9 61345c45d01d3b4a27a833c7 Add GET /las… 2021-09-05 06:57:25 2021-09-05 07:29:01
+    1 63501ac741407109a86a96f6 Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
+    2 63501add7e299f5e61cd1a0a Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
+    3 63501b7041407109a86a9737 Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
 
 ### Delete Time Entry
 
 ``` r
-time_entry_delete(prepare_cran_id)
+time_entry_delete(prepare_cran_entry$time_entry_id)
 ```
 
-    2022-08-30 06:55:24 — Delete time entry.
-    2022-08-30 06:55:24 — DELETE https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/time-entries/630da64c25e863294e5cfceb
+    2022-10-19 16:44:48 — DELETE https://api.clockify.me/api/v1/workspaces/630c61ba9c3a3c3112812332/time-entries/63501b7041407109a86a9737
 
     [1] TRUE
 
@@ -254,25 +222,19 @@ Confirm that it has been deleted.
 
 ``` r
 time_entries(concise = FALSE) %>%
-  select(id, description, time_start, time_end)
+  select(time_entry_id, description, time_start, time_end)
 ```
 
-    2022-08-30 06:55:24 — GET https://api.clockify.me/api/v1/user
-    2022-08-30 06:55:25 — GET https://api.clockify.me/api/v1/workspaces/61343c45ab05e02be2c8c1fd/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-08-30 06:55:25 — Page contains 8 results.
-    2022-08-30 06:55:25 — API returned 8 results.
+    2022-10-19 16:44:48 — GET https://api.clockify.me/api/v1/user
+    2022-10-19 16:44:48 — GET https://api.clockify.me/api/v1/workspaces/630c61ba9c3a3c3112812332/user/5f227e0cd7176a0e6e754409/time-entries
+    2022-10-19 16:44:48 — Page contains 2 results.
+    2022-10-19 16:44:48 — API returned 2 results.
 
-    # A tibble: 8 × 4
-      id                       description   time_start          time_end           
+    # A tibble: 2 × 4
+      time_entry_id            description   time_start          time_end           
       <chr>                    <chr>         <dttm>              <dttm>             
-    1 61343cc1777d5361dcdea70a Set up GitHu… 2021-09-03 06:15:00 2021-09-03 06:27:00
-    2 61343d06777d5361dcdea729 Make coffee   2021-09-03 06:27:00 2021-09-03 06:32:00
-    3 61343d27ab05e02be2c8c266 Populate REA… 2021-09-03 06:45:00 2021-09-03 07:53:00
-    4 613448d7777d5361dcdead37 Add GET /wor… 2021-09-05 05:34:31 2021-09-05 05:46:30
-    5 61344bcad01d3b4a27a82310 Add GET /wor… 2021-09-05 05:47:06 2021-09-05 06:18:56
-    6 6134548f00dc8f48962bace7 Add GET /tic… 2021-09-05 06:24:30 2021-09-05 06:40:29
-    7 6134585a777d5361dcdebc5c Add GET /tic… 2021-09-05 06:40:42 2021-09-05 06:57:13
-    8 61345c45d01d3b4a27a833c7 Add GET /las… 2021-09-05 06:57:25 2021-09-05 07:29:01
+    1 63501ac741407109a86a96f6 Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
+    2 63501add7e299f5e61cd1a0a Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
 
 ## Endpoints
 
@@ -282,75 +244,73 @@ Endpoints which have currently been implemented in this package.
 Endpoints which are only available on a paid plan are indicated with a
 💰.
 
--   [x] GET /workspaces/{workspaceId}/clients
--   [x] POST /workspaces/{workspaceId}/clients
--   [x] PUT /workspaces/{workspaceId}/clients/{clientId}
--   [x] DELETE /workspaces/{workspaceId}/clients/{clientId}
--   [x] GET /workspaces/{workspaceId}/projects
--   [x] GET /workspaces/{workspaceId}/projects/{projectId}
--   [x] POST /workspaces/{workspaceId}/projects
--   [x] PUT /workspaces/{workspaceId}/projects/{projectId}
--   [x] PUT
-    /workspaces/{workspaceId}/projects/{projectId}/users/{userId}/hourly-rate
--   [x] PUT
-    /workspaces/{workspaceId}/projects/{projectId}/users/{userId}/cost-rate
--   [x] PATCH /workspaces/{workspaceId}/projects/{projectId}/estimate
--   [x] PATCH /workspaces/{workspaceId}/projects/{projectId}/memberships
--   [x] PATCH /workspaces/{workspaceId}/projects/{projectId}/template
--   [x] DELETE /workspaces/{workspaceId}/projects/{id}
--   [x] GET /workspaces/{workspaceId}/tags
--   [x] GET /workspaces/{workspaceId}/tags/{tagId}
--   [x] POST /workspaces/{workspaceId}/tags
--   [x] PUT /workspaces/{workspaceId}/tags/{tagId}
--   [x] DELETE /workspaces/{workspaceId}/tags/{tagId}
--   [x] GET /workspaces/{workspaceId}/projects/{projectId}/tasks
--   [x] GET
-    /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
--   [x] POST /workspaces/{workspaceId}/projects/{projectId}/tasks
--   [x] PUT
-    /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
--   [x] PUT
-    /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}/hourly-rate
--   [x] PUT
-    /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}/cost-rate
--   [x] DELETE
-    /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
--   [x] GET /workspaces/{workspaceId}/user/{userId}/time-entries
--   [x] GET /workspaces/{workspaceId}/time-entries/{id}
--   [x] POST /workspaces/{workspaceId}/time-entries
--   [x] POST /workspaces/{workspaceId}/user/{userId}/time-entries 💰
--   [x] PATCH /workspaces/{workspaceId}/user/{userId}/time-entries 💰
--   [x] PUT /workspaces/{workspaceId}/time-entries/{id}
--   [x] PATCH /workspaces/{workspaceId}/time-entries/invoiced
--   [x] DELETE /workspaces/{workspaceId}/time-entries/{id}
--   [x] GET /user
--   [x] GET /workspaces/{workspaceId}/users
--   [x] POST /workspaces/{workspaceId}/users 💰
--   [x] PUT /workspaces/{workspaceId}/users/{userId}
--   [x] PUT /workspaces/{workspaceId}/users/{userId}/hourly-rate
--   [x] PUT /workspaces/{workspaceId}/users/{userId}/cost-rate
--   [x] POST /workspaces/{workspaceId}/users/{userId}/roles
--   [x] DELETE /workspaces/{workspaceId}/users/{userId}/roles
--   [x] DELETE /workspaces/{workspaceId}/users/{userId}
--   [x] GET /workspaces/{workspaceId}/user-groups
--   [x] POST /workspaces/{workspaceId}/user-groups
--   [x] PUT /workspaces/{workspaceId}/user-groups/{userGroupId}
--   [x] DELETE /workspaces/{workspaceId}/user-groups/{userGroupId}
--   [x] POST /workspaces/{workspaceId}/user-groups/{userGroupId}/users
--   [x] DELETE
-    /workspaces/{workspaceId}/user-groups/{userGroupId}/users/{userId}
--   [x] GET /workspaces
--   [x] GET /workspaces/{workspaceId}/custom-fields
--   [x] GET /workspaces/{workspaceId}/projects/{projectid}/custom-fields
--   [x] PATCH
-    /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId}
--   [x] DELETE
-    /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId}
--   [x] POST /workspaces/{workspaceId}/reports/summary
--   [x] POST /workspaces/{workspaceId}/reports/detailed
--   [x] POST /workspaces/{workspaceId}/reports/weekly
--   [x] GET /workspaces/{workspaceId}/shared-reports
--   [x] GET /shared-reports/{sharedReportId}
--   [x] POST /workspaces/{workspaceId}/shared-reports
--   [x] PUT /workspaces/{workspaceId}/shared-reports/{sharedReportId}
--   [x] DELETE /workspaces/{workspaceId}/shared-reports/{sharedReportId}
+- [x] GET /workspaces/{workspaceId}/clients
+- [x] POST /workspaces/{workspaceId}/clients
+- [x] PUT /workspaces/{workspaceId}/clients/{clientId}
+- [x] DELETE /workspaces/{workspaceId}/clients/{clientId}
+- [x] GET /workspaces/{workspaceId}/projects
+- [x] GET /workspaces/{workspaceId}/projects/{projectId}
+- [x] POST /workspaces/{workspaceId}/projects
+- [x] PUT /workspaces/{workspaceId}/projects/{projectId}
+- [x] PUT
+  /workspaces/{workspaceId}/projects/{projectId}/users/{userId}/hourly-rate
+- [x] PUT
+  /workspaces/{workspaceId}/projects/{projectId}/users/{userId}/cost-rate
+- [x] PATCH /workspaces/{workspaceId}/projects/{projectId}/estimate
+- [x] PATCH /workspaces/{workspaceId}/projects/{projectId}/memberships
+- [x] PATCH /workspaces/{workspaceId}/projects/{projectId}/template
+- [x] DELETE /workspaces/{workspaceId}/projects/{id}
+- [x] GET /workspaces/{workspaceId}/tags
+- [x] GET /workspaces/{workspaceId}/tags/{tagId}
+- [x] POST /workspaces/{workspaceId}/tags
+- [x] PUT /workspaces/{workspaceId}/tags/{tagId}
+- [x] DELETE /workspaces/{workspaceId}/tags/{tagId}
+- [x] GET /workspaces/{workspaceId}/projects/{projectId}/tasks
+- [x] GET /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
+- [x] POST /workspaces/{workspaceId}/projects/{projectId}/tasks
+- [x] PUT /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
+- [x] PUT
+  /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}/hourly-rate
+- [x] PUT
+  /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}/cost-rate
+- [x] DELETE
+  /workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}
+- [x] GET /workspaces/{workspaceId}/user/{userId}/time-entries
+- [x] GET /workspaces/{workspaceId}/time-entries/{id}
+- [x] POST /workspaces/{workspaceId}/time-entries
+- [x] POST /workspaces/{workspaceId}/user/{userId}/time-entries 💰
+- [x] PATCH /workspaces/{workspaceId}/user/{userId}/time-entries 💰
+- [x] PUT /workspaces/{workspaceId}/time-entries/{id}
+- [x] PATCH /workspaces/{workspaceId}/time-entries/invoiced
+- [x] DELETE /workspaces/{workspaceId}/time-entries/{id}
+- [x] GET /user
+- [x] GET /workspaces/{workspaceId}/users
+- [x] POST /workspaces/{workspaceId}/users 💰
+- [x] PUT /workspaces/{workspaceId}/users/{userId}
+- [x] PUT /workspaces/{workspaceId}/users/{userId}/hourly-rate
+- [x] PUT /workspaces/{workspaceId}/users/{userId}/cost-rate
+- [x] POST /workspaces/{workspaceId}/users/{userId}/roles
+- [x] DELETE /workspaces/{workspaceId}/users/{userId}/roles
+- [x] DELETE /workspaces/{workspaceId}/users/{userId}
+- [x] GET /workspaces/{workspaceId}/user-groups
+- [x] POST /workspaces/{workspaceId}/user-groups
+- [x] PUT /workspaces/{workspaceId}/user-groups/{userGroupId}
+- [x] DELETE /workspaces/{workspaceId}/user-groups/{userGroupId}
+- [x] POST /workspaces/{workspaceId}/user-groups/{userGroupId}/users
+- [x] DELETE
+  /workspaces/{workspaceId}/user-groups/{userGroupId}/users/{userId}
+- [x] GET /workspaces
+- [x] GET /workspaces/{workspaceId}/custom-fields
+- [x] GET /workspaces/{workspaceId}/projects/{projectid}/custom-fields
+- [x] PATCH
+  /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId}
+- [x] DELETE
+  /workspaces/{workspaceId}/projects/{projectid}/custom-fields/{customFieldId}
+- [x] POST /workspaces/{workspaceId}/reports/summary
+- [x] POST /workspaces/{workspaceId}/reports/detailed
+- [x] POST /workspaces/{workspaceId}/reports/weekly
+- [x] GET /workspaces/{workspaceId}/shared-reports
+- [x] GET /shared-reports/{sharedReportId}
+- [x] POST /workspaces/{workspaceId}/shared-reports
+- [x] PUT /workspaces/{workspaceId}/shared-reports/{sharedReportId}
+- [x] DELETE /workspaces/{workspaceId}/shared-reports/{sharedReportId}

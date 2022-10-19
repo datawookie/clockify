@@ -70,7 +70,7 @@ workspaces()
 Select a specific workspace.
 
 ```{r set-workspace}
-workspace("61343c45ab05e02be2c8c1fd")
+workspace("630c61ba9c3a3c3112812332")
 ```
 
 ## Users
@@ -109,21 +109,21 @@ projects()
 
 Retrieve the time entries for the authenticated user.
 
-```{r get-all-time-entries}
+```{r get-all-time-entries, eval=FALSE}
 time_entries()
 ```
 
 Retrieve time entries for another user specified by their user ID.
 
-```{r get-user-time-entries}
-time_entries(user_id = "5ef46293df73063139f60bf5")
+```{r get-user-time-entries, eval=FALSE}
+time_entries(user_id = "630f15d3b59c366b0e3ae2e6")
 ```
 
 ### Insert Time Entry
 
 ```{r put-time-entries}
-prepare_cran_id <- time_entry_insert(
-  project_id = "61343c9ba15c1d53ad33369f",
+prepare_cran_entry <- time_entry_create(
+  project_id = "630ce53290cfd8789366fd49",
   start = "2021-08-30 08:00:00",
   end = "2021-08-30 10:30:00",
   description = "Prepare for CRAN submission"
@@ -133,27 +133,27 @@ prepare_cran_id <- time_entry_insert(
 Check on the ID for this new time entry.
 
 ```{r get-time-entry-id}
-prepare_cran_id
+prepare_cran_entry$time_entry_id
 ```
 
 Confirm that it has been inserted.
 
 ```{r check-insert-time-entry, concise = FALSE}
 time_entries(concise = FALSE) %>%
-  select(id, description, time_start, time_end)
+  select(time_entry_id, description, time_start, time_end)
 ```
 
 ### Delete Time Entry
 
 ```{r delete-time-entry}
-time_entry_delete(prepare_cran_id)
+time_entry_delete(prepare_cran_entry$time_entry_id)
 ```
 
 Confirm that it has been deleted.
 
 ```{r check-delete-time-entry, concise = FALSE}
 time_entries(concise = FALSE) %>%
-  select(id, description, time_start, time_end)
+  select(time_entry_id, description, time_start, time_end)
 ```
 
 ## Endpoints
