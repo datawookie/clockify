@@ -5,6 +5,7 @@ README.html
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.github$
+^\.lintr$
 ^\.pre-commit-config\.yaml$
 docs/
 pkgdown
