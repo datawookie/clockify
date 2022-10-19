@@ -7,9 +7,9 @@
 task_update(
   project_id,
   task_id,
-  name = NULL,
+  name,
   billable = NULL,
-  status = status,
+  status = NULL,
   assignee_id = NULL
 )
 }
