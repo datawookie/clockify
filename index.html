@@ -91,7 +91,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://daroczig.github.io/logger/" class="external-link">logger</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://daroczig.github.io/logger/reference/log_threshold.html" class="external-link">log_threshold</a></span><span class="op">(</span><span class="va">DEBUG</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://daroczig.github.io/logger/reference/log_threshold.html" class="external-link">log_threshold</a></span><span class="op">(</span><span class="va">INFO</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="workspaces">Workspaces<a class="anchor" aria-label="anchor" href="#workspaces"></a>
@@ -99,20 +99,16 @@
 <p>Retrieve a list of available workspaces.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/workspaces.html">workspaces</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">46</span> — GET https<span class="op">:</span><span class="er">//</span>api.clockify.me<span class="op">/</span>api<span class="op">/</span>v1<span class="op">/</span>workspaces</span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># A tibble: 3 × 3</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>  workspace_id             name               memberships      </span>
-<span id="cb5-5"><a href="#cb5-5"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">              </span><span class="er">&lt;</span>list<span class="op">&gt;</span><span class="st">           </span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="dv">1</span> 5ef46294df73063139f60bfc Fathom Data        <span class="op">&lt;</span>tibble [<span class="dv">17</span> × <span class="dv">6</span>]<span class="op">&gt;</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="dv">2</span> 61343c45ab05e02be2c8c1fd Personal           <span class="op">&lt;</span>tibble [<span class="dv">2</span> × <span class="dv">4</span>]<span class="op">&gt;</span><span class="st"> </span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="dv">3</span> 630c61ba9c3a3c3112812332 {clockify} sandbox <span class="op">&lt;</span>tibble [<span class="dv">5</span> × <span class="dv">6</span>]<span class="op">&gt;</span><span class="st"> </span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># A tibble: 3 × 3</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>  workspace_id             name               memberships      </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">              </span><span class="er">&lt;</span>list<span class="op">&gt;</span><span class="st">           </span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="dv">1</span> 5ef46294df73063139f60bfc Fathom Data        <span class="op">&lt;</span>tibble [<span class="dv">17</span> × <span class="dv">6</span>]<span class="op">&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="dv">2</span> 61343c45ab05e02be2c8c1fd Personal           <span class="op">&lt;</span>tibble [<span class="dv">2</span> × <span class="dv">4</span>]<span class="op">&gt;</span><span class="st"> </span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="dv">3</span> 630c61ba9c3a3c3112812332 {clockify} sandbox <span class="op">&lt;</span>tibble [<span class="dv">5</span> × <span class="dv">6</span>]<span class="op">&gt;</span><span class="st"> </span></span></code></pre></div>
 <p>Select a specific workspace.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/workspace.html">workspace</a></span><span class="op">(</span><span class="st">"630c61ba9c3a3c3112812332"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">46</span> — Set active workspace -&gt;<span class="st"> </span>630c61ba9c3a3c3112812332.</span>
-<span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a>[<span class="dv">1</span>] <span class="st">"630c61ba9c3a3c3112812332"</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>[<span class="dv">1</span>] <span class="st">"630c61ba9c3a3c3112812332"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="users">Users<a class="anchor" aria-label="anchor" href="#users"></a>
@@ -120,16 +116,13 @@
 <p>Retrieve information on your user profile.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/user.html">user</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">46</span> — GET https<span class="op">:</span><span class="er">//</span>api.clockify.me<span class="op">/</span>api<span class="op">/</span>v1<span class="op">/</span>user</span>
-<span id="cb9-2"><a href="#cb9-2"></a></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co"># A tibble: 1 × 3</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a>  user_id                  user_name status</span>
-<span id="cb9-5"><a href="#cb9-5"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">     </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st"> </span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="dv">1</span> 5f227e0cd7176a0e6e754409 Andrew    ACTIVE</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># A tibble: 1 × 3</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  user_id                  user_name status</span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">     </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st"> </span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="dv">1</span> 5f227e0cd7176a0e6e754409 Andrew    ACTIVE</span></code></pre></div>
 <p>Get a list of users.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/users.html">users</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">46</span> — GET https<span class="op">:</span><span class="er">//</span>api.clockify.me<span class="op">/</span>api<span class="op">/</span>v1<span class="op">/</span>workspaces<span class="op">/</span>630c61ba9c3a3c3112812332<span class="op">/</span>users</span></code></pre></div>
 <pre><code># A tibble: 5 × 3
   user_id                  user_name   status                    
   &lt;chr&gt;                    &lt;chr&gt;       &lt;chr&gt;                     
@@ -143,11 +136,8 @@
 <h2 id="clients">Clients<a class="anchor" aria-label="anchor" href="#clients"></a>
 </h2>
 <p>Get a list of clients.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/clients.html">clients</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">47</span> — GET https<span class="op">:</span><span class="er">//</span>api.clockify.me<span class="op">/</span>api<span class="op">/</span>v1<span class="op">/</span>workspaces<span class="op">/</span>630c61ba9c3a3c3112812332<span class="op">/</span>clients</span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">47</span> — Page contains <span class="dv">1</span> results.</span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">47</span> — API returned <span class="dv">1</span> results.</span></code></pre></div>
 <pre><code># A tibble: 1 × 3
   client_id                workspace_id             client_name
   &lt;chr&gt;                    &lt;chr&gt;                    &lt;chr&gt;      
@@ -157,19 +147,15 @@
 <h2 id="projects">Projects<a class="anchor" aria-label="anchor" href="#projects"></a>
 </h2>
 <p>Get a list of projects.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/projects.html">projects</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">47</span> — GET https<span class="op">:</span><span class="er">//</span>api.clockify.me<span class="op">/</span>api<span class="op">/</span>v1<span class="op">/</span>workspaces<span class="op">/</span>630c61ba9c3a3c3112812332<span class="op">/</span>projects</span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">47</span> — Page contains <span class="dv">3</span> results.</span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">47</span> — API returned <span class="dv">3</span> results.</span>
-<span id="cb17-4"><a href="#cb17-4"></a></span>
-<span id="cb17-5"><a href="#cb17-5"></a><span class="co"># A tibble: 3 × 5</span></span>
-<span id="cb17-6"><a href="#cb17-6"></a>  project_id               project_name client_id                billa…¹ archi…²</span>
-<span id="cb17-7"><a href="#cb17-7"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">        </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>lgl<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>lgl<span class="op">&gt;</span><span class="st">  </span></span>
-<span id="cb17-8"><a href="#cb17-8"></a><span class="dv">1</span> 632a94f8d801fa1178d366b8 test         <span class="op">&lt;</span><span class="ot">NA</span><span class="op">&gt;</span><span class="st">                     </span><span class="ot">TRUE</span>    <span class="ot">FALSE</span>  </span>
-<span id="cb17-9"><a href="#cb17-9"></a><span class="dv">2</span> 630ce53290cfd8789366fd49 {clockify}   630ce46090cfd8789366f4fb <span class="ot">TRUE</span>    <span class="ot">FALSE</span>  </span>
-<span id="cb17-10"><a href="#cb17-10"></a><span class="dv">3</span> 630ce53cb59c366b0e27743f {emayili}    630ce46090cfd8789366f4fb <span class="ot">TRUE</span>    <span class="ot">FALSE</span>  </span>
-<span id="cb17-11"><a href="#cb17-11"></a><span class="co"># … with abbreviated variable names ¹​billable, ²​archived</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># A tibble: 3 × 5</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>  project_id               project_name client_id                billa…¹ archi…²</span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">        </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>lgl<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>lgl<span class="op">&gt;</span><span class="st">  </span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="dv">1</span> 632a94f8d801fa1178d366b8 test         <span class="op">&lt;</span><span class="ot">NA</span><span class="op">&gt;</span><span class="st">                     </span><span class="ot">TRUE</span>    <span class="ot">FALSE</span>  </span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="dv">2</span> 630ce53290cfd8789366fd49 {clockify}   630ce46090cfd8789366f4fb <span class="ot">TRUE</span>    <span class="ot">FALSE</span>  </span>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="dv">3</span> 630ce53cb59c366b0e27743f {emayili}    630ce46090cfd8789366f4fb <span class="ot">TRUE</span>    <span class="ot">FALSE</span>  </span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="co"># … with abbreviated variable names ¹​billable, ²​archived</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="time-entries">Time Entries<a class="anchor" aria-label="anchor" href="#time-entries"></a>
@@ -178,75 +164,48 @@
 <h3 id="retrieve-time-entries">Retrieve Time Entries<a class="anchor" aria-label="anchor" href="#retrieve-time-entries"></a>
 </h3>
 <p>Retrieve the time entries for the authenticated user.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Retrieve time entries for another user specified by their user ID.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span>user_id <span class="op">=</span> <span class="st">"630f15d3b59c366b0e3ae2e6"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="insert-time-entry">Insert Time Entry<a class="anchor" aria-label="anchor" href="#insert-time-entry"></a>
 </h3>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prepare_cran_entry</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/time_entry_create.html">time_entry_create</a></span><span class="op">(</span></span>
 <span>  project_id <span class="op">=</span> <span class="st">"630ce53290cfd8789366fd49"</span>,</span>
 <span>  start <span class="op">=</span> <span class="st">"2021-08-30 08:00:00"</span>,</span>
 <span>  end <span class="op">=</span> <span class="st">"2021-08-30 10:30:00"</span>,</span>
 <span>  description <span class="op">=</span> <span class="st">"Prepare for CRAN submission"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">47</span> — POST https<span class="op">:</span><span class="er">//</span>api.clockify.me<span class="op">/</span>api<span class="op">/</span>v1<span class="op">/</span>workspaces<span class="op">/</span>630c61ba9c3a3c3112812332<span class="op">/</span>time<span class="op">-</span>entries</span></code></pre></div>
 <p>Check on the ID for this new time entry.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prepare_cran_entry</span><span class="op">$</span><span class="va">time_entry_id</span></span></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>[<span class="dv">1</span>] <span class="st">"635113a37e299f5e61cdec71"</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>[<span class="dv">1</span>] <span class="st">"635114a47e299f5e61cded8b"</span></span></code></pre></div>
 <p>Confirm that it has been inserted.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span>concise <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">select</span><span class="op">(</span><span class="va">time_entry_id</span>, <span class="va">description</span>, <span class="va">time_start</span>, <span class="va">time_end</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">47</span> — GET https<span class="op">:</span><span class="er">//</span>api.clockify.me<span class="op">/</span>api<span class="op">/</span>v1<span class="op">/</span>user</span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">47</span> — GET https<span class="op">:</span><span class="er">//</span>api.clockify.me<span class="op">/</span>api<span class="op">/</span>v1<span class="op">/</span>workspaces<span class="op">/</span>630c61ba9c3a3c3112812332<span class="op">/</span>user<span class="op">/</span>5f227e0cd7176a0e6e754409<span class="op">/</span>time<span class="op">-</span>entries</span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">47</span> — Page contains <span class="dv">8</span> results.</span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">47</span> — API returned <span class="dv">8</span> results.</span>
-<span id="cb25-5"><a href="#cb25-5"></a></span>
-<span id="cb25-6"><a href="#cb25-6"></a><span class="co"># A tibble: 8 × 4</span></span>
-<span id="cb25-7"><a href="#cb25-7"></a>  time_entry_id            description   time_start          time_end           </span>
-<span id="cb25-8"><a href="#cb25-8"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">         </span><span class="er">&lt;</span>dttm<span class="op">&gt;</span><span class="st">              </span><span class="er">&lt;</span>dttm<span class="op">&gt;</span><span class="st">             </span></span>
-<span id="cb25-9"><a href="#cb25-9"></a><span class="dv">1</span> 635113a37e299f5e61cdec71 Prepare <span class="cf">for</span> … <span class="dv">2021-08-30</span> <span class="dv">08</span><span class="op">:</span><span class="dv">00</span><span class="op">:</span><span class="dv">00</span> <span class="dv">2021-08-30</span> <span class="dv">10</span><span class="op">:</span><span class="dv">30</span><span class="op">:</span><span class="dv">00</span></span>
-<span id="cb25-10"><a href="#cb25-10"></a><span class="dv">2</span> 635113a241407109a86b6954 L5phOG3g4yVy… <span class="dv">2022-10-19</span> <span class="dv">09</span><span class="op">:</span><span class="dv">03</span><span class="op">:</span><span class="dv">01</span> <span class="dv">2022-10-19</span> <span class="dv">12</span><span class="op">:</span><span class="dv">48</span><span class="op">:</span><span class="dv">28</span></span>
-<span id="cb25-11"><a href="#cb25-11"></a><span class="dv">3</span> 635113a1045c096d34300603 4ceYhIZ6XdLT… <span class="dv">2022-10-19</span> <span class="dv">15</span><span class="op">:</span><span class="dv">19</span><span class="op">:</span><span class="dv">44</span> <span class="dv">2022-10-19</span> <span class="dv">18</span><span class="op">:</span><span class="dv">47</span><span class="op">:</span><span class="dv">59</span></span>
-<span id="cb25-12"><a href="#cb25-12"></a><span class="dv">4</span> 635113a241407109a86b6958 x3YYjghJMGdN… <span class="dv">2022-10-19</span> <span class="dv">21</span><span class="op">:</span><span class="dv">54</span><span class="op">:</span><span class="dv">28</span> <span class="dv">2022-10-20</span> <span class="dv">02</span><span class="op">:</span><span class="dv">39</span><span class="op">:</span><span class="dv">10</span></span>
-<span id="cb25-13"><a href="#cb25-13"></a><span class="dv">5</span> 635113a2045c096d34300607 MjjRxbiXPDsS… <span class="dv">2022-10-20</span> <span class="dv">00</span><span class="op">:</span><span class="dv">02</span><span class="op">:</span><span class="dv">59</span> <span class="dv">2022-10-20</span> <span class="dv">03</span><span class="op">:</span><span class="dv">32</span><span class="op">:</span><span class="dv">51</span></span>
-<span id="cb25-14"><a href="#cb25-14"></a><span class="dv">6</span> 635113a3045c096d3430060d 63gsqYp1OEQ5… <span class="dv">2022-10-20</span> <span class="dv">00</span><span class="op">:</span><span class="dv">12</span><span class="op">:</span><span class="dv">42</span> <span class="dv">2022-10-20</span> <span class="dv">00</span><span class="op">:</span><span class="dv">16</span><span class="op">:</span><span class="dv">07</span></span>
-<span id="cb25-15"><a href="#cb25-15"></a><span class="dv">7</span> 635113a07e299f5e61cdec66 sQyrLo4lXB2d… <span class="dv">2022-10-20</span> <span class="dv">00</span><span class="op">:</span><span class="dv">30</span><span class="op">:</span><span class="dv">45</span> <span class="dv">2022-10-20</span> <span class="dv">06</span><span class="op">:</span><span class="dv">01</span><span class="op">:</span><span class="dv">13</span></span>
-<span id="cb25-16"><a href="#cb25-16"></a><span class="dv">8</span> 635113a17e299f5e61cdec6a 8XT8tdNpryzA… <span class="dv">2022-10-20</span> <span class="dv">01</span><span class="op">:</span><span class="dv">30</span><span class="op">:</span><span class="dv">28</span> <span class="dv">2022-10-20</span> <span class="dv">02</span><span class="op">:</span><span class="dv">49</span><span class="op">:</span><span class="dv">48</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># A tibble: 1 × 4</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>  time_entry_id            description   time_start          time_end           </span>
+<span id="cb22-3"><a href="#cb22-3"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">         </span><span class="er">&lt;</span>dttm<span class="op">&gt;</span><span class="st">              </span><span class="er">&lt;</span>dttm<span class="op">&gt;</span><span class="st">             </span></span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="dv">1</span> 635114a47e299f5e61cded8b Prepare <span class="cf">for</span> … <span class="dv">2021-08-30</span> <span class="dv">08</span><span class="op">:</span><span class="dv">00</span><span class="op">:</span><span class="dv">00</span> <span class="dv">2021-08-30</span> <span class="dv">10</span><span class="op">:</span><span class="dv">30</span><span class="op">:</span><span class="dv">00</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="delete-time-entry">Delete Time Entry<a class="anchor" aria-label="anchor" href="#delete-time-entry"></a>
 </h3>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/time_entry_delete.html">time_entry_delete</a></span><span class="op">(</span><span class="va">prepare_cran_entry</span><span class="op">$</span><span class="va">time_entry_id</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">48</span> — DELETE https<span class="op">:</span><span class="er">//</span>api.clockify.me<span class="op">/</span>api<span class="op">/</span>v1<span class="op">/</span>workspaces<span class="op">/</span>630c61ba9c3a3c3112812332<span class="op">/</span>time<span class="op">-</span>entries<span class="op">/</span>635113a37e299f5e61cdec71</span>
-<span id="cb27-2"><a href="#cb27-2"></a></span>
-<span id="cb27-3"><a href="#cb27-3"></a>[<span class="dv">1</span>] <span class="ot">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>[<span class="dv">1</span>] <span class="ot">TRUE</span></span></code></pre></div>
 <p>Confirm that it has been deleted.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span>concise <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">select</span><span class="op">(</span><span class="va">time_entry_id</span>, <span class="va">description</span>, <span class="va">time_start</span>, <span class="va">time_end</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">48</span> — GET https<span class="op">:</span><span class="er">//</span>api.clockify.me<span class="op">/</span>api<span class="op">/</span>v1<span class="op">/</span>user</span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">48</span> — GET https<span class="op">:</span><span class="er">//</span>api.clockify.me<span class="op">/</span>api<span class="op">/</span>v1<span class="op">/</span>workspaces<span class="op">/</span>630c61ba9c3a3c3112812332<span class="op">/</span>user<span class="op">/</span>5f227e0cd7176a0e6e754409<span class="op">/</span>time<span class="op">-</span>entries</span>
-<span id="cb29-3"><a href="#cb29-3"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">48</span> — Page contains <span class="dv">7</span> results.</span>
-<span id="cb29-4"><a href="#cb29-4"></a><span class="dv">2022-10-20</span> <span class="dv">09</span><span class="op">:</span><span class="dv">23</span><span class="op">:</span><span class="dv">48</span> — API returned <span class="dv">7</span> results.</span>
-<span id="cb29-5"><a href="#cb29-5"></a></span>
-<span id="cb29-6"><a href="#cb29-6"></a><span class="co"># A tibble: 7 × 4</span></span>
-<span id="cb29-7"><a href="#cb29-7"></a>  time_entry_id            description   time_start          time_end           </span>
-<span id="cb29-8"><a href="#cb29-8"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">         </span><span class="er">&lt;</span>dttm<span class="op">&gt;</span><span class="st">              </span><span class="er">&lt;</span>dttm<span class="op">&gt;</span><span class="st">             </span></span>
-<span id="cb29-9"><a href="#cb29-9"></a><span class="dv">1</span> 635113a241407109a86b6954 L5phOG3g4yVy… <span class="dv">2022-10-19</span> <span class="dv">09</span><span class="op">:</span><span class="dv">03</span><span class="op">:</span><span class="dv">01</span> <span class="dv">2022-10-19</span> <span class="dv">12</span><span class="op">:</span><span class="dv">48</span><span class="op">:</span><span class="dv">28</span></span>
-<span id="cb29-10"><a href="#cb29-10"></a><span class="dv">2</span> 635113a1045c096d34300603 4ceYhIZ6XdLT… <span class="dv">2022-10-19</span> <span class="dv">15</span><span class="op">:</span><span class="dv">19</span><span class="op">:</span><span class="dv">44</span> <span class="dv">2022-10-19</span> <span class="dv">18</span><span class="op">:</span><span class="dv">47</span><span class="op">:</span><span class="dv">59</span></span>
-<span id="cb29-11"><a href="#cb29-11"></a><span class="dv">3</span> 635113a241407109a86b6958 x3YYjghJMGdN… <span class="dv">2022-10-19</span> <span class="dv">21</span><span class="op">:</span><span class="dv">54</span><span class="op">:</span><span class="dv">28</span> <span class="dv">2022-10-20</span> <span class="dv">02</span><span class="op">:</span><span class="dv">39</span><span class="op">:</span><span class="dv">10</span></span>
-<span id="cb29-12"><a href="#cb29-12"></a><span class="dv">4</span> 635113a2045c096d34300607 MjjRxbiXPDsS… <span class="dv">2022-10-20</span> <span class="dv">00</span><span class="op">:</span><span class="dv">02</span><span class="op">:</span><span class="dv">59</span> <span class="dv">2022-10-20</span> <span class="dv">03</span><span class="op">:</span><span class="dv">32</span><span class="op">:</span><span class="dv">51</span></span>
-<span id="cb29-13"><a href="#cb29-13"></a><span class="dv">5</span> 635113a3045c096d3430060d 63gsqYp1OEQ5… <span class="dv">2022-10-20</span> <span class="dv">00</span><span class="op">:</span><span class="dv">12</span><span class="op">:</span><span class="dv">42</span> <span class="dv">2022-10-20</span> <span class="dv">00</span><span class="op">:</span><span class="dv">16</span><span class="op">:</span><span class="dv">07</span></span>
-<span id="cb29-14"><a href="#cb29-14"></a><span class="dv">6</span> 635113a07e299f5e61cdec66 sQyrLo4lXB2d… <span class="dv">2022-10-20</span> <span class="dv">00</span><span class="op">:</span><span class="dv">30</span><span class="op">:</span><span class="dv">45</span> <span class="dv">2022-10-20</span> <span class="dv">06</span><span class="op">:</span><span class="dv">01</span><span class="op">:</span><span class="dv">13</span></span>
-<span id="cb29-15"><a href="#cb29-15"></a><span class="dv">7</span> 635113a17e299f5e61cdec6a 8XT8tdNpryzA… <span class="dv">2022-10-20</span> <span class="dv">01</span><span class="op">:</span><span class="dv">30</span><span class="op">:</span><span class="dv">28</span> <span class="dv">2022-10-20</span> <span class="dv">02</span><span class="op">:</span><span class="dv">49</span><span class="op">:</span><span class="dv">48</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># A tibble: 0 × 4</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="co"># … with 4 variables: time_entry_id &lt;chr&gt;, description &lt;chr&gt;,</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="co">#   time_start &lt;dttm&gt;, time_end &lt;dttm&gt;</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
