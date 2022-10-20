@@ -13,10 +13,10 @@
     <loc>/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/client_delete.html</loc>
+    <loc>/reference/client_create.html</loc>
   </url>
   <url>
-    <loc>/reference/client_insert.html</loc>
+    <loc>/reference/client_delete.html</loc>
   </url>
   <url>
     <loc>/reference/client_update.html</loc>
@@ -58,13 +58,13 @@
     <loc>/reference/project_delete.html</loc>
   </url>
   <url>
+    <loc>/reference/project_update_billable_rate.html</loc>
+  </url>
+  <url>
+    <loc>/reference/project_update_cost_rate.html</loc>
+  </url>
+  <url>
     <loc>/reference/project_update_memberships.html</loc>
-  </url>
-  <url>
-    <loc>/reference/project_update_user_billable_rate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/project_update_user_cost_rate.html</loc>
   </url>
   <url>
     <loc>/reference/projects.html</loc>
@@ -148,10 +148,10 @@
     <loc>/reference/time_entry.html</loc>
   </url>
   <url>
-    <loc>/reference/time_entry_delete.html</loc>
+    <loc>/reference/time_entry_create.html</loc>
   </url>
   <url>
-    <loc>/reference/time_entry_insert.html</loc>
+    <loc>/reference/time_entry_delete.html</loc>
   </url>
   <url>
     <loc>/reference/time_entry_invoiced.html</loc>
@@ -190,16 +190,16 @@
     <loc>/reference/user_group_user_add.html</loc>
   </url>
   <url>
-    <loc>/reference/user_group_user_delete.html</loc>
+    <loc>/reference/user_group_user_remove.html</loc>
   </url>
   <url>
     <loc>/reference/user_groups.html</loc>
   </url>
   <url>
-    <loc>/reference/user_update_billable_rate.html</loc>
+    <loc>/reference/user_update_cost_rate.html</loc>
   </url>
   <url>
-    <loc>/reference/user_update_cost_rate.html</loc>
+    <loc>/reference/user_update_hourly_rate.html</loc>
   </url>
   <url>
     <loc>/reference/user_update_status.html</loc>

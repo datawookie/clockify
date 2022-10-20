@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">clockify</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.2</span>
       </span>
     </div>
 
@@ -52,7 +52,11 @@
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>end</dt>
+    <dl><dt>user_id</dt>
+<dd><p>User ID. If not specified then use authenticated user.</p></dd>
+
+
+<dt>end</dt>
 <dd><p>End time</p></dd>
 
 </dl></div>
@@ -61,7 +65,7 @@
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="co"># Start timer running.</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="time_entry_insert.html">time_entry_insert</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="time_entry_create.html">time_entry_create</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  user_id <span class="op">=</span> <span class="st">"5df56293df753263139e60c5"</span>,</span></span>
 <span class="r-in"><span>  project_id <span class="op">=</span> <span class="st">"600e73263e207962449a2c13"</span>,</span></span>
 <span class="r-in"><span>  start <span class="op">=</span> <span class="st">"2022-09-02 14:00:00"</span>,</span></span>

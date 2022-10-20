@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">clockify</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.2</span>
       </span>
     </div>
 
@@ -52,7 +52,7 @@
 <span>  start <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  end <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  description <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  project <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  project_id <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  task <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  tags <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  finished <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -79,7 +79,7 @@
 <dd><p>If provided, time entries will be filtered by description.</p></dd>
 
 
-<dt>project</dt>
+<dt>project_id</dt>
 <dd><p>If provided, time entries will be filtered by project.</p></dd>
 
 
@@ -92,7 +92,7 @@
 
 
 <dt>finished</dt>
-<dd><p>Whether to include only finished time intervals (intervals with both start and end time)</p></dd>
+<dd><p>Whether to include only finished time intervals (intervals with both start and end time).</p></dd>
 
 
 <dt>concise</dt>

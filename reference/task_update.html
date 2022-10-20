@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">clockify</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.2</span>
       </span>
     </div>
 
@@ -47,7 +47,14 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">task_update</span><span class="op">(</span><span class="va">project_id</span>, <span class="va">task_id</span>, name <span class="op">=</span> <span class="cn">NULL</span>, billable <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">task_update</span><span class="op">(</span></span>
+<span>  <span class="va">project_id</span>,</span>
+<span>  <span class="va">task_id</span>,</span>
+<span>  <span class="va">name</span>,</span>
+<span>  billable <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  status <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  assignee_id <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -66,6 +73,14 @@
 
 <dt>billable</dt>
 <dd><p>Is the task billable?</p></dd>
+
+
+<dt>status</dt>
+<dd><p>Is the task ACTIVE or DONE?</p></dd>
+
+
+<dt>assignee_id</dt>
+<dd><p>Assignee ID</p></dd>
 
 </dl></div>
 
