@@ -53,7 +53,7 @@ scenes.
 ``` r
 library(logger)
 
-log_threshold(DEBUG)
+log_threshold(INFO)
 ```
 
 ## Workspaces
@@ -63,8 +63,6 @@ Retrieve a list of available workspaces.
 ``` r
 workspaces()
 ```
-
-    2022-10-19 16:44:47 — GET https://api.clockify.me/api/v1/workspaces
 
     # A tibble: 3 × 3
       workspace_id             name               memberships      
@@ -79,8 +77,6 @@ Select a specific workspace.
 workspace("630c61ba9c3a3c3112812332")
 ```
 
-    2022-10-19 16:44:47 — Set active workspace -> 630c61ba9c3a3c3112812332.
-
     [1] "630c61ba9c3a3c3112812332"
 
 ## Users
@@ -90,8 +86,6 @@ Retrieve information on your user profile.
 ``` r
 user()
 ```
-
-    2022-10-19 16:44:47 — GET https://api.clockify.me/api/v1/user
 
     # A tibble: 1 × 3
       user_id                  user_name status
@@ -103,8 +97,6 @@ Get a list of users.
 ``` r
 users()
 ```
-
-    2022-10-19 16:44:47 — GET https://api.clockify.me/api/v1/workspaces/630c61ba9c3a3c3112812332/users
 
     # A tibble: 5 × 3
       user_id                  user_name   status                    
@@ -123,10 +115,6 @@ Get a list of clients.
 clients()
 ```
 
-    2022-10-19 16:44:47 — GET https://api.clockify.me/api/v1/workspaces/630c61ba9c3a3c3112812332/clients
-    2022-10-19 16:44:47 — Page contains 1 results.
-    2022-10-19 16:44:47 — API returned 1 results.
-
     # A tibble: 1 × 3
       client_id                workspace_id             client_name
       <chr>                    <chr>                    <chr>      
@@ -139,10 +127,6 @@ Get a list of projects.
 ``` r
 projects()
 ```
-
-    2022-10-19 16:44:47 — GET https://api.clockify.me/api/v1/workspaces/630c61ba9c3a3c3112812332/projects
-    2022-10-19 16:44:47 — Page contains 3 results.
-    2022-10-19 16:44:47 — API returned 3 results.
 
     # A tibble: 3 × 5
       project_id               project_name client_id                billa…¹ archi…²
@@ -179,15 +163,13 @@ prepare_cran_entry <- time_entry_create(
 )
 ```
 
-    2022-10-19 16:44:48 — POST https://api.clockify.me/api/v1/workspaces/630c61ba9c3a3c3112812332/time-entries
-
 Check on the ID for this new time entry.
 
 ``` r
 prepare_cran_entry$time_entry_id
 ```
 
-    [1] "63501b7041407109a86a9737"
+    [1] "6351123341407109a86b6756"
 
 Confirm that it has been inserted.
 
@@ -196,25 +178,16 @@ time_entries(concise = FALSE) %>%
   select(time_entry_id, description, time_start, time_end)
 ```
 
-    2022-10-19 16:44:48 — GET https://api.clockify.me/api/v1/user
-    2022-10-19 16:44:48 — GET https://api.clockify.me/api/v1/workspaces/630c61ba9c3a3c3112812332/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-10-19 16:44:48 — Page contains 3 results.
-    2022-10-19 16:44:48 — API returned 3 results.
-
-    # A tibble: 3 × 4
+    # A tibble: 1 × 4
       time_entry_id            description   time_start          time_end           
       <chr>                    <chr>         <dttm>              <dttm>             
-    1 63501ac741407109a86a96f6 Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
-    2 63501add7e299f5e61cd1a0a Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
-    3 63501b7041407109a86a9737 Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
+    1 6351123341407109a86b6756 Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
 
 ### Delete Time Entry
 
 ``` r
 time_entry_delete(prepare_cran_entry$time_entry_id)
 ```
-
-    2022-10-19 16:44:48 — DELETE https://api.clockify.me/api/v1/workspaces/630c61ba9c3a3c3112812332/time-entries/63501b7041407109a86a9737
 
     [1] TRUE
 
@@ -225,16 +198,9 @@ time_entries(concise = FALSE) %>%
   select(time_entry_id, description, time_start, time_end)
 ```
 
-    2022-10-19 16:44:48 — GET https://api.clockify.me/api/v1/user
-    2022-10-19 16:44:48 — GET https://api.clockify.me/api/v1/workspaces/630c61ba9c3a3c3112812332/user/5f227e0cd7176a0e6e754409/time-entries
-    2022-10-19 16:44:48 — Page contains 2 results.
-    2022-10-19 16:44:48 — API returned 2 results.
-
-    # A tibble: 2 × 4
-      time_entry_id            description   time_start          time_end           
-      <chr>                    <chr>         <dttm>              <dttm>             
-    1 63501ac741407109a86a96f6 Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
-    2 63501add7e299f5e61cd1a0a Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
+    # A tibble: 0 × 4
+    # … with 4 variables: time_entry_id <chr>, description <chr>,
+    #   time_start <dttm>, time_end <dttm>
 
 ## Endpoints
 

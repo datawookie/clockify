@@ -52,7 +52,7 @@ Let's turn on some logging so we can see what's happening behind the scenes.
 ```{r enable-logging}
 library(logger)
 
-log_threshold(DEBUG)
+log_threshold(INFO)
 ```
 ```{r include=FALSE}
 log_appender(appender_stdout)
