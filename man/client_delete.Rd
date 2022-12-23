@@ -4,14 +4,16 @@
 \alias{client_delete}
 \title{Delete a client from workspace}
 \usage{
-client_delete(client_id)
+client_delete(client_id, archive = FALSE)
 }
 \arguments{
 \item{client_id}{Client ID}
+
+\item{archive}{Archive client before deleting.}
 }
 \value{
 A Boolean: \code{TRUE} on success or \code{FALSE} on failure.
 }
 \description{
-Delete a client from workspace
+A client must first be archived before it can be deleted.
 }

@@ -45,5 +45,5 @@ test_that("delete client", {
   skip_on_cran()
   skip_if(NO_API_KEY_IN_ENVIRONMENT)
 
-  expect_true(client_delete(CLIENT_ID_PSF))
+  expect_true(client_delete(CLIENT_ID_PSF, archive = TRUE))
 })

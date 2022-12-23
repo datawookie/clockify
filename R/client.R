@@ -37,6 +37,25 @@ clients <- function(concise = TRUE) {
     map_df(parse_client, concise = concise)
 }
 
+#' Get client
+#'
+#' @param client_id Client ID
+#'
+#' @return A data frame with one record per client
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' client("63a5493591ed63165538976d")
+#' }
+client <- function(client_id, concise = TRUE) {
+  path <- sprintf("/workspaces/%s/clients/%s", workspace(), client_id)
+
+  clockify:::GET(path) %>%
+    content() %>%
+    clockify:::parse_client(concise = concise)
+}
+
 #' Add a new client to workspace
 #'
 #' @inheritParams users
@@ -73,7 +92,13 @@ client_update <- function(client_id,
                           name = NULL,
                           note = NULL,
                           archived = NULL) {
+  log_debug("Update client.")
   path <- sprintf("/workspaces/%s/clients/%s", workspace(), client_id)
+
+  if (is.null(name)) {
+    log_debug("Client name not supplied.")
+    name <- client(client_id)$client_name
+  }
 
   body <- list(
     name = name,
@@ -89,13 +114,19 @@ client_update <- function(client_id,
 
 #' Delete a client from workspace
 #'
+#' A client must first be archived before it can be deleted.
+#'
 #' @param client_id Client ID
+#' @param archive Archive client before deleting.
 #'
 #' @return A Boolean: \code{TRUE} on success or \code{FALSE} on failure.
 #' @export
-client_delete <- function(client_id) {
+client_delete <- function(client_id, archive = FALSE) {
   log_debug("Delete client.")
 
+  if (archive) {
+    client_update(client_id, archived = TRUE)
+  }
   path <- sprintf("/workspaces/%s/clients/%s", workspace(), client_id)
   result <- DELETE(path)
   status_code(result) == 200
