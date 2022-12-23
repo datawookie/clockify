@@ -8,10 +8,14 @@ USER_ID_BOB <- "630f17f04a05b20faf7e0afc" # Bob
 USER_ID_ALICE <- "630f15d3b59c366b0e3ae2e6" # Alice
 USER_ID_CAROL <- "630f1cb9cb18da61cfd58659" # Carol
 
+# These projects are assumed to already exist.
+#
 PROJECT_ID_CLOCKIFY <- "630ce53290cfd8789366fd49"
 PROJECT_ID_EMAYILI <- "630ce53cb59c366b0e27743f"
 
-CLIENT_ID_RSTUDIO <- "630ce46090cfd8789366f4fb"
+# The RStudio client is assumed to already exist.
+#
+CLIENT_ID_RSTUDIO <- "63a55695db26c25e9d4e2d02"
 CLIENT_NAME_PSF <- "Python Software Foundation"
 
 NO_API_KEY_IN_ENVIRONMENT <- CLOCKIFY_API_KEY == ""
