@@ -1,5 +1,8 @@
 test_that("error on empty api key", {
+  THRESHOLD <- log_threshold()
+  log_threshold(FATAL)
   expect_error(set_api_key(""), regexp = "\\(401\\) Unauthorized")
+  log_threshold(THRESHOLD)
 })
 
 test_that("api key not set", {
@@ -7,7 +10,7 @@ test_that("api key not set", {
   skip_if(NO_API_KEY_IN_ENVIRONMENT)
 
   # Delete cached API key.
-  rm("api_key", envir = clockify:::cache)
+  try(rm("api_key", envir = clockify:::cache), silent = TRUE)
 
   expect_error(get_api_key())
 })
