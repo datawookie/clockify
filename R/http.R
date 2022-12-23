@@ -11,11 +11,17 @@ api_url <- function(path) {
 check_response <- function(response) {
   if (http_error(response)) {
     log_debug("URL: {response$url}")
-    log_debug("headers:")
+    log_debug("response headers:")
     iwalk(response$headers, ~ log_debug("  {format(.y, width = 24)}: {.x}"))
-    if (!is.null(response$request$options$postfields)) {
-      log_debug("body: {rawToChar(response$request$options$postfields)}")
+    log_debug("request headers:")
+    iwalk(response$request$headers, ~ log_debug("  {format(.y, width = 24)}: {.x}"))
+
+    postfields <- response$request$options$postfields
+
+    if (!is.null(postfields) && class(postfields) == "raw") {
+      log_debug("body: {rawToChar(postfields)}")
     }
+    log_error("message: {content(response)$message}")
     stop(http_status(response)$message, call. = FALSE)
   }
 }
