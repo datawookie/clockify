@@ -69,6 +69,7 @@
 <h1 id="clockify-">clockify <img src="reference/figures/clockify-hex.png" align="right" alt="" width="120"><a class="anchor" aria-label="anchor" href="#clockify-"></a>
 </h1>
 <!-- badges: start -->
+
 <p>An R wrapper around the <a href="https://clockify.me/developers-api" class="external-link">Clockify API</a>.</p>
 <p>The documentation for <code>{clockify}</code> is hosted at <a href="https://datawookie.github.io/clockify/" class="external-link uri">https://datawookie.github.io/clockify/</a>.</p>
 <div class="section level2">
@@ -80,7 +81,8 @@
 <h2 id="get-started">Get Started<a class="anchor" aria-label="anchor" href="#get-started"></a>
 </h2>
 <p>The first thing you’ll need to do is set up your API key. I store mine in an environment variable called <code>CLOCKIFY_API_KEY</code>.</p>
-<!-- Use API key from demo account. --><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<!-- Use API key from demo account. -->
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">CLOCKIFY_API_KEY</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"CLOCKIFY_API_KEY"</span><span class="op">)</span></span></code></pre></div>
 <p>Now load the <code>{clockify}</code> package and specify the API key.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -99,16 +101,16 @@
 <p>Retrieve a list of available workspaces.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/workspaces.html">workspaces</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># A tibble: 3 × 3</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>  workspace_id             name               memberships      </span>
-<span id="cb5-3"><a href="#cb5-3"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">              </span><span class="er">&lt;</span>list<span class="op">&gt;</span><span class="st">           </span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="dv">1</span> 5ef46294df73063139f60bfc Fathom Data        <span class="op">&lt;</span>tibble [<span class="dv">17</span> × <span class="dv">6</span>]<span class="op">&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="dv">2</span> 61343c45ab05e02be2c8c1fd Personal           <span class="op">&lt;</span>tibble [<span class="dv">2</span> × <span class="dv">4</span>]<span class="op">&gt;</span><span class="st"> </span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="dv">3</span> 630c61ba9c3a3c3112812332 {clockify} sandbox <span class="op">&lt;</span>tibble [<span class="dv">5</span> × <span class="dv">6</span>]<span class="op">&gt;</span><span class="st"> </span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 3 × 3</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  workspace_id             name               memberships      </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>                    <span class="er">&lt;</span>chr<span class="sc">&gt;</span>              <span class="er">&lt;</span>list<span class="sc">&gt;</span>           </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> 5ef46294df73063139f60bfc Fathom Data        <span class="sc">&lt;</span>tibble [<span class="dv">18</span> × <span class="dv">6</span>]<span class="sc">&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> 61343c45ab05e02be2c8c1fd Personal           <span class="sc">&lt;</span>tibble [<span class="dv">2</span> × <span class="dv">4</span>]<span class="sc">&gt;</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> 630c61ba9c3a3c3112812332 {clockify} sandbox <span class="sc">&lt;</span>tibble [<span class="dv">5</span> × <span class="dv">6</span>]<span class="sc">&gt;</span> </span></code></pre></div>
 <p>Select a specific workspace.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/workspace.html">workspace</a></span><span class="op">(</span><span class="st">"630c61ba9c3a3c3112812332"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>[<span class="dv">1</span>] <span class="st">"630c61ba9c3a3c3112812332"</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"630c61ba9c3a3c3112812332"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="users">Users<a class="anchor" aria-label="anchor" href="#users"></a>
@@ -116,21 +118,21 @@
 <p>Retrieve information on your user profile.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/user.html">user</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># A tibble: 1 × 3</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>  user_id                  user_name status</span>
-<span id="cb9-3"><a href="#cb9-3"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">     </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st"> </span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="dv">1</span> 5f227e0cd7176a0e6e754409 Andrew    ACTIVE</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 1 × 3</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  user_id                  user_name status</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>                    <span class="er">&lt;</span>chr<span class="sc">&gt;</span>     <span class="er">&lt;</span>chr<span class="sc">&gt;</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> 5f227e0cd7176a0e6e754409 Andrew    ACTIVE</span></code></pre></div>
 <p>Get a list of users.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/users.html">users</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code># A tibble: 5 × 3
-  user_id                  user_name   status                    
-  &lt;chr&gt;                    &lt;chr&gt;       &lt;chr&gt;                     
-1 5f227e0cd7176a0e6e754409 Andrew      ACTIVE                    
-2 630f17f04a05b20faf7e0afc Bob Smith   ACTIVE                    
-3 630f16ab90cfd878937a7997 &lt;NA&gt;        NOT_REGISTERED            
-4 630f1cb9cb18da61cfd58659 Carol Brown PENDING_EMAIL_VERIFICATION
-5 630f15d3b59c366b0e3ae2e6 Alice Jones ACTIVE                    </code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 5 × 3</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  user_id                  user_name   status                    </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>                    <span class="er">&lt;</span>chr<span class="sc">&gt;</span>       <span class="er">&lt;</span>chr<span class="sc">&gt;</span>                     </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> 5f227e0cd7176a0e6e754409 Andrew      ACTIVE                    </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> 630f17f04a05b20faf7e0afc Bob Smith   ACTIVE                    </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> 630f16ab90cfd878937a7997 <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>        NOT_REGISTERED            </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> 630f1cb9cb18da61cfd58659 Carol Brown PENDING_EMAIL_VERIFICATION</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> 630f15d3b59c366b0e3ae2e6 Alice Jones ACTIVE                    </span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="clients">Clients<a class="anchor" aria-label="anchor" href="#clients"></a>
@@ -138,10 +140,10 @@
 <p>Get a list of clients.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/clients.html">clients</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code># A tibble: 1 × 3
-  client_id                workspace_id             client_name
-  &lt;chr&gt;                    &lt;chr&gt;                    &lt;chr&gt;      
-1 630ce46090cfd8789366f4fb 630c61ba9c3a3c3112812332 RStudio    </code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 1 × 3</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  client_id                workspace_id             client_name</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>                    <span class="er">&lt;</span>chr<span class="sc">&gt;</span>                    <span class="er">&lt;</span>chr<span class="sc">&gt;</span>      </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> 63a55695db26c25e9d4e2d02 630c61ba9c3a3c3112812332 RStudio    </span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="projects">Projects<a class="anchor" aria-label="anchor" href="#projects"></a>
@@ -149,13 +151,13 @@
 <p>Get a list of projects.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/projects.html">projects</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># A tibble: 3 × 5</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>  project_id               project_name client_id                billa…¹ archi…²</span>
-<span id="cb15-3"><a href="#cb15-3"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">        </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>lgl<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>lgl<span class="op">&gt;</span><span class="st">  </span></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="dv">1</span> 632a94f8d801fa1178d366b8 test         <span class="op">&lt;</span><span class="ot">NA</span><span class="op">&gt;</span><span class="st">                     </span><span class="ot">TRUE</span>    <span class="ot">FALSE</span>  </span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="dv">2</span> 630ce53290cfd8789366fd49 {clockify}   630ce46090cfd8789366f4fb <span class="ot">TRUE</span>    <span class="ot">FALSE</span>  </span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="dv">3</span> 630ce53cb59c366b0e27743f {emayili}    630ce46090cfd8789366f4fb <span class="ot">TRUE</span>    <span class="ot">FALSE</span>  </span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="co"># … with abbreviated variable names ¹​billable, ²​archived</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 3 × 5</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  project_id               project_name client_id                billa…¹ archi…²</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>                    <span class="er">&lt;</span>chr<span class="sc">&gt;</span>        <span class="er">&lt;</span>chr<span class="sc">&gt;</span>                    <span class="er">&lt;</span>lgl<span class="sc">&gt;</span>   <span class="er">&lt;</span>lgl<span class="sc">&gt;</span>  </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> 632a94f8d801fa1178d366b8 test         <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>                     <span class="cn">TRUE</span>    <span class="cn">FALSE</span>  </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> 630ce53290cfd8789366fd49 {clockify}   63a55695db26c25e9d4e2d02 <span class="cn">TRUE</span>    <span class="cn">FALSE</span>  </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> 630ce53cb59c366b0e27743f {emayili}    63a55695db26c25e9d4e2d02 <span class="cn">TRUE</span>    <span class="cn">FALSE</span>  </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># … with abbreviated variable names ¹​billable, ²​archived</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="time-entries">Time Entries<a class="anchor" aria-label="anchor" href="#time-entries"></a>
@@ -183,36 +185,37 @@
 <p>Check on the ID for this new time entry.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prepare_cran_entry</span><span class="op">$</span><span class="va">time_entry_id</span></span></code></pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>[<span class="dv">1</span>] <span class="st">"635114a47e299f5e61cded8b"</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"63a97c6c0974236116042bac"</span></span></code></pre></div>
 <p>Confirm that it has been inserted.</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span>concise <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">select</span><span class="op">(</span><span class="va">time_entry_id</span>, <span class="va">description</span>, <span class="va">time_start</span>, <span class="va">time_end</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb22"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># A tibble: 1 × 4</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>  time_entry_id            description   time_start          time_end           </span>
-<span id="cb22-3"><a href="#cb22-3"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">         </span><span class="er">&lt;</span>dttm<span class="op">&gt;</span><span class="st">              </span><span class="er">&lt;</span>dttm<span class="op">&gt;</span><span class="st">             </span></span>
-<span id="cb22-4"><a href="#cb22-4"></a><span class="dv">1</span> 635114a47e299f5e61cded8b Prepare <span class="cf">for</span> … <span class="dv">2021-08-30</span> <span class="dv">08</span><span class="op">:</span><span class="dv">00</span><span class="op">:</span><span class="dv">00</span> <span class="dv">2021-08-30</span> <span class="dv">10</span><span class="op">:</span><span class="dv">30</span><span class="op">:</span><span class="dv">00</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 1 × 4</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  time_entry_id            description   time_start          time_end           </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>                    <span class="er">&lt;</span>chr<span class="sc">&gt;</span>         <span class="er">&lt;</span>dttm<span class="sc">&gt;</span>              <span class="er">&lt;</span>dttm<span class="sc">&gt;</span>             </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> 63a97c6c0974236116042bac Prepare <span class="cf">for</span> … <span class="dv">2021-08-30</span> <span class="dv">08</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">00</span> <span class="dv">2021-08-30</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">30</span><span class="sc">:</span><span class="dv">00</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="delete-time-entry">Delete Time Entry<a class="anchor" aria-label="anchor" href="#delete-time-entry"></a>
 </h3>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/time_entry_delete.html">time_entry_delete</a></span><span class="op">(</span><span class="va">prepare_cran_entry</span><span class="op">$</span><span class="va">time_entry_id</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>[<span class="dv">1</span>] <span class="ot">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code></pre></div>
 <p>Confirm that it has been deleted.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span>concise <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">select</span><span class="op">(</span><span class="va">time_entry_id</span>, <span class="va">description</span>, <span class="va">time_start</span>, <span class="va">time_end</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb26"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># A tibble: 0 × 4</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="co"># … with 4 variables: time_entry_id &lt;chr&gt;, description &lt;chr&gt;,</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a><span class="co">#   time_start &lt;dttm&gt;, time_end &lt;dttm&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 0 × 4</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># … with 4 variables: time_entry_id &lt;chr&gt;, description &lt;chr&gt;,</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   time_start &lt;dttm&gt;, time_end &lt;dttm&gt;</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
 <h2 id="endpoints">Endpoints<a class="anchor" aria-label="anchor" href="#endpoints"></a>
 </h2>
-<!-- This list generated by api-get-endpoints.R. --><p>Endpoints which have currently been implemented in this package. Endpoints which are only available on a paid plan are indicated with a 💰.</p>
-<ul>
+<!-- This list generated by api-get-endpoints.R. -->
+<p>Endpoints which have currently been implemented in this package. Endpoints which are only available on a paid plan are indicated with a 💰.</p>
+<ul class="task-list">
 <li>
 <input type="checkbox" disabled checked>GET /workspaces/{workspaceId}/clients</li>
 <li>
@@ -395,7 +398,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
