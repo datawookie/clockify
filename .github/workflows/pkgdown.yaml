@@ -42,8 +42,8 @@ jobs:
 
       - name: Install R dependencies
         run: |
-          remotes::install_deps(dependencies = TRUE)
-          install.packages(c("pkgdown", "curl", "httr", "covr"))
+          remotes::install_deps(dependencies = TRUE, upgrade = "always")
+          install.packages(c("pkgdown", "curl", "httr", "covr", "stringi"))
         shell: Rscript {0}
 
       - name: Install package

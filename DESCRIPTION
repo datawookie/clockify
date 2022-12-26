@@ -26,7 +26,6 @@ Imports:
   lubridate,
   purrr,
   rlist,
-  stringi,
   tibble,
   tidyr
 Suggests:
