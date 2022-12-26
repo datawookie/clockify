@@ -1,14 +1,12 @@
 parse_client <- function(client, concise = TRUE) {
-  client <- with(
-    client,
+  client <- client %$%
     tibble(
       client_id = id,
       client_name = name,
       workspaceId,
       archived,
       address = ifelse(is.null(address) || address == "", NA, address)
-    )
-  ) %>%
+    ) %>%
     clean_names() %>%
     select(client_id, workspace_id, client_name, archived, address)
 
