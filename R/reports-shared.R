@@ -19,8 +19,13 @@ parse_shared_report_list <- function(reports) {
 
 parse_shared_report <- function(report) {
   report <- tibble(report) %>%
-    unnest_wider(report) %>%
-    rename(groups = groupOne)
+    unnest_wider(report)
+
+  if ("groupOne" %in% names(report)) {
+    report <- report %>% rename(groups = groupOne)
+  } else {
+    report$groups <- NA
+  }
 
   if (!is.na(report$groups)) {
     report <- report %>%
@@ -64,6 +69,8 @@ parse_shared_report <- function(report) {
   #       }
   #     )
   #   )
+
+  report
 }
 
 #' Shared Reports Parameters
@@ -212,7 +219,9 @@ shared_report_update <- function(shared_report_id, name = NULL, is_public = NULL
     body = body
   )
 
-  status_code(response) == 200
+  content(response) %>%
+    list() %>%
+    parse_shared_report_list()
 }
 
 #' Delete a shared report

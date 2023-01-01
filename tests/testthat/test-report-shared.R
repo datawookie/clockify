@@ -65,16 +65,16 @@ test_that("get shared report", {
 
 # This currently returns a 500 error. Have logged a ticket (104931).
 #
-# test_that("update shared report", {
-#   skip_on_cran()
-#   skip_if(NO_API_KEY_IN_ENVIRONMENT)
-#
-#   SHARED_REPORT_NAME <- random_string()
-#
-#   report <- shared_report_update(SHARED_REPORT_ID, name = SHARED_REPORT_NAME)
-#
-#   print(report)
-# })
+test_that("update shared report", {
+  skip_on_cran()
+  skip_if(NO_API_KEY_IN_ENVIRONMENT)
+
+  SHARED_REPORT_NAME <- random_string()
+
+  report <- shared_report_update(SHARED_REPORT_ID, name = SHARED_REPORT_NAME)
+
+  expect_identical(SHARED_REPORT_NAME, report$name)
+})
 
 test_that("delete shared report", {
   skip_on_cran()
