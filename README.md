@@ -9,8 +9,6 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/clockify)](https://cran.r-project.org/package=clockify)
-[![Travis-CI build
-status](https://travis-ci.org/datawookie/clockify.svg?branch=master)](https://travis-ci.org/datawookie/clockify)
 [![Codecov test
 coverage](https://img.shields.io/codecov/c/github/datawookie/clockify.svg)](https://codecov.io/github/datawookie/clockify)
 [![Lifecycle:
@@ -67,7 +65,7 @@ workspaces()
     # A tibble: 3 × 3
       workspace_id             name               memberships      
       <chr>                    <chr>              <list>           
-    1 5ef46294df73063139f60bfc Fathom Data        <tibble [17 × 6]>
+    1 5ef46294df73063139f60bfc Fathom Data        <tibble [18 × 6]>
     2 61343c45ab05e02be2c8c1fd Personal           <tibble [2 × 4]> 
     3 630c61ba9c3a3c3112812332 {clockify} sandbox <tibble [5 × 6]> 
 
@@ -118,7 +116,7 @@ clients()
     # A tibble: 1 × 3
       client_id                workspace_id             client_name
       <chr>                    <chr>                    <chr>      
-    1 630ce46090cfd8789366f4fb 630c61ba9c3a3c3112812332 RStudio    
+    1 63a55695db26c25e9d4e2d02 630c61ba9c3a3c3112812332 RStudio    
 
 ## Projects
 
@@ -132,8 +130,8 @@ projects()
       project_id               project_name client_id                billa…¹ archi…²
       <chr>                    <chr>        <chr>                    <lgl>   <lgl>  
     1 632a94f8d801fa1178d366b8 test         <NA>                     TRUE    FALSE  
-    2 630ce53290cfd8789366fd49 {clockify}   630ce46090cfd8789366f4fb TRUE    FALSE  
-    3 630ce53cb59c366b0e27743f {emayili}    630ce46090cfd8789366f4fb TRUE    FALSE  
+    2 630ce53290cfd8789366fd49 {clockify}   63a55695db26c25e9d4e2d02 TRUE    FALSE  
+    3 630ce53cb59c366b0e27743f {emayili}    63a55695db26c25e9d4e2d02 TRUE    FALSE  
     # … with abbreviated variable names ¹​billable, ²​archived
 
 ## Time Entries
@@ -169,7 +167,7 @@ Check on the ID for this new time entry.
 prepare_cran_entry$time_entry_id
 ```
 
-    [1] "6351123341407109a86b6756"
+    [1] "63b1d732f19c8f67dc9d0973"
 
 Confirm that it has been inserted.
 
@@ -181,7 +179,7 @@ time_entries(concise = FALSE) %>%
     # A tibble: 1 × 4
       time_entry_id            description   time_start          time_end           
       <chr>                    <chr>         <dttm>              <dttm>             
-    1 6351123341407109a86b6756 Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
+    1 63b1d732f19c8f67dc9d0973 Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
 
 ### Delete Time Entry
 
