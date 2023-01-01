@@ -1,3 +1,8 @@
+# {clockify} 0.1.3
+
+* Update GitHub Actions.
+* Test for updating shared report working (API fixed).
+
 # {clockify} 0.1.2
 
 * Improve test coverage.
