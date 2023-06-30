@@ -6,6 +6,7 @@
 #'
 #' @param start Start time
 #' @param end End time
+#' @param extra_args Extra arguments to be passed to the [API](https://docs.clockify.me/#tag/Time-Entry-Report).
 NULL
 
 #' Summary report
@@ -33,7 +34,7 @@ NULL
 #'   select(-duration, -amount) %>%
 #'   unnest(entries)
 #' }
-reports_summary <- function(start, end) {
+reports_summary <- function(start, end, extra_args = list()) {
   path <- sprintf("/workspaces/%s/reports/summary", workspace())
 
   body <- list(
@@ -48,6 +49,7 @@ reports_summary <- function(start, end) {
     ),
     timeZone = "Etc/UTC"
   )
+  body[names(extra_args)] <- extra_args
 
   response <- POST(
     path,
@@ -105,7 +107,7 @@ reports_summary <- function(start, end) {
 #' \dontrun{
 #' report <- reports_detailed("2022-08-01", "2022-09-01")
 #' }
-reports_detailed <- function(start, end) {
+reports_detailed <- function(start, end, extra_args = list()) {
   path <- sprintf("/workspaces/%s/reports/detailed", workspace())
 
   body <- list(
@@ -117,6 +119,7 @@ reports_detailed <- function(start, end) {
     ),
     timeZone = "Etc/UTC"
   )
+  body[names(extra_args)] <- extra_args
 
   results <- list()
   #
@@ -160,7 +163,7 @@ reports_detailed <- function(start, end) {
 #'   select(-duration, -amount) %>%
 #'   unnest(projects)
 #' }
-reports_weekly <- function(start, end) {
+reports_weekly <- function(start, end, extra_args = list()) {
   path <- sprintf("/workspaces/%s/reports/weekly", workspace())
 
   body <- list(
@@ -172,6 +175,7 @@ reports_weekly <- function(start, end) {
     ),
     timeZone = "Etc/UTC"
   )
+  body[names(extra_args)] <- extra_args
 
   response <- POST(
     path,

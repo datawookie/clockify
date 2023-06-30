@@ -4,12 +4,14 @@
 \alias{reports_summary}
 \title{Summary report}
 \usage{
-reports_summary(start, end)
+reports_summary(start, end, extra_args = list())
 }
 \arguments{
 \item{start}{Start time}
 
 \item{end}{End time}
+
+\item{extra_args}{Extra arguments to be passed to the \href{https://docs.clockify.me/#tag/Time-Entry-Report}{API}.}
 }
 \value{
 A data frame with summarised time entries for the specified time period.

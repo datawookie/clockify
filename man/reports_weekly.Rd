@@ -4,12 +4,14 @@
 \alias{reports_weekly}
 \title{Weekly report}
 \usage{
-reports_weekly(start, end)
+reports_weekly(start, end, extra_args = list())
 }
 \arguments{
 \item{start}{Start time}
 
 \item{end}{End time}
+
+\item{extra_args}{Extra arguments to be passed to the \href{https://docs.clockify.me/#tag/Time-Entry-Report}{API}.}
 }
 \value{
 A data frame with a weekly summary of time entries for the specified time period.
