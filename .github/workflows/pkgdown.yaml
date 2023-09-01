@@ -49,11 +49,6 @@ jobs:
       - name: Install package
         run: R CMD INSTALL .
 
-      - name: Check test coverage
-        run: |
-          covr::codecov()
-        shell: Rscript {0}
-
       - name: Build {pkgdown} documentation
         run: |
           git config --local user.email "actions@github.com"
