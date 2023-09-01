@@ -3,12 +3,12 @@ unpack_workspace <- function(workspace) {
   workspace$featureSubscriptionType <- NULL
   workspace$workspaceSettings <- NULL
   workspace$hourlyRate <- NULL
+  workspace$costRate <- NULL
 
   workspace$memberships <- list(simplify_membership(workspace$memberships))
 
   as_tibble(workspace) %>%
-    rename(workspace_id = id) %>%
-    rename(cost_rate = costRate)
+    rename(workspace_id = id)
 }
 
 #' Get a list of workspaces
