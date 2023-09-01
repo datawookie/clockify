@@ -19,3 +19,4 @@ README.html
 clockify*.tar.gz
 clockify*.tgz
 docs/
+.venv/
