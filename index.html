@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">clockify</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
       </span>
     </div>
 
@@ -185,7 +185,7 @@
 <p>Check on the ID for this new time entry.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prepare_cran_entry</span><span class="op">$</span><span class="va">time_entry_id</span></span></code></pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"63a97c6c0974236116042bac"</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"63b1d732f19c8f67dc9d0973"</span></span></code></pre></div>
 <p>Confirm that it has been inserted.</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/time_entries.html">time_entries</a></span><span class="op">(</span>concise <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
@@ -193,7 +193,7 @@
 <div class="sourceCode" id="cb22"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 1 × 4</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  time_entry_id            description   time_start          time_end           </span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>                    <span class="er">&lt;</span>chr<span class="sc">&gt;</span>         <span class="er">&lt;</span>dttm<span class="sc">&gt;</span>              <span class="er">&lt;</span>dttm<span class="sc">&gt;</span>             </span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> 63a97c6c0974236116042bac Prepare <span class="cf">for</span> … <span class="dv">2021-08-30</span> <span class="dv">08</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">00</span> <span class="dv">2021-08-30</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">30</span><span class="sc">:</span><span class="dv">00</span></span></code></pre></div>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> 63b1d732f19c8f67dc9d0973 Prepare <span class="cf">for</span> … <span class="dv">2021-08-30</span> <span class="dv">08</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">00</span> <span class="dv">2021-08-30</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">30</span><span class="sc">:</span><span class="dv">00</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="delete-time-entry">Delete Time Entry<a class="anchor" aria-label="anchor" href="#delete-time-entry"></a>
@@ -373,7 +373,6 @@
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Andrew B. Collier <br><small class="roles"> Author, maintainer </small>  </li>
-<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
 
@@ -381,7 +380,6 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://cran.r-project.org/package=clockify" class="external-link"><img src="https://www.r-pkg.org/badges/version/clockify" alt="CRAN status"></a></li>
-<li><a href="https://travis-ci.org/datawookie/clockify" class="external-link"><img src="https://travis-ci.org/datawookie/clockify.svg?branch=master" alt="Travis-CI build status"></a></li>
 <li><a href="https://codecov.io/github/datawookie/clockify" class="external-link"><img src="https://img.shields.io/codecov/c/github/datawookie/clockify.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
 </ul>
