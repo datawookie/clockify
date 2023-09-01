@@ -1,5 +1,5 @@
 CLOCKIFY_API_KEY <- Sys.getenv("CLOCKIFY_API_KEY")
-# This is the workspace that was specifically created for testing {clockify}.
+# This is the "{clockify} sandbox" workspace that was specifically created for testing {clockify}.
 CLOCKIFY_WORKSPACE <- "630c61ba9c3a3c3112812332"
 
 USER_ID_AUTHENTICATED <- "5f227e0cd7176a0e6e754409" # Andrew
