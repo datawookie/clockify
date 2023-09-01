@@ -7,7 +7,7 @@ Authors@R:
              family = "Collier",
              role = c("aut", "cre"),
              email = "andrew.b.collier@gmail.com"))
-Description: A wrapper for the Clockify API <https://clockify.me/developers-api>, making it possible to query, insert and update time keeping data.
+Description: A wrapper for the Clockify API <https://docs.clockify.me/>, making it possible to query, insert and update time keeping data.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

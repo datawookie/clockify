@@ -17,10 +17,10 @@ library(dplyr)
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/clockify)](https://cran.r-project.org/package=clockify)
-[![Codecov test coverage](https://img.shields.io/codecov/c/github/datawookie/clockify.svg)](https://codecov.io/github/datawookie/clockify)
+[![Codecov test coverage](https://img.shields.io/codecov/c/github/datawookie/clockify.svg)](https://app.codecov.io/github/datawookie/clockify)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)<!-- badges: end -->
 
-An R wrapper around the [Clockify API](https://clockify.me/developers-api).
+An R wrapper around the [Clockify API](https://docs.clockify.me/).
 
 The documentation for `{clockify}` is hosted at https://datawookie.github.io/clockify/.
 
