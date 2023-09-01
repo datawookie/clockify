@@ -7,7 +7,9 @@
 #' @import anytime
 #' @import lubridate
 #' @import tibble
+#' @import stringi
 #' @importFrom stats setNames
+#' @importFrom methods is
 NULL
 
 BASE_PATH <- "https://api.clockify.me/api/v1"

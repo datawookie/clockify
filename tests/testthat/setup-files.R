@@ -1,3 +1,5 @@
+library(stringi)
+
 CLOCKIFY_API_KEY <- Sys.getenv("CLOCKIFY_API_KEY")
 # This is the "{clockify} sandbox" workspace that was specifically created for testing {clockify}.
 CLOCKIFY_WORKSPACE <- "630c61ba9c3a3c3112812332"
@@ -21,7 +23,7 @@ CLIENT_NAME_PSF <- "Python Software Foundation"
 NO_API_KEY_IN_ENVIRONMENT <- CLOCKIFY_API_KEY == ""
 
 random_string <- function(length = 24) {
-  stringi::stri_rand_strings(1, length)
+  stri_rand_strings(1, length)
 }
 
 random_integer <- function(min = 0, max = 100) {
