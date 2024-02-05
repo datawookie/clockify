@@ -7,8 +7,6 @@
 \item{start}{Start time}
 
 \item{end}{End time}
-
-\item{extra_args}{Extra arguments to be passed to the \href{https://docs.clockify.me/#tag/Time-Entry-Report}{API}.}
 }
 \description{
 These are parameters which occur commonly across functions for reports.

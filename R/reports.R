@@ -6,12 +6,12 @@
 #'
 #' @param start Start time
 #' @param end End time
-#' @param extra_args Extra arguments to be passed to the [API](https://docs.clockify.me/#tag/Time-Entry-Report).
 NULL
 
 #' Summary report
 #'
 #' @inheritParams reports-parameters
+#' @param extra_args Extra arguments to be passed to the [API](https://docs.clockify.me/#tag/Time-Entry-Report/operation/generateSummaryReport). Example: `extra_args = list(rounding = TRUE)`.
 #'
 #' @return A data frame with summarised time entries for the specified time period.
 #'
@@ -98,6 +98,7 @@ reports_summary <- function(start, end, extra_args = list()) {
 #' Detailed report
 #'
 #' @inheritParams reports-parameters
+#' @param extra_args Extra arguments to be passed to the [API](https://docs.clockify.me/#tag/Time-Entry-Report). Example: `extra_args = list(rounding = TRUE)`.
 #'
 #' @return A data frame with detailed time entries for the specified time period.
 #'
@@ -150,6 +151,7 @@ reports_detailed <- function(start, end, extra_args = list()) {
 #' Weekly report
 #'
 #' @inheritParams reports-parameters
+#' @param extra_args Extra arguments to be passed to the [API](https://docs.clockify.me/#tag/Time-Entry-Report/operation/generateSummaryReport). Example: `extra_args = list(rounding = TRUE)`.
 #'
 #' @return A data frame with a weekly summary of time entries for the specified time period.
 #'
