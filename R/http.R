@@ -18,7 +18,7 @@ check_response <- function(response) {
 
     postfields <- response$request$options$postfields
 
-    if (!is.null(postfields) && class(postfields) == "raw") {
+    if (!is.null(postfields) && is(postfields, "raw")) {
       log_debug("body: {rawToChar(postfields)}")
     }
     log_error("message: {content(response)$message}")

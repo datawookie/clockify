@@ -9,6 +9,7 @@ REPORT_DETAILED_COLS <- c(
   "billable",
   "project_id",
   "task_id",
+  "type",
   "tag_ids",
   "approval_request_id",
   "is_locked",

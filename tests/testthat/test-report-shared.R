@@ -1,6 +1,7 @@
 SHARED_REPORT_LIST_COLS <- c(
-  "shared_report_id", "report_author", "name", "link", "visible_to_users", "fixed_date",
-  "type", "visible_to_user_groups", "is_public"
+  "shared_report_id", "workspace_id", "user_id", "report_author", "name",
+  "link", "visible_to_users", "visible_to_user_groups", "fixed_date", "type",
+  "filter", "is_public"
 )
 
 entries <- time_entries(concise = FALSE)
@@ -36,8 +37,9 @@ test_that("create shared report", {
   expect_identical(
     names(report),
     c(
-      "shared_report_id", "workspace_id", "user_id", "name", "visible_to_user_groups", "visible_to_users",
-      "fixed_date", "type", "filter", "is_public"
+      "shared_report_id", "workspace_id", "user_id", "report_author", "name",
+      "link", "visible_to_users", "visible_to_user_groups", "fixed_date",
+      "type", "filter", "is_public"
     )
   )
 

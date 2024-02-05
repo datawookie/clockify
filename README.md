@@ -10,12 +10,11 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/clockify)](https://cran.r-project.org/package=clockify)
 [![Codecov test
-coverage](https://img.shields.io/codecov/c/github/datawookie/clockify.svg)](https://codecov.io/github/datawookie/clockify)
+coverage](https://img.shields.io/codecov/c/github/datawookie/clockify.svg)](https://app.codecov.io/github/datawookie/clockify)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)<!-- badges: end -->
 
-An R wrapper around the [Clockify
-API](https://clockify.me/developers-api).
+An R wrapper around the [Clockify API](https://docs.clockify.me/).
 
 The documentation for `{clockify}` is hosted at
 <https://datawookie.github.io/clockify/>.
@@ -65,7 +64,7 @@ workspaces()
     # A tibble: 3 × 3
       workspace_id             name               memberships      
       <chr>                    <chr>              <list>           
-    1 5ef46294df73063139f60bfc Fathom Data        <tibble [18 × 6]>
+    1 5ef46294df73063139f60bfc Fathom Data        <tibble [22 × 6]>
     2 61343c45ab05e02be2c8c1fd Personal           <tibble [2 × 4]> 
     3 630c61ba9c3a3c3112812332 {clockify} sandbox <tibble [5 × 6]> 
 
@@ -86,9 +85,9 @@ user()
 ```
 
     # A tibble: 1 × 3
-      user_id                  user_name status
-      <chr>                    <chr>     <chr> 
-    1 5f227e0cd7176a0e6e754409 Andrew    ACTIVE
+      user_id                  user_name      status
+      <chr>                    <chr>          <chr> 
+    1 5f227e0cd7176a0e6e754409 Andrew Collier ACTIVE
 
 Get a list of users.
 
@@ -97,13 +96,13 @@ users()
 ```
 
     # A tibble: 5 × 3
-      user_id                  user_name   status                    
-      <chr>                    <chr>       <chr>                     
-    1 5f227e0cd7176a0e6e754409 Andrew      ACTIVE                    
-    2 630f17f04a05b20faf7e0afc Bob Smith   ACTIVE                    
-    3 630f16ab90cfd878937a7997 <NA>        NOT_REGISTERED            
-    4 630f1cb9cb18da61cfd58659 Carol Brown PENDING_EMAIL_VERIFICATION
-    5 630f15d3b59c366b0e3ae2e6 Alice Jones ACTIVE                    
+      user_id                  user_name      status                    
+      <chr>                    <chr>          <chr>                     
+    1 5f227e0cd7176a0e6e754409 Andrew Collier ACTIVE                    
+    2 630f17f04a05b20faf7e0afc Bob Smith      ACTIVE                    
+    3 630f16ab90cfd878937a7997 <NA>           NOT_REGISTERED            
+    4 630f1cb9cb18da61cfd58659 Carol Brown    PENDING_EMAIL_VERIFICATION
+    5 630f15d3b59c366b0e3ae2e6 Alice Jones    ACTIVE                    
 
 ## Clients
 
@@ -127,12 +126,11 @@ projects()
 ```
 
     # A tibble: 3 × 5
-      project_id               project_name client_id                billa…¹ archi…²
-      <chr>                    <chr>        <chr>                    <lgl>   <lgl>  
-    1 632a94f8d801fa1178d366b8 test         <NA>                     TRUE    FALSE  
-    2 630ce53290cfd8789366fd49 {clockify}   63a55695db26c25e9d4e2d02 TRUE    FALSE  
-    3 630ce53cb59c366b0e27743f {emayili}    63a55695db26c25e9d4e2d02 TRUE    FALSE  
-    # … with abbreviated variable names ¹​billable, ²​archived
+      project_id               project_name client_id              billable archived
+      <chr>                    <chr>        <chr>                  <lgl>    <lgl>   
+    1 632a94f8d801fa1178d366b8 test         <NA>                   TRUE     FALSE   
+    2 630ce53290cfd8789366fd49 {clockify}   63a55695db26c25e9d4e2… TRUE     FALSE   
+    3 630ce53cb59c366b0e27743f {emayili}    63a55695db26c25e9d4e2… TRUE     FALSE   
 
 ## Time Entries
 
@@ -167,7 +165,7 @@ Check on the ID for this new time entry.
 prepare_cran_entry$time_entry_id
 ```
 
-    [1] "63b1d732f19c8f67dc9d0973"
+    [1] "64f21f2ad397e5503bef3bb4"
 
 Confirm that it has been inserted.
 
@@ -179,7 +177,7 @@ time_entries(concise = FALSE) %>%
     # A tibble: 1 × 4
       time_entry_id            description   time_start          time_end           
       <chr>                    <chr>         <dttm>              <dttm>             
-    1 63b1d732f19c8f67dc9d0973 Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
+    1 64f21f2ad397e5503bef3bb4 Prepare for … 2021-08-30 08:00:00 2021-08-30 10:30:00
 
 ### Delete Time Entry
 
@@ -197,8 +195,8 @@ time_entries(concise = FALSE) %>%
 ```
 
     # A tibble: 0 × 4
-    # … with 4 variables: time_entry_id <chr>, description <chr>,
-    #   time_start <dttm>, time_end <dttm>
+    # ℹ 4 variables: time_entry_id <chr>, description <chr>, time_start <dttm>,
+    #   time_end <dttm>
 
 ## Endpoints
 

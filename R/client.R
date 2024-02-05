@@ -1,3 +1,11 @@
+#' Parameters for client functions
+#'
+#' @name client-parameters
+#'
+#' @param client_id Client ID
+#' @param concise Generate concise output
+NULL
+
 parse_client <- function(client, concise = TRUE) {
   client <- client %$%
     tibble(
@@ -19,7 +27,7 @@ parse_client <- function(client, concise = TRUE) {
 
 #' Get clients
 #'
-#' @inheritParams users
+#' @inheritParams client-parameters
 #'
 #' @return A data frame with one record per client.
 #' @export
@@ -39,7 +47,7 @@ clients <- function(concise = TRUE) {
 
 #' Get client
 #'
-#' @param client_id Client ID
+#' @inheritParams client-parameters
 #'
 #' @return A data frame with one record per client
 #' @export
@@ -51,9 +59,9 @@ clients <- function(concise = TRUE) {
 client <- function(client_id, concise = TRUE) {
   path <- sprintf("/workspaces/%s/clients/%s", workspace(), client_id)
 
-  clockify:::GET(path) %>%
+  GET(path) %>%
     content() %>%
-    clockify:::parse_client(concise = concise)
+    parse_client(concise = concise)
 }
 
 #' Add a new client to workspace
@@ -61,6 +69,7 @@ client <- function(client_id, concise = TRUE) {
 #' @inheritParams users
 #'
 #' @param name Client name
+#' @inheritParams client-parameters
 #'
 #' @return A data frame with one row per record.
 #' @export
@@ -81,7 +90,7 @@ client_create <- function(name, concise = TRUE) {
 
 #' Update a client
 #'
-#' @param client_id Client ID
+#' @inheritParams client-parameters
 #' @param name Client name
 #' @param note Note about client
 #' @param archived Whether or not client is archived

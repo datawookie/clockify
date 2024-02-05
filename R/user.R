@@ -53,6 +53,10 @@ simplify_membership <- function(membership) {
       } else {
         m$hourlyRate <- list(as_tibble(m$hourlyRate))
       }
+      if (is.null(m$costRate)) {
+      } else {
+        m$costRate <- list(as_tibble(m$costRate))
+      }
       m
     }) %>%
     clean_names()
