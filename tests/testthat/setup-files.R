@@ -39,5 +39,7 @@ TASK_ID <- NULL
 TASK_NAME_UPDATED <- random_string()
 
 TIME_CURRENT <- Sys.time()
+# Truncate time to seconds (Clockify doesn't have sub-second precision).
+TIME_CURRENT <- trunc(TIME_CURRENT, units = "secs")
 
 options(duration.units = "secs")
