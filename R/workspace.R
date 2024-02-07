@@ -4,6 +4,8 @@ unpack_workspace <- function(workspace) {
   workspace$workspaceSettings <- NULL
   workspace$hourlyRate <- NULL
   workspace$costRate <- NULL
+  workspace$currencies <- NULL
+  workspace$features <- NULL
 
   workspace$memberships <- list(simplify_membership(workspace$memberships))
 

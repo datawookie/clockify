@@ -19,7 +19,12 @@ REPORT_DETAILED_COLS <- c(
   "user_email",
   "project_name",
   "client_name",
-  "client_id"
+  "client_id",
+  "cost_amount",
+  "cost_rate",
+  "currency",
+  "earned_amount",
+  "earned_rate"
 )
 REPORT_WEEKLY_COLS <- c("user_name", "duration", "amount", "projects")
 

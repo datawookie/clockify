@@ -48,7 +48,8 @@ test_that("update task", {
     TASK_ID,
     name = TASK_NAME_UPDATED,
     billable = FALSE,
-    assignee_id = c(USER_ID_AUTHENTICATED, USER_ID_BOB)
+    assignee_id = c(USER_ID_AUTHENTICATED, USER_ID_BOB),
+    status = "DONE"
   )
 
   expect_equal(task %>% pull(name), TASK_NAME_UPDATED)
@@ -59,6 +60,7 @@ test_that("delete task", {
   skip_on_cran()
   skip_if(NO_API_KEY_IN_ENVIRONMENT)
 
+  # Status needs to be changed to "DONE" first.
   task_delete(PROJECT_ID_CLOCKIFY, TASK_ID)
 
   expect_false(TASK_ID %in% (tasks(PROJECT_ID_CLOCKIFY) %>% pull(task_id)))
