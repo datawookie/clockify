@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">clockify</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.5</span>
       </span>
     </div>
 
@@ -47,7 +47,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">reports_weekly</span><span class="op">(</span><span class="va">start</span>, <span class="va">end</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">reports_weekly</span><span class="op">(</span><span class="va">start</span>, <span class="va">end</span>, extra_args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -58,6 +58,12 @@
 
 <dt>end</dt>
 <dd><p>End time</p></dd>
+
+
+<dt>extra_args</dt>
+<dd><p>Extra arguments to be passed to the
+<a href="https://docs.clockify.me/#tag/Time-Entry-Report/operation/generateSummaryReport" class="external-link">API</a>.
+Example: <code>extra_args = list(rounding = TRUE)</code>.</p></dd>
 
 </dl></div>
     <div id="value">
