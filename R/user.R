@@ -47,32 +47,34 @@ simplify_role <- function(user) {
 #'
 #' @noRd
 simplify_membership <- function(membership) {
-  membership <- membership %>%
-    map_dfr(function(m) {
-      if (is.null(m$hourlyRate)) {
-      } else {
-        m$hourlyRate <- list(as_tibble(m$hourlyRate))
-      }
-      if (is.null(m$costRate)) {
-      } else {
-        m$costRate <- list(as_tibble(m$costRate))
-      }
-      m
-    }) %>%
-    clean_names()
-
-  if ("hourly_rate" %in% names(membership)) {
+  if (!all(is.na(membership))) {
     membership <- membership %>%
-      unnest(hourly_rate, keep_empty = TRUE) %>%
-      rename(
-        rate_amount = amount,
-        rate_currency = currency
-      )
-  }
+      map_dfr(function(m) {
+        if (is.null(m$hourlyRate)) {
+        } else {
+          m$hourlyRate <- list(as_tibble(m$hourlyRate))
+        }
+        if (is.null(m$costRate)) {
+        } else {
+          m$costRate <- list(as_tibble(m$costRate))
+        }
+        m
+      }) %>%
+      clean_names()
 
-  if ("target_id" %in% names(membership)) {
-    membership <- membership %>%
-      rename(project_id = target_id)
+    if ("hourly_rate" %in% names(membership)) {
+      membership <- membership %>%
+        unnest(hourly_rate, keep_empty = TRUE) %>%
+        rename(
+          rate_amount = amount,
+          rate_currency = currency
+        )
+    }
+
+    if ("target_id" %in% names(membership)) {
+      membership <- membership %>%
+        rename(project_id = target_id)
+    }
   }
 
   membership
