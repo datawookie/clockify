@@ -45,6 +45,7 @@ GET <- function(path, query = NULL, ...) {
     add_headers(
       "X-Api-Key" = get_api_key()
     ),
+    quiet = TRUE,
     ...
   )
 
