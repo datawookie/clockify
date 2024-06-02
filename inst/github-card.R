@@ -1,5 +1,3 @@
-# https://www.ddrive.no/post/making-hex-and-twittercard-with-bunny-and-magick/
-
 library(magick)
 
 hex <- image_read(here::here("man/figures/clockify-hex.png")) %>%

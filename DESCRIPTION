@@ -12,22 +12,25 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.0
+RoxygenNote: 7.3.1
 Imports:
-  anytime,
-  dplyr,
-  httr,
-  janitor,
-  logger,
-  lubridate,
-  methods,
-  purrr,
-  rlist,
-  stringi,
-  tibble,
-  tidyr
+    anytime,
+    bunny (>= 0.0.0.9000),
+    dplyr,
+    httr,
+    janitor,
+    logger,
+    lubridate,
+    methods,
+    purrr,
+    rlist,
+    stringi,
+    tibble,
+    tidyr
 Suggests:
-  here,
-  testthat (>= 3.0.0)
+    here,
+    testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Config/testthat/start-first: api-key, workspace
+Remotes:
+  dmi3kno/bunny
