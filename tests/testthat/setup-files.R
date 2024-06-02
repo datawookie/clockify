@@ -43,3 +43,5 @@ TIME_CURRENT <- Sys.time()
 TIME_CURRENT <- trunc(TIME_CURRENT, units = "secs")
 
 options(duration.units = "secs")
+# Don't truncate columns in tibbles (for debugging tests).
+options(pillar.width = Inf)

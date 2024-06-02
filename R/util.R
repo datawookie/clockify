@@ -1,14 +1,21 @@
-#' Convert NULL elements in list to NA.
+list_null_to_na_flat <- function(l) {
+  l[sapply(l, is.null)] <- NA
+  l
+}
+
+#' Convert NULL elements in list or nested lists to NA.
 #'
-#' @param l A list.
-#' @return A list.
+#' @param l A list of lists.
+#' @param nested Is this a list of lists?
+#' @return A list of lists.
 #' @noRd
-list_null_to_na <- function(l) {
+list_null_to_na <- function(l, nested=TRUE) {
   # nocov start
-  map(l, function(l) {
-    l[sapply(l, is.null)] <- NA
-    l
-  })
+  if (nested) {
+    map(l, list_null_to_na_flat)
+  } else {
+    list_null_to_na_flat(l)
+  }
   # nocov end
 }
 

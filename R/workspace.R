@@ -7,7 +7,10 @@ unpack_workspace <- function(workspace) {
   workspace$currencies <- NULL
   workspace$features <- NULL
 
+  # Handle nested data.
+  #
   workspace$memberships <- list(simplify_membership(workspace$memberships))
+  workspace$subdomain <- as_tibble(list_null_to_na(workspace$subdomain, FALSE))
 
   as_tibble(workspace) %>%
     rename(workspace_id = id)
