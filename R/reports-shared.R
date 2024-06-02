@@ -124,6 +124,9 @@ shared_reports <- function() {
   reports <- list()
 
   while (TRUE) {
+    log_debug("Get page ", query$page, " of shared reports.")
+    # Wait, otherwise get a 429 error (too many requests).
+    Sys.sleep((1))
     response <- GET(
       path,
       query = query
