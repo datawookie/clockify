@@ -23,7 +23,7 @@ The documentation for `{clockify}` is hosted at
 
 You’re going to need to have an API key from your Clockify account. If
 you don’t yet have an account, create one. Then retrieve the API key
-from the [account settings](https://clockify.me/user/settings).
+from the [account settings](https://clockify.me/).
 
 ## Get Started
 
