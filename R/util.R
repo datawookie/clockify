@@ -9,7 +9,7 @@ list_null_to_na_flat <- function(l) {
 #' @param nested Is this a list of lists?
 #' @return A list of lists.
 #' @noRd
-list_null_to_na <- function(l, nested=TRUE) {
+list_null_to_na <- function(l, nested = TRUE) {
   # nocov start
   if (nested) {
     map(l, list_null_to_na_flat)
