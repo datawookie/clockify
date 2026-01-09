@@ -38,6 +38,7 @@ globalVariables(
     "fixed_date",
     "groupOne",
     "hourly_rate",
+    "id",
     "is_public",
     "link",
     "memberships",
