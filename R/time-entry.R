@@ -5,6 +5,7 @@ EMPTY_ENTRIES <- tibble(
   project_id = character(),
   billable = logical(),
   description = character(),
+  tag_ids = list(),
   time_start = POSIXct(),
   time_end = POSIXct(),
   duration = numeric()
@@ -23,6 +24,7 @@ parse_time_entries <- function(entries, finished, concise) {
         project_id,
         billable,
         description,
+        tag_ids,
         time_start = start,
         time_end = end
       ) %>%
