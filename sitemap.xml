@@ -1,222 +1,76 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/client-parameters.html</loc>
-  </url>
-  <url>
-    <loc>/reference/client.html</loc>
-  </url>
-  <url>
-    <loc>/reference/client_create.html</loc>
-  </url>
-  <url>
-    <loc>/reference/client_delete.html</loc>
-  </url>
-  <url>
-    <loc>/reference/client_update.html</loc>
-  </url>
-  <url>
-    <loc>/reference/clients.html</loc>
-  </url>
-  <url>
-    <loc>/reference/custom_field_delete.html</loc>
-  </url>
-  <url>
-    <loc>/reference/custom_field_update.html</loc>
-  </url>
-  <url>
-    <loc>/reference/custom_fields.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_api_key.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/paginate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/project-update-estimate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/project-update.html</loc>
-  </url>
-  <url>
-    <loc>/reference/project.html</loc>
-  </url>
-  <url>
-    <loc>/reference/project_create.html</loc>
-  </url>
-  <url>
-    <loc>/reference/project_delete.html</loc>
-  </url>
-  <url>
-    <loc>/reference/project_update_billable_rate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/project_update_cost_rate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/project_update_memberships.html</loc>
-  </url>
-  <url>
-    <loc>/reference/projects.html</loc>
-  </url>
-  <url>
-    <loc>/reference/reports-parameters.html</loc>
-  </url>
-  <url>
-    <loc>/reference/reports_detailed.html</loc>
-  </url>
-  <url>
-    <loc>/reference/reports_summary.html</loc>
-  </url>
-  <url>
-    <loc>/reference/reports_weekly.html</loc>
-  </url>
-  <url>
-    <loc>/reference/set_api_key.html</loc>
-  </url>
-  <url>
-    <loc>/reference/shared-reports-parameters.html</loc>
-  </url>
-  <url>
-    <loc>/reference/shared_report.html</loc>
-  </url>
-  <url>
-    <loc>/reference/shared_report_create.html</loc>
-  </url>
-  <url>
-    <loc>/reference/shared_report_delete.html</loc>
-  </url>
-  <url>
-    <loc>/reference/shared_report_update.html</loc>
-  </url>
-  <url>
-    <loc>/reference/shared_reports.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tag.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tag_create.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tag_delete.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tag_update.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tags.html</loc>
-  </url>
-  <url>
-    <loc>/reference/task-create.html</loc>
-  </url>
-  <url>
-    <loc>/reference/task.html</loc>
-  </url>
-  <url>
-    <loc>/reference/task_delete.html</loc>
-  </url>
-  <url>
-    <loc>/reference/task_update.html</loc>
-  </url>
-  <url>
-    <loc>/reference/task_update_billable_rate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/task_update_cost_rate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tasks.html</loc>
-  </url>
-  <url>
-    <loc>/reference/time-entry-parameters.html</loc>
-  </url>
-  <url>
-    <loc>/reference/time_entries.html</loc>
-  </url>
-  <url>
-    <loc>/reference/time_entry.html</loc>
-  </url>
-  <url>
-    <loc>/reference/time_entry_create.html</loc>
-  </url>
-  <url>
-    <loc>/reference/time_entry_delete.html</loc>
-  </url>
-  <url>
-    <loc>/reference/time_entry_invoiced.html</loc>
-  </url>
-  <url>
-    <loc>/reference/time_entry_set.html</loc>
-  </url>
-  <url>
-    <loc>/reference/time_entry_stop.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user-update-role.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user_create.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user_delete.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user_delete_role.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user_group_create.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user_group_delete.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user_group_update.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user_group_user_add.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user_group_user_remove.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user_groups.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user_update_cost_rate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user_update_hourly_rate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user_update_status.html</loc>
-  </url>
-  <url>
-    <loc>/reference/users.html</loc>
-  </url>
-  <url>
-    <loc>/reference/workspace.html</loc>
-  </url>
-  <url>
-    <loc>/reference/workspaces.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/client-parameters.html</loc></url>
+<url><loc>/reference/client.html</loc></url>
+<url><loc>/reference/client_create.html</loc></url>
+<url><loc>/reference/client_delete.html</loc></url>
+<url><loc>/reference/client_update.html</loc></url>
+<url><loc>/reference/clients.html</loc></url>
+<url><loc>/reference/custom_field_delete.html</loc></url>
+<url><loc>/reference/custom_field_update.html</loc></url>
+<url><loc>/reference/custom_fields.html</loc></url>
+<url><loc>/reference/get_api_key.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/paginate.html</loc></url>
+<url><loc>/reference/project-update-estimate.html</loc></url>
+<url><loc>/reference/project-update.html</loc></url>
+<url><loc>/reference/project.html</loc></url>
+<url><loc>/reference/project_create.html</loc></url>
+<url><loc>/reference/project_delete.html</loc></url>
+<url><loc>/reference/project_update_billable_rate.html</loc></url>
+<url><loc>/reference/project_update_cost_rate.html</loc></url>
+<url><loc>/reference/project_update_memberships.html</loc></url>
+<url><loc>/reference/projects.html</loc></url>
+<url><loc>/reference/reports-parameters.html</loc></url>
+<url><loc>/reference/reports_detailed.html</loc></url>
+<url><loc>/reference/reports_summary.html</loc></url>
+<url><loc>/reference/reports_weekly.html</loc></url>
+<url><loc>/reference/set_api_key.html</loc></url>
+<url><loc>/reference/shared-reports-parameters.html</loc></url>
+<url><loc>/reference/shared_report.html</loc></url>
+<url><loc>/reference/shared_report_create.html</loc></url>
+<url><loc>/reference/shared_report_delete.html</loc></url>
+<url><loc>/reference/shared_report_update.html</loc></url>
+<url><loc>/reference/shared_reports.html</loc></url>
+<url><loc>/reference/tag.html</loc></url>
+<url><loc>/reference/tag_create.html</loc></url>
+<url><loc>/reference/tag_delete.html</loc></url>
+<url><loc>/reference/tag_update.html</loc></url>
+<url><loc>/reference/tags.html</loc></url>
+<url><loc>/reference/task-create.html</loc></url>
+<url><loc>/reference/task.html</loc></url>
+<url><loc>/reference/task_delete.html</loc></url>
+<url><loc>/reference/task_update.html</loc></url>
+<url><loc>/reference/task_update_billable_rate.html</loc></url>
+<url><loc>/reference/task_update_cost_rate.html</loc></url>
+<url><loc>/reference/tasks.html</loc></url>
+<url><loc>/reference/time-entry-parameters.html</loc></url>
+<url><loc>/reference/time_entries.html</loc></url>
+<url><loc>/reference/time_entry.html</loc></url>
+<url><loc>/reference/time_entry_create.html</loc></url>
+<url><loc>/reference/time_entry_delete.html</loc></url>
+<url><loc>/reference/time_entry_invoiced.html</loc></url>
+<url><loc>/reference/time_entry_set.html</loc></url>
+<url><loc>/reference/time_entry_stop.html</loc></url>
+<url><loc>/reference/user-update-role.html</loc></url>
+<url><loc>/reference/user.html</loc></url>
+<url><loc>/reference/user_create.html</loc></url>
+<url><loc>/reference/user_delete.html</loc></url>
+<url><loc>/reference/user_delete_role.html</loc></url>
+<url><loc>/reference/user_group_create.html</loc></url>
+<url><loc>/reference/user_group_delete.html</loc></url>
+<url><loc>/reference/user_group_update.html</loc></url>
+<url><loc>/reference/user_group_user_add.html</loc></url>
+<url><loc>/reference/user_group_user_remove.html</loc></url>
+<url><loc>/reference/user_groups.html</loc></url>
+<url><loc>/reference/user_update_cost_rate.html</loc></url>
+<url><loc>/reference/user_update_hourly_rate.html</loc></url>
+<url><loc>/reference/user_update_status.html</loc></url>
+<url><loc>/reference/users.html</loc></url>
+<url><loc>/reference/workspace.html</loc></url>
+<url><loc>/reference/workspaces.html</loc></url>
 </urlset>
+
