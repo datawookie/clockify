@@ -1,3 +1,5 @@
+# Workspace tests - uses your own workspace dynamically
+
 WORKSPACE_COLS <- c("workspace_id", "name", "memberships", "subdomain")
 
 test_that("get workspaces", {
@@ -6,6 +8,7 @@ test_that("get workspaces", {
 
   workspaces <- workspaces()
   expect_identical(names(workspaces), WORKSPACE_COLS)
+  expect_true(CLOCKIFY_WORKSPACE %in% workspaces$workspace_id)
 })
 
 test_that("set default workspace for authenticated user", {
@@ -40,7 +43,7 @@ test_that("get cached workspace", {
 #   skip_if(NO_API_KEY_IN_ENVIRONMENT)
 #
 #   users <- users(active = FALSE)
-#   expect_identical(names(users), USERS_COLS_CONCISE)
+#   # expect_identical(names(users), USERS_COLS_CONCISE)
 # })
 #
 # test_that("extended output", {
@@ -48,5 +51,5 @@ test_that("get cached workspace", {
 #   skip_if(NO_API_KEY_IN_ENVIRONMENT)
 #
 #   users <- users(concise = FALSE)
-#   expect_identical(names(users), USERS_COLS)
+#   # expect_identical(names(users), USERS_COLS)
 # })

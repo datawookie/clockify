@@ -12,8 +12,10 @@ unpack_workspace <- function(workspace) {
   workspace$memberships <- list(simplify_membership(workspace$memberships))
   workspace$subdomain <- as_tibble(list_null_to_na(workspace$subdomain, FALSE))
 
+  # Select columns so that new fields in the API (like `cakeOrganizationId`)
+  # don't change the output.
   as_tibble(workspace) %>%
-    rename(workspace_id = id)
+    select(workspace_id = id, name, memberships, subdomain)
 }
 
 #' Get a list of workspaces

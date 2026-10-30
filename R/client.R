@@ -6,6 +6,14 @@
 #' @param concise Generate concise output
 NULL
 
+EMPTY_CLIENTS <- tibble(
+  client_id = character(),
+  workspace_id = character(),
+  client_name = character(),
+  archived = logical(),
+  address = character()
+)
+
 parse_client <- function(client, concise = TRUE) {
   client <- client %$%
     tibble(
@@ -41,8 +49,15 @@ parse_client <- function(client, concise = TRUE) {
 clients <- function(concise = TRUE) {
   path <- sprintf("/workspaces/%s/clients", workspace())
 
-  paginate(path) %>%
-    map_df(parse_client, concise = concise)
+  clients <- paginate(path)
+
+  if (length(clients)) {
+    clients %>% map_df(parse_client, concise = concise)
+  } else if (concise) {
+    EMPTY_CLIENTS %>% select(-archived, -address)
+  } else {
+    EMPTY_CLIENTS
+  }
 }
 
 #' Get client

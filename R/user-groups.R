@@ -10,6 +10,9 @@ simplify_group <- function(group) {
     group$userIds <- character()
   }
   group$userIds <- tibble(user_id = group$userIds %>% unlist()) %>% list()
+  # Drop fields that aren't in the output. An empty list (like `teamManagers`)
+  # would otherwise collapse the row to nothing.
+  group <- group[c("id", "name", "workspaceId", "userIds")]
 
   group %>%
     as_tibble() %>%

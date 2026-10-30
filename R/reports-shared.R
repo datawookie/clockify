@@ -16,13 +16,14 @@ EMPTY_SHARED_REPORTS <- tibble(
 parse_shared_report_list <- function(reports) {
   reports <- tibble(reports) %>%
     unnest_wider(reports) %>%
-    clean_names()
-
-  if (!("report_author" %in% names(reports))) reports$report_author <- NA
-  if (!("link" %in% names(reports))) reports$link <- NA
-  if (!("workspace_id" %in% names(reports))) reports$workspace_id <- NA
-  if (!("user_id" %in% names(reports))) reports$user_id <- NA
-  if (!("filter" %in% names(reports))) reports$filter <- NA
+    clean_names() %>%
+    ensure_columns(
+      report_author = NA,
+      link = NA,
+      workspace_id = NA,
+      user_id = NA,
+      filter = NA
+    )
 
   reports %>% select(
     shared_report_id = id,

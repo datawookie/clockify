@@ -2,11 +2,22 @@
 #'
 #' @noRd
 #'
+EMPTY_TAGS <- tibble(
+  tag_id = character(),
+  workspace_id = character(),
+  name = character(),
+  archived = logical()
+)
+
 parse_tags <- function(tags) {
-  tibble(tags) %>%
-    unnest_wider(tags) %>%
-    select(tag_id = id, workspaceId, everything()) %>%
-    clean_names()
+  if (!length(tags)) {
+    EMPTY_TAGS
+  } else {
+    tibble(tags) %>%
+      unnest_wider(tags) %>%
+      select(tag_id = id, workspaceId, everything()) %>%
+      clean_names()
+  }
 }
 
 #' Get tags

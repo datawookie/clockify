@@ -1,3 +1,24 @@
+# {clockify} (development version)
+
+* Handle the Free plan no longer including billable rates (since June 2026).
+  * `reports_detailed()` always returns `amount` and `rate` columns, which are
+    `NA` on the Free plan.
+  * `reports_summary()` returns `NA` for `amount` and an empty `amounts` on the
+    Free plan. Previously it returned no rows.
+  * `reports_weekly()` returns the API's `amount` of 0 on the Free plan.
+* `reports_summary()` and `reports_weekly()` gain `user_id` and `project_id`
+  columns.
+* `reports_summary()` entries no longer have an `id` column. Entries are
+  grouped by description, so there's no time entry ID. This also fixes each
+  entry being repeated three times.
+* `workspaces()` only returns its documented columns, so new API fields (like
+  `cakeOrganizationId`) don't change the output.
+* Fix the user group functions, which returned no rows because of a new
+  `teamManagers` field in the API.
+* `clients()` and `tags()` return a data frame with the usual columns when
+  there are none. Previously `clients()` had no columns and `tags()` failed.
+* `time_entries()` keeps the list of tags for each entry in a `tag_ids` column.
+
 # {clockify} 0.1.3
 
 * Update GitHub Actions.

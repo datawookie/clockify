@@ -12,10 +12,14 @@ if (!(testthat:::on_cran() || NO_API_KEY_IN_ENVIRONMENT)) {
   walk(
     projects() %>% pull(project_id),
     function(project_id) {
-      walk(
-        tasks(project_id) %>% pull(task_id),
-        ~ task_delete(project_id, .)
+      tasks <- tasks(project_id)
+      # A task must be DONE before it can be deleted.
+      walk2(
+        tasks$task_id,
+        tasks$name,
+        ~ task_update(project_id, .x, .y, status = "DONE")
       )
+      walk(tasks$task_id, ~ task_delete(project_id, .))
     }
   )
 }

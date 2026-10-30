@@ -1,7 +1,10 @@
+# Test API Key with actual API calls
+# Note: Tests use dynamic workspace/project IDs from setup-files.R
+
 test_that("error on empty api key", {
   THRESHOLD <- log_threshold()
   log_threshold(FATAL)
-  expect_error(set_api_key(""), regexp = "\\(401\\) Unauthorized")
+  expect_error(set_api_key("")$error, "401")
   log_threshold(THRESHOLD)
 })
 
@@ -22,21 +25,31 @@ test_that("set api key", {
   set_api_key(CLOCKIFY_API_KEY)
   expect_equal(cache_get(API_KEY), CLOCKIFY_API_KEY)
 
-  # Insert time entries for reports.
+  # Insert time entries for reports using dynamic project IDs.
   #
-  # Insert these time entries here. Why? Because they are going to be used in the tests for reports and shared reports.
-  # However, if you only create these time entries immediately before the reports then the reports don't seem to get
-  # updated in time. It's a race condition of sorts.
+  workspace(clockify::workspace())
   #
-  workspace(CLOCKIFY_WORKSPACE)
-  #
-  for (i in 1:3) {
-    for (project_id in c(PROJECT_ID_CLOCKIFY, PROJECT_ID_EMAYILI)) {
-      TIME_END <- TIME_CURRENT - random_integer(86400)
-      TIME_START <- TIME_END - random_integer(3600 * 6)
+  # Get existing projects from workspace (use first one(s))
+  projects <- clockify::projects(concise = FALSE)
+  if (nrow(projects) == 0) {
+    warning("No projects found. Tests may fail if they depend on existing projects.")
+    return()
+  }
 
-      time_entry_create(USER_ID_AUTHENTICATED, project_id, TIME_START, TIME_END, random_string())
-    }
+  # Use first 1-2 projects for creating time entries
+  project_ids <- projects$project_id[1:min(2, nrow(projects))]
+
+  for (i in seq_along(project_ids)) {
+    TIME_END <- TIME_CURRENT - random_integer(86400)
+    TIME_START <- TIME_END - random_integer(3600 * 6)
+
+    time_entry_create(
+      USER_ID_AUTHENTICATED,
+      project_id = project_ids[i],
+      start = TIME_START,
+      end = TIME_END,
+      description = sprintf("Test entry %d", i)
+    )
   }
 })
 

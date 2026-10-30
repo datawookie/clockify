@@ -15,7 +15,11 @@ NULL
 #'   [API](https://docs.clockify.me/#tag/Time-Entry-Report/operation/generateSummaryReport).
 #'   Example: `extra_args = list(rounding = TRUE)`.
 #'
-#' @return A data frame with summarised time entries for the specified time period.
+#' @return A data frame with summarised time entries for the specified time
+#'   period. Time entries are summarised per description, so the `entries`
+#'   don't have an ID. Billable rates are not available on the Free plan (since
+#'   June 2026), so for Free workspaces the `amount` columns are `NA` and
+#'   `amounts` is empty.
 #'
 #' @export
 #'
@@ -61,30 +65,47 @@ reports_summary <- function(start, end, extra_args = list()) {
   response$groupOne %>% map_dfr(
     function(user) {
       # Unpack data for each user.
+      #
+      # On the Free plan `amount` is missing and `amounts` is empty, which would
+      # otherwise collapse the row to nothing. Use [[ ]] for `amount` because $
+      # partially matches `amounts` when `amount` is missing.
       tibble(
+        user_id = user$`_id`,
         user_name = user$name,
         duration = user$duration,
-        amount = user$amount,
-        amounts = map(user$amounts, ~ map_dfr(., identity)),
+        amount = user[["amount"]] %||% NA_real_,
+        amounts = if (length(user$amounts)) {
+          map(user$amounts, ~ map_dfr(., identity))
+        } else {
+          list(tibble())
+        },
         projects = list(
           map_dfr(
             user$children,
             function(project) {
               # Unpack data for each client/project.
               tibble(
+                project_id = project$`_id`,
                 client_name = project$clientName,
                 project_name = project$name,
                 duration = project$duration,
-                amount = project$amount,
+                amount = project[["amount"]] %||% NA_real_,
                 entries = list(
                   map_dfr(
                     project$children,
                     function(entry) {
-                      # Unpack data for each time entry.
+                      # Unpack data for each time entry description.
+                      #
+                      # Entries are grouped by description, so there's no time
+                      # entry ID. The `_id` is a list of the group keys (user,
+                      # project and description), which would otherwise give
+                      # one row per key.
                       entry$amounts <- NULL
+                      entry$`_id` <- NULL
                       as_tibble(entry) %>%
                         clean_names() %>%
-                        select(id, description = name, duration, amount)
+                        ensure_columns(amount = NA_real_) %>%
+                        select(description = name, duration, amount)
                     }
                   )
                 )
@@ -105,6 +126,8 @@ reports_summary <- function(start, end, extra_args = list()) {
 #'  Example: `extra_args = list(rounding = TRUE)`.
 #'
 #' @return A data frame with detailed time entries for the specified time period.
+#'   Billable rates are not available on the Free plan (since June 2026), so for
+#'   Free workspaces the `amount` and `rate` columns are `NA`.
 #'
 #' @export
 #'
@@ -148,6 +171,10 @@ reports_detailed <- function(start, end, extra_args = list()) {
   results %>%
     bind_rows() %>%
     clean_names() %>%
+    # Since June 2026 billable rates are not available on the Free plan, so the
+    # API omits these fields. See
+    # https://forum.clockify.me/t/breaking-change-to-the-reports-detailed-time-entry/10035.
+    ensure_columns(amount = NA_real_, rate = NA_real_) %>%
     select(-project_color) %>%
     unnest_wider(time_interval)
 }
@@ -159,7 +186,9 @@ reports_detailed <- function(start, end, extra_args = list()) {
 #'  [API](https://docs.clockify.me/#tag/Time-Entry-Report/operation/generateSummaryReport).
 #'  Example: `extra_args = list(rounding = TRUE)`.
 #'
-#' @return A data frame with a weekly summary of time entries for the specified time period.
+#' @return A data frame with a weekly summary of time entries for the specified
+#'   time period. Billable rates are not available on the Free plan (since June
+#'   2026), and for Free workspaces the API returns an `amount` of 0.
 #'
 #' @export
 #'
@@ -194,19 +223,21 @@ reports_weekly <- function(start, end, extra_args = list()) {
     function(user) {
       # Unpack data for each user.
       tibble(
+        user_id = user$`_id`,
         user_name = user$name,
         duration = user$duration,
-        amount = user$amount,
+        amount = user[["amount"]] %||% NA_real_,
         projects = list(
           map_dfr(
             user$children,
             function(project) {
               # Unpack data for each client/project.
               tibble(
+                project_id = project$`_id`,
                 client_name = project$clientName,
                 project_name = project$name,
                 duration = project$duration,
-                amount = project$amount
+                amount = project[["amount"]] %||% NA_real_
               )
             }
           )

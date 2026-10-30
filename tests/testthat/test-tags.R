@@ -1,3 +1,7 @@
+# Tag tests - creates (and then deletes) its own tag
+
+TAGS_COLS <- c("tag_id", "workspace_id", "name", "archived")
+
 test_that("create tag", {
   skip_on_cran()
   skip_if(NO_API_KEY_IN_ENVIRONMENT)
@@ -17,12 +21,14 @@ test_that("get tags", {
     filter(name == TAG_NAME) %>%
     pull(tag_id)
 
-  expect_identical(names(tags), c("tag_id", "workspace_id", "name", "archived"))
+  expect_identical(names(tags), TAGS_COLS)
+  expect_length(TAG_ID, 1)
 })
 
 test_that("get tag from ID", {
   skip_on_cran()
   skip_if(NO_API_KEY_IN_ENVIRONMENT)
+  skip_if(is.na(TAG_ID), message = "Tag not created, skipping")
 
   tag <- tag(TAG_ID)
 
@@ -32,6 +38,7 @@ test_that("get tag from ID", {
 test_that("update tag", {
   skip_on_cran()
   skip_if(NO_API_KEY_IN_ENVIRONMENT)
+  skip_if(is.na(TAG_ID), message = "Tag not found, skipping")
 
   tag <- tag_update(TAG_ID, name = TAG_NAME_UPDATED, archived = TRUE)
 
@@ -42,8 +49,8 @@ test_that("update tag", {
 test_that("delete tag", {
   skip_on_cran()
   skip_if(NO_API_KEY_IN_ENVIRONMENT)
+  skip_if(is.na(TAG_ID), message = "Tag not found, skipping")
 
-  tag_delete(TAG_ID)
-
+  expect_true(tag_delete(TAG_ID))
   expect_false(TAG_ID %in% (tags() %>% pull(tag_id)))
 })
