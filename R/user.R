@@ -50,12 +50,10 @@ simplify_membership <- function(membership) {
   if (!all(is.na(membership))) {
     membership <- membership %>%
       map_dfr(function(m) {
-        if (is.null(m$hourlyRate)) {
-        } else {
+        if (is.null(m$hourlyRate)) {} else {
           m$hourlyRate <- list(as_tibble(m$hourlyRate))
         }
-        if (is.null(m$costRate)) {
-        } else {
+        if (is.null(m$costRate)) {} else {
           m$costRate <- list(as_tibble(m$costRate))
         }
         m
